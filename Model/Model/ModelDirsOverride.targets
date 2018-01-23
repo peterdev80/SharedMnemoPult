@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+<!-- Форсированное переопределения положения моделей
+
+  <PropertyGroup>
+	<ModelDirIncludes>Z:\include</ModelDirIncludes>
+	<ModelControl>Z:\control</ModelControl>
+	<ModelSpecial>Z:\special</ModelSpecial>
+	<ModelKC020>Z:\kc020</ModelKC020>
+	<ModelLinkInpu>Z:\LinkINPU700</ModelLinkInpu>
+	<ModelModes>Z:\mode</ModelModes>
+	<ModelOBC101>z:\obc101</ModelOBC101>
+  </PropertyGroup>
+
+-->
+
+</Project>

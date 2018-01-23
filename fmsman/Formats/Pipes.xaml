@@ -1,0 +1,40 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:fmsman"
+             x:Class="fmsman.Formats.Pipes"
+             mc:Ignorable="d" 
+             d:DesignHeight="415" d:DesignWidth="608" xmlns:my="clr-namespace:fmsman.Formats">
+    <UserControl.Resources>
+    	<local:DataAmountFormatter x:Key="conv" />
+        <DataTemplate x:Key="ChannelTemplate">
+            <!-- ReSharper disable Xaml.BindingWithContextNotResolved -->
+            <my:ChannelNameVisualizer ChannelName="{Binding Channel}" IsVarChan="{Binding IsVarChan}" EndPoint="{Binding EndPoint}" />
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <DataGrid x:Name="pipes" ItemsSource="{Binding}" 
+                  IsReadOnly="True"
+                  CanUserAddRows="False"
+                  AutoGenerateColumns="False" 
+                  CanUserSortColumns="False" 
+                  CanUserResizeColumns="False" 
+                  CanUserReorderColumns="False" 
+                  CanUserResizeRows="False" 
+                  SelectionMode="Single">
+            <DataGrid.RowHeaderStyle>
+                <Style TargetType="{x:Type DataGridRowHeader}">
+                    <Setter Property="Width" Value="0" />
+                </Style>
+            </DataGrid.RowHeaderStyle>
+            <DataGrid.Columns>
+            	<DataGridTextColumn Header="Название" Binding="{Binding EndPoint}" Width="11*" />
+                <DataGridTemplateColumn Header="Канал" CellTemplate="{StaticResource ChannelTemplate}" Width="9*" />
+            	<DataGridTextColumn Header="Принято" Binding="{Binding Received, Converter={StaticResource conv}}" Width="4*" />
+            	<DataGridTextColumn Header="Отправлено" Binding="{Binding Sended, Converter={StaticResource conv}}" Width="4*" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

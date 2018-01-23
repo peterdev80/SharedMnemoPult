@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8FE10A49-5B2E-4A5C-8847-9E7F5E4FE9C8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ValueModel</RootNamespace>
+    <AssemblyName>ValueModel</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <_FMSObjDir Condition="'$(FMSObjDir)' != ''">$(FMSObjDir)\fmsw\Peter\Mnemo\ValueModel\</_FMSObjDir>
+    <OutputPath>$(_FMSObjDir)bin\$(Configuration)\</OutputPath>
+    <BaseIntermediateOutputPath>$(_FMSObjDir)obj\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseModelCommand\RelayCommand.cs" />
+    <Compile Include="BaseModelCommand\SendKBit.cs" />
+    <Compile Include="BaseModelCommand\SendKBool.cs" />
+    <Compile Include="BaseModelCommand\SendKInt.cs" />
+    <Compile Include="BaseModelCommand\SendKVar.cs" />
+    <Compile Include="BaseModelCommand\VarSendClass.cs" />
+    <Compile Include="BaseModelCommand\VHCommands.cs" />
+    <Compile Include="BaseModel\BitIntVar.cs" />
+    <Compile Include="BaseModel\BitVar.cs" />
+    <Compile Include="BaseModel\BoolVar.cs" />
+    <Compile Include="BaseModel\BoolVarFMS.cs" />
+    <Compile Include="BaseModel\CicloIntVar.cs" />
+    <Compile Include="BaseModel\DoubleVar.cs" />
+    <Compile Include="BaseModel\FloatVar.cs" />
+    <Compile Include="BaseModel\IntVar.cs" />
+    <Compile Include="BaseModel\VarrClass.cs" />
+    <Compile Include="BaseModel\VHBinding.cs" />
+    <Compile Include="BaseType\XORIntValue.cs" />
+    <Compile Include="BaseType\BitPosValue.cs" />
+    <Compile Include="BaseType\BoolValue.cs" />
+    <Compile Include="BaseType\DoubleValue.cs" />
+    <Compile Include="BaseType\FloatValue.cs" />
+    <Compile Include="BaseType\IntValue.cs" />
+    <Compile Include="BaseType\Valuer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\fmsnet\fmslapi\fmslapi.csproj">
+      <Project>{dfbf2c76-486b-44fc-be13-82c41efee1af}</Project>
+      <Name>fmslapi</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

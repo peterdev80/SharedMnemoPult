@@ -1,0 +1,295 @@
+﻿<UserControl x:Class="VirtualPultValves.Views.View_NeptunP2"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:pc="clr-namespace:VirtualPultValves.PultControl"
+             xmlns:vm="clr-namespace:VirtualPultValves.ViewModel" Loaded="UserControl_Loaded" Unloaded="UserControl_Unloaded" Name="npcontrol"
+              xmlns:my="clr-namespace:VirtualPultValves">
+    <UserControl.Resources>
+        <my:NotValue x:Key="ParamConvertNot"/>
+        <vm:ViewModel_NeptunP2 x:Key="vN2"/>
+        <vm:ViewModel_NeptunP1 x:Key="vP1"/>
+        <Style x:Key="BDUS11Style" TargetType="{x:Type pc:PultCheckBox}">
+            <Setter Property="GeometryText" Value="M2.0859375,9.0007811L2.0859375,12.059375 3.46875,12.059375C4.0507813,12.059375 4.5,11.922656 4.8164063,11.649219 5.1328125,11.375781 5.2910156,10.992969 5.2910156,10.500781 5.2910156,9.5007811 4.6835938,9.0007811 3.46875,9.0007811z M1.1015625,4.5476561L5.5898438,4.5476561 5.5898438,5.4382811 2.0859375,5.4382811 2.0859375,8.1101561 3.6796875,8.1101561C4.515625,8.1101561 5.1660156,8.3123045 5.6308594,8.7166014 6.0957026,9.1208982 6.3281245,9.6960936 6.328125,10.442187 6.3281245,11.215625 6.0839839,11.826953 5.5957031,12.276172 5.1074219,12.72539 4.4414063,12.95 3.5976563,12.95L1.1015625,12.95z M10.533829,5.4382811C10.471328,6.4031253 10.256484,7.5320315 9.8892975,8.8249998 9.52211,10.117969 9.1139069,11.196094 8.6646881,12.059375L12.666641,12.059375 12.666641,5.4382811z M9.6959381,4.5476561L13.651016,4.5476561 13.651016,12.059375 14.781876,12.059375 14.781876,15.205859 13.873672,15.205859 13.873672,12.95 7.8560939,12.95 7.8560939,15.205859 6.9478908,15.205859 6.9478908,12.059375 7.5982814,12.059375C8.1607809,11.032031 8.63832,9.8318357 9.030899,8.4587889 9.4234772,7.0857425 9.6451569,5.7820315 9.6959381,4.5476561z M15.531563,4.5476561L16.650703,4.5476561 18.666328,9.0359373C18.701485,9.1101561,18.77375,9.2917967,18.883125,9.5808592L18.894844,9.5808592C18.906563,9.5457029,18.986641,9.3562498,19.135078,9.0124998L21.004219,4.5476561 22.058907,4.5476561 19.463203,10.41289C19.002266,11.451953 18.556953,12.158984 18.127266,12.533984 17.697578,12.908984 17.228828,13.096484 16.721016,13.096484 16.303047,13.096484 15.953438,13.035937 15.672188,12.914844L15.672188,11.91875C16.008125,12.117969 16.332344,12.217578 16.644844,12.217578 16.96125,12.217578 17.252266,12.095508 17.517891,11.851367 17.783516,11.607226 18.070625,11.176562 18.379219,10.559375z M26.829844,4.4070311C27.626719,4.4070311,28.286875,4.5222654,28.810312,4.7527342L28.810312,5.8015623C28.20875,5.4656253 27.544687,5.2976565 26.818125,5.2976561 25.853281,5.2976565 25.071054,5.6199222 24.471445,6.2644529 23.871836,6.9089842 23.572031,7.7703123 23.572031,8.8484373 23.572031,9.8718748 23.852304,10.687304 24.412851,11.294726 24.973398,11.902148 25.70875,12.205859 26.618906,12.205859 27.462656,12.205859 28.193125,12.018359 28.810312,11.643359L28.810312,12.598437C28.189219,12.926562 27.415781,13.090625 26.49,13.090625 25.294687,13.090625 24.337656,12.705859 23.618906,11.936328 22.900156,11.166797 22.540781,10.157031 22.540781,8.9070311 22.540781,7.5632815 22.945078,6.477344 23.753672,5.6492186 24.562265,4.8210936 25.587656,4.4070311 26.829844,4.4070311z M33.310623,4.3601561L33.310623,12.10625 35.203201,12.10625 35.203201,12.95 30.45125,12.95 30.45125,12.10625 32.349686,12.10625 32.349686,5.5789061 30.404375,6.1589842 30.404375,5.2449217z M36.733749,9.2292967L39.932968,9.2292967 39.932968,9.9851561 36.733749,9.9851561z M44.580624,4.3601561L44.580624,12.10625 46.473202,12.10625 46.473202,12.95 41.721249,12.95 41.721249,12.10625 43.619686,12.10625 43.619686,5.5789061 41.674374,6.1589842 41.674374,5.2449217z"/>
+            <Style.Resources>
+                <GridLength x:Key="GridLengthC1">0.2*</GridLength>
+                <GridLength x:Key="GridLengthC2">0.25*</GridLength>
+                <GridLength x:Key="GridLengthCenter">0.35*</GridLength>
+                <GridLength x:Key="GridLengthC3">0.2*</GridLength>
+
+                <GridLength x:Key="GridLengthR1">0.3*</GridLength>
+                <GridLength x:Key="GridLengthR2">0.3*</GridLength>
+                <GridLength x:Key="GridLengthRHLine">0*</GridLength>
+                <GridLength x:Key="GridLengthR3">0.4*</GridLength>
+            </Style.Resources>
+        </Style>
+        <Style x:Key="CanvasStyleBDUS" TargetType="{x:Type Canvas}">
+            <Setter   Property="Background" >
+                <Setter.Value>
+                    <ImageBrush ImageSource="/VirtualPultValves;component/PictureValves/SA/bdus1_1.png"  />
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding Path=BdusV1.ValueState, Source={StaticResource vP1}}" Value="True"/>
+                        <Condition Binding="{Binding Path=BdusV2.ValueState, Source={StaticResource vP1}}" Value="False"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter   Property="Background" >
+                        <Setter.Value>
+                            <ImageBrush ImageSource="/VirtualPultValves;component/PictureValves/SA/bdus1_1.png"  />
+                        </Setter.Value>
+                    </Setter>
+                </MultiDataTrigger>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding Path=BdusV1.ValueState, Source={StaticResource vP1}}" Value="False"/>
+                        <Condition Binding="{Binding Path=BdusV2.ValueState, Source={StaticResource vP1}}" Value="True"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter   Property="Background" >
+                        <Setter.Value>
+                            <ImageBrush ImageSource="/VirtualPultValves;component/PictureValves/SA/bdus1_2.png"  />
+                        </Setter.Value>
+                    </Setter>
+                </MultiDataTrigger>
+
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding Path=BdusV1.ValueState, Source={StaticResource vP1}}" Value="True"/>
+                        <Condition Binding="{Binding Path=BdusV2.ValueState, Source={StaticResource vP1}}" Value="True"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter   Property="Background" >
+                        <Setter.Value>
+                            <ImageBrush ImageSource="/VirtualPultValves;component/PictureValves/SA/bdus1_3.png"  />
+                        </Setter.Value>
+                    </Setter>
+                </MultiDataTrigger>
+
+
+            </Style.Triggers>
+        </Style>
+
+
+        <Style x:Key="PK9Style"  TargetType="{x:Type pc:PultCheckBox}">
+            <Setter Property="GeometryText" Value="M6.228229,4.5476561L7.212604,4.5476561 7.212604,8.4968748 7.2360415,8.4968748C7.290729,8.4109373,7.3649478,8.3152342,7.4586978,8.2097654L10.599323,4.5476561 11.823933,4.5476561 8.220417,8.5789061 12.075886,12.95 10.704792,12.95 7.4586978,9.1062498C7.337604,8.9617186,7.2633853,8.8640623,7.2360415,8.8132811L7.212604,8.8132811 7.212604,12.95 6.228229,12.95z M16.64526,5.2976561C15.762448,5.2976565 15.045651,5.6160159 14.49487,6.2527342 13.944089,6.8894529 13.668698,7.7253904 13.668698,8.7605467 13.668698,9.7957029 13.937253,10.628711 14.474362,11.25957 15.011472,11.890429 15.711667,12.205859 16.574947,12.205859 17.496822,12.205859 18.223385,11.905078 18.754635,11.303515 19.285885,10.701953 19.55151,9.8601561 19.55151,8.7781248 19.55151,7.6687498 19.293697,6.8113279 18.778072,6.2058592 18.262447,5.6003909 17.55151,5.2976565 16.64526,5.2976561z M16.715572,4.4070311C17.875729,4.4070311 18.810299,4.7976561 19.519283,5.5789061 20.228268,6.3601565 20.58276,7.3816409 20.58276,8.6433592 20.58276,10.014453 20.219479,11.098437 19.492916,11.895312 18.766354,12.692187 17.793697,13.090625 16.574947,13.090625 15.383542,13.090625 14.42944,12.698047 13.712644,11.91289 12.995847,11.127734 12.637448,10.10625 12.637448,8.8484373 12.637448,7.4968753 13.002683,6.4187503 13.733151,5.6140623 14.46362,4.8093748 15.457761,4.4070311 16.715572,4.4070311z M22.234896,4.5476561L23.219271,4.5476561 23.219271,8.2332029 27.566927,8.2332029 27.566927,4.5476561 28.551302,4.5476561 28.551302,12.95 27.566927,12.95 27.566927,9.1179686 23.219271,9.1179686 23.219271,12.95 22.234896,12.95z M34.493179,4.4070311C35.290051,4.4070311,35.950207,4.5222654,36.473648,4.7527342L36.473648,5.8015623C35.872086,5.4656253 35.208023,5.2976565 34.481461,5.2976561 33.516613,5.2976565 32.734386,5.6199222 32.134781,6.2644529 31.53517,6.9089842 31.235365,7.7703123 31.235365,8.8484373 31.235365,9.8718748 31.515638,10.687304 32.076187,11.294726 32.63673,11.902148 33.372082,12.205859 34.282242,12.205859 35.125992,12.205859 35.856461,12.018359 36.473648,11.643359L36.473648,12.598437C35.852554,12.926562 35.079117,13.090625 34.153336,13.090625 32.958023,13.090625 32.000992,12.705859 31.28224,11.936328 30.56349,11.166797 30.204115,10.157031 30.204115,8.9070311 30.204115,7.5632815 30.608412,6.477344 31.417006,5.6492186 32.225601,4.8210936 33.250992,4.4070311 34.493179,4.4070311z M38.184895,4.5476561L42.45052,4.5476561 42.45052,5.4382811 39.16927,5.4382811 39.16927,8.2332029 42.204426,8.2332029 42.204426,9.1179686 39.16927,9.1179686 39.16927,12.059375 42.63802,12.059375 42.63802,12.95 38.184895,12.95z M45.239269,5.4382811L45.239269,8.8835936 46.270519,8.8835936C46.950207,8.8835936 47.468761,8.7283201 47.826183,8.4177732 48.183605,8.1072264 48.362316,7.6687498 48.362316,7.1023436 48.362316,5.992969 47.706066,5.4382815 46.393566,5.4382811z M44.254894,4.5476561L46.563488,4.5476561C47.461926,4.5476561 48.158215,4.7664061 48.652355,5.2039061 49.146496,5.6414065 49.393566,6.258594 49.393566,7.0554686 49.393566,7.8523436 49.119152,8.5046873 48.570324,9.0124998 48.021496,9.5203123 47.280285,9.7742186 46.346691,9.7742186L45.239269,9.7742186 45.239269,12.95 44.254894,12.95z M9.7859373,24.995937L9.7859373,28.019375 11.121875,28.019375C11.7,28.019375 12.148242,27.882656 12.466601,27.609219 12.784961,27.335781 12.94414,26.960781 12.94414,26.484219 12.94414,25.492031 12.268359,24.995937 10.916797,24.995937z M9.7859373,21.398281L9.7859373,24.111172 10.79375,24.111172C11.332812,24.111172 11.75664,23.981289 12.065234,23.721523 12.373828,23.461758 12.528125,23.095547 12.528125,22.62289 12.528125,21.806484 11.991015,21.398281 10.916797,21.398281z M8.8015623,20.507656L11.192187,20.507656C11.91875,20.507656 12.494922,20.68539 12.920703,21.040859 13.346484,21.396328 13.559375,21.859219 13.559375,22.429531 13.559375,22.906094 13.430469,23.320156 13.172656,23.671719 12.914844,24.023281 12.559375,24.273281 12.10625,24.421719L12.10625,24.445156C12.672656,24.511562 13.125781,24.72543 13.465625,25.086758 13.805468,25.448086 13.975389,25.917812 13.97539,26.495937 13.975389,27.214687 13.717577,27.796719 13.201953,28.242031 12.686328,28.687344 12.035937,28.91 11.250781,28.91L8.8015623,28.91z M18.412031,21.527187C18.372969,21.765469,18.328047,21.952969,18.277266,22.089687L16.970625,25.669765 19.882734,25.669765 18.564375,22.089687C18.521406,21.9725,18.478437,21.785,18.435469,21.527187z M17.931562,20.507656L18.951094,20.507656 22.185469,28.91 21.095625,28.91 20.205,26.554531 16.6425,26.554531 15.804609,28.91 14.708906,28.91z M23.421562,20.507656L24.405937,20.507656 24.405937,28.019375 28.753593,28.019375 28.753593,20.507656 29.737968,20.507656 29.737968,28.019375 30.862968,28.019375 30.862968,31.165859 29.954765,31.165859 29.954765,28.91 23.421562,28.91z M32.328232,20.507656L33.312607,20.507656 33.312607,26.425625C33.312607,27.058437,33.296982,27.470547,33.265732,27.661953L33.289169,27.661953C33.375107,27.490078,33.484482,27.302578,33.617294,27.099453L37.836044,20.507656 39.101669,20.507656 39.101669,28.91 38.117294,28.91 38.117294,22.839687C38.11729,22.292812,38.136822,21.908047,38.175888,21.68539L38.140732,21.68539C38.066509,21.876797,37.976665,22.052578,37.871201,22.212734L33.546982,28.91 32.328232,28.91z M43.846146,21.398281C43.291458,21.398281 42.860794,21.52914 42.554153,21.790859 42.247513,22.052578 42.094193,22.421719 42.094193,22.898281 42.094193,23.374844 42.250443,23.751797 42.562943,24.02914 42.875443,24.306484 43.295364,24.445156 43.822708,24.445156L45.21138,24.445156 45.21138,21.398281z M43.758255,20.507656L46.195755,20.507656 46.195755,28.91 45.21138,28.91 45.21138,25.335781 43.986771,25.335781C43.752396,25.335781 43.546341,25.399258 43.368607,25.526211 43.190872,25.653164 43.000443,25.937344 42.797318,26.37875L41.74263,28.91 40.570755,28.91 41.848099,26.103359C41.93013,25.919765 42.056107,25.72543 42.226028,25.520351 42.39595,25.315273 42.594193,25.169765 42.820755,25.083828L42.820755,25.06039C42.262161,24.939297 41.827591,24.683437 41.517044,24.292812 41.206497,23.902187 41.051224,23.429531 41.051224,22.874844 41.051224,22.16 41.300247,21.586758 41.798294,21.155117 42.296341,20.723476 42.949661,20.507656 43.758255,20.507656z"/>
+            <Style.Resources>
+                <GridLength x:Key="GridLengthC1">0.1*</GridLength>
+                <GridLength x:Key="GridLengthC2">0.4*</GridLength>
+                <GridLength x:Key="GridLengthCenter">0.4*</GridLength>
+                <GridLength x:Key="GridLengthC3">0.1*</GridLength>
+                <GridLength x:Key="GridLengthR1">0.187*</GridLength>
+                <GridLength x:Key="GridLengthR2">0.580*</GridLength>
+                <GridLength x:Key="GridLengthRHLine">0*</GridLength>
+                <GridLength x:Key="GridLengthR3">0.233*</GridLength>
+            </Style.Resources>
+        </Style>
+        <Style x:Key="PK9_10Style"  TargetType="{x:Type pc:PultCheckBox}">
+            <Setter Property="GeometryText" Value="M2.0859375,9.0359373 L2.0859375,12.059375 L3.421875,12.059375 C3.9999998,12.059375 4.4482422,11.922656 4.7666016,11.649219 C5.0849609,11.375781 5.2441406,11.000781 5.2441406,10.524219 C5.2441406,9.5320311 4.5683594,9.0359373 3.2167969,9.0359373 z M2.0859375,5.4382811 L2.0859375,8.1511717 L3.09375,8.1511717 C3.6328123,8.1511717 4.0566406,8.0212889 4.3652344,7.7615232 C4.6738281,7.5017576 4.828125,7.1355467 4.828125,6.6628904 C4.828125,5.8464847 4.2910156,5.4382815 3.2167969,5.4382811 z M1.1015625,4.5476561 L3.4921875,4.5476561 C4.21875,4.5476561 4.7949219,4.7253904 5.2207031,5.0808592 C5.6464844,5.4363284 5.859375,5.899219 5.859375,6.4695311 C5.859375,6.9460936 5.7304688,7.3601561 5.4726563,7.7117186 C5.2148438,8.0632811 4.859375,8.3132811 4.40625,8.4617186 L4.40625,8.4851561 C4.9726563,8.5515623 5.4257813,8.7654295 5.765625,9.1267576 C6.1054683,9.4880857 6.2753901,9.9578123 6.2753906,10.535937 C6.2753901,11.254687 6.0175776,11.836719 5.5019531,12.282031 C4.9863281,12.727344 4.3359375,12.95 3.5507813,12.95 L1.1015625,12.95 z M7.9815626,4.5476561 L8.9659376,4.5476561 L8.9659376,8.4968748 L8.9893751,8.4968748 C9.0440626,8.4109373 9.1182814,8.3152342 9.2120314,8.2097654 L12.352656,4.5476561 L13.577266,4.5476561 L9.9737501,8.5789061 L13.829219,12.95 L12.458125,12.95 L9.2120314,9.1062498 C9.0909376,8.9617186 9.0167189,8.8640623 8.9893751,8.8132811 L8.9659376,8.8132811 L8.9659376,12.95 L7.9815626,12.95 z M16.664219,4.5476561 L20.800938,4.5476561 L20.800938,12.95 L19.816563,12.95 L19.816563,5.4382811 L17.484531,5.4382811 C17.215,7.5554686 17.00211,9.0515623 16.84586,9.9265623 C16.68961,10.801562 16.531406,11.446094 16.37125,11.860156 C16.211094,12.274219 15.994297,12.581836 15.72086,12.783008 C15.447422,12.984179 15.119297,13.084765 14.736485,13.084765 C14.427891,13.084765 14.160313,13.04375 13.93375,12.961719 L13.93375,12.035937 C14.132969,12.149219 14.353672,12.205859 14.59586,12.205859 C14.838047,12.205859 15.065586,12.061328 15.278477,11.772265 C15.491367,11.483203 15.708164,10.73125 15.928867,9.5164061 C16.14957,8.3015623 16.394688,6.6453123 16.664219,4.5476561 z M39.618595,5.2976561 C38.735783,5.2976565 38.018986,5.6160159 37.468204,6.2527342 C36.917423,6.8894529 36.642033,7.7253904 36.642033,8.7605467 C36.642033,9.7957029 36.910587,10.628711 37.447697,11.25957 C37.984806,11.890429 38.685001,12.205859 39.548283,12.205859 C40.470158,12.205859 41.19672,11.905078 41.72797,11.303515 C42.25922,10.701953 42.524845,9.8601561 42.524845,8.7781248 C42.524845,7.6687498 42.267033,6.8113279 41.751408,6.2058592 C41.235783,5.6003909 40.524845,5.2976565 39.618595,5.2976561 z M39.688908,4.4070311 C40.849064,4.4070311 41.783634,4.7976561 42.492619,5.5789061 C43.201603,6.3601565 43.556095,7.3816409 43.556095,8.6433592 C43.556095,10.014453 43.192814,11.098437 42.466251,11.895312 C41.739689,12.692187 40.767033,13.090625 39.548283,13.090625 C38.356876,13.090625 37.402775,12.698047 36.685978,11.91289 C35.969181,11.127734 35.610783,10.10625 35.610783,8.8484373 C35.610783,7.4968753 35.976017,6.4187503 36.706486,5.6140623 C37.436954,4.8093748 38.431095,4.4070311 39.688908,4.4070311 z M44.346901,4.5476561 L50.176979,4.5476561 L50.176979,5.4382811 L47.751198,5.4382811 L47.751198,12.95 L46.766823,12.95 L46.766823,5.4382811 L44.346901,5.4382811 z M51.494896,4.5476561 L52.479271,4.5476561 L52.479271,8.4968748 L52.502708,8.4968748 C52.557396,8.4109373 52.631615,8.3152342 52.725365,8.2097654 L55.86599,4.5476561 L57.090599,4.5476561 L53.487083,8.5789061 L57.342552,12.95 L55.971458,12.95 L52.725365,9.1062498 C52.604271,8.9617186 52.530052,8.8640623 52.502708,8.8132811 L52.479271,8.8132811 L52.479271,12.95 L51.494896,12.95 z M60.177551,4.5476561 L64.31427,4.5476561 L64.31427,12.95 L63.329895,12.95 L63.329895,5.4382811 L60.997864,5.4382811 C60.728333,7.5554686 60.515442,9.0515623 60.359192,9.9265623 C60.202942,10.801562 60.044739,11.446094 59.884583,11.860156 C59.724426,12.274219 59.507629,12.581836 59.234192,12.783008 C58.960754,12.984179 58.632629,13.084765 58.249817,13.084765 C57.941223,13.084765 57.673645,13.04375 57.447083,12.961719 L57.447083,12.035937 C57.646301,12.149219 57.867004,12.205859 58.109192,12.205859 C58.351379,12.205859 58.578918,12.061328 58.791809,11.772265 C59.0047,11.483203 59.221497,10.73125 59.4422,9.5164061 C59.662903,8.3015623 59.90802,6.6453123 60.177551,4.5476561 z M1.3463848,21.516903 L9.1382284,21.516903 L9.1382284,31.786667 L7.920753,31.786667 L7.920753,22.634115 L2.5566988,22.634115 L2.5566988,31.786667 L1.3463848,31.786667 z M11.803052,21.516903 L13.006205,21.516903 L13.006205,28.750139 C13.006205,29.523594 12.987106,30.027296 12.948911,30.261242 L12.977558,30.261242 C13.082595,30.051167 13.216278,29.821995 13.378609,29.573727 L18.534975,21.516903 L20.081886,21.516903 L20.081886,31.786667 L18.878735,31.786667 L18.878735,24.367228 C18.878735,23.698811 18.902605,23.228531 18.95035,22.956388 L18.907379,22.956388 C18.816666,23.190334 18.706854,23.405184 18.577946,23.600933 L13.292669,31.786667 L11.803052,31.786667 z M21.736959,21.516903 L28.862772,21.516903 L28.862772,22.605469 L25.897861,22.605469 L25.897861,31.786667 L24.694708,31.786667 L24.694708,22.605469 L21.736959,22.605469 z M33.810368,22.763023 C33.762623,23.054264 33.707718,23.283436 33.645649,23.450539 L32.048607,27.82629 L35.607933,27.82629 L33.996571,23.450539 C33.94405,23.307308 33.891533,23.078136 33.839012,22.763023 z M33.223114,21.516903 L34.469238,21.516903 L38.422451,31.786667 L37.090389,31.786667 L36.001823,28.907696 L31.647558,28.907696 L30.623446,31.786667 L29.284224,31.786667 z M39.933052,21.516903 L41.136204,21.516903 L41.136204,26.021563 L46.450127,26.021563 L46.450127,21.516903 L47.653278,21.516903 L47.653278,31.786667 L46.450127,31.786667 L46.450127,27.102966 L41.136204,27.102966 L41.136204,31.786667 L39.933052,31.786667 z M50.346386,21.516903 L51.549538,21.516903 L51.549538,28.750139 C51.549538,29.523594 51.530441,30.027296 51.492245,30.261242 L51.520889,30.261242 C51.625927,30.051167 51.759613,29.821995 51.92194,29.573727 L57.078308,21.516903 L58.625217,21.516903 L58.625217,31.786667 L57.422066,31.786667 L57.422066,24.367228 C57.422066,23.698811 57.445938,23.228531 57.493683,22.956388 L57.450714,22.956388 C57.360001,23.190334 57.250187,23.405184 57.121277,23.600933 L51.836002,31.786667 L50.346386,31.786667 z M61.333054,21.516903 L66.546715,21.516903 L66.546715,22.605469 L62.536205,22.605469 L62.536205,26.021563 L66.245926,26.021563 L66.245926,27.102966 L62.536205,27.102966 L62.536205,30.698101 L66.775887,30.698101 L66.775887,31.786667 L61.333054,31.786667 z"/>
+            <Setter Property="GeometryLine" Value="M48,10.744647L48,44.127748"/>
+            <Style.Resources>
+                <GridLength x:Key="GridLengthC1">0.1*</GridLength>
+                <GridLength x:Key="GridLengthC2">0.35*</GridLength>
+                <GridLength x:Key="GridLengthCenter">0.45*</GridLength>
+                <GridLength x:Key="GridLengthC3">0.1*</GridLength>
+                <GridLength x:Key="GridLengthR1">0.2*</GridLength>
+                <GridLength x:Key="GridLengthR2">0.27*</GridLength>
+                <GridLength x:Key="GridLengthRHLine">0.23*</GridLength>
+                <GridLength x:Key="GridLengthR3">0.3*</GridLength>
+            </Style.Resources>
+        </Style>
+
+      
+
+        <ImageBrush x:Key="Per_UP" ImageSource="pack://siteoforigin:,,,/PictureValves/SA/pzvs_up.jpg"  Stretch="Uniform"/>
+        <ImageBrush x:Key="Per_DOWN" ImageSource="pack://siteoforigin:,,,/PictureValves/SA/pzvs_down.jpg" Stretch="Uniform"  />
+
+        <Style x:Key="BorderStyleBI" TargetType="{x:Type pc:PultKlapanButton}">
+            <Setter  Property="Background"  Value="{StaticResource Per_UP}"/>
+            <Setter Property="CommandParameter" Value="1"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Bi.ValueState}" Value="True">
+                    <Setter   Property="Background"  Value="{StaticResource Per_DOWN}"/>
+                    <Setter Property="CommandParameter" Value="0"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="BorderStyleKK" TargetType="{x:Type pc:PultKlapanButton}">
+            <Setter  Property="Background"  Value="{StaticResource Per_UP}"/>
+            <Setter Property="CommandParameter" Value="1"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Kk.ValueState}" Value="True">
+                    <Setter   Property="Background"  Value="{StaticResource Per_DOWN}"/>
+                    <Setter Property="CommandParameter" Value="0"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="BorderStyleKI" TargetType="{x:Type pc:PultKlapanButton}">
+            <Setter  Property="Background"  Value="{StaticResource Per_UP}"/>
+            <Setter Property="CommandParameter" Value="1"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Ki.ValueState}" Value="True">
+                    <Setter   Property="Background"  Value="{StaticResource Per_DOWN}"/>
+                    <Setter Property="CommandParameter" Value="0"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="CheckBoxStyle1" TargetType="{x:Type CheckBox}">
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter   Property="Background"  Value="{StaticResource Per_UP}"/>
+           
+            <Setter Property="BorderThickness" Value="1"/>
+          
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type CheckBox}">
+                        <Border>
+                            <Border Background="Transparent" SnapsToDevicePixels="true">
+
+                                <Border x:Name="hrome"   Background="{TemplateBinding Background}"   Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" />
+
+                            </Border>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Border.Background" TargetName="hrome" Value="{StaticResource Per_DOWN}"/>
+
+                            </Trigger>
+                            <Trigger Property="HasContent" Value="true">
+                                <Setter Property="FocusVisualStyle" Value="{StaticResource CheckRadioFocusVisual}"/>
+                                <Setter Property="Padding" Value="2,0,0,0"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </UserControl.Resources>
+
+    <Viewbox>
+
+        <Grid Background="#FF7F8085" Height="829" Width="508">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="117*"/>
+                <ColumnDefinition Width="392*"/>
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="grFocus">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.151*" />
+                    <ColumnDefinition Width="0.073*" />
+                    <ColumnDefinition Width="0.443*"/>
+                    <ColumnDefinition Width="0.051*"/>
+                    <ColumnDefinition Width="0.282*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.012*" />
+                    <RowDefinition Height="0.002*"/>
+                    <RowDefinition Height="0.155*" />
+                    <RowDefinition Height="0.021*" />
+                    <RowDefinition Height="0.061*" />
+                    <RowDefinition Height="0.016*"/>
+                    <RowDefinition Height="0.116*"/>
+                    <RowDefinition Height="0.197*"/>
+                    <RowDefinition Height="0.13*"/>
+                    <RowDefinition Height="0.021*"/>
+                    <RowDefinition Height="0.026*"/>
+                    <RowDefinition Height="0.072*"/>
+                    <RowDefinition Height="0.034*"/>
+                    <RowDefinition Height="0.085*"/>
+                    <RowDefinition Height="0.052*"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Column="1" Grid.Row="2" BorderThickness="2" Background="#FF121111" BorderBrush="#FF120E0E" Grid.ColumnSpan="3">
+                    <pc:Voltmetr  HorizontalAlignment="Left" x:Name="voltmetr1" VerticalAlignment="Top"   Maximum="{Binding Source={StaticResource vP1}, Path=MaxValue}" SmallChange="{Binding Source={StaticResource vP1}, Path=SmalChange}" Orientation="Vertical" Value="{Binding Path=Voltag.ValueState, Source={StaticResource vP1}}" />
+
+                </Border>
+                <Path Grid.Column="2" Data="M30.410364,3.0104036 L31.549036,3.0104036 L33.761925,9.6490755 L35.974815,3.0104036 L37.059776,3.0104036 L34.309776,11.007962 L33.160362,11.007962 z" Fill="Black" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Margin="15.163,0,16.261,0" d:LayoutOverrides="HorizontalAlignment">
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                </Path>
+                <pc:PultBigButton   Content="контр&#xa;  Vп"  Grid.Column="2" Grid.Row="4" d:LayoutOverrides="Height" FontSize="10.667"  x:Name="kip" Grid.ColumnSpan="3" Margin="0,0,32,0">
+
+                </pc:PultBigButton >
+                <TextBlock Grid.Column="2" Grid.Row="5" TextWrapping="Wrap" TextAlignment="Center"><Run Language="ru-ru" Text="ПК7"/></TextBlock>
+                <Canvas  Grid.ColumnSpan="5" Grid.Row="8" Height="107.9" Style="{StaticResource CanvasStyleBDUS}" Width="120">
+
+
+                    <pc:PultZonaButton Command="{Binding Path=CmdBdus1, Source={StaticResource vP1}}" Content="БДУС 1-1" Width="36" Height="34" Opacity="0.015" Canvas.Top="5" FontSize="8" />
+                    <pc:PultZonaButton Command="{Binding Path=CmdBdus2, Source={StaticResource vP1}}" Content="БДУС 1-2" Width="36" Height="39"  Opacity="0.015" Canvas.Top="0" FontSize="8" Canvas.Left="36" />
+                    <pc:PultZonaButton Command="{Binding Path=CmdBdus3, Source={StaticResource vP1}}" Content="БДУС 1-3" Width="37" Height="43"  Opacity="0.015" Canvas.Top="8" FontSize="8" Canvas.Left="76" />
+                </Canvas>
+                <TextBlock Grid.Column="2" Grid.Row="10" TextWrapping="Wrap" TextAlignment="Center" Height="15.77" Margin="0,2.905"><Run Language="ru-ru" Text="ПК11"/></TextBlock>
+                <pc:PultCheckBox    Grid.ColumnSpan="3" Grid.Row="11" Grid.Column="1" Style="{StaticResource BDUS11Style}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.081*"/>
+                            <RowDefinition Height="0.4*"/>
+                            <RowDefinition Height="0.417*"/>
+                            <RowDefinition Height="0.102*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.081*"/>
+                            <ColumnDefinition Width="0.858*"/>
+                            <ColumnDefinition Width="0.061*"/>
+                        </Grid.ColumnDefinitions>
+                        <pc:PultGlassButton Command="{Binding Path=CmdBdus, Source={StaticResource vP1}}" Content="БДУС1-1"  Grid.RowSpan="2" FontSize="10.667" Grid.Column="1" Grid.Row="1"/>
+                    </Grid>
+                </pc:PultCheckBox>
+            </Grid>
+
+            <Canvas Grid.Column="1" Margin="28,0,0,0" DataContext="{Binding Source={StaticResource vN2}}" Name="croot">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="pack://siteoforigin:,,,/PictureValves/SA/neptun-r.jpg" Stretch="Uniform"/>
+                </Canvas.Background>
+                <pc:PultBigButton Grid.RowSpan="2" FontSize="7" Grid.Column="1" Canvas.Left="32" Canvas.Top="751" Height="54" Width="60" Content="ПЕРЕДАЧА" FontWeight="Normal" FontFamily="Tahoma" FontStretch="UltraExpanded" />
+
+                <pc:PultCheckBox  Height="61.163" Width="92.504" Canvas.Left="184" Canvas.Top="431" Style="{StaticResource PK9Style}" IsChecked="False">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30*" />
+                            <RowDefinition Height="16*" />
+                            <RowDefinition Height="16*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.181*" />
+                            <ColumnDefinition Width="0.858*" />
+                            <ColumnDefinition Width="0.161*" />
+                        </Grid.ColumnDefinitions>
+                        <pc:PultBigButton  Command="{Binding Path=CmdKonserv}"  Content="КОНСЕР&#xa; ВАЦИЯ" Grid.RowSpan="3" FontSize="10.667" Grid.Column="1" PreviewMouseDown="PultBigButton_PreviewMouseDown_1" PreviewMouseUp="PultBigButton_PreviewMouseUp_1" />
+                    </Grid>
+                </pc:PultCheckBox>
+                <pc:PultCheckBox Canvas.Left="166" Canvas.Top="498" Height="54" Style="{StaticResource PK9_10Style}"  Width="125" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.1*" />
+                            <ColumnDefinition Width="0.5*" />
+                            <ColumnDefinition Width="0.5*" />
+                            <ColumnDefinition Width="0.1*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.481*" />
+                            <RowDefinition Height="0.519*" />
+                        </Grid.RowDefinitions>
+                        <pc:PultLampButton Command="{Binding Path=CmdPitVkl}" Content="ВКЛ" FontSize="10.667" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="1" VklLamp="{Binding Path=PPit.ValueState}" Click="PultLampButton_Click" PreviewMouseDown="PultLampButton_PreviewMouseDown" PreviewMouseUp="PultLampButton_PreviewMouseUp" />
+                        <pc:PultBigButton Command="{Binding Path=CmdPitOtkl}" Content="ОТКЛ" FontSize="10.667" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="1" PreviewMouseUp="PultBigButton_PreviewMouseUp" PreviewMouseDown="PultBigButton_PreviewMouseDown" />
+                    </Grid>
+                </pc:PultCheckBox>
+                <CheckBox Content="Bi" Canvas.Left="56" Canvas.Top="613.667"  Height="58.333" Width="57.667" Style="{StaticResource CheckBoxStyle1}" IsChecked="{Binding Bi.ValueState}"  PreviewMouseDown="CheckBox_PreviewMouseDown" Cursor="Hand" Click="CheckBox_Click" Name="Bi" />
+                <CheckBox Content="KK" Canvas.Left="144" Canvas.Top="613.667"  Height="58.333" Width="57.667" Style="{StaticResource CheckBoxStyle1}" IsChecked="{Binding Kk.ValueState}"  PreviewMouseDown="CheckBox_PreviewMouseDown" Cursor="Hand" Click="CheckBox_Click" Name="KK" />
+                <CheckBox Content="Ki" Canvas.Left="229.504" Canvas.Top="613.667"  Height="58.333" Width="57.667" Style="{StaticResource CheckBoxStyle1}" IsChecked="{Binding Ki.ValueState}" PreviewMouseDown="CheckBox_PreviewMouseDown" Cursor="Hand" Click="CheckBox_Click" Name="Ki" />
+            </Canvas>
+        </Grid>
+    </Viewbox>
+</UserControl>

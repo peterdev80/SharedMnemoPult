@@ -1,0 +1,3 @@
+﻿!VarModel
+&VarModel MetaVariables
+__BS_REAL                      B  0 0 0 # Переход в БС (реальный)

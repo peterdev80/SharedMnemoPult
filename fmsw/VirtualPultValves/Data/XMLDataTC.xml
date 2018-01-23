@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+<XAMLViewTC Key="TC1List">
+  <XAMLViewTCGroup  GroupName="TC1">
+    <DColorModel ActiveColor="Red" PassiveColor="Silver" TransporantName="АВАРИЯ^НОСИТЕЛЯ" ValTC="__SET_AVARIA_NOSIT"/>
+    <DColorModel ActiveColor="Red" PassiveColor="Silver" TransporantName=""/>
+    <DColorModel ActiveColor="Red" PassiveColor="Silver" TransporantName="Р по^ПАДАЕТ" ValTC="__SET_P_PO_PADAET"/>
+    <DColorModel ActiveColor="Red" PassiveColor="Silver" TransporantName="СРАБОТАЛ^ТД" ValTC="__SET_SRABOTAL_TD"/>
+    <DColorModel ActiveColor="Red" PassiveColor="Silver" TransporantName="" />
+    <DColorModel ActiveColor="Red" PassiveColor="Silver" TransporantName="ОТКАЗ^БВС" ValTC="__SET_OTKAZ_BVS"/>
+  </XAMLViewTCGroup>
+  <XAMLViewTCGroup  GroupName="TC2">
+    <DColorModel ActiveColor="Red" PassiveColor="Silver" ValTC="__SET_P_SA_PADAET"   TransporantName="Pса^ПАДАЕТ"    />
+    <DColorModel ActiveColor="Red" PassiveColor="Silver" ValTC="__SET_RAZGERM_SA"     TransporantName="РАЗГЕРМ^СА"    />
+    <DColorModel ActiveColor="Red" PassiveColor="Silver" ValTC="__SET_RAZGERM_KJO"    TransporantName="РАЗГЕРМ^КЖО"   />
+    <DColorModel ActiveColor="Red" PassiveColor="Silver" ValTC="__SET_P_400_MM_RT_ST" TransporantName="Р400^мм рт ст" />
+    <DColorModel ActiveColor="Red" PassiveColor="Silver" ValTC="__SET_SOSTAV_VOZDUHA" TransporantName="СОСТАВ^ВОЗДУХА"/>
+    <DColorModel ActiveColor="Red" PassiveColor="Silver" ValTC="__SET_RAZGERM_KNR"    TransporantName="РАЗГЕРМ^КНР"   />
+  </XAMLViewTCGroup>
+  <XAMLViewTCGroup  GroupName="TC3">
+    <DColorModel ActiveColor="Yellow" PassiveColor="Silver" ValTC="__SET_RAZGERM_PODGOT" TransporantName="PАЗГЕРМ^ПОДГОТ" />
+    <DColorModel ActiveColor="Yellow" PassiveColor="Silver" ValTC="__SET_RAZDEL_PO_GC"    TransporantName="РАЗДЕЛЕН^по ГЦ" />
+    <DColorModel ActiveColor="Yellow" PassiveColor="Silver" ValTC="__SET_OTKR_KSD_BO"     TransporantName="ОТКРЫТ^КСД БО"  />
+    <DColorModel ActiveColor="Yellow" PassiveColor="Silver" ValTC="__SET_AVARIA_CVM"     TransporantName="АВАРИЯ^ЦВМ"    />
+    <DColorModel ActiveColor="Yellow" PassiveColor="Silver" ValTC="__SET_PROGR_PAZDEL"   TransporantName="ПРОГР^РАЗДЕЛЕН"  />
+    <DColorModel ActiveColor="Yellow" PassiveColor="Silver" ValTC="__SET_TD_PODKL"      TransporantName="ТД^ПОДКЛ"         />
+  </XAMLViewTCGroup>
+  <XAMLViewTCGroup  GroupName="TC4">
+    <DColorModel ActiveColor="Green" PassiveColor="Silver" ValTC="__SET_PRIZNAK_SPUSKA"       TransporantName="ПРИЗНАК^СПУСК" />
+    <DColorModel ActiveColor="Green" PassiveColor="Silver" ValTC="__SET_SG_RAZARR"     TransporantName="СГ^РАЗАРР"             />
+    <DColorModel ActiveColor="Green" PassiveColor="Silver" ValTC="__SET_RABOTA_DPO"   TransporantName="РАБОТА^ДПО"             />
+    <DColorModel ActiveColor="Green" PassiveColor="Silver" ValTC="__SET_UKOROCH_PR_SPUSKA"   TransporantName="СПУСК^ПО ГЦ" TextSize="11" />
+    <DColorModel ActiveColor="Green" PassiveColor="Silver" ValTC="__SET_VUBOR_DPO_B_NA_SPUSK" TransporantName="ВЫБОР^ДПО" />
+    <DColorModel ActiveColor="Green" PassiveColor="Silver" ValTC="__SET_RABOTA_SKD"   TransporantName="РАБОТА^СКД"             />
+  </XAMLViewTCGroup>
+
+</XAMLViewTC>
+<XAMLViewTC Key="TC2List">
+  <XAMLViewTCGroup  GroupName="TC5">
+    <DColorModel ActiveColor="Yellow" PassiveColor="Silver" ValTC="__SET_BS"  TransporantName="БС"                      />
+    <DColorModel ActiveColor="Yellow" PassiveColor="Silver" ValTC="__SET_BSR" TransporantName="БСР"                     />
+    <DColorModel ActiveColor="Yellow" PassiveColor="Silver" ValTC="__SET_ZAKRUTKA_SA" TransporantName="закрутка^СА"    />
+    <DColorModel ActiveColor="Yellow" PassiveColor="Silver" ValTC="__SET_VUZOV_NA_SVAZ" TransporantName="ВЫЗОВ НА^СВЯЗЬ"/>
+    <DColorModel ActiveColor="Yellow" PassiveColor="Silver" ValTC="__SET_RAZRESH_RRST" TransporantName="разреш^РРСТ"    />
+    <DColorModel ActiveColor="Yellow" PassiveColor="Silver" ValTC="__SET_U_MALO" TransporantName="U мало"               />
+  </XAMLViewTCGroup>
+  <XAMLViewTCGroup  GroupName="TC6">
+    <DColorModel ActiveColor="Yellow" PassiveColor="Silver" ValTC="__SET_VVOD_ZSP"  TransporantName="ввод^ЗСП"             />
+    <DColorModel ActiveColor="Yellow" PassiveColor="Silver" ValTC="__SET_OTKAZ_OCHISTKI_SA" TransporantName="отказ^очист СА"/>
+    <DColorModel ActiveColor="Yellow" PassiveColor="Silver" ValTC="__SET_POSADKA" TransporantName="ПОСАДКА"                 />
+    <DColorModel ActiveColor="Yellow" PassiveColor="Silver" ValTC="__SET_RB_PODKL" TransporantName="РБ^подкл"               />
+    <DColorModel ActiveColor="Yellow" PassiveColor="Silver" ValTC="__SET_OTKAZ_OCHISTKI_BO" TransporantName="отказ^очист БО"/>
+    <DColorModel ActiveColor="Yellow" PassiveColor="Silver" ValTC="__SET_OSTANOV_KC020" TransporantName="останов^КС-020"    />
+  </XAMLViewTCGroup>
+  <XAMLViewTCGroup  GroupName="TC7">
+    <DColorModel ActiveColor="Green" PassiveColor="Silver" ValTC="__SET_BCVK_GOTOV"  TransporantName="БВC^готов"          />
+    <DColorModel ActiveColor="Green" PassiveColor="Silver" ValTC="__SET_OSK" TransporantName="ОСК"                          />
+    <DColorModel ActiveColor="Green" PassiveColor="Silver" ValTC="__SET_GSO" TransporantName="ГСО"                          />
+    <DColorModel ActiveColor="Green" PassiveColor="Silver" ValTC="__SET_2_SEKCIA_NADDUVA" TransporantName="2 СЕКЦИЯ^НАДДУВА" />
+    <DColorModel ActiveColor="Green" PassiveColor="Silver" ValTC="__SET_2_SEKCIA_KDU" TransporantName="2 СЕКЦИЯ^КДУ"        />
+    <DColorModel ActiveColor="Green" PassiveColor="Silver" ValTC="__SET_SA_BO_LUK_OTKR" TransporantName="СА-БО^люк откр"    />
+  </XAMLViewTCGroup>
+  <XAMLViewTCGroup  GroupName="TC8">
+    <DColorModel ActiveColor="Green" PassiveColor="Silver" ValTC="__SET_RO_AK"        TransporantName="РО АК"       />
+    <DColorModel ActiveColor="Green" PassiveColor="Silver" ValTC="__SET_VVOD_OCP"      TransporantName="ввод^ОСП"    />
+    <DColorModel ActiveColor="Green" PassiveColor="Silver" ValTC="__SET_PODACHA_02"    TransporantName="подача^O2"   />
+    <DColorModel ActiveColor="Green" PassiveColor="Silver" ValTC="__SET_RUD"           TransporantName="РУД"         />
+    <DColorModel ActiveColor="Green" PassiveColor="Silver" ValTC="__SET_UKV_PEREDACHA" TransporantName="УКВ^передача"/>
+    <DColorModel ActiveColor="Green" PassiveColor="Silver" ValTC="__SET_MEH_SOEDIN"    TransporantName="МЕХАН^СОЕДИН"/>
+  </XAMLViewTCGroup>
+
+</XAMLViewTC>
+</root>

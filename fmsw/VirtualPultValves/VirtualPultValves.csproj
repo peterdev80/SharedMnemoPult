@@ -1,0 +1,424 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DC240F6E-15F0-468A-8EE5-57441CE394C9}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VirtualPultValves</RootNamespace>
+    <AssemblyName>VirtualPultValves</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+    <_FMSObjDir Condition="'$(FMSObjDir)' != ''">$(FMSObjDir)\fmsw\Peter\virtualpult\</_FMSObjDir>
+    <OutputPath>$(_FMSObjDir)bin\$(Configuration)\</OutputPath>
+    <BaseIntermediateOutputPath>$(_FMSObjDir)obj\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BitPosValueStruct.cs" />
+    <Compile Include="ConverterClasess.cs" />
+    <Compile Include="DataAccess\DataReader.cs" />
+    <Compile Include="DataAccess\TCReader.cs" />
+    <Compile Include="DataAccess\VariableHostReader.cs" />
+    <Compile Include="GridLengthAnimation.cs" />
+    <Compile Include="Model\InpuModelSelector.cs" />
+    <Compile Include="Model\LinkInpu.cs" />
+    <Compile Include="Model\ModeVariablelRepository.cs" />
+    <Compile Include="Model\TCGroupModel.cs" />
+    <Compile Include="Model\TCModel.cs" />
+    <Compile Include="Model\TransporantModel.cs" />
+    <Compile Include="Model\VarHostMy.cs" />
+    <Compile Include="Model\WagoIO.cs" />
+    <Compile Include="Model\XMLValidate.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="PultControl\InPUSelector.cs" />
+    <Compile Include="PultControl\PanelInpu.cs" />
+    <Compile Include="PultControl\PultBigButton.cs" />
+    <Compile Include="PultControl\PultCheckBox.cs" />
+    <Compile Include="PultControl\PultGlassButton.cs" />
+    <Compile Include="PultControl\PultKlapanButton.cs" />
+    <Compile Include="PultControl\PultLamp.cs" />
+    <Compile Include="PultControl\PultLampButton.cs" />
+    <Compile Include="PultControl\PultZonaButton.cs" />
+    <Compile Include="PultControl\RusKlapan.cs" />
+    <Compile Include="PultControl\Voltmetr.cs" />
+    <Compile Include="RelayCommand.cs" />
+    <Compile Include="ViewModel\CommandViewModelcs.cs" />
+    <Compile Include="ViewModel\GroupCommandViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="ViewModel\ViewModelSUOB.cs" />
+    <Compile Include="ViewModel\ViewModelTC.cs" />
+    <Compile Include="ViewModel\ViewModel_BRUS.cs" />
+    <Compile Include="ViewModel\ViewModel_BAPD.cs" />
+    <Compile Include="ViewModel\ViewModel_BR1.cs" />
+    <Compile Include="ViewModel\ViewModel_BRUB.cs" />
+    <Compile Include="ViewModel\ViewModel_DSD.cs" />
+    <Compile Include="ViewModel\ViewModel_EPKP.cs" />
+    <Compile Include="ViewModel\ViewModel_EPKRD.cs" />
+    <Compile Include="ViewModel\ViewModel_EPK_PSA.cs" />
+    <Compile Include="ViewModel\ViewModel_InPU.cs" />
+    <Compile Include="ViewModel\ViewModel_KR1.cs" />
+    <Compile Include="ViewModel\ViewModel_KR3.cs" />
+    <Compile Include="ViewModel\ViewModel_KSDBO.cs" />
+    <Compile Include="ViewModel\ViewModel_KVDBO.cs" />
+    <Compile Include="ViewModel\ViewModel_LDI.cs" />
+    <Compile Include="ViewModel\ViewModel_Lyk.cs" />
+    <Compile Include="ViewModel\ViewModel_Main.cs" />
+    <Compile Include="ViewModel\ViewModel_Manov.cs" />
+    <Compile Include="ViewModel\ViewModel_NeptunP1.cs" />
+    <Compile Include="ViewModel\ViewModel_NeptunP2.cs" />
+    <Compile Include="ViewModel\ViewModel_OVK.cs" />
+    <Compile Include="ViewModel\ViewModel_RAP10.cs" />
+    <Compile Include="ViewModel\ViewModel_RAP7.cs" />
+    <Compile Include="ViewModel\ViewModel_RPV.cs" />
+    <Compile Include="ViewModel\ViewModel_RUS.cs" />
+    <Compile Include="ViewModel\ViewModel_TC.cs" />
+    <Compile Include="ViewModel\ViewModel_ValvesfA.cs" />
+    <Compile Include="ViewModel\ViewModel_Voltmetr.cs" />
+    <Compile Include="ViewModel\ViewModel_XSASA.cs" />
+    <Compile Include="ViewModel\ViewModel_ZDV.cs" />
+    <Compile Include="ViewModel\ViewModel_ZGL.cs" />
+    <Compile Include="Views\InpuFailed.xaml.cs">
+      <DependentUpon>InpuFailed.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewLDI11.xaml.cs">
+      <DependentUpon>ViewLDI11.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\View_InPU.xaml.cs">
+      <DependentUpon>View_InPU.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\View_LDI.xaml.cs">
+      <DependentUpon>View_LDI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\View_Main.xaml.cs">
+      <DependentUpon>View_Main.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\View_NeptunP1.xaml.cs">
+      <DependentUpon>View_NeptunP1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\View_NeptunP2.xaml.cs">
+      <DependentUpon>View_NeptunP2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\View_OVK.xaml.cs">
+      <DependentUpon>View_OVK.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InPUWin32View.xaml.cs">
+      <DependentUpon>InPUWin32View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCView.xaml.cs">
+      <DependentUpon>TCView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\View_AllValves.xaml.cs">
+      <DependentUpon>View_AllValves.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\View_BAPD.xaml.cs">
+      <DependentUpon>View_BAPD.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\View_BR1.xaml.cs">
+      <DependentUpon>View_BR1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\View_BRUB.xaml.cs">
+      <DependentUpon>View_BRUB.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\View_BRUS.xaml.cs">
+      <DependentUpon>View_BRUS.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\View_DSD.xaml.cs">
+      <DependentUpon>View_DSD.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\View_EPKP.xaml.cs">
+      <DependentUpon>View_EPKP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\View_EPKPSA.xaml.cs">
+      <DependentUpon>View_EPKPSA.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\View_EPKRD.xaml.cs">
+      <DependentUpon>View_EPKRD.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\View_KR1.xaml.cs">
+      <DependentUpon>View_KR1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\View_KR3.xaml.cs">
+      <DependentUpon>View_KR3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\View_KSDBO.xaml.cs">
+      <DependentUpon>View_KSDBO.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\View_KVDBO.xaml.cs">
+      <DependentUpon>View_KVDBO.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\View_Lyk.xaml.cs">
+      <DependentUpon>View_Lyk.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\View_Manov.xaml.cs">
+      <DependentUpon>View_Manov.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\View_RAP10.xaml.cs">
+      <DependentUpon>View_RAP10.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\View_RAP7.xaml.cs">
+      <DependentUpon>View_RAP7.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\View_RPV.xaml.cs">
+      <DependentUpon>View_RPV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\View_RUS.xaml.cs">
+      <DependentUpon>View_RUS.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\View_TC.xaml.cs">
+      <DependentUpon>View_TC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\View_XSASA.xaml.cs">
+      <DependentUpon>View_XSASA.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\View_ZDV.xaml.cs">
+      <DependentUpon>View_ZDV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\View_ZGL.xaml.cs">
+      <DependentUpon>View_ZGL.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\XMLValues.xml">
+      <SubType>Designer</SubType>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\InpuFailed.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ViewLDI11.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\View_InPU.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\View_LDI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\View_Main.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\View_NeptunP1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\View_NeptunP2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\View_OVK.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\InPUWin32View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TCView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\View_AllValves.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\View_BAPD.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\View_BR1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\View_BRUB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\View_BRUS.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\View_DSD.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\View_EPKP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\View_EPKPSA.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\View_EPKRD.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\View_KR1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\View_KR3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\View_KSDBO.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\View_KVDBO.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\View_Lyk.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\View_Manov.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\View_RAP10.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\View_RAP7.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\View_RPV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\View_RUS.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\View_TC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\View_XSASA.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\View_ZDV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\View_ZGL.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\InitXMLFile.xml" />
+    <Resource Include="Data\VariableList.xml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Data\XMLDataTC.xml" />
+    <Content Include="PictureValves\SA\neptun-r.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PictureValves\SA\pzvs_down.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PictureValves\SA\pzvs_up.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\fmsnet\fmslapi\fmslapi.csproj">
+      <Project>{dfbf2c76-486b-44fc-be13-82c41efee1af}</Project>
+      <Name>fmslapi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\hostvega\hostvega.vcxproj">
+      <Project>{2e400f4e-de4a-4a6b-9922-d805c288d040}</Project>
+      <Name>hostvega</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ValueModel\ValueModel.csproj">
+      <Project>{8fe10a49-5b2e-4a5c-8847-9e7f5e4fe9c8}</Project>
+      <Name>ValueModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

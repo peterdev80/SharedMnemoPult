@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
+
+  <Import Project="$(MSBuildThisFileDirectory)\buildconfig.targets" />
+  <Import Project="$(MSBuildThisFileDirectory)\baselinepaths.targets" />
+
+  <Target Name="BuildVDLCompiler" Condition="!Exists('$(MSBuildThisFileDirectory)\VDLCompiler.dll')">
+    <MSBuild Projects="$(MSBuildThisFileDirectory)VDLCompiler\VDLCompiler.csproj" Properties="Configuration=Release;Platform=AnyCPU" />
+  </Target>
+
+  <Target Name="EnsureBuildTools" DependsOnTargets="BuildVDLCompiler" />
+
+  <UsingTask TaskName="VDLCompiler.CommonTools.GZipCompress" AssemblyFile="$(MSBuildThisFileDirectory)VDLCompiler.dll" />
+  <UsingTask TaskName="VDLCompiler.CommonTools.HaspEncrypt" AssemblyFile="$(MSBuildThisFileDirectory)VDLCompiler.dll" />
+  <UsingTask TaskName="VDLCompiler.ProxyTools.TableCleaner" AssemblyFile="$(MSBuildThisFileDirectory)VDLCompiler.dll" />
+  <UsingTask TaskName="VDLCompiler.StrapTools.VarTableCompress" AssemblyFile="$(MSBuildThisFileDirectory)VDLCompiler.dll" />
+  <UsingTask TaskName="VDLCompiler.VDLCompiler" AssemblyFile="$(MSBuildThisFileDirectory)VDLCompiler.dll" />
+  <UsingTask TaskName="VDLCompiler.Updater.UpdaterPack" AssemblyFile="$(MSBuildThisFileDirectory)VDLCompiler.dll" />
+
+  <PropertyGroup>
+    <PrepareResourcesDependsOn>
+      EnsureBuildTools;
+      CompileVDL;
+      VarTableCompress;
+      TableCleaner;
+      GZipFile;
+      $(PrepareResourcesDependsOn);
+    </PrepareResourcesDependsOn>
+
+    <BeforeLinkTargets>GZipFile;$(BeforeLinkTargets);</BeforeLinkTargets>
+  </PropertyGroup>
+
+  <Target Name="GZipFile" DependsOnTargets="EnsureBuildTools" >
+    <ItemGroup>
+      <GZipResource Condition="'@(GZipResource)' == '' and '%(Resource.GZipIt)' != ''" Include="@(Resource)" />
+    </ItemGroup>
+
+    <GZipCompress Input="@(GZipSource)"
+					  Output="@(GZipSource->'$(IntermediateOutputPath)%(RelativeDir)%(Filename)%(Extension)')"
+					  Condition="'@(GZipSource)' != ''" >
+      <Output TaskParameter="Output" ItemName="EmbeddedResource" />
+    </GZipCompress>
+
+    <GZipCompress Input="@(GZipSourceC)"
+					  Output="@(GZipSourceC->'$(IntermediateOutputPath)%(RelativeDir)%(Filename)%(Extension)')"
+					  Condition="'@(GZipSourceC)' != ''" >
+    </GZipCompress>
+
+    <GZipCompress Input="@(GZipResource)"
+					  Output="@(GZipResource->'$(IntermediateOutputPath)%(RelativeDir)%(Filename)%(Extension)')"
+					  Condition="'@(GZipResource)' != ''" >
+      <Output TaskParameter="Output" ItemName="Resource" />
+    </GZipCompress>
+
+    <ItemGroup>
+      <Resource Remove="@(GZipResource)" />
+    </ItemGroup>
+  </Target>
+
+  <Target Name="TableCleaner" DependsOnTargets="EnsureBuildTools">
+    <TableCleaner Input="@(ProxyTable)"
+					  Output="@(ProxyTable->'$(IntermediateOutputPath)%(Filename)%(Extension)')"
+					  Condition="'@(ProxyTable)' != ''">
+      <Output TaskParameter="Output" ItemName="EmbeddedResource" />
+    </TableCleaner>
+  </Target>
+
+  <Target Name="VarTableCompress" DependsOnTargets="EnsureBuildTools">
+    <VarTableCompress Input="@(VariablesTable)"
+						  Output="$(IntermediateOutputPath)vartables"
+						  Condition="'@(VariablesTable)' != ''">
+      <Output TaskParameter="Output" ItemName="EmbeddedResource" />
+    </VarTableCompress>
+  </Target>
+
+  <Target Name="CompileVDL" DependsOnTargets="EnsureBuildTools">
+    <VDLCompiler VDL="@(VDL)" OutputVDL="$(IntermediateOutputPath)VDL.binary"
+					 Condition="'@(VDL)' != ''"
+					 Disassembly="$(IntermediateOutputPath)VDL.asm">
+      <Output TaskParameter="OutputVDL" ItemName="EmbeddedResource" />
+    </VDLCompiler>
+  </Target>
+
+  <Target Name="ExternalBaselineCopy" BeforeTargets="AfterBuild" Condition="'@(ExternalBaseline)' != ''">
+
+    <MSBuild Condition="'$(Evd2PrepareBuild)' != ''"
+				 Projects="$(ModelLibDir)\ModelLib.vcxproj" Properties="Configuration=rkklib;Platform=Win32" />
+
+    <ItemGroup Condition="'$(Configuration)' == 'ReleaseClean'">
+      <ExternalBaseline Remove="@(ExternalBaseline)" Condition="'%(Extension)' == '.pdb'" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(Evd2PrepareBuild)' != ''">
+      <ExternalBaseline Remove="@(ExternalBaseline)"
+							  Condition="$([System.Text.RegularExpressions.Regex]::IsMatch(%(RelativeDir), 'vega'))" />
+
+      <ExternalBaseline Remove="@(ExternalBaseline)" Condition="'%(FileName)' == 'hasp_windows_98556'" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(Configuration)' == 'Release' or '$(Configuration)' == 'ReleaseClean'">
+      <ExternalBaseline Remove="@(ExternalBaseline)"
+                Condition="$([System.Text.RegularExpressions.Regex]::IsMatch(%(FileName), 'msvc(p|r)100d'))" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(Configuration)' != 'Release' and '$(Configuration)' != 'ReleaseClean'">
+      <ExternalBaseline Remove="@(ExternalBaseline)"
+                Condition="$([System.Text.RegularExpressions.Regex]::IsMatch(%(FileName), 'msvc(p|r)100$'))" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(DisableSwRoakRodk)' != ''">
+      <ExternalBaseline Remove="@(ExternalBaseline)"
+							  Condition="$([System.Text.RegularExpressions.Regex]::IsMatch(%(Filename), 'ro[ad]k(_protected)?'))" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(ModelModes)' != ''" >
+      <ExternalModelModes Include="$(ModelModes)\*" />
+      <ExternalModelModes Remove="$(ModelModes)\*~" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(INPULibraryPath)' != ''">
+       <ExternalBaseline Include="$(INPULibraryPath)" />
+    </ItemGroup>
+    
+    <Copy SourceFiles="@(ExternalBaseline)" SkipUnchangedFiles="True"
+			  DestinationFiles="@(ExternalBaseline->'$(OutputPath)%(RecursiveDir)%(Filename)%(Extension)')" />
+
+    <Copy SourceFiles="@(ExternalModelModes)" SkipUnchangedFiles="True"
+			  DestinationFiles="@(ExternalModelModes->'$(OutputPath)modes\%(RecursiveDir)%(Filename)%(Extension)')" />
+
+    <Copy Condition="Exists('$(OutputPath)vega\vega_renderer.dll')"
+			  SourceFiles="$(OutputPath)vega\vega_renderer.dll"
+			  SkipUnchangedFiles="True" DestinationFiles="$(OutputPath)vega\vega_renderer_vsk.dll" />
+
+    <Copy Condition="Exists('$(OutputPath)vega\vega_renderer.dll')"
+			  SourceFiles="$(OutputPath)vega\vega_renderer.dll"
+			  SkipUnchangedFiles="True" DestinationFiles="$(OutputPath)vega\vega_renderer_second_copy.dll" />
+
+    <Copy Condition="Exists('$(OutputPath)vega\vega_renderer.pdb') and '$(Configuration)' != 'ReleaseClean'"
+			  SourceFiles="$(OutputPath)vega\vega_renderer.pdb"
+			  SkipUnchangedFiles="True" DestinationFiles="$(OutputPath)vega\vega_renderer_vsk.pdb" />
+
+    <MSBuild Projects="$(MSBuildThisFileDirectory)\..\external\evd2\evd2.targets"
+				 Condition="'$(Evd2PrepareBuild)' != ''"
+				 Properties="FMSReleaseDir=$([System.IO.Path]::GetFullPath('$(FMSReleaseDir)'));Platform=Win32" />
+  </Target>
+
+</Project>

@@ -1,0 +1,377 @@
+﻿<UserControl x:Class="VirtualPultValves.Views.ViewLDI11"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="341" d:DesignWidth="590">
+    <UserControl.Resources>
+        <Style x:Key="ButtonZamer" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Path x:Name="btnBody" Fill="#FF50575B" Stretch="Fill" StrokeThickness="3">
+                                <Path.Data>
+                                    <PathGeometry>
+                                        <PathFigure IsClosed="True" StartPoint="35.9676982405566,7.79417730397017">
+                                            <PolyBezierSegment Points="36.489671,7.7941773 38.541352,1.5114946 39.057912,1.5342525 56.797973,2.315819 71.214265,16.381531 73.252991,34.363218"/>
+                                            <BezierSegment IsSmoothJoin="True" Point3="68.47869446209,38.0702311719406" Point2="68.47869446209,36.5860986266954" Point1="73.4161175387226,35.8020069611035"/>
+                                            <PolyBezierSegment Points="68.478694,39.153349 73.455324,40.905439 73.367774,41.965098 71.892836,59.816991 58.249712,74.075093 41.058163,75.82035 39.887651,75.939178 38.870517,70.557455 37.669827,70.557455 35.852499,70.557455 33.896795,75.860664 32.151803,75.591753 15.931321,73.092103 3.2435582,59.396483 1.6654952,42.344966"/>
+                                            <BezierSegment IsSmoothJoin="True" Point3="7.54255319148937,38.9204315068495" Point2="7.54255319148937,40.1331619539865" Point1="1.55600855265488,41.1619251890523"/>
+                                            <PolyBezierSegment Points="7.5425532,37.436586 1.58385,35.802574 1.7469146,34.364053 3.6608156,17.480033 15.474694,4.2187502 31.718868,1.99434 33.279083,1.7806907 34.351066,7.7941773 35.967698,7.7941773"/>
+                                        </PathFigure>
+                                    </PathGeometry>
+                                </Path.Data>
+                                <Path.Stroke>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="Black" Offset="0"/>
+                                        <GradientStop Color="White" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Path.Stroke>
+                            </Path>
+                            <Path x:Name="btnOk" Data="M43.499,20.9165 C43.499,32.468364 33.761417,41.833 21.7495,41.833 C9.7375828,41.833 0,32.468364 0,20.9165 C0,9.364636 9.7375828,0 21.7495,0 C33.761417,0 43.499,9.364636 43.499,20.9165 z" Height="41.833" Canvas.Left="547.334" Stretch="Fill" StrokeThickness="3" Canvas.Top="225.507" Width="43.499">
+                                <Path.Fill>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF8DB5D8" Offset="0"/>
+                                        <GradientStop Color="#FFF1DDED" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Path.Fill>
+                            </Path>
+                            <Path x:Name="btnBodyDown" Fill="#FF50575B" Stretch="Fill" StrokeThickness="6" Visibility="Hidden">
+                                <Path.Data>
+                                    <PathGeometry>
+                                        <PathFigure IsClosed="True" StartPoint="35.9676982405566,7.79417730397017">
+                                            <PolyBezierSegment Points="36.489671,7.7941773 38.541352,1.5114946 39.057912,1.5342525 56.797973,2.315819 71.214265,16.381531 73.252991,34.363218"/>
+                                            <BezierSegment IsSmoothJoin="True" Point3="68.47869446209,38.0702311719406" Point2="68.47869446209,36.5860986266954" Point1="73.4161175387226,35.8020069611035"/>
+                                            <PolyBezierSegment Points="68.478694,39.153349 73.455324,40.905439 73.367774,41.965098 71.892836,59.816991 58.249712,74.075093 41.058163,75.82035 39.887651,75.939178 38.870517,70.557455 37.669827,70.557455 35.852499,70.557455 33.896795,75.860664 32.151803,75.591753 15.931321,73.092103 3.2435582,59.396483 1.6654952,42.344966"/>
+                                            <BezierSegment IsSmoothJoin="True" Point3="7.54255319148937,38.9204315068495" Point2="7.54255319148937,40.1331619539865" Point1="1.55600855265488,41.1619251890523"/>
+                                            <PolyBezierSegment Points="7.5425532,37.436586 1.58385,35.802574 1.7469146,34.364053 3.6608156,17.480033 15.474694,4.2187502 31.718868,1.99434 33.279083,1.7806907 34.351066,7.7941773 35.967698,7.7941773"/>
+                                        </PathFigure>
+                                    </PathGeometry>
+                                </Path.Data>
+                                <Path.Stroke>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="Black" Offset="0"/>
+                                        <GradientStop Color="#FF121212" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Path.Stroke>
+                            </Path>
+                            <Path x:Name="btnOkDown" Data="M43.499,20.9165 C43.499,32.468364 33.761417,41.833 21.7495,41.833 C9.7375828,41.833 0,32.468364 0,20.9165 C0,9.364636 9.7375828,0 21.7495,0 C33.761417,0 43.499,9.364636 43.499,20.9165 z" Height="Auto" Stretch="Fill" StrokeThickness="3" Width="Auto" Margin="16.525,18.312,16.854,19.315" Visibility="Hidden">
+                                <Path.Fill>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF8DB5D8" Offset="0"/>
+                                        <GradientStop Color="#FFF1DDED" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Path.Fill>
+                            </Path>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Visibility" TargetName="btnBodyDown" Value="Visible"/>
+                                <Setter Property="Visibility" TargetName="btnOkDown" Value="Visible"/>
+
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="VklVykl" TargetType="{x:Type CheckBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type CheckBox}">
+                        <Grid>
+                            <Path x:Name="circle" Data="M34.167,18.8335 C34.167,28.406528 26.854243,36.167 17.8335,36.167 C8.812757,36.167 1.5,28.406528 1.5,18.8335 C1.5,9.2604723 8.812757,1.5 17.8335,1.5 C26.854243,1.5 34.167,9.2604723 34.167,18.8335 z" Fill="#FF50575B" Stretch="Fill" Stroke="Black" StrokeThickness="3"/>
+                            <Path x:Name="StrL" Data="M10.475189,1.5375069 L19.028922,1.5838079 33.25,65.5 1.5,65.5 z" Height="72.625" Canvas.Left="515.48" Stretch="Fill" Stroke="Black" StrokeThickness="3" Canvas.Top="112.512" Width="21.471" RenderTransformOrigin="0.5,0.5" Fill="#FF50575B" Margin="5.098,-24.667,9.098,-10.292">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="-25.858"/>
+                                        <TranslateTransform X="-0.0089409163459457375" Y="0.0020525065416805433"/>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+                            <Path x:Name="StrL_Copy" Data="M10.475189,1.5375069 L19.028922,1.5838079 33.25,65.5 1.5,65.5 z" Height="72.625" Stretch="Fill" Stroke="Black" StrokeThickness="3" Width="21.471" RenderTransformOrigin="0.5,0.5" Fill="#FF50575B" Margin="9.431,-23,4.764,-11.959" Visibility="Hidden">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="34.094"/>
+                                        <TranslateTransform X="-0.0089409163459457375" Y="0.0020525065416805433"/>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Visibility" TargetName="StrL_Copy" Value="Visible"/>
+                                <Setter Property="Visibility" TargetName="StrL" Value="Hidden"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ButtonPusk" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Path x:Name="up" Cursor="Hand" Data="M0,0 L40.334,0 L40.334,12.708 L0,12.708 z" Fill="Black" Stretch="Fill" StrokeThickness="3"/>
+                            <Path x:Name="Down" Cursor="Hand" Data="M0,0 L40.334,0 L40.334,12.708 L0,12.708 z" Fill="Black" Stretch="Fill" StrokeThickness="3" Height="4.708" VerticalAlignment="Bottom" Visibility="Hidden"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Visibility" TargetName="Down" Value="Visible"/>
+                                <Setter Property="Visibility" TargetName="up" Value="Hidden"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Viewbox  >
+
+		<Canvas x:Name="LayoutRoot" Height="337" Width="591">
+			<Path Data="M118.83327,196.66669 C118.83327,202.41436 3.8730772,283.74477 -9.250245,285.49963 -15.536819,286.34027 -18.275748,282.29751 -24.250305,278.25009 -32.000336,272.99989 -38.813269,263.29091 -45.499995,263.00021 -49.696174,262.81779 -220.6574,261.94175 -279.16587,260.85774 -289.50135,260.66625 -317.62605,281.74952 -318.75105,281.49953 -322.3551,280.69863 -336.91787,277.24954 -342.00112,269.99957 -342.18742,269.73385 -342.13901,269.3083 -342.39492,269.07474 -342.75122,268.74957 -416.25145,223.24973&#xa;-438.00141,206.99979 -450.47011,197.6841 -453.87946,179.64814 -448.83514,167.66659 -444.7496,157.9624 -423.25263,82.833555 -417.0026,60.5003 -413.70751,48.725957 -383.75242,12.247606 -356.16894,10.080924 -356.00277,10.067872 -289.25192,7.2487805 -215.25152,8.9991486 -205.61071,9.2271876 -189.37638,-11.877167 -182.37634,-9.1261464 -173.17183,-5.5087661 -165.62625,5.9981926 -165.62625,11.12354 -165.62625,11.247599 -162.06786,11.192354 -162.06374,11.122598 -161.75123,5.8308946&#xa;-152.46169,-10.649783 -144.75114,-8.5025386 -125.00104,-3.0025003 -116.50953,10.624369 -115.48563,10.629691 -108.83428,10.664262 16.714526,11.333333 27.5,11.333333 41.865724,11.333333 79.321333,39.145048 93.000279,83.750322 104.50027,121.25032 118.83327,169.49967 118.83327,196.66669 z" Height="296.983" Canvas.Left="11" Stretch="Fill" Stroke="Black" StrokeThickness="2" Canvas.Top="14" Width="571.907" Fill="#FF4F5354"/>
+			<Path Data="M428.0442,163.03901 C433.36135,177.01582 397.98757,211.83863 368.21318,219.89409 367.80296,220.00508 53.689566,219.24323 52.891908,218.947 45.235658,216.10363 -19.700532,179.14752 -8.0737561,148.50853 -7.9617189,148.21329 19.994404,24.553454 20.565133,23.42606 31.19874,2.4208897 49.488543,-0.73895274 65.368062,1.314864 65.386406,1.3172364 148.25873,1 208,1 272.89551,1 373.44064,0.4341927 375.72646,1 385.72701,3.4754351 391.84431,15.138033&#xa;400.08711,29.584325 400.53835,30.375171 427.96832,162.83956 428.0442,163.03901 z" Height="233.276" Canvas.Left="37" Stretch="Fill" StrokeThickness="4" Canvas.Top="49" Width="516.927" Fill="#FF6C785A">
+				<Path.Stroke>
+					<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+						<GradientStop Color="Black"/>
+						<GradientStop Color="#FFF4FFE2" Offset="1"/>
+					</LinearGradientBrush>
+				</Path.Stroke>
+			</Path>
+			<Path Data="M107.40595,55.250157 C107.40595,106.47457 90.421215,195.07949 73.585131,210.41193 72.803589,211.12367 32.731455,210.40036 31.910185,210.06732 31.261053,209.80408 -6.0581314,170.16563 -6.8795464,167.83228 -14.621611,145.83978 -13.321603,137.30363 -12.970635,137.31926 -12.569663,137.33711 5.5743495,17.024702 5.9436186,16.81868 8.6187399,15.326186 11.723013,18.375514 13.957901,19.059666 21.939731,21.503091 20.825793,41.623586 46.888713,19.999569 62.376273,7.1497696 42.385557,-24.234233&#xa;59.761005,-22.900094 67.806855,-22.282309 73.710663,-22.029824 73.682621,-22.250046 73.541468,-23.358562 107.40595,39.084846 107.40595,55.250157 z" Fill="#FF4C5440" Height="229.899" Canvas.Left="39" Stretch="Fill" StrokeThickness="4" Canvas.Top="51" Width="192.222" >
+				<Path.Stroke>
+					<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+						<GradientStop Color="Black"/>
+						<GradientStop Color="White" Offset="1"/>
+					</LinearGradientBrush>
+				</Path.Stroke>
+			</Path>
+			<Path Data="M136.33274,216.33254 C135.62562,217.03965 37.332469,216.83246 1.3328237,215.99966 -10.974951,215.71494 -19.202942,199.97322 -27.16764,179.83297 -42.999133,139.80004 -52.23385,80.575792 -52.000333,79.333195 -43.167778,32.333082 -17.01185,13.711593 7.3327599,-10.615906 8.7494551,-12.031606 132.93637,-8.1592 146.99971,-8.1563185 147.70046,-8.1561749 169.00001,9.0519265 172.00002,20.385126 172.12065,20.840833 183.65443,85.390645 194.42137,121.89489 198.5341,135.83869 201.78532,148.40248&#xa;203.50035,157.96683 210.00044,194.21641 136.44881,216.21648 136.33274,216.33254 z" Fill="#FF4C5440" Height="228.691" Canvas.Left="294" Stretch="Fill" Canvas.Top="48" Width="256.911">
+				<Path.Stroke>
+					<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+						<GradientStop Color="Black" Offset="0"/>
+						<GradientStop Color="White" Offset="1"/>
+					</LinearGradientBrush>
+				</Path.Stroke>
+			</Path>
+			<Path Height="121.5" Canvas.Left="110" Stretch="Fill" Stroke="#FF060606" StrokeThickness="3" Canvas.Top="79" Width="121.167">
+				<Path.Fill>
+					<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+						<GradientStop Color="Black" Offset="0.156"/>
+						<GradientStop Color="#FF767171" Offset="1"/>
+					</LinearGradientBrush>
+				</Path.Fill>
+				<Path.Data>
+					<PathGeometry>
+						<PathFigure IsClosed="True" StartPoint="61.3335,1.5">
+							<BezierSegment IsSmoothJoin="True" Point3="121.166999816895,61.5000038146973" Point2="121.166999816895,28.3629169464111" Point1="94.3786315917969,1.5"/>
+							<BezierSegment Point3="61.3334999084473,121.5" Point2="94.3786315917969,121.5" Point1="121.166999816895,94.637092590332"/>
+							<BezierSegment IsSmoothJoin="True" Point3="1.5,61.4999961853027" Point2="1.5,94.6370849609375" Point1="28.2883682250977,121.5"/>
+							<BezierSegment Point3="61.3334999084473,1.5" Point2="28.2883682250977,1.5" Point1="1.5,28.3629093170166"/>
+						</PathFigure>
+						<PathFigure IsClosed="True" StartPoint="61.3335,21.5">
+							<BezierSegment Point3="54.0239933795169,22.1792265889011" Point2="56.4291012686814,21.7283829146803" Point1="58.8865010263373,21.5"/>
+							<BezierSegment Point3="46.9614516938341,24.1943328726508" Point2="49.2434370427804,23.307826984874" Point1="51.6177719545715,22.6302789982747"/>
+							<BezierSegment Point3="40.3850187790466,27.4781981413219" Point2="42.4666509076382,26.1857194668182" Point1="44.677498011924,25.0816034186067"/>
+							<BezierSegment Point3="34.5182826709501,31.9209856211965" Point2="36.3288178168964,30.2658718110442" Point1="38.3010050055297,28.7721555714778"/>
+							<BezierSegment Point3="29.5617674651382,37.373282714405" Point2="31.0393160461208,35.411247538155" Point1="32.7054483554858,33.5782012338074"/>
+							<BezierSegment Point3="25.6858783522997,43.6506260033522" Point2="26.7795842860104,41.4480562628141" Point1="28.0824107164942,39.3377189545536"/>
+							<BezierSegment Point3="23.024611742698,50.5394251967986" Point2="23.6965468051278,48.1712467185888" Point1="24.5910643636533,45.8554272105005"/>
+							<BezierSegment Point3="21.6703925332835,57.8041881442271" Point2="21.8970519574853,55.3513367445912" Point1="22.3522283872923,52.9091836458074"/>
+							<BezierSegment Point3="21.6703925332835,65.1958118557729" Point2="21.4436803820915,62.7423898578823" Point1="21.4436803820915,60.2576101421177"/>
+							<BezierSegment Point3="23.024611742698,72.4605748032014" Point2="22.3522283872923,70.0908163541926" Point1="21.8970519574853,67.6486632554088"/>
+							<BezierSegment Point3="25.6858783522998,79.3493739966478" Point2="24.5910643636533,77.1445727894995" Point1="23.6965468051278,74.8287532814112"/>
+							<BezierSegment Point3="29.5617674651382,85.6267172855951" Point2="28.0824107164942,83.6622810454465" Point1="26.7795842860104,81.5519437371859"/>
+							<BezierSegment Point3="34.5182826709501,91.0790143788035" Point2="32.7054483554859,89.4217987661927" Point1="31.0393160461208,87.5887524618451"/>
+							<BezierSegment Point3="40.3850187790466,95.5218018586781" Point2="38.3010050055297,94.2278444285222" Point1="36.3288178168964,92.7341281889558"/>
+							<BezierSegment Point3="46.9614516938342,98.8056671273492" Point2="44.677498011924,97.9183965813934" Point1="42.4666509076382,96.8142805331818"/>
+							<BezierSegment Point3="54.0239933795169,100.820773411099" Point2="51.6177719545715,100.369721001725" Point1="49.2434370427804,99.692173015126"/>
+							<BezierSegment Point3="61.3335,101.5" Point2="58.8865010263373,101.5" Point1="56.4291012686814,101.27161708532"/>
+							<BezierSegment Point3="68.6430066204831,100.820773411099" Point2="66.2378987313186,101.27161708532" Point1="63.7804989736627,101.5"/>
+							<BezierSegment Point3="75.7055483061659,98.8056671273492" Point2="73.4235629572196,99.692173015126" Point1="71.0492280454285,100.369721001725"/>
+							<BezierSegment Point3="82.2819812209534,95.5218018586781" Point2="80.2003490923618,96.8142805331818" Point1="77.989501988076,97.9183965813934"/>
+							<BezierSegment Point3="88.1487173290499,91.0790143788035" Point2="86.3381821831036,92.7341281889558" Point1="84.3659949944703,94.2278444285222"/>
+							<BezierSegment Point3="93.1052325348618,85.626717285595" Point2="91.6276839538792,87.588752461845" Point1="89.9615516445142,89.4217987661927"/>
+							<BezierSegment Point3="96.9811216477002,79.3493739966478" Point2="95.8874157139896,81.5519437371859" Point1="94.5845892835059,83.6622810454464"/>
+							<BezierSegment Point3="99.642388257302,72.4605748032014" Point2="98.9704531948722,74.8287532814112" Point1="98.0759356363467,77.1445727894995"/>
+							<BezierSegment Point3="100.996607466716,65.1958118557729" Point2="100.769948042515,67.6486632554088" Point1="100.314771612708,70.0908163541926"/>
+							<BezierSegment Point3="100.996607466716,57.8041881442271" Point2="101.223319617908,60.2576101421177" Point1="101.223319617908,62.7423898578823"/>
+							<BezierSegment Point3="99.642388257302,50.5394251967986" Point2="100.314771612708,52.9091836458074" Point1="100.769948042515,55.3513367445912"/>
+							<BezierSegment Point3="96.9811216477002,43.6506260033522" Point2="98.0759356363467,45.8554272105005" Point1="98.9704531948722,48.1712467185888"/>
+							<BezierSegment Point3="93.1052325348618,37.3732827144049" Point2="94.5845892835058,39.3377189545535" Point1="95.8874157139896,41.4480562628141"/>
+							<BezierSegment Point3="88.1487173290499,31.9209856211965" Point2="89.9615516445142,33.5782012338073" Point1="91.6276839538792,35.4112475381549"/>
+							<BezierSegment Point3="82.2819812209534,27.4781981413219" Point2="84.3659949944703,28.7721555714778" Point1="86.3381821831036,30.2658718110442"/>
+							<BezierSegment Point3="75.7055483061659,24.1943328726508" Point2="77.989501988076,25.0816034186066" Point1="80.2003490923618,26.1857194668182"/>
+							<BezierSegment Point3="68.6430066204831,22.1792265889011" Point2="71.0492280454285,22.6302789982747" Point1="73.4235629572196,23.3078269848739"/>
+							<BezierSegment Point3="61.3335,21.5" Point2="63.7804989736627,21.5" Point1="66.2378987313186,21.7283829146803"/>
+						</PathFigure>
+					</PathGeometry>
+				</Path.Data>
+			</Path>
+			<Button Content="Button" Height="75.793" Canvas.Left="455" Style="{StaticResource ButtonZamer}" Canvas.Top="157" Width="73.211" Cursor="Hand" Click="Button_Click" PreviewMouseLeftButtonDown="mlb" PreviewMouseLeftButtonUp="mlbu" />
+			<Path Data="M41.380299,7.0088569 L46.144411,7.0088569 L46.144411,15.006844 L45.080945,15.006844 L45.080945,7.9542201 L42.384683,7.9542201 C42.373941,8.3588648 42.359619,8.7536614 42.341715,9.1386098 C42.323812,9.5235591 42.309489,9.8682226 42.298747,10.172601 C42.270101,10.928175 42.224447,11.553046 42.161785,12.047213 C42.099123,12.54138 42.017662,12.954977 41.917403,13.288002 C41.820724,13.613866 41.707037,13.877064 41.576342,14.077595 C41.445647,14.278127 41.303314,14.446431 41.149345,14.582505 C40.988213,14.729323 40.815445,14.839436 40.631039,14.912845 C40.446634,14.986254 40.232687,15.022958 39.9892,15.022958 C39.914006,15.022958 39.837916,15.020273 39.760931,15.014901 C39.683946,15.00953 39.62397,15.006844 39.581001,15.006844 L39.581001,13.975539 L39.656196,13.975539 C39.692003,13.97912 39.722439,13.982701 39.747503,13.986282 C39.772568,13.989863 39.810166,13.991653 39.860295,13.991653 C39.9892,13.991653 40.109153,13.971958 40.220155,13.932568 C40.331156,13.893178 40.426045,13.832302 40.50482,13.749941 C40.748307,13.510019 40.926446,13.082994 41.039238,12.468866 C41.15203,11.854739 41.2317,11.028441 41.278249,9.9899738 C41.296153,9.6390438 41.314056,9.1753144 41.33196,8.5987859 C41.349863,8.0222579 41.365976,7.4922813 41.380299,7.0088569 z M50.040002,7.9327346 C49.989872,9.2254474 49.828741,10.398199 49.556609,11.45099 C49.284476,12.50378 48.937149,13.373944 48.514627,14.061481 L52.440857,14.061481 L52.440857,7.9327346 z M49.040989,7.0088569 L53.504322,7.0088569 L53.504322,14.061481 L54.261639,14.061481 L54.261639,16.817 L53.251884,16.817 L53.251884,14.985359 L48.06346,14.985359 L48.06346,16.817 L47.053704,16.817 L47.053704,14.061481 L47.488759,14.061481 C47.954248,13.298745 48.329327,12.298772 48.613992,11.061564 C48.898657,9.8243565 49.040989,8.473454 49.040989,7.0088569 z M55.287975,7.0088569 L56.346069,7.0088569 L56.346069,13.255774 L59.912439,7.0088569 L61.034986,7.0088569 L61.034986,15.006844 L59.976891,15.006844 L59.976891,8.6578711 L56.362182,15.006844 L55.287975,15.006844 z M62.330266,11.021279 L65.359532,11.021279 L65.359532,11.993499 L62.330266,11.993499 z M68.706264,6.982 L69.538775,6.982 L69.538775,14.190394 L70.956729,14.190394 L70.956729,15.006844 L67.057355,15.006844 L67.057355,14.190394 L68.507535,14.190394 L68.507535,8.8297553 L67.057355,8.8297553 L67.057355,8.0992474 C67.605201,8.0992474 68.008923,8.0213624 68.268524,7.8655923 C68.528125,7.7098222 68.674037,7.4152918 68.706264,6.982 z M74.709536,6.982 L75.542047,6.982 L75.542047,14.190394 L76.960001,14.190394 L76.960001,15.006844 L73.060627,15.006844 L73.060627,14.190394 L74.510808,14.190394 L74.510808,8.8297553 L73.060627,8.8297553 L73.060627,8.0992474 C73.608473,8.0992474 74.012197,8.0213624 74.271796,7.8655923 C74.531395,7.7098222 74.67731,7.4152918 74.709536,6.982 z M1.2817383E-06,3.9704669E-22 L122.411,3.9704669E-22 L122.411,33 L1.2817383E-06,33 z" Height="33" Canvas.Left="333" RenderTransformOrigin="0.4760234246248,0.360590910486611" Stretch="Fill" Canvas.Top="212" Width="122.411" Stroke="Black">
+				<Path.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Path.RenderTransform>
+			</Path>
+			<Path Data="M16.273,47.4255 C16.273,73.065596 12.854022,93.851 8.6365,93.851 C4.4189775,93.851 1,73.065596 1,47.4255 C1,21.785404 4.4189775,1 8.6365,1 C12.854022,1 16.273,21.785404 16.273,47.4255 z" Height="94.851" Canvas.Left="544" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Stroke="Black" StrokeThickness="2" Canvas.Top="101" Width="17.273" Fill="#FF080808" >
+				<Path.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform Angle="-12.236"/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Path.RenderTransform>
+			</Path>
+			<Path Data="M16.273,47.4255 C16.273,73.065596 12.854022,93.851 8.6365,93.851 C4.4189775,93.851 1,73.065596 1,47.4255 C1,21.785404 4.4189775,1 8.6365,1 C12.854022,1 16.273,21.785404 16.273,47.4255 z" Fill="Black" Height="94.851" Canvas.Left="33" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Stroke="Black" StrokeThickness="2" Canvas.Top="96" Width="17.273" >
+				<Path.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform Angle="17.84"/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Path.RenderTransform>
+			</Path>
+			<Path Data="M17,9.9585001 C17,14.906143 13.418278,18.917 9,18.917 C4.581722,18.917 1,14.906143 1,9.9585001 C1,5.0108571 4.581722,1 9,1 C13.418278,1 17,5.0108571 17,9.9585001 z M13.209,2.5840025 L4.8759949,16.792" Fill="#FF6A6B6D" Height="19.917" Canvas.Left="50" Stretch="Fill" Stroke="Black" StrokeThickness="2" Canvas.Top="73" Width="18"/>
+			<Path Data="M17,9.9585001 C17,14.906143 13.418278,18.917 9,18.917 C4.581722,18.917 1,14.906143 1,9.9585001 C1,5.0108571 4.581722,1 9,1 C13.418278,1 17,5.0108571 17,9.9585001 z M13.209,2.5840025 L4.8759949,16.792" Fill="#FF6A6B6D" Height="19.917" Canvas.Left="15" Stretch="Fill" Stroke="Black" StrokeThickness="2" Canvas.Top="203" Width="18"/>
+			<Path Data="M17,9.9585001 C17,14.906143 13.418278,18.917 9,18.917 C4.581722,18.917 1,14.906143 1,9.9585001 C1,5.0108571 4.581722,1 9,1 C13.418278,1 17,5.0108571 17,9.9585001 z M13.209,2.5840025 L4.8759949,16.792" Fill="#FF6A6B6D" Height="19.917" Canvas.Left="272" Stretch="Fill" Stroke="Black" StrokeThickness="2" Canvas.Top="18" Width="18"/>
+			<Path Data="M17,9.9585001 C17,14.906143 13.418278,18.917 9,18.917 C4.581722,18.917 1,14.906143 1,9.9585001 C1,5.0108571 4.581722,1 9,1 C13.418278,1 17,5.0108571 17,9.9585001 z M13.209,2.5840025 L4.8759949,16.792" Fill="#FF6A6B6D" Height="19.917" Canvas.Left="311" Stretch="Fill" Stroke="Black" StrokeThickness="2" Canvas.Top="18" Width="18"/>
+			<Path Data="M17,9.9585001 C17,14.906143 13.418278,18.917 9,18.917 C4.581722,18.917 1,14.906143 1,9.9585001 C1,5.0108571 4.581722,1 9,1 C13.418278,1 17,5.0108571 17,9.9585001 z M13.209,2.5840025 L4.8759949,16.792" Fill="#FF6A6B6D" Height="19.917" Canvas.Left="528" Stretch="Fill" Stroke="Black" StrokeThickness="2" Canvas.Top="79" Width="18"/>
+			<Path Data="M17,9.9585001 C17,14.906143 13.418278,18.917 9,18.917 C4.581722,18.917 1,14.906143 1,9.9585001 C1,5.0108571 4.581722,1 9,1 C13.418278,1 17,5.0108571 17,9.9585001 z M13.209,2.5840025 L4.8759949,16.792" Fill="#FF6A6B6D" Height="19.917" Canvas.Left="558" Stretch="Fill" Stroke="Black" StrokeThickness="2" Canvas.Top="209" Width="18"/>
+			<Path Data="M17,9.9585001 C17,14.906143 13.418278,18.917 9,18.917 C4.581722,18.917 1,14.906143 1,9.9585001 C1,5.0108571 4.581722,1 9,1 C13.418278,1 17,5.0108571 17,9.9585001 z M13.209,2.5840025 L4.8759949,16.792" Fill="#FF6A6B6D" Height="19.917" Canvas.Left="445" Stretch="Fill" Stroke="Black" StrokeThickness="2" Canvas.Top="283" Width="18"/>
+			<Path Data="M17,9.9585001 C17,14.906143 13.418278,18.917 9,18.917 C4.581722,18.917 1,14.906143 1,9.9585001 C1,5.0108571 4.581722,1 9,1 C13.418278,1 17,5.0108571 17,9.9585001 z M13.209,2.5840025 L4.8759949,16.792" Fill="#FF6A6B6D" Height="19.917" Canvas.Left="134" Stretch="Fill" Stroke="Black" StrokeThickness="2" Canvas.Top="282" Width="18"/>
+			<Path Data="M1,1 L139.5,1 L139.5,11.769 L1,11.769 z" Fill="#FF353839" Height="12.769" Canvas.Left="228" Stretch="Fill" Stroke="Black" StrokeThickness="2" Canvas.Top="286" Width="140.5"/>
+			<Path Data="M1,1 L68.5,1 50.166667,32.25 44.833333,32.083333 44.666667,31.916667 44.666667,16.166667 51,16 51,7 17,6.75 17,15.25 22.5,15.75 22.5,31.75 15.5,32 z" Fill="#FF353839" Height="33.25" Canvas.Left="260" Stretch="Fill" Stroke="Black" StrokeThickness="2" Canvas.Top="299" Width="69.5" />
+			<Path Data="M41,19.833 C41,30.234179 32.045695,38.666 21,38.666 C9.954305,38.666 1,30.234179 1,19.833 C1,9.4318213 9.954305,1 21,1 C32.045695,1 41,9.4318213 41,19.833 z" Fill="#FF707477" Height="39.666" Canvas.Left="68" Stretch="Fill" StrokeThickness="2" Canvas.Top="173" Width="42">
+				<Path.Stroke>
+					<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+						<GradientStop Color="Black" Offset="0"/>
+						<GradientStop Color="White" Offset="1"/>
+					</LinearGradientBrush>
+				</Path.Stroke>
+			</Path>
+			<Path Data="M47.167,26.333 C47.167,39.495602 37.167951,50.166 24.8335,50.166 C12.499049,50.166 2.5,39.495602 2.5,26.333 C2.5,13.170398 12.499049,2.5 24.8335,2.5 C37.167951,2.5 47.167,13.170398 47.167,26.333 z" Fill="#FF707477" Height="52.666" Canvas.Left="85" Stretch="Fill" StrokeThickness="5" Canvas.Top="51" Width="49.667">
+				<Path.Stroke>
+					<LinearGradientBrush EndPoint="0.5,1" StartPoint="1.5,0">
+						<GradientStop Color="Black" Offset="0.182"/>
+						<GradientStop Color="White" Offset="1"/>
+					</LinearGradientBrush>
+				</Path.Stroke>
+			</Path>
+			<Path Data="M81.875,40.5 C81.875,62.867532 63.546657,81 40.9375,81 C18.328343,81 0,62.867532 0,40.5 C0,18.132468 18.328343,0 40.9375,0 C63.546657,0 81.875,18.132468 81.875,40.5 z" Height="81" Canvas.Left="129" Stretch="Fill" StrokeThickness="3" Canvas.Top="99" Width="81.875">
+				<Path.Fill>
+					<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+						<GradientStop Color="#FF081747" Offset="0.156"/>
+						<GradientStop Color="#FF717276" Offset="1"/>
+					</LinearGradientBrush>
+				</Path.Fill>
+			</Path>
+			<Path Height="121.5" Canvas.Left="300" Stretch="Fill" Stroke="#FF060606" StrokeThickness="3" Canvas.Top="79" Width="121.167">
+				<Path.Fill>
+					<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+						<GradientStop Color="Black" Offset="0.156"/>
+						<GradientStop Color="#FF767171" Offset="1"/>
+					</LinearGradientBrush>
+				</Path.Fill>
+				<Path.Data>
+					<PathGeometry>
+						<PathFigure IsClosed="True" StartPoint="61.3335,1.5">
+							<BezierSegment IsSmoothJoin="True" Point3="121.166999816895,61.5000038146973" Point2="121.166999816895,28.3629169464111" Point1="94.3786315917969,1.5"/>
+							<BezierSegment Point3="61.3334999084473,121.5" Point2="94.3786315917969,121.5" Point1="121.166999816895,94.637092590332"/>
+							<BezierSegment IsSmoothJoin="True" Point3="1.5,61.4999961853027" Point2="1.5,94.6370849609375" Point1="28.2883682250977,121.5"/>
+							<BezierSegment Point3="61.3334999084473,1.5" Point2="28.2883682250977,1.5" Point1="1.5,28.3629093170166"/>
+						</PathFigure>
+						<PathFigure IsClosed="True" StartPoint="61.3335,21.5">
+							<BezierSegment Point3="54.0239933795169,22.1792265889011" Point2="56.4291012686814,21.7283829146803" Point1="58.8865010263373,21.5"/>
+							<BezierSegment Point3="46.9614516938341,24.1943328726508" Point2="49.2434370427804,23.307826984874" Point1="51.6177719545715,22.6302789982747"/>
+							<BezierSegment Point3="40.3850187790466,27.4781981413219" Point2="42.4666509076382,26.1857194668182" Point1="44.677498011924,25.0816034186067"/>
+							<BezierSegment Point3="34.5182826709501,31.9209856211965" Point2="36.3288178168964,30.2658718110442" Point1="38.3010050055297,28.7721555714778"/>
+							<BezierSegment Point3="29.5617674651382,37.373282714405" Point2="31.0393160461208,35.411247538155" Point1="32.7054483554858,33.5782012338074"/>
+							<BezierSegment Point3="25.6858783522997,43.6506260033522" Point2="26.7795842860104,41.4480562628141" Point1="28.0824107164942,39.3377189545536"/>
+							<BezierSegment Point3="23.024611742698,50.5394251967986" Point2="23.6965468051278,48.1712467185888" Point1="24.5910643636533,45.8554272105005"/>
+							<BezierSegment Point3="21.6703925332835,57.8041881442271" Point2="21.8970519574853,55.3513367445912" Point1="22.3522283872923,52.9091836458074"/>
+							<BezierSegment Point3="21.6703925332835,65.1958118557729" Point2="21.4436803820915,62.7423898578823" Point1="21.4436803820915,60.2576101421177"/>
+							<BezierSegment Point3="23.024611742698,72.4605748032014" Point2="22.3522283872923,70.0908163541926" Point1="21.8970519574853,67.6486632554088"/>
+							<BezierSegment Point3="25.6858783522998,79.3493739966478" Point2="24.5910643636533,77.1445727894995" Point1="23.6965468051278,74.8287532814112"/>
+							<BezierSegment Point3="29.5617674651382,85.6267172855951" Point2="28.0824107164942,83.6622810454465" Point1="26.7795842860104,81.5519437371859"/>
+							<BezierSegment Point3="34.5182826709501,91.0790143788035" Point2="32.7054483554859,89.4217987661927" Point1="31.0393160461208,87.5887524618451"/>
+							<BezierSegment Point3="40.3850187790466,95.5218018586781" Point2="38.3010050055297,94.2278444285222" Point1="36.3288178168964,92.7341281889558"/>
+							<BezierSegment Point3="46.9614516938342,98.8056671273492" Point2="44.677498011924,97.9183965813934" Point1="42.4666509076382,96.8142805331818"/>
+							<BezierSegment Point3="54.0239933795169,100.820773411099" Point2="51.6177719545715,100.369721001725" Point1="49.2434370427804,99.692173015126"/>
+							<BezierSegment Point3="61.3335,101.5" Point2="58.8865010263373,101.5" Point1="56.4291012686814,101.27161708532"/>
+							<BezierSegment Point3="68.6430066204831,100.820773411099" Point2="66.2378987313186,101.27161708532" Point1="63.7804989736627,101.5"/>
+							<BezierSegment Point3="75.7055483061659,98.8056671273492" Point2="73.4235629572196,99.692173015126" Point1="71.0492280454285,100.369721001725"/>
+							<BezierSegment Point3="82.2819812209534,95.5218018586781" Point2="80.2003490923618,96.8142805331818" Point1="77.989501988076,97.9183965813934"/>
+							<BezierSegment Point3="88.1487173290499,91.0790143788035" Point2="86.3381821831036,92.7341281889558" Point1="84.3659949944703,94.2278444285222"/>
+							<BezierSegment Point3="93.1052325348618,85.626717285595" Point2="91.6276839538792,87.588752461845" Point1="89.9615516445142,89.4217987661927"/>
+							<BezierSegment Point3="96.9811216477002,79.3493739966478" Point2="95.8874157139896,81.5519437371859" Point1="94.5845892835059,83.6622810454464"/>
+							<BezierSegment Point3="99.642388257302,72.4605748032014" Point2="98.9704531948722,74.8287532814112" Point1="98.0759356363467,77.1445727894995"/>
+							<BezierSegment Point3="100.996607466716,65.1958118557729" Point2="100.769948042515,67.6486632554088" Point1="100.314771612708,70.0908163541926"/>
+							<BezierSegment Point3="100.996607466716,57.8041881442271" Point2="101.223319617908,60.2576101421177" Point1="101.223319617908,62.7423898578823"/>
+							<BezierSegment Point3="99.642388257302,50.5394251967986" Point2="100.314771612708,52.9091836458074" Point1="100.769948042515,55.3513367445912"/>
+							<BezierSegment Point3="96.9811216477002,43.6506260033522" Point2="98.0759356363467,45.8554272105005" Point1="98.9704531948722,48.1712467185888"/>
+							<BezierSegment Point3="93.1052325348618,37.3732827144049" Point2="94.5845892835058,39.3377189545535" Point1="95.8874157139896,41.4480562628141"/>
+							<BezierSegment Point3="88.1487173290499,31.9209856211965" Point2="89.9615516445142,33.5782012338073" Point1="91.6276839538792,35.4112475381549"/>
+							<BezierSegment Point3="82.2819812209534,27.4781981413219" Point2="84.3659949944703,28.7721555714778" Point1="86.3381821831036,30.2658718110442"/>
+							<BezierSegment Point3="75.7055483061659,24.1943328726508" Point2="77.989501988076,25.0816034186066" Point1="80.2003490923618,26.1857194668182"/>
+							<BezierSegment Point3="68.6430066204831,22.1792265889011" Point2="71.0492280454285,22.6302789982747" Point1="73.4235629572196,23.3078269848739"/>
+							<BezierSegment Point3="61.3335,21.5" Point2="63.7804989736627,21.5" Point1="66.2378987313186,21.7283829146803"/>
+						</PathFigure>
+					</PathGeometry>
+				</Path.Data>
+			</Path>
+			<Path Data="M81.875,40.5 C81.875,62.867532 63.546657,81 40.9375,81 C18.328343,81 0,62.867532 0,40.5 C0,18.132468 18.328343,0 40.9375,0 C63.546657,0 81.875,18.132468 81.875,40.5 z" Height="81" Canvas.Left="319" Stretch="Fill" StrokeThickness="3" Canvas.Top="99" Width="81.875">
+				<Path.Fill>
+					<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+						<GradientStop Color="#FF084746" Offset="0.156"/>
+						<GradientStop Color="#FF717276" Offset="1"/>
+					</LinearGradientBrush>
+				</Path.Fill>
+			</Path>
+			<Button Content="Button" Height="12.708" Canvas.Left="426" Style="{DynamicResource ButtonPusk}" Canvas.Top="22" Width="40.334" Cursor="Hand" PreviewMouseLeftButtonUp="mlbu" PreviewMouseLeftButtonDown="mlb" />
+			<CheckBox Content="CheckBox" Height="37.667" Canvas.Left="435" Style="{DynamicResource VklVykl}" Canvas.Top="93" Width="35.667" Cursor="Hand" Checked="CheckBox_Checked" Name="cb" Click="cb_Click" />
+			<Path Data="M1.8745117,7.1448507 L1.8745117,10.098952 L2.7392578,10.098952 C3.2047524,10.098952 3.5717773,10.077468 3.840332,10.034499 C4.1088867,9.9915304 4.3452148,9.9002218 4.5493164,9.7605734 C4.7498369,9.6209249 4.896647,9.4624777 4.9897461,9.2852316 C5.0828447,9.1079855 5.1293945,8.877924 5.1293945,8.595046 C5.1293945,8.2942648 5.0864258,8.046299 5.0004883,7.8511496 C4.9145508,7.6560001 4.7408853,7.4903913 4.4794922,7.3543234 C4.3111978,7.2648053 4.1276855,7.2075138 3.9289551,7.1824484 C3.7302246,7.1573834 3.4482422,7.1448507 3.0830078,7.1448507 z M1.8745117,3.9168234 L1.8745117,6.2586203 L3.0830078,6.2586203 C3.4160156,6.2586203 3.6612954,6.241612 3.8188477,6.2075949 C3.9763997,6.1735783 4.1393228,6.1028585 4.3076172,5.9954367 C4.46875,5.8915958 4.583333,5.755528 4.6513672,5.5872335 C4.7194009,5.4189396 4.753418,5.211257 4.753418,4.9641867 C4.753418,4.7708278 4.7211914,4.6034288 4.6567383,4.4619894 C4.5922852,4.3205509 4.4884439,4.208653 4.3452148,4.126296 C4.1733398,4.0296168 3.9817708,3.9705348 3.7705078,3.9490499 C3.5592446,3.9275661 3.2674153,3.9168239 2.8950195,3.9168234 z M0.81103516,3.0091085 L2.9326172,3.0091085 C3.5019529,3.0091085 3.9289548,3.0279074 4.213623,3.065505 C4.498291,3.1031027 4.7713213,3.1917257 5.0327148,3.3313742 C5.3191729,3.4853458 5.5286455,3.6867619 5.6611328,3.9356222 C5.7936196,4.1844831 5.8598633,4.4772077 5.8598633,4.813796 C5.8598633,5.1897726 5.760498,5.5263615 5.5617676,5.8235617 C5.3630371,6.1207623 5.0882158,6.3535099 4.7373047,6.5218039 L4.7373047,6.5647726 C5.2135415,6.6936789 5.5823565,6.929112 5.84375,7.2710714 C6.1051426,7.6130314 6.2358394,8.0400333 6.2358398,8.5520773 C6.2358394,8.9495382 6.1606441,9.3004494 6.0102539,9.6048117 C5.8598633,9.909174 5.6575518,10.159824 5.4033203,10.356765 C5.1025391,10.593093 4.7802734,10.760492 4.4365234,10.858962 C4.0927734,10.957432 3.6487629,11.006667 3.1044922,11.006667 L0.81103516,11.006667 z M8.3578453,7.0642843 L8.3578453,10.098952 L9.1097984,10.098952 C9.5860348,10.098952 9.9521646,10.075678 10.208187,10.029128 C10.464209,9.9825783 10.6889,9.8930607 10.882259,9.7605734 C11.082779,9.6209249 11.228695,9.4571066 11.320004,9.2691183 C11.411312,9.08113 11.456966,8.8421164 11.456966,8.5520773 C11.456966,8.2835226 11.413101,8.0471945 11.325375,7.8430929 C11.237646,7.6389914 11.098892,7.474278 10.909115,7.3489523 C10.712173,7.2164655 10.484798,7.1358991 10.226986,7.1072531 C9.9691734,7.0786076 9.6057291,7.0642843 9.1366539,7.0642843 z M13.283138,3.0091085 L14.346615,3.0091085 L14.346615,11.006667 L13.283138,11.006667 z M7.2943683,3.0091085 L8.3578453,3.0091085 L8.3578453,6.1458273 L9.4696617,6.1458273 C10.013931,6.1458273 10.457942,6.1771588 10.801693,6.2398214 C11.145443,6.3024845 11.469498,6.4519796 11.773861,6.6883078 C12.045996,6.8995709 12.246517,7.160964 12.375423,7.4724874 C12.50433,7.7840109 12.568783,8.136713 12.568783,8.5305929 C12.568783,8.9173117 12.493587,9.2682228 12.343197,9.5833273 C12.192806,9.8984318 11.990494,10.154453 11.736263,10.351394 C11.435482,10.587722 11.113216,10.756016 10.769466,10.856277 C10.425715,10.956537 9.9817047,11.006667 9.4374352,11.006667 L7.2943683,11.006667 z M15.967702,3.0091085 L17.031178,3.0091085 L17.031178,6.6131124 C17.450123,6.5987897 17.782236,6.4931583 18.027515,6.2962179 C18.272797,6.099278 18.472422,5.8164005 18.626392,5.4475851 C18.690845,5.2864523 18.749033,5.1333761 18.800953,4.9883566 C18.852875,4.8433375 18.894947,4.7206974 18.927174,4.6204367 C19.142017,4.008132 19.415943,3.5865011 19.748951,3.3555441 C20.081959,3.1245871 20.543873,3.0091085 21.134693,3.0091085 L21.46233,3.0091085 L21.46233,3.9597921 L21.193775,3.9597921 C20.756927,3.9597921 20.450775,4.0448346 20.275318,4.2149191 C20.099863,4.385004 19.93873,4.7063742 19.79192,5.1790304 C19.645111,5.6516867 19.480396,5.9981222 19.297779,6.2183371 C19.115162,6.4385519 18.894947,6.6328068 18.637135,6.8011007 L21.881275,11.006667 L20.52776,11.006667 L17.702564,7.3435812 L17.031178,7.3435812 L17.031178,11.006667 L15.967702,11.006667 z M23.663216,3.0091085 L28.427376,3.0091085 L28.427376,11.006667 L27.363899,11.006667 L27.363899,3.954421 L24.66761,3.954421 C24.656868,4.3590441 24.642546,4.7538195 24.624641,5.1387472 C24.606737,5.5236759 24.592415,5.8683209 24.581673,6.1726828 C24.553026,6.9282169 24.507372,7.5530539 24.44471,8.0471945 C24.382048,8.5413351 24.300585,8.9549093 24.200325,9.2879171 C24.103645,9.6137638 23.989958,9.8769474 23.859261,10.077468 C23.728563,10.277988 23.586229,10.446283 23.432259,10.582351 C23.271126,10.72916 23.098356,10.839268 22.913948,10.912673 C22.72954,10.986078 22.515593,11.02278 22.272102,11.02278 C22.196907,11.02278 22.120817,11.020095 22.043831,11.014724 C21.966845,11.009353 21.906868,11.006667 21.863899,11.006667 L21.863899,9.9754171 L21.939095,9.9754171 C21.974901,9.9789982 22.005339,9.9825783 22.030403,9.9861593 C22.055468,9.9897404 22.093065,9.9915304 22.143196,9.9915304 C22.272102,9.9915304 22.392057,9.9718361 22.503059,9.9324484 C22.614061,9.8930607 22.708952,9.8321877 22.787727,9.7498312 C23.031218,9.509922 23.209358,9.0829201 23.322151,8.4688253 C23.434944,7.8547306 23.514616,7.0284772 23.561165,5.9900656 C23.579069,5.6391544 23.596972,5.1754498 23.614876,4.5989523 C23.63278,4.0224552 23.648893,3.492507 23.663216,3.0091085 z" Fill="Black" Height="8.014" Canvas.Left="398.811" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Canvas.Top="67.009" Width="27.616">
+				<Path.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Path.RenderTransform>
+			</Path>
+			<Path Data="M1.8745117,7.1448507 L1.8745117,10.098952 L2.7392578,10.098952 C3.2047524,10.098952 3.5717773,10.077468 3.840332,10.034499 C4.1088867,9.9915304 4.3452148,9.9002218 4.5493164,9.7605734 C4.7498369,9.6209249 4.896647,9.4624777 4.9897461,9.2852316 C5.0828447,9.1079855 5.1293945,8.877924 5.1293945,8.595046 C5.1293945,8.2942648 5.0864258,8.046299 5.0004883,7.8511496 C4.9145508,7.6560001 4.7408853,7.4903913 4.4794922,7.3543234 C4.3111978,7.2648053 4.1276855,7.2075138 3.9289551,7.1824484 C3.7302246,7.1573834 3.4482422,7.1448507 3.0830078,7.1448507 z M1.8745117,3.9168234 L1.8745117,6.2586203 L3.0830078,6.2586203 C3.4160156,6.2586203 3.6612954,6.241612 3.8188477,6.2075949 C3.9763997,6.1735783 4.1393228,6.1028585 4.3076172,5.9954367 C4.46875,5.8915958 4.583333,5.755528 4.6513672,5.5872335 C4.7194009,5.4189396 4.753418,5.211257 4.753418,4.9641867 C4.753418,4.7708278 4.7211914,4.6034288 4.6567383,4.4619894 C4.5922852,4.3205509 4.4884439,4.208653 4.3452148,4.126296 C4.1733398,4.0296168 3.9817708,3.9705348 3.7705078,3.9490499 C3.5592446,3.9275661 3.2674153,3.9168239 2.8950195,3.9168234 z M0.81103516,3.0091085 L2.9326172,3.0091085 C3.5019529,3.0091085 3.9289548,3.0279074 4.213623,3.065505 C4.498291,3.1031027 4.7713213,3.1917257 5.0327148,3.3313742 C5.3191729,3.4853458 5.5286455,3.6867619 5.6611328,3.9356222 C5.7936196,4.1844831 5.8598633,4.4772077 5.8598633,4.813796 C5.8598633,5.1897726 5.760498,5.5263615 5.5617676,5.8235617 C5.3630371,6.1207623 5.0882158,6.3535099 4.7373047,6.5218039 L4.7373047,6.5647726 C5.2135415,6.6936789 5.5823565,6.929112 5.84375,7.2710714 C6.1051426,7.6130314 6.2358394,8.0400333 6.2358398,8.5520773 C6.2358394,8.9495382 6.1606441,9.3004494 6.0102539,9.6048117 C5.8598633,9.909174 5.6575518,10.159824 5.4033203,10.356765 C5.1025391,10.593093 4.7802734,10.760492 4.4365234,10.858962 C4.0927734,10.957432 3.6487629,11.006667 3.1044922,11.006667 L0.81103516,11.006667 z M7.2943683,3.0091085 L8.3578453,3.0091085 L8.3578453,6.6131124 C8.7767906,6.5987897 9.1089029,6.4931583 9.3541832,6.2962179 C9.5994625,6.099278 9.7990875,5.8164005 9.9530602,5.4475851 C10.017513,5.2864523 10.0757,5.1333761 10.127621,4.9883566 C10.179541,4.8433375 10.221614,4.7206974 10.253841,4.6204367 C10.468684,4.008132 10.742611,3.5865011 11.075619,3.3555441 C11.408627,3.1245871 11.870541,3.0091085 12.461361,3.0091085 L12.788998,3.0091085 L12.788998,3.9597921 L12.520443,3.9597921 C12.083593,3.9597921 11.777441,4.0448346 11.601986,4.2149191 C11.426529,4.385004 11.265396,4.7063742 11.118587,5.1790304 C10.971777,5.6516867 10.807064,5.9981222 10.624447,6.2183371 C10.441829,6.4385519 10.221614,6.6328068 9.9638023,6.8011007 L13.207943,11.006667 L11.854427,11.006667 L9.029232,7.3435812 L8.3578453,7.3435812 L8.3578453,11.006667 L7.2943683,11.006667 z M14.989882,3.0091085 L19.754044,3.0091085 L19.754044,11.006667 L18.690567,11.006667 L18.690567,3.954421 L15.994277,3.954421 C15.983535,4.3590441 15.969212,4.7538195 15.951308,5.1387472 C15.933405,5.5236759 15.919082,5.8683209 15.90834,6.1726828 C15.879694,6.9282169 15.83404,7.5530539 15.771377,8.0471945 C15.708714,8.5413351 15.627253,8.9549093 15.526992,9.2879171 C15.430312,9.6137638 15.316624,9.8769474 15.185927,10.077468 C15.055231,10.277988 14.912897,10.446283 14.758925,10.582351 C14.597793,10.72916 14.425022,10.839268 14.240615,10.912673 C14.056208,10.986078 13.842258,11.02278 13.598769,11.02278 C13.523574,11.02278 13.447483,11.020095 13.370498,11.014724 C13.293512,11.009353 13.233535,11.006667 13.190566,11.006667 L13.190566,9.9754171 L13.265761,9.9754171 C13.301569,9.9789982 13.332005,9.9825783 13.35707,9.9861593 C13.382135,9.9897404 13.419733,9.9915304 13.469863,9.9915304 C13.598769,9.9915304 13.718723,9.9718361 13.829726,9.9324484 C13.940729,9.8930607 14.035618,9.8321877 14.114394,9.7498312 C14.357883,9.509922 14.536025,9.0829201 14.648818,8.4688253 C14.761611,7.8547306 14.841282,7.0284772 14.887832,5.9900656 C14.905735,5.6391544 14.923639,5.1754498 14.941543,4.5989523 C14.959446,4.0224552 14.975559,3.492507 14.989882,3.0091085 z" Fill="Black" Height="8.014" Canvas.Left="483.811" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Canvas.Top="67.009" Width="18.943">
+				<Path.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Path.RenderTransform>
+			</Path>
+		</Canvas>
+	</Viewbox>
+</UserControl>

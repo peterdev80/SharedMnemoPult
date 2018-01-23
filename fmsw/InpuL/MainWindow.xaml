@@ -1,0 +1,24 @@
+﻿<Window x:Class="InpuL.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:pn="clr-namespace:PultNeptun;assembly=PultNeptun"
+        xmlns:wvlapi="clr-namespace:fmslapi.WPF.Variables;assembly=fmslapi"
+        xmlns:lapi="clr-namespace:fmslapi.WPF;assembly=fmslapi"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <lapi:APIHost ComponentID="337DDAE5-6781-4EA8-B829-9FFDA5557E8C" EndPoint="INPU700" ID="IWKS" >
+            <!--<wvlapi:VariablesManager VariablesMap="VarModel" Endpoint="InPU"  Channel="InPU_Variables" Key="VarModel" IgnoreInitEvents="True" />
+            <wvlapi:VariablesManager VariablesMap="VarNeptun" Endpoint="Neptun"  Channel="Neptun_Variables" Key="Neptun" IgnoreInitEvents="True" />
+            <wvlapi:VariablesManager VariablesMap="FMSControl" Endpoint="FMSControl"  Channel="FMSControl_Variables" Key="FMSControl" IgnoreInitEvents="True" />
+            <wvlapi:VariablesManager x:Name="vc" VariablesMap="VarControl" Endpoint="VarControl"  Channel="VarControl_Variables" Key="VarControl" IgnoreInitEvents="True" />-->
+        </lapi:APIHost>
+
+        <pn:WindowInpu Width="Auto" Height="Auto" />
+    </Grid>
+</Window>
+
+
+

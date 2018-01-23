@@ -1,0 +1,127 @@
+﻿<UserControl x:Class="VirtualPultValves.Views.View_RPV"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+               xmlns:pc="clr-namespace:VirtualPultValves.PultControl"
+            xmlns:vm="clr-namespace:VirtualPultValves.ViewModel">
+    <UserControl.Resources>
+        
+        <vm:ViewModel_RPV x:Key="VarRpv" />
+        <Style x:Key="CanvasStyleRPV1" TargetType="{x:Type Canvas}">
+            <Setter   Property="Background" >
+                <Setter.Value>
+                    <ImageBrush ImageSource="pack://siteoforigin:,,,/PictureValves/SA/rpv1-l2.jpg"  Stretch="Uniform" />
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding RPV1_1.ValueState}" Value="True"/>
+                        <Condition Binding="{Binding RPV1_2.ValueState}" Value="True"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter   Property="Background" >
+                        <Setter.Value>
+                            <ImageBrush ImageSource="pack://siteoforigin:,,,/PictureValves/SA/rpv1-l2.jpg"  Stretch="Uniform" />
+                        </Setter.Value>
+                    </Setter>
+                </MultiDataTrigger>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding RPV1_1.ValueState}" Value="False"/>
+                        <Condition Binding="{Binding RPV1_2.ValueState}" Value="True"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter   Property="Background" >
+                        <Setter.Value>
+                            <ImageBrush ImageSource="pack://siteoforigin:,,,/PictureValves/SA/rpv1-d2.jpg" Stretch="Uniform" />
+                        </Setter.Value>
+                    </Setter>
+                </MultiDataTrigger>
+
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding RPV1_1.ValueState}" Value="True"/>
+                        <Condition Binding="{Binding RPV1_2.ValueState}" Value="False"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter   Property="Background" >
+                        <Setter.Value>
+                            <ImageBrush ImageSource="pack://siteoforigin:,,,/PictureValves/SA/rpv1-u2.jpg" Stretch="Uniform" />
+                        </Setter.Value>
+                    </Setter>
+                </MultiDataTrigger>
+
+
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="CanvasStyleRPV2" TargetType="{x:Type Canvas}">
+            <Setter   Property="Background" >
+                <Setter.Value>
+                    <ImageBrush ImageSource="pack://siteoforigin:,,,/PictureValves/SA/rpv2-l2.jpg" Stretch="Uniform" />
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding RPV2_1.ValueState}" Value="True"/>
+                        <Condition Binding="{Binding RPV2_2.ValueState}" Value="True"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter   Property="Background" >
+                        <Setter.Value>
+                            <ImageBrush ImageSource="pack://siteoforigin:,,,/PictureValves/SA/rpv2-l2.jpg" Stretch="Uniform" />
+                        </Setter.Value>
+                    </Setter>
+                </MultiDataTrigger>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding RPV2_1.ValueState}" Value="False"/>
+                        <Condition Binding="{Binding RPV2_2.ValueState}" Value="True"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter   Property="Background" >
+                        <Setter.Value>
+                            <ImageBrush ImageSource="pack://siteoforigin:,,,/PictureValves/SA/rpv2-d2.jpg" Stretch="Uniform" />
+                        </Setter.Value>
+                    </Setter>
+                </MultiDataTrigger>
+
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding RPV2_1.ValueState}" Value="True"/>
+                        <Condition Binding="{Binding RPV2_2.ValueState}" Value="False"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter   Property="Background" >
+                        <Setter.Value>
+                            <ImageBrush ImageSource="pack://siteoforigin:,,,/PictureValves/SA/rpv2-u2.jpg" Stretch="Uniform" />
+                        </Setter.Value>
+                    </Setter>
+                </MultiDataTrigger>
+
+
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <!--<Control x:Name="MainControl" Template="{StaticResource ControlControlTemplate1}"/>
+-->
+    <Viewbox DataContext="{Binding Source={StaticResource VarRpv}}">
+        <Grid Height="680" Width="1020">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+            <Canvas Style="{StaticResource CanvasStyleRPV1}">
+
+                <pc:PultZonaButton  Command="{Binding Path=Cmd1o}" Content="ОТКР" Canvas.Left="226" Canvas.Top="45" Width="199" Height="154"  Opacity="0.015" />
+                <pc:PultZonaButton  Command="{Binding Path=Cmd1S}" Content="-&gt;" Canvas.Left="395" Canvas.Top="203" Width="124" Height="190.277"  Opacity="0.015" />
+                <pc:PultZonaButton  Command="{Binding Path=Cmd1c}" Content="ЗАКР" Canvas.Left="216" Canvas.Top="386" Width="228" Height="165.277"  Opacity="0.015" />
+            </Canvas>
+            <Canvas Grid.Column="1" Style="{StaticResource CanvasStyleRPV2}" Margin="-60,2,60,2">
+
+
+                <pc:PultZonaButton  Command="{Binding Path=Cmd2S}" Content="-&gt;" Canvas.Left="321" Canvas.Top="205" Width="124" Height="190.277"  Opacity="0.015" />
+                <pc:PultZonaButton  Command="{Binding Path=Cmd2c}" Content="ЗАКР" Canvas.Left="90" Canvas.Top="387" Width="254" Height="210" Opacity="0.015" />
+                <pc:PultZonaButton  Command="{Binding Path=Cmd2o}" Content="ОТКР" Canvas.Left="113" Canvas.Top="62" Width="231" Height="149"  Opacity="0.015" />
+            </Canvas>
+        </Grid>
+    </Viewbox>
+</UserControl>

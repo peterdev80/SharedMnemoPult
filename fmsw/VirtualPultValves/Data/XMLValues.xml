@@ -1,0 +1,656 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Поле ValvesName используется для отображения названия комманды, а так же для ассоциации с набором моделей представления   -->
+<!--                                                    FormSpaceSelector класс  ассоциации с набором моделей представления   -->
+<!--Добовляя новый клапан создаем для него Views прописываем в FormSpaceSelector и создаем на главной форме DataTemlate класса-->
+<!--Порядок следования Value важен для формирование последовательности комманд позиция отображения опр. первым вхождением     -->
+<!--| ValvesName:Название клапана     |  Locate  :признак группировки клапанов                                                -->
+<!--| VarSnd    :Переменная в модель  |  VarState:переменная из модели                                                        -->
+<!--| KeyState  :Бит в VarState       |  KeySend :бит в VarSnd                                                                -->
+<!--| Visible   :признак отображения в меню комманд (для передачи нескольких переменных в качестве обменна                    -->
+<Values>
+  <Value ValvesName="ИнПУ-1" Visible="True" Locate="ИнПУ" VarState="__FMS_WD_INPU1_LOADED" >
+    
+  </Value>
+  <Value ValvesName="ИнПУ-2" Visible="True" Locate="ИнПУ" VarState="__FMS_WD_INPU2_LOADED" >
+
+  </Value>
+  
+  <Value ValvesName="ЭПК-ПСА" Visible="True" Locate="СА" VarSnd="__KLAPAN_TO_1" VarState="__KLAPAN_1" >
+    <KeyState>
+      <BitPosValues>key4</BitPosValues>
+      <BitPosValues>key5</BitPosValues>
+      <BitPosValues>key6</BitPosValues>
+    </KeyState>
+    <KeySend>
+      <BitPosValues>key4</BitPosValues>
+      <BitPosValues>key5</BitPosValues>
+      <BitPosValues>key6</BitPosValues>
+    </KeySend>
+  </Value>
+  
+  <Value ValvesName="РПВ-1,2" Visible="True" Locate="СА" VarSnd="__KLAPAN_TO_1" VarState="__KLAPAN_1" >
+  <KeyState>
+    <BitPosValues>key7</BitPosValues>
+    <BitPosValues>key8</BitPosValues>
+    <BitPosValues>key9</BitPosValues>
+    <BitPosValues>key10</BitPosValues>
+  </KeyState>
+  <KeySend>
+    <BitPosValues>key7</BitPosValues>
+    <BitPosValues>key8</BitPosValues>
+    <BitPosValues>key9</BitPosValues>
+    <BitPosValues>key10</BitPosValues>
+    <BitPosValues>key11</BitPosValues>
+    <BitPosValues>key12</BitPosValues>
+  </KeySend>
+</Value>
+
+  <Value ValvesName="ЭПК-РД" Visible="True" Locate="СА" VarSnd="__KLAPAN_TO_1" VarState="__KLAPAN_1" >
+    <KeyState>
+      <BitPosValues>key13</BitPosValues>
+      <BitPosValues>key14</BitPosValues>
+      <BitPosValues>key15</BitPosValues>
+    </KeyState>
+    <KeySend>
+      <BitPosValues>key15</BitPosValues>
+      <BitPosValues>key16</BitPosValues>
+     </KeySend>
+  </Value>
+  <Value ValvesName="ЭПК-РД продувка" Visible="False" Locate="СА" VarSnd="__KLAPAN_TO_3" VarState="__KLAPAN_1" >
+    <KeyState>
+      <BitPosValues>key13</BitPosValues>
+      <BitPosValues>key14</BitPosValues>
+      <BitPosValues>key15</BitPosValues>
+    </KeyState>
+    <KeySend>
+      <BitPosValues>key1</BitPosValues>
+      <BitPosValues>key2</BitPosValues>
+    </KeySend>
+  </Value>
+  <Value ValvesName="ЭПК-П" Visible="True" Locate="СА" VarSnd="__KLAPAN_TO_1" VarState="__KLAPAN_1" >
+    <KeyState>
+      <BitPosValues>key11</BitPosValues>
+      <BitPosValues>key12</BitPosValues>
+     </KeyState>
+    <KeySend>
+      <BitPosValues>key13</BitPosValues>
+      <BitPosValues>key14</BitPosValues>
+    </KeySend>
+  </Value>
+  <Value ValvesName="КР-3" Visible="True" Locate="СА" VarSnd="__KLAPAN_TO_1" VarState="__KLAPAN_2" >
+    <KeyState>
+      <BitPosValues>key18</BitPosValues>
+    </KeyState>
+    <KeySend>
+      <BitPosValues>key30</BitPosValues>
+      <BitPosValues>key31</BitPosValues>
+    </KeySend>
+  </Value>
+  <Value ValvesName="БРУС" Visible="True" Locate="СА" VarSnd="__KLAPAN_TO_2" VarState="__KLAPAN_2" >
+    <KeyState>
+      <BitPosValues>key1</BitPosValues>
+      <BitPosValues>key2</BitPosValues>
+      <BitPosValues>key3</BitPosValues>
+      <BitPosValues>key4</BitPosValues>
+      <BitPosValues>key5</BitPosValues>
+      <BitPosValues>key6</BitPosValues>
+      <BitPosValues>key7</BitPosValues>
+      <BitPosValues>key8</BitPosValues>
+      <BitPosValues>key9</BitPosValues>
+      <BitPosValues>key10</BitPosValues>
+      <BitPosValues>key11</BitPosValues>
+      <BitPosValues>key12</BitPosValues>
+      <BitPosValues>key13</BitPosValues>
+      <BitPosValues>key14</BitPosValues>    
+    </KeyState>
+    <KeySend>
+      <BitPosValues>key1</BitPosValues>
+      <BitPosValues>key2</BitPosValues>
+      <BitPosValues>key3</BitPosValues>
+      <BitPosValues>key4</BitPosValues>
+      <BitPosValues>key5</BitPosValues>
+      <BitPosValues>key6</BitPosValues>
+      <BitPosValues>key7</BitPosValues>
+      <BitPosValues>key8</BitPosValues>
+      <BitPosValues>key9</BitPosValues>
+      <BitPosValues>key10</BitPosValues>
+      <BitPosValues>key11</BitPosValues>
+      <BitPosValues>key12</BitPosValues>
+      <BitPosValues>key13</BitPosValues>
+      <BitPosValues>key14</BitPosValues>
+      <BitPosValues>key15</BitPosValues>
+      <BitPosValues>key16</BitPosValues>
+      <BitPosValues>key17</BitPosValues>
+      <BitPosValues>key18</BitPosValues>
+      <BitPosValues>key19</BitPosValues>
+      <BitPosValues>key20</BitPosValues>
+      <BitPosValues>key21</BitPosValues>
+      <BitPosValues>key22</BitPosValues>
+      <BitPosValues>key23</BitPosValues>
+      <BitPosValues>key24</BitPosValues>
+      <BitPosValues>key25</BitPosValues>
+      <BitPosValues>key26</BitPosValues>
+      <BitPosValues>key27</BitPosValues>
+      <BitPosValues>key28</BitPosValues>
+    </KeySend>
+  </Value>
+  
+  <Value ValvesName="ЗДВ" Visible="True" Locate="СА"  VarSnd="__KLAPAN_TO_4" VarState="__KLAPAN_4">
+    <KeyState>
+      <BitPosValues>key1</BitPosValues>
+      <BitPosValues>key2</BitPosValues>     
+    </KeyState>
+    <KeySend>
+      <BitPosValues>key1</BitPosValues>
+      <BitPosValues>key2</BitPosValues>
+      <BitPosValues>key3</BitPosValues>
+      <BitPosValues>key4</BitPosValues>
+    </KeySend>
+  </Value>
+  <Value ValvesName="ДСД" Visible="True" Locate="СА"  VarSnd="__DSD"  ValueSendNotKey="True" VarState="__SET_DSD" ValueStateNotKey="True" >
+    
+  </Value>
+  <Value ValvesName="Нептун Прав п" Visible="False" Locate="ИнПУ" VarState="__KLAPAN_2"  VarSnd="__KLAPAN_TO_4"  ValueSendNotKey="True">
+    <KeyState>
+      <BitPosValues>key24</BitPosValues>
+      <BitPosValues>key25</BitPosValues>
+      
+    </KeyState>
+
+  </Value>
+ 
+  <Value ValvesName="Нептун Прав" Visible="True" Locate="ИнПУ" VarState="__KLAPAN_2"  VarSnd="__KLAPAN_TO_4"  ValueSendNotKey="True">
+    <KeyState>    
+      <BitPosValues>key15</BitPosValues>
+      <BitPosValues>key16</BitPosValues>
+      <BitPosValues>key17</BitPosValues>
+    </KeyState>
+    
+  </Value>
+
+  <Value ValvesName="КР-2" Visible="True" Locate="СА"  VarSnd="__KLAPAN_TO_4" VarState="__KLAPAN_4">
+    <KeyState>
+      <BitPosValues>key3</BitPosValues>
+      <BitPosValues>key4</BitPosValues>
+    </KeyState>
+    <KeySend>
+      <BitPosValues>key5</BitPosValues>
+      <BitPosValues>key6</BitPosValues>
+      <BitPosValues>key7</BitPosValues>     
+    </KeySend>
+  </Value>
+  <Value ValvesName="Люк СА БО" Visible="True" Locate="СА"  VarSnd="__KLAPAN_TO_1" VarState="__KLAPAN_1">
+    <KeyState>
+      <BitPosValues>key16</BitPosValues> <!--bo_sa-->
+      <BitPosValues>key24</BitPosValues> <!--kvd_sa_bo-->     
+      <BitPosValues>key31</BitPosValues> <!--Stopor_SA-->     
+    </KeyState>
+    <KeySend>
+      <BitPosValues>key17</BitPosValues>
+      <!--bo_sa_open-->
+      <BitPosValues>key18</BitPosValues>
+        <!--bo_sa_close-->     
+    </KeySend>
+  </Value>
+  <Value ValvesName="Люк СА БО2" Visible="False" Locate="СА"  VarSnd="__KLAPAN_TO_3" VarState="__KLAPAN_1"  ValueStateNotKey="True">
+  
+  <KeySend>
+    <BitPosValues>key3</BitPosValues>
+    <!--kvd_sa_bo_1-->
+    <BitPosValues>key4</BitPosValues>
+    <!--kvd_sa_bo_2-->
+  </KeySend>
+  </Value>
+  <Value ValvesName="Люк СА БО3" Visible="False" Locate="СА"  VarSnd="__KLAPAN_TO_4" VarState="__KLAPAN_1"  ValueStateNotKey="True">
+   <KeySend>
+      <BitPosValues>key22</BitPosValues>
+      <!--Stopor_SA_1-->
+      <BitPosValues>key23</BitPosValues>
+      <!--Stopor_SA_2-->
+    </KeySend>
+  </Value>
+
+  <Value ValvesName="БР1" Visible="True" Locate="СА"  VarSnd="__KLAPAN_TO_4" VarState="__KLAPAN_4">
+    <KeyState>
+      <BitPosValues>key8</BitPosValues>
+      <BitPosValues>key9</BitPosValues>
+      <BitPosValues>key10</BitPosValues>
+    </KeyState>
+    <KeySend>
+      <BitPosValues>key13</BitPosValues>
+      <BitPosValues>key14</BitPosValues>
+      <BitPosValues>key15</BitPosValues>
+    </KeySend>
+  </Value>
+  <Value ValvesName="РАП-10" Visible="False" Locate="СА"  VarSnd="__KLAPAN_TO_4" VarState="__KLAPAN_4">
+    <KeyState>
+      <BitPosValues>key11</BitPosValues>
+      <BitPosValues>key12</BitPosValues>
+      <BitPosValues>key13</BitPosValues>
+    </KeyState>
+    <KeySend>
+      <BitPosValues>key16</BitPosValues>
+      <BitPosValues>key17</BitPosValues>
+      <BitPosValues>key18</BitPosValues>
+    </KeySend>
+  </Value>
+  <Value ValvesName="РАП-7" Visible="True" Locate="СА"  VarSnd="__KLAPAN_TO_4" VarState="__KLAPAN_4">
+    <KeyState>
+      <BitPosValues>key7</BitPosValues>     
+    </KeyState>
+    <KeySend>
+      <BitPosValues>key11</BitPosValues>
+      <BitPosValues>key12</BitPosValues>     
+    </KeySend>
+  </Value>
+  <Value ValvesName="БАПД " Visible="True" Locate="СА"  VarSnd="__KLAPAN_TO_4" VarState="__KLAPAN_4" >
+    <KeyState>
+      <BitPosValues>key14</BitPosValues>
+      <BitPosValues>key15</BitPosValues>
+      <BitPosValues>key16</BitPosValues>
+    </KeyState>
+    <KeySend>
+      <BitPosValues>key19</BitPosValues>
+      <BitPosValues>key20</BitPosValues>
+      <BitPosValues>key21</BitPosValues>
+    </KeySend>
+  </Value>
+  
+  <Value ValvesName="КСД-БО" Visible="True" Locate="БО"  VarSnd="__KLAPAN_TO_1" VarState="__KLAPAN_1" >
+    <KeyState>
+      <BitPosValues>key1</BitPosValues>
+      <BitPosValues>key2</BitPosValues>
+      <BitPosValues>key3</BitPosValues>
+    </KeyState>
+    <KeySend>
+      <BitPosValues>key1</BitPosValues>
+      <BitPosValues>key2</BitPosValues>
+      <BitPosValues>key3</BitPosValues>
+    </KeySend>
+  </Value>
+  <Value ValvesName="КВД БО-СУ" Visible="True" Locate="БО"  VarSnd="__KLAPAN_TO_1" VarState="__KLAPAN_1" >
+    <KeyState>
+      <BitPosValues>key19</BitPosValues>
+      <BitPosValues>key20</BitPosValues>
+      <BitPosValues>key21</BitPosValues>
+      <BitPosValues>key22</BitPosValues>
+      <BitPosValues>key23</BitPosValues>
+     
+    </KeyState>
+    <KeySend>
+      <BitPosValues>key21</BitPosValues>
+      <BitPosValues>key22</BitPosValues>
+      <BitPosValues>key23</BitPosValues>
+      <BitPosValues>key24</BitPosValues>
+      <BitPosValues>key25</BitPosValues>      
+    </KeySend>
+  </Value>
+  <Value ValvesName="БРУБ" Visible="True" Locate="БО"  VarSnd="__KLAPAN_TO_3" VarState="__KLAPAN_1" >
+    <KeyState>
+      <BitPosValues>key25</BitPosValues>
+      <BitPosValues>key26</BitPosValues>
+      <BitPosValues>key27</BitPosValues>
+      <BitPosValues>key28</BitPosValues>
+      <BitPosValues>key29</BitPosValues>
+      <BitPosValues>key30</BitPosValues>
+    </KeyState>
+    <KeySend>
+      <BitPosValues>key19</BitPosValues>
+      <BitPosValues>key20</BitPosValues>
+      <BitPosValues>key21</BitPosValues>
+      <BitPosValues>key22</BitPosValues>
+      <BitPosValues>key23</BitPosValues>
+      <BitPosValues>key24</BitPosValues>
+      <BitPosValues>key25</BitPosValues>
+      <BitPosValues>key26</BitPosValues>     
+    </KeySend>
+  </Value>
+  <Value ValvesName="БРУБ2" Visible="False" Locate="БО"  VarSnd="__KLAPAN_TO_2" VarState="__KLAPAN_1" >
+    <KeyState>
+      <BitPosValues>key25</BitPosValues>
+      <BitPosValues>key26</BitPosValues>
+      <BitPosValues>key27</BitPosValues>
+      <BitPosValues>key28</BitPosValues>
+      <BitPosValues>key29</BitPosValues>
+      <BitPosValues>key30</BitPosValues>
+    </KeyState>
+    <KeySend>
+      <BitPosValues>key29</BitPosValues>
+      <BitPosValues>key30</BitPosValues>
+      <BitPosValues>key31</BitPosValues>
+      <BitPosValues>key32</BitPosValues>      
+    </KeySend>
+  </Value>
+  <Value ValvesName="Мановак." Visible="True" Locate="БО"  VarSnd="__KLAPAN_TO_1"   ValueSendNotKey="True"  VarState="__P_MANUVAK" ValueStateNotKey="True" >
+  
+  </Value>
+  <Value ValvesName="КР1" Visible="True" Locate="БО"  VarSnd="__KLAPAN_TO_4" VarState="__KLAPAN_4" >
+    <KeyState>
+      <BitPosValues>key5</BitPosValues>
+      <BitPosValues>key6</BitPosValues>     
+    </KeyState>
+    <KeySend>
+      <BitPosValues>key8</BitPosValues>
+      <BitPosValues>key9</BitPosValues>
+      <BitPosValues>key10</BitPosValues>
+    </KeySend>
+  </Value>
+  <Value ValvesName="БАПД" Visible="True" Locate="БО"  VarSnd="__KLAPAN_TO_4" VarState="__KLAPAN_4" >
+    <KeyState>
+      <BitPosValues>key14</BitPosValues>
+      <BitPosValues>key15</BitPosValues>
+      <BitPosValues>key16</BitPosValues>
+    </KeyState>
+    <KeySend>
+      <BitPosValues>key19</BitPosValues>
+      <BitPosValues>key20</BitPosValues>
+      <BitPosValues>key21</BitPosValues>
+    </KeySend>
+  </Value>
+  <Value ValvesName="Згл.КСД-СУ" Visible="True" Locate="СУ"  VarSnd="__KLAPAN_TO_3" VarState="__KLAPAN_2" >
+    <KeyState>
+      <BitPosValues>key21</BitPosValues>
+     
+    </KeyState>
+    <KeySend>
+      <BitPosValues>key9</BitPosValues>
+      <BitPosValues>key10</BitPosValues>
+      
+    </KeySend>
+  </Value>
+  <Value ValvesName="ВСЕ" Visible="True" Locate="ООФ"  VarSnd="__KLAPAN_TO_1" VarState="__KLAPAN_1" >
+    <KeyState>
+      <BitPosValues>key1</BitPosValues>
+      <BitPosValues>key2</BitPosValues>
+      <BitPosValues>key3</BitPosValues>
+      <BitPosValues>key4</BitPosValues>
+      <BitPosValues>key5</BitPosValues>
+      <BitPosValues>key6</BitPosValues>
+      <BitPosValues>key7</BitPosValues>
+      <BitPosValues>key8</BitPosValues>
+      <BitPosValues>key9</BitPosValues>
+      <BitPosValues>key10</BitPosValues>
+      <BitPosValues>key11</BitPosValues>
+      <BitPosValues>key12</BitPosValues>
+      <BitPosValues>key13</BitPosValues>
+      <BitPosValues>key14</BitPosValues>
+      <BitPosValues>key15</BitPosValues>
+      <BitPosValues>key16</BitPosValues>
+      <BitPosValues>key17</BitPosValues>
+      <BitPosValues>key18</BitPosValues>
+      <BitPosValues>key19</BitPosValues>
+      <BitPosValues>key20</BitPosValues>
+      <BitPosValues>key21</BitPosValues>
+      <BitPosValues>key22</BitPosValues>
+      <BitPosValues>key23</BitPosValues>
+      <BitPosValues>key24</BitPosValues>
+      <BitPosValues>key25</BitPosValues>
+      <BitPosValues>key26</BitPosValues>
+      <BitPosValues>key27</BitPosValues>
+      <BitPosValues>key28</BitPosValues>
+      <BitPosValues>key29</BitPosValues>
+      <BitPosValues>key30</BitPosValues>
+      <BitPosValues>key31</BitPosValues>
+      <BitPosValues>key32</BitPosValues>
+    </KeyState>
+    <KeySend>
+      <BitPosValues>key1</BitPosValues>
+      <BitPosValues>key2</BitPosValues>
+      <BitPosValues>key3</BitPosValues>
+      <BitPosValues>key4</BitPosValues>
+      <BitPosValues>key5</BitPosValues>
+      <BitPosValues>key6</BitPosValues>
+      <BitPosValues>key7</BitPosValues>
+      <BitPosValues>key8</BitPosValues>
+      <BitPosValues>key9</BitPosValues>
+      <BitPosValues>key10</BitPosValues>
+      <BitPosValues>key11</BitPosValues>
+      <BitPosValues>key12</BitPosValues>
+      <BitPosValues>key13</BitPosValues>
+      <BitPosValues>key14</BitPosValues>
+      <BitPosValues>key15</BitPosValues>
+      <BitPosValues>key16</BitPosValues>
+      <BitPosValues>key17</BitPosValues>
+      <BitPosValues>key18</BitPosValues>
+      <BitPosValues>key19</BitPosValues>
+      <BitPosValues>key20</BitPosValues>
+      <BitPosValues>key21</BitPosValues>
+      <BitPosValues>key22</BitPosValues>
+      <BitPosValues>key23</BitPosValues>
+      <BitPosValues>key24</BitPosValues>
+      <BitPosValues>key25</BitPosValues>
+      <BitPosValues>key26</BitPosValues>
+      <BitPosValues>key27</BitPosValues>
+      <BitPosValues>key28</BitPosValues>
+      <BitPosValues>key29</BitPosValues>
+      <BitPosValues>key30</BitPosValues>
+      <BitPosValues>key31</BitPosValues>
+      <BitPosValues>key32</BitPosValues>
+    </KeySend>
+  </Value>
+  <Value ValvesName="ВСЕ2" Visible="False" Locate="ООФ"  VarSnd="__KLAPAN_TO_2" VarState="__KLAPAN_2" >
+    <KeyState>
+      <BitPosValues>key1</BitPosValues>
+      <BitPosValues>key2</BitPosValues>
+      <BitPosValues>key3</BitPosValues>
+      <BitPosValues>key4</BitPosValues>
+      <BitPosValues>key5</BitPosValues>
+      <BitPosValues>key6</BitPosValues>
+      <BitPosValues>key7</BitPosValues>
+      <BitPosValues>key8</BitPosValues>
+      <BitPosValues>key9</BitPosValues>
+      <BitPosValues>key10</BitPosValues>
+      <BitPosValues>key11</BitPosValues>
+      <BitPosValues>key12</BitPosValues>
+      <BitPosValues>key13</BitPosValues>
+      <BitPosValues>key14</BitPosValues>
+      <BitPosValues>key15</BitPosValues>
+      <BitPosValues>key16</BitPosValues>
+      <BitPosValues>key17</BitPosValues>
+      <BitPosValues>key18</BitPosValues>
+      <BitPosValues>key19</BitPosValues>
+      <BitPosValues>key20</BitPosValues>
+      <BitPosValues>key21</BitPosValues>
+      <BitPosValues>key22</BitPosValues>
+      <BitPosValues>key23</BitPosValues>
+      <BitPosValues>key24</BitPosValues>
+      <BitPosValues>key25</BitPosValues>
+      <BitPosValues>key26</BitPosValues>
+      <BitPosValues>key27</BitPosValues>
+      <BitPosValues>key28</BitPosValues>
+      <BitPosValues>key29</BitPosValues>
+      <BitPosValues>key30</BitPosValues>
+      <BitPosValues>key31</BitPosValues>
+      <BitPosValues>key32</BitPosValues>
+    </KeyState>
+    <KeySend>
+      <BitPosValues>key1</BitPosValues>
+      <BitPosValues>key2</BitPosValues>
+      <BitPosValues>key3</BitPosValues>
+      <BitPosValues>key4</BitPosValues>
+      <BitPosValues>key5</BitPosValues>
+      <BitPosValues>key6</BitPosValues>
+      <BitPosValues>key7</BitPosValues>
+      <BitPosValues>key8</BitPosValues>
+      <BitPosValues>key9</BitPosValues>
+      <BitPosValues>key10</BitPosValues>
+      <BitPosValues>key11</BitPosValues>
+      <BitPosValues>key12</BitPosValues>
+      <BitPosValues>key13</BitPosValues>
+      <BitPosValues>key14</BitPosValues>
+      <BitPosValues>key15</BitPosValues>
+      <BitPosValues>key16</BitPosValues>
+      <BitPosValues>key17</BitPosValues>
+      <BitPosValues>key18</BitPosValues>
+      <BitPosValues>key19</BitPosValues>
+      <BitPosValues>key20</BitPosValues>
+      <BitPosValues>key21</BitPosValues>
+      <BitPosValues>key22</BitPosValues>
+      <BitPosValues>key23</BitPosValues>
+      <BitPosValues>key24</BitPosValues>
+      <BitPosValues>key25</BitPosValues>
+      <BitPosValues>key26</BitPosValues>
+      <BitPosValues>key27</BitPosValues>
+      <BitPosValues>key28</BitPosValues>
+      <BitPosValues>key29</BitPosValues>
+      <BitPosValues>key30</BitPosValues>
+      <BitPosValues>key31</BitPosValues>
+      <BitPosValues>key32</BitPosValues>
+    </KeySend>
+  </Value>
+  <Value ValvesName="ВСЕ3" Visible="False" Locate="ООФ"  VarSnd="__KLAPAN_TO_3"  VarState="__P_MANUVAK" ValueStateNotKey="True" >
+    <KeyState>
+      <BitPosValues>key1</BitPosValues>
+      <BitPosValues>key2</BitPosValues>
+      <BitPosValues>key3</BitPosValues>
+      <BitPosValues>key4</BitPosValues>
+      <BitPosValues>key5</BitPosValues>
+      <BitPosValues>key6</BitPosValues>
+      <BitPosValues>key7</BitPosValues>
+      <BitPosValues>key8</BitPosValues>
+      <BitPosValues>key9</BitPosValues>
+      <BitPosValues>key10</BitPosValues>
+      <BitPosValues>key11</BitPosValues>
+      <BitPosValues>key12</BitPosValues>
+      <BitPosValues>key13</BitPosValues>
+      <BitPosValues>key14</BitPosValues>
+      <BitPosValues>key15</BitPosValues>
+      <BitPosValues>key16</BitPosValues>
+      <BitPosValues>key17</BitPosValues>
+      <BitPosValues>key18</BitPosValues>
+      <BitPosValues>key19</BitPosValues>
+      <BitPosValues>key20</BitPosValues>
+      <BitPosValues>key21</BitPosValues>
+      <BitPosValues>key22</BitPosValues>
+      <BitPosValues>key23</BitPosValues>
+      <BitPosValues>key24</BitPosValues>
+      <BitPosValues>key25</BitPosValues>
+      <BitPosValues>key26</BitPosValues>
+      <BitPosValues>key27</BitPosValues>
+      <BitPosValues>key28</BitPosValues>
+      <BitPosValues>key29</BitPosValues>
+      <BitPosValues>key30</BitPosValues>
+      <BitPosValues>key31</BitPosValues>
+      <BitPosValues>key32</BitPosValues>
+    </KeyState>
+    <KeySend>
+      <BitPosValues>key1</BitPosValues>
+      <BitPosValues>key2</BitPosValues>
+      <BitPosValues>key3</BitPosValues>
+      <BitPosValues>key4</BitPosValues>
+      <BitPosValues>key5</BitPosValues>
+      <BitPosValues>key6</BitPosValues>
+      <BitPosValues>key7</BitPosValues>
+      <BitPosValues>key8</BitPosValues>
+      <BitPosValues>key9</BitPosValues>
+      <BitPosValues>key10</BitPosValues>
+      <BitPosValues>key11</BitPosValues>
+      <BitPosValues>key12</BitPosValues>
+      <BitPosValues>key13</BitPosValues>
+      <BitPosValues>key14</BitPosValues>
+      <BitPosValues>key15</BitPosValues>
+      <BitPosValues>key16</BitPosValues>
+      <BitPosValues>key17</BitPosValues>
+      <BitPosValues>key18</BitPosValues>
+      <BitPosValues>key19</BitPosValues>
+      <BitPosValues>key20</BitPosValues>
+      <BitPosValues>key21</BitPosValues>
+      <BitPosValues>key22</BitPosValues>
+      <BitPosValues>key23</BitPosValues>
+      <BitPosValues>key24</BitPosValues>
+      <BitPosValues>key25</BitPosValues>
+      <BitPosValues>key26</BitPosValues>
+      <BitPosValues>key27</BitPosValues>
+      <BitPosValues>key28</BitPosValues>
+      <BitPosValues>key29</BitPosValues>
+      <BitPosValues>key30</BitPosValues>
+      <BitPosValues>key31</BitPosValues>
+      <BitPosValues>key32</BitPosValues>
+    </KeySend>
+  </Value>
+  <Value ValvesName="ВСЕ4" Visible="False" Locate="ООФ"  VarSnd="__KLAPAN_TO_4" VarState="__KLAPAN_4" >
+    <KeyState>
+      <BitPosValues>key1</BitPosValues>
+      <BitPosValues>key2</BitPosValues>
+      <BitPosValues>key3</BitPosValues>
+      <BitPosValues>key4</BitPosValues>
+      <BitPosValues>key5</BitPosValues>
+      <BitPosValues>key6</BitPosValues>
+      <BitPosValues>key7</BitPosValues>
+      <BitPosValues>key8</BitPosValues>
+      <BitPosValues>key9</BitPosValues>
+      <BitPosValues>key10</BitPosValues>
+      <BitPosValues>key11</BitPosValues>
+      <BitPosValues>key12</BitPosValues>
+      <BitPosValues>key13</BitPosValues>
+      <BitPosValues>key14</BitPosValues>
+      <BitPosValues>key15</BitPosValues>
+      <BitPosValues>key16</BitPosValues>
+      <BitPosValues>key17</BitPosValues>
+      <BitPosValues>key18</BitPosValues>
+      <BitPosValues>key19</BitPosValues>
+      <BitPosValues>key20</BitPosValues>
+      <BitPosValues>key21</BitPosValues>
+      <BitPosValues>key22</BitPosValues>
+      <BitPosValues>key23</BitPosValues>
+      <BitPosValues>key24</BitPosValues>
+      <BitPosValues>key25</BitPosValues>
+      <BitPosValues>key26</BitPosValues>
+      <BitPosValues>key27</BitPosValues>
+      <BitPosValues>key28</BitPosValues>
+      <BitPosValues>key29</BitPosValues>
+      <BitPosValues>key30</BitPosValues>
+      <BitPosValues>key31</BitPosValues>
+      <BitPosValues>key32</BitPosValues>
+    </KeyState>
+    <KeySend>
+      <BitPosValues>key1</BitPosValues>
+      <BitPosValues>key2</BitPosValues>
+      <BitPosValues>key3</BitPosValues>
+      <BitPosValues>key4</BitPosValues>
+      <BitPosValues>key5</BitPosValues>
+      <BitPosValues>key6</BitPosValues>
+      <BitPosValues>key7</BitPosValues>
+      <BitPosValues>key8</BitPosValues>
+      <BitPosValues>key9</BitPosValues>
+      <BitPosValues>key10</BitPosValues>
+      <BitPosValues>key11</BitPosValues>
+      <BitPosValues>key12</BitPosValues>
+      <BitPosValues>key13</BitPosValues>
+      <BitPosValues>key14</BitPosValues>
+      <BitPosValues>key15</BitPosValues>
+      <BitPosValues>key16</BitPosValues>
+      <BitPosValues>key17</BitPosValues>
+      <BitPosValues>key18</BitPosValues>
+      <BitPosValues>key19</BitPosValues>
+      <BitPosValues>key20</BitPosValues>
+      <BitPosValues>key21</BitPosValues>
+      <BitPosValues>key22</BitPosValues>
+      <BitPosValues>key23</BitPosValues>
+      <BitPosValues>key24</BitPosValues>
+      <BitPosValues>key25</BitPosValues>
+      <BitPosValues>key26</BitPosValues>
+      <BitPosValues>key27</BitPosValues>
+      <BitPosValues>key28</BitPosValues>
+      <BitPosValues>key29</BitPosValues>
+      <BitPosValues>key30</BitPosValues>
+      <BitPosValues>key31</BitPosValues>
+      <BitPosValues>key32</BitPosValues>
+    </KeySend>
+  </Value>
+  <Value ValvesName="Voltmetr" Visible="False" Locate="ООФ"  VarSnd="__KLAPAN_TO_1"  ValueSendNotKey="True"  VarState="__SET_U_VOLTM"  ValueStateNotKey="True" >
+    <KeyState>
+      <BitPosValues>key1</BitPosValues>
+      <BitPosValues>key2</BitPosValues>
+      <BitPosValues>key3</BitPosValues>
+    </KeyState>
+    <KeySend>
+      <BitPosValues>key4</BitPosValues>
+      <BitPosValues>key5</BitPosValues>
+      <BitPosValues>key6</BitPosValues>
+    </KeySend>
+  </Value>
+  <Value ValvesName="РУС" Visible="True" Locate="ИнПУ"  VarSnd="__BUTTON_RUS"  ValueSendNotKey="True" VarState="__SET_DSD" ValueStateNotKey="True" >
+
+  </Value>
+</Values>

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+	<_ModelDirIncludes Condition="Exists('..\Model\def_vars.h')">..\Model</_ModelDirIncludes>
+	<_ModelDirIncludes Condition="'$(_ModelDirIncludes)' == '' and Exists('$(MSBuildThisFileDirectory)..\Model\def_vars.h')">$(MSBuildThisFileDirectory)..\Model</_ModelDirIncludes>
+
+	<_ModelControl  Condition="Exists('..\Model\init_ptr.c')">..\Model</_ModelControl>
+
+	<_ModelSpecial Condition="Exists('..\Model\special')">..\Model\special</_ModelSpecial>
+
+	<_ModelKC020 Condition="Exists('..\Model\libkc020')">..\Model\libkc020</_ModelKC020>
+	<_ModelKC020 Condition="'$(_ModelKC020)' == '' and Exists('$(MSBuildThisFileDirectory)..\Model\libkc020')">$(MSBuildThisFileDirectory)..\Model\libkc020</_ModelKC020>
+	<_ModelKC020 Condition="'$(_ModelKC020)' == '' and Exists('$(MSBuildThisFileDirectory)..\libkc020')">$(MSBuildThisFileDirectory)..\libkc020</_ModelKC020>
+
+	<_ModelLinkInpu Condition="Exists('.\io_neptun')">io_neptun</_ModelLinkInpu>
+	<_ModelLinkInpu Condition="'$(_ModelLinkInpu)' == '' and Exists('..\libext\io_neptun')">..\libext\io_neptun</_ModelLinkInpu>
+
+	<_ModelModes>..\Model\modes</_ModelModes>
+
+	<_ModelLibDir Condition="Exists('..\ModelLib')">..\ModelLib</_ModelLibDir>
+	<_ModelLibDir Condition="'$(_ModelLibDir)' == '' and Exists('$(MSBuildThisFileDirectory)..\ModelLib')">$(MSBuildThisFileDirectory)..\ModelLib</_ModelLibDir>
+
+	<_LibExtDir Condition="Exists('..\libext')">..\libext</_LibExtDir>
+	<_LibExtDir Condition="'$(_LibExtDir)' == '' and Exists('$(MSBuildThisFileDirectory)..\libext')">$(MSBuildThisFileDirectory)..\libext</_LibExtDir>
+	
+	<_LibKC020Dir Condition="Exists('..\libkc020')">..\libkc020</_LibKC020Dir>
+
+	<_ModelOBC101>..\Model\obc101</_ModelOBC101>
+
+	<ModelDirIncludes>$(_ModelDirIncludes)</ModelDirIncludes>
+	<ModelControl>$(_ModelControl)</ModelControl>
+	<ModelSpecial>$(_ModelSpecial)</ModelSpecial>
+	<ModelKC020>$(_ModelKC020)</ModelKC020>
+	<ModelLinkInpu>$(_ModelLinkInpu)</ModelLinkInpu>
+	<ModelModes>$(_ModelModes)</ModelModes>
+
+	<ModelLibDir>$(_ModelLibDir)</ModelLibDir>
+	<LibExtDir>$(_LibExtDir)</LibExtDir>
+	<LibKC020Dir>$(_LibKC020Dir)</LibKC020Dir>
+
+	<ModelOBC101>$(_ModelOBC101)</ModelOBC101>
+
+  </PropertyGroup>
+
+  <Import Project="$(MSBuildThisFileDirectory)ModelDirsOverride.targets" Condition="Exists('$(MSBuildThisFileDirectory)ModelDirsOverride.targets')" />
+
+  <PropertyGroup>
+  	<_ModelLibOutDir>$(ModelLibDir)\bin\$(Configuration)</_ModelLibOutDir>
+	<_ModelLibObjDir>$(ModelLibDir)\obj\$(Configuration)</_ModelLibObjDir>
+  	<_LibKC020OutDir>$(LibKC020Dir)\bin\$(Configuration)</_LibKC020OutDir>
+  	<_LibExtOutDir>$(LibExtDir)\bin\$(Configuration)</_LibExtOutDir>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(FMSObjDir)' != ''">
+   	<_ModelLibOutDir>$(FMSObjDir)\Model\ModelLib\bin\$(Configuration)</_ModelLibOutDir>
+	<_ModelLibObjDir>$(FMSObjDir)\Model\ModelLib\obj\$(Configuration)</_ModelLibObjDir>
+   	<_LibKC020OutDir>$(FMSObjDir)\Model\libkc020\bin\$(Configuration)</_LibKC020OutDir>
+  	<_LibExtOutDir>$(FMSObjDir)\Model\libext\bin\$(Configuration)</_LibExtOutDir>
+  </PropertyGroup>
+
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ModelDirIncludes);$(ModelLibDir)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);$(_ModelLibOutDir);$(_LibKC020OutDir);$(_LibExtOutDir)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+
+</Project>

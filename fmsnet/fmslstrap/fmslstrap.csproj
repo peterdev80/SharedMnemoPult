@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{21FBB563-FA40-4875-ABA3-E5588E52EBC5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>fmslstrap</RootNamespace>
+    <AssemblyName>fmslstrap</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <_FMSObjDir Condition="'$(FMSObjDir)' != ''">$(FMSObjDir)\fmsnet\fmslstrap\</_FMSObjDir>
+    <OutputPath>$(_FMSObjDir)bin\$(Configuration)\</OutputPath>
+    <BaseIntermediateOutputPath>$(_FMSObjDir)obj\</BaseIntermediateOutputPath>
+    <CodeAnalysisRuleSet>..\..\CodeRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>none</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Administrator\AdmChannel.cs" />
+    <Compile Include="Administrator\BootstrapDeploy.cs" />
+    <Compile Include="AdmLocChannel.cs" />
+    <Compile Include="Channel\ChanConfig.cs" />
+    <Compile Include="Channel\ChannelChangeEventArgs.cs" />
+    <Compile Include="Channel\ChannelSocket.cs" />
+    <Compile Include="Channel\ChannelType.cs" />
+    <Compile Include="Channel\EndPointEntry.cs" />
+    <Compile Include="Channel\DataPacket.cs" />
+    <Compile Include="Channel\SeparateSocket.cs" />
+    <Compile Include="Channel\Subnet.cs" />
+    <Compile Include="CommandSocket\BaseCommand.cs" />
+    <Compile Include="CommandSocket\CommandSocket.cs" />
+    <Compile Include="CommandSocket\PeerCommands\BootstrapDiscoveryCmd.cs" />
+    <Compile Include="CommandSocket\PeerCommands\NeighDiscCmd.cs" />
+    <Compile Include="CommandSocket\PeerCommands\PeerHostConfCmd.cs" />
+    <Compile Include="CommandSocket\PeerCommands\PeerMembershipReqCmd.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="Channel\EndPointsList.cs" />
+    <Compile Include="Configuration\ConfigKey.cs" />
+    <Compile Include="Configuration\ConfigSection.cs" />
+    <Compile Include="Configuration\ConfigurationManager.cs" />
+    <Compile Include="Configuration\MultiFileWatcher.cs" />
+    <Compile Include="ConsoleRedirector.cs" />
+    <Compile Include="Interface\GlobalState.cs" />
+    <Compile Include="Interface\InterfaceManager.cs" />
+    <Compile Include="Interface\MenuItem.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="Manager.cs" />
+    <Compile Include="Pipe\CmdLine.cs" />
+    <Compile Include="Pipe\IClientTransport.cs" />
+    <Compile Include="Pipe\ManagerExtensions.cs" />
+    <Compile Include="Pipe\PipeManager.cs" />
+    <Compile Include="Pipe\PipeManager.Variables.cs" />
+    <Compile Include="Pipe\PipeTransport.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tasks\AppDomainTask.cs" />
+    <Compile Include="Tasks\AppDomainTaskTransport.cs" />
+    <Compile Include="Tasks\AppDomGlue.cs" />
+    <Compile Include="Tasks\LogConsoleWriter.cs" />
+    <Compile Include="Tasks\ProcTaskBase.cs" />
+    <Compile Include="Tasks\SeparateProcessTask.cs" />
+    <Compile Include="Tasks\ShellExecTask.cs" />
+    <Compile Include="Tasks\Task.cs" />
+    <Compile Include="Tasks\TasksManager.cs" />
+    <Compile Include="Variables\CrossProcessReaderWriterLock.cs" />
+    <Compile Include="Variables\SnapshotsManager.cs" />
+    <Compile Include="Variables\Variable.cs" />
+    <Compile Include="Variables\VariablesManager.cs" />
+    <Compile Include="Variables\VariablesTable.cs" />
+    <Compile Include="Variables\VariablesTable.Privates.cs" />
+    <Compile Include="Variables\VarTypes\AVar.cs" />
+    <Compile Include="Variables\VarTypes\BVar.cs" />
+    <Compile Include="Variables\VarTypes\CVar.cs" />
+    <Compile Include="Variables\VarTypes\DVar.cs" />
+    <Compile Include="Variables\VarTypes\FVar.cs" />
+    <Compile Include="Variables\VarTypes\IVar.cs" />
+    <Compile Include="Variables\VarTypes\KVar.cs" />
+    <Compile Include="Variables\VarTypes\LVar.cs" />
+    <Compile Include="Variables\VarTypes\SVar.cs" />
+    <Compile Include="Variables\VarTypes\TVar.cs" />
+    <Compile Include="Variables\VarTypes\WVar.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\fmsldr\fmsldr.csproj">
+      <Project>{ACF2362E-28F8-45F1-A289-7F77BCFA05CA}</Project>
+      <Name>fmsldr</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <VariablesTable Include="Variables\VarMaps\Commands.65001.txt" />
+    <VariablesTable Include="Variables\VarMaps\Input_Neptun from model.1251.txt" />
+    <VariablesTable Include="Variables\VarMaps\Output_Neptun to model.1251.txt" />
+    <VariablesTable Include="Variables\VarMaps\Tests.65001.txt" />
+    <VariablesTable Include="Variables\VarMaps\USO_FromModel.1251.txt" />
+    <VariablesTable Include="Variables\VarMaps\USO_ToModel.1251.txt" />
+    <VariablesTable Include="Variables\VarMaps\USO_ToNeptun.1251.txt" />
+    <VariablesTable Include="Variables\VarMaps\MNEMO_FromModel.1251.txt" />
+    <VariablesTable Include="Variables\VarMaps\MNEMO_ToModel.1251.txt" />
+    <VariablesTable Include="Variables\VarMaps\VarModelMeta.65001.txt" />
+    <VariablesTable Include="Variables\VarMaps\Control.65001.txt" />
+    <VariablesTable Include="Variables\VarMaps\INSTR_FromModel.1251.txt" />
+    <VariablesTable Include="Variables\VarMaps\INSTR_ToModel.1251.txt" />
+    <VariablesTable Include="Variables\VarMaps\Tusks.1251.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <GZipSource Include="Configuration\PredefinedConfig.ini">
+      <LogicalName>PredefinedConfig</LogicalName>
+    </GZipSource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Канальные команды.txt" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(ProjectDir)..\..\BuildTools\buildtools.targets" />
+  <PropertyGroup>
+    <GlueLibrary>$(IntermediateOutputPath)glue.dll</GlueLibrary>
+    <GluePDB>$(IntermediateOutputPath)glue.pdb</GluePDB>
+  </PropertyGroup>
+  <ItemGroup>
+    <GlueSource Include="Glue\**\*.cs" />
+  </ItemGroup>
+  <Target Name="CompileGlue" Inputs="@(GlueSource)" Outputs="$(GlueLibrary)">
+    <ItemGroup>
+      <FMSLDRProject Include="@(ProjectReferenceWithConfiguration)" Condition="'%(ProjectReferenceWithConfiguration.Name)' == 'fmsldr'" />
+    </ItemGroup>
+    <PropertyGroup>
+      <GlueDebugType>none</GlueDebugType>
+      <GlueDebugType Condition="'$(Configuration)' == 'Debug'">full</GlueDebugType>
+      <GlueOptimize Condition="'$(Configuration)' != 'Debug'">true</GlueOptimize>
+      <GluePDB Condition="'$(Configuration)' != 'Debug'">
+      </GluePDB>
+    </PropertyGroup>
+    <MSBuild Projects="@(FMSLDRProject)" Targets="Build" RebaseOutputs="True" Properties="Configuration=%(FMSLDRProject.Configuration);Platform=%(FMSLDRProject.Platform)" UseResultsCache="True">
+      <Output TaskParameter="TargetOutputs" ItemName="FMSLDRReference" />
+    </MSBuild>
+    <Copy SourceFiles="@(FMSLDRReference)" DestinationFolder="$(IntermediateOutputPath)" SkipUnchangedFiles="True" />
+    <Csc DebugType="$(GlueDebugType)" Optimize="$(GlueOptimize)" OutputAssembly="$(GlueLibrary)" PdbFile="$(GluePDB)" References="$(IntermediateOutputPath)fmsldr.exe" Sources="@(GlueSource)" TargetType="library" />
+  </Target>
+  <PropertyGroup>
+    <PrepareResourcesDependsOn>cmpglue;$(PrepareResourcesDependsOn);</PrepareResourcesDependsOn>
+    <CoreCompileDependsOn>$(CoreCompileDependsOn);cmpglue</CoreCompileDependsOn>
+  </PropertyGroup>
+  <Target Name="cmpglue" BeforeTargets="Compile;CoreCompile" DependsOnTargets="EnsureBuildTools;CompileGlue">
+    <ItemGroup>
+      <BuildOutputPaths Remove="@(BuildOutputPaths)" />
+      <BuildOutputs Remove="@(BuildOutputs)" />
+      <EmbeddedResource4ZIP Remove="@(EmbeddedResource4ZIP)" />
+      <EmbeddedResource4ZIP Include="$(GlueLibrary)">
+        <LogicalName>glue</LogicalName>
+      </EmbeddedResource4ZIP>
+    </ItemGroup>
+    <GZipCompress Input="@(EmbeddedResource4ZIP)" Output="@(EmbeddedResource4ZIP->'$(IntermediateOutputPath)%(LogicalName)')" Condition="'@(EmbeddedResource4ZIP)' != ''">
+      <Output TaskParameter="Output" ItemName="EmbeddedResource" />
+    </GZipCompress>
+  </Target>
+  <PropertyGroup>
+    <AssignTargetPathsDependsOn>$(AssignTargetPathsDependsOn);AddFMSResources</AssignTargetPathsDependsOn>
+  </PropertyGroup>
+  <Target Name="GenerateFMSResources" Inputs="$(FMSConfigFilePath)" Outputs="$(IntermediateOutputPath)/resgen.resx">
+    <PropertyGroup>
+      <_fmsresgen>$([System.IO.File]::ReadAllText('$(MSBuildThisFileDirectory)\Properties\resgen.resx'))</_fmsresgen>
+      <_fmsresgen>$([System.Text.RegularExpressions.Regex]::Replace($(_fmsresgen), '_FMSVERSION_', $(FMSVersion)))</_fmsresgen>
+    </PropertyGroup>
+    <WriteLinesToFile File="$(IntermediateOutputPath)/resgen.resx" Lines="$(_fmsresgen)" Overwrite="True" />
+  </Target>
+  <Target Name="AddFMSResources">
+    <CallTarget Targets="GenerateFMSResources" />
+    <ItemGroup>
+      <EmbeddedResource Include="$(IntermediateOutputPath)/resgen.resx">
+        <LogicalName>fmsresgen.resources</LogicalName>
+      </EmbeddedResource>
+    </ItemGroup>
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

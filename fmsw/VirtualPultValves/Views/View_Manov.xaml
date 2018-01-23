@@ -1,0 +1,98 @@
+﻿<UserControl x:Class="VirtualPultValves.Views.View_Manov"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+              xmlns:my="clr-namespace:VirtualPultValves"
+            xmlns:vm="clr-namespace:VirtualPultValves.ViewModel">
+
+    <UserControl.Resources>
+        <vm:ViewModel_Manov x:Key="VarManov" />
+        <my:ManovToGradus x:Key="ConverterInpu"/>
+        <my:ManovIntToBool x:Key="Converter2Manov"/>
+        <ControlTemplate x:Key="ProgressBarControlTemplate1" TargetType="{x:Type ProgressBar}">
+            <Grid Height="Auto"
+				Width="Auto" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.244*"/>
+                    <ColumnDefinition Width="0.525*"/>
+                    <ColumnDefinition Width="0.231*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.Background>
+                    <ImageBrush Stretch="Uniform"/>
+                </Grid.Background>
+
+                <Image VerticalAlignment="Stretch" Grid.ColumnSpan="3" Source="pack://siteoforigin:,,,/PictureValves/BO/MANOV.png" />
+
+
+                <Path x:Name="arow1" Grid.Column="1" Data="M0,2.7175 L2.7174999,0 L2.7174999,1.35875 L8.6749998,1.35875 L8.6749998,4.07625 L2.7174999,4.07625 L2.7174999,5.4350001 z" Fill="#FF784F55" HorizontalAlignment="Left" Height="5.435" Margin="56.711,200.531,0,0" RenderTransformOrigin="0.395,-1.129" Stretch="Fill" VerticalAlignment="Top" Width="8.675" >
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-69.631"/>
+                            <TranslateTransform X="-7.708" Y="6.627"/>
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                </Path>
+
+                <Canvas Width="0" Height="0"   Grid.Column="0"  Grid.ColumnSpan="3" 
+			  		 >
+
+                    <Rectangle x:Name="PART_Track" Width="360" />
+                    <Rectangle x:Name="PART_Indicator" />
+                    <Polygon Points="90,1 90,-1 -150,0"
+			  			Stroke="Black" Fill="#FF333333" RenderTransformOrigin="0,0">
+                        <Polygon.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform  Angle="{Binding ActualWidth, Converter={StaticResource ConverterInpu}, ElementName=PART_Indicator}" />
+                            </TransformGroup>
+                        </Polygon.RenderTransform>
+                    </Polygon>
+
+                </Canvas>
+                <Path x:Name="arow2" Grid.Column="1" Data="M0,2.7175 L2.7174999,0 L2.7174999,1.35875 L8.6749998,1.35875 L8.6749998,4.07625 L2.7174999,4.07625 L2.7174999,5.4350001 z" Fill="#FF784F55" HorizontalAlignment="Left" Height="5.435" Margin="40.976,196.731,0,0" RenderTransformOrigin="0.499999989006636,0.500000005264072" Stretch="Fill" VerticalAlignment="Top" Width="8.675" Visibility="Hidden" >
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-71.623"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                </Path>
+            </Grid>
+
+            <ControlTemplate.Triggers>
+                <DataTrigger Binding="{Binding  ActualWidth, Converter={StaticResource Converter2Manov}, ElementName=PART_Indicator}"  Value="True" >
+                    <Setter TargetName="arow1" Property="Visibility" Value="Hidden"/>
+                    <Setter TargetName="arow2" Property="Visibility" Value="Visible"/>
+                </DataTrigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+    </UserControl.Resources>
+
+    <Viewbox>
+        <Canvas Height="576" Width="776">
+            <Canvas.Background>
+                <ImageBrush ImageSource="pack://siteoforigin:,,,/PictureValves/BO/manovakumetr.jpg" />
+            </Canvas.Background>
+            <ProgressBar Template="{StaticResource ProgressBarControlTemplate1}" Maximum="1000" Value="{Binding Path=Manov.ValueState, Source={StaticResource VarManov}}" RenderTransformOrigin="0.518,0.512" SmallChange="1" Background="{x:Null}" Height="453.781" Width="558.333" Canvas.Left="97.667" Canvas.Top="90.219"  >
+                <ProgressBar.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="65.556"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </ProgressBar.RenderTransform>
+            </ProgressBar>
+        </Canvas>
+    </Viewbox>
+
+
+</UserControl>

@@ -1,0 +1,1072 @@
+﻿<UserControl x:Class="VirtualPultValves.Views.View_InPU"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:pc="clr-namespace:VirtualPultValves.PultControl"
+             xmlns:my="clr-namespace:VirtualPultValves"
+             xmlns:mv="clr-namespace:VirtualPultValves.Views"       
+             xmlns:avm="clr-namespace:VirtualPultValves.ViewModel"
+             xmlns:mm="clr-namespace:VirtualPultValves.Model" Loaded="UserControl_Loaded" PreviewKeyDown="UserControl_KeyDown">
+    <UserControl.Resources>
+        <avm:ViewModel_InPU x:Key="vInPU"/>
+
+        <!-- <mm:TransporantModel x:Key="rTC" ActiveColor="Red" PassiveColor="Silver" TransporantName="ЦО" VarVal="__SET_CENTR_OGON"/>-->
+        <Style x:Key="PultGlassButtonStyle1" TargetType="{x:Type pc:PultGlassButton}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type pc:PultGlassButton}">
+
+                        <ControlTemplate.Resources>
+                            <LinearGradientBrush x:Key="SolidColorBolder" EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" SpreadMethod="Repeat" StartPoint="0.5,0">
+                                <GradientStop Color="#FF82957F" Offset="0.977"/>
+                                <GradientStop Color="#FF010201"/>
+                            </LinearGradientBrush>
+                        </ControlTemplate.Resources>
+
+
+
+
+
+
+                        <Border x:Name= "border" 
+        					BorderBrush="#FF000000" 
+        					BorderThickness="1,1,1,1" Margin="0,0,2,2" Background="Black">
+
+
+                            <Grid x:Name="GridBtn" RenderTransformOrigin="0.5,0.5">
+                                <Grid.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Grid.RenderTransform>
+
+                                <Grid.ColumnDefinitions>
+
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="15*"/>
+                                    <ColumnDefinition Width="1*"/>
+
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="15*"/>
+                                    <RowDefinition Height="1*"/>
+                                </Grid.RowDefinitions>
+
+
+
+
+
+
+                                <!-- Р В Р’В Р вЂ™Р’В Р В Р’В Р РЋРІР‚ВР В Р Р‹Р В РЎвЂњР В Р Р‹Р РЋРІР‚СљР В Р’В Р вЂ™Р’ВµР В Р’В Р РЋР’В Р В Р’В Р В РІР‚В Р В Р’В Р В РІР‚В¦Р В Р Р‹Р РЋРІР‚СљР В Р Р‹Р Р†Р вЂљРЎв„ўР В Р Р‹Р В РІР‚С™Р В Р’В Р РЋРІР‚В Р В Р’В Р РЋРІР‚СњР В Р’В Р В РІР‚В¦Р В Р’В Р РЋРІР‚СћР В Р’В Р РЋРІР‚вЂќР В Р’В Р РЋРІР‚СњР В Р’В Р РЋРІР‚В "Р В Р Р‹Р В РЎвЂњР В Р’В Р В РІР‚В Р В Р’В Р вЂ™Р’ВµР В Р Р‹Р Р†Р вЂљР Р‹Р В Р’В Р вЂ™Р’ВµР В Р’В Р В РІР‚В¦Р В Р’В Р РЋРІР‚ВР В Р’В Р вЂ™Р’Вµ". Р В Р’В Р РЋРЎвЂєР В Р’В Р РЋРІР‚СћР В Р Р‹Р Р†Р вЂљРЎв„ў Р В Р Р‹Р В РЎвЂњР В Р’В Р вЂ™Р’В°Р В Р’В Р РЋР’ВР В Р Р‹Р Р†Р вЂљРІвЂћвЂ“Р В Р’В Р Р†РІР‚С›РІР‚вЂњ Р В Р Р‹Р В Р Р‰Р В Р Р‹Р Р†Р вЂљРЎвЂєР В Р Р‹Р Р†Р вЂљРЎвЂєР В Р’В Р вЂ™Р’ВµР В Р’В Р РЋРІР‚СњР В Р Р‹Р Р†Р вЂљРЎв„ў Р В Р’В Р РЋРІР‚СњР В Р’В Р РЋРІР‚СћР В Р Р‹Р Р†Р вЂљРЎв„ўР В Р’В Р РЋРІР‚СћР В Р Р‹Р В РІР‚С™Р В Р Р‹Р Р†Р вЂљРІвЂћвЂ“Р В Р’В Р Р†РІР‚С›РІР‚вЂњ Р В Р’В Р РЋРІР‚вЂќР В Р Р‹Р В РІР‚С™Р В Р’В Р РЋРІР‚СћР В Р’В Р РЋРІР‚ВР В Р Р‹Р В РЎвЂњР В Р Р‹Р Р†Р вЂљР’В¦Р В Р’В Р РЋРІР‚СћР В Р’В Р СћРІР‚ВР В Р’В Р РЋРІР‚ВР В Р Р‹Р Р†Р вЂљРЎв„ў Р В Р’В Р РЋРІР‚вЂќР В Р Р‹Р В РІР‚С™Р В Р’В Р РЋРІР‚В Р В Р’В Р В РІР‚В¦Р В Р’В Р вЂ™Р’В°Р В Р’В Р В РІР‚В Р В Р’В Р вЂ™Р’ВµР В Р’В Р СћРІР‚ВР В Р’В Р вЂ™Р’ВµР В Р’В Р В РІР‚В¦Р В Р’В Р РЋРІР‚ВР В Р’В Р РЋРІР‚В Р В Р’В Р В РІР‚В¦Р В Р’В Р вЂ™Р’В° Р В Р’В Р РЋРІР‚СњР В Р’В Р В РІР‚В¦Р В Р’В Р РЋРІР‚СћР В Р’В Р РЋРІР‚вЂќР В Р’В Р РЋРІР‚СњР В Р Р‹Р РЋРІР‚Сљ Р В Р’В Р РЋРІР‚СњР В Р Р‹Р РЋРІР‚СљР В Р Р‹Р В РІР‚С™Р В Р Р‹Р В РЎвЂњР В Р’В Р РЋРІР‚СћР В Р Р‹Р В РІР‚С™Р В Р’В Р РЋРІР‚СћР В Р’В Р РЋР’В Р В Р’В Р РЋР’ВР В Р Р‹Р Р†Р вЂљРІвЂћвЂ“Р В Р Р‹Р Р†РІР‚С™Р’В¬Р В Р’В Р РЋРІР‚В. Р В Р’В Р РЋРЎС™Р В Р’В Р вЂ™Р’В°Р В Р’В Р вЂ™Р’В·Р В Р’В Р В РІР‚В Р В Р’В Р вЂ™Р’В°Р В Р’В Р В РІР‚В¦Р В Р’В Р РЋРІР‚ВР В Р’В Р вЂ™Р’Вµ Р В Р Р‹Р Р†РІР‚С™Р’В¬Р В Р’В Р вЂ™Р’ВµР В Р’В Р Р†РІР‚С›РІР‚вЂњР В Р’В Р РЋРІР‚вЂќР В Р’В Р вЂ™Р’В° Р В Р’В Р вЂ™Р’В±Р В Р Р‹Р РЋРІР‚СљР В Р’В Р СћРІР‚ВР В Р’В Р вЂ™Р’ВµР В Р Р‹Р Р†Р вЂљРЎв„ў glow -->
+                                <!-- Р В Р’В Р Р†Р вЂљРІР‚СњР В Р’В Р вЂ™Р’В°Р В Р’В Р СћРІР‚ВР В Р’В Р вЂ™Р’В°Р В Р Р‹Р Р†Р вЂљР’ВР В Р’В Р РЋР’В Р В Р’В Р В РІР‚В¦Р В Р’В Р вЂ™Р’ВµР В Р’В Р РЋРІР‚вЂќР В Р Р‹Р В РІР‚С™Р В Р’В Р РЋРІР‚СћР В Р’В Р вЂ™Р’В·Р В Р Р‹Р В РІР‚С™Р В Р’В Р вЂ™Р’В°Р В Р Р‹Р Р†Р вЂљР Р‹Р В Р’В Р В РІР‚В¦Р В Р’В Р РЋРІР‚СћР В Р Р‹Р В РЎвЂњР В Р Р‹Р Р†Р вЂљРЎв„ўР В Р Р‹Р В Р вЂ° Р В Р Р‹Р Р†РІР‚С™Р’В¬Р В Р’В Р вЂ™Р’ВµР В Р’В Р Р†РІР‚С›РІР‚вЂњР В Р’В Р РЋРІР‚вЂќР В Р’В Р вЂ™Р’В° 0 (Р В Р Р‹Р В Р Р‰Р В Р Р‹Р Р†Р вЂљРЎв„ўР В Р’В Р РЋРІР‚Сћ Р В Р’В Р В РІР‚В¦Р В Р’В Р вЂ™Р’В°Р В Р Р‹Р Р†Р вЂљР Р‹Р В Р’В Р вЂ™Р’В°Р В Р’В Р вЂ™Р’В»Р В Р Р‹Р В Р вЂ°Р В Р’В Р В РІР‚В¦Р В Р’В Р РЋРІР‚СћР В Р’В Р вЂ™Р’Вµ Р В Р’В Р вЂ™Р’В·Р В Р’В Р В РІР‚В¦Р В Р’В Р вЂ™Р’В°Р В Р Р‹Р Р†Р вЂљР Р‹Р В Р’В Р вЂ™Р’ВµР В Р’В Р В РІР‚В¦Р В Р’В Р РЋРІР‚ВР В Р’В Р вЂ™Р’Вµ, Р В Р Р‹Р Р†Р вЂљРЎв„ўР В Р’В Р РЋРІР‚Сћ Р В Р’В Р вЂ™Р’ВµР В Р Р‹Р В РЎвЂњР В Р Р‹Р Р†Р вЂљРЎв„ўР В Р Р‹Р В Р вЂ° Р В Р’В Р РЋРІР‚вЂќР В Р’В Р РЋРІР‚СћР В Р’В Р РЋРІР‚СњР В Р’В Р вЂ™Р’В° Р В Р’В Р РЋРІР‚СњР В Р’В Р В РІР‚В¦Р В Р’В Р РЋРІР‚СћР В Р’В Р РЋРІР‚вЂќР В Р’В Р РЋРІР‚СњР В Р’В Р вЂ™Р’В° Р В Р’В Р В РІР‚В¦Р В Р’В Р вЂ™Р’Вµ Р В Р’В Р вЂ™Р’В°Р В Р’В Р РЋРІР‚СњР В Р Р‹Р Р†Р вЂљРЎв„ўР В Р’В Р РЋРІР‚ВР В Р’В Р В РІР‚В Р В Р’В Р В РІР‚В¦Р В Р’В Р вЂ™Р’В°) -->
+
+                                <!-- Р В Р’В Р Р†Р вЂљР’ВР В Р’В Р вЂ™Р’В»Р В Р’В Р РЋРІР‚ВР В Р’В Р РЋРІР‚Сњ Р В Р’В Р В РІР‚В¦Р В Р’В Р вЂ™Р’В°Р В Р Р‹Р В РІР‚С™Р В Р’В Р РЋРІР‚ВР В Р Р‹Р В РЎвЂњР В Р’В Р РЋРІР‚СћР В Р’В Р В РІР‚В Р В Р’В Р вЂ™Р’В°Р В Р’В Р вЂ™Р’В»Р В Р’В Р РЋРІР‚В -->
+                                <!-- Р В Р’В Р Р†Р вЂљРІР‚СњР В Р’В Р вЂ™Р’В°Р В Р’В Р СћРІР‚ВР В Р’В Р вЂ™Р’В°Р В Р Р‹Р Р†Р вЂљР’ВР В Р’В Р РЋР’В Р В Р’В Р В РІР‚В¦Р В Р’В Р вЂ™Р’ВµР В Р’В Р РЋРІР‚вЂќР В Р Р‹Р В РІР‚С™Р В Р’В Р РЋРІР‚СћР В Р’В Р вЂ™Р’В·Р В Р Р‹Р В РІР‚С™Р В Р’В Р вЂ™Р’В°Р В Р Р‹Р Р†Р вЂљР Р‹Р В Р’В Р В РІР‚В¦Р В Р’В Р РЋРІР‚СћР В Р Р‹Р В РЎвЂњР В Р Р‹Р Р†Р вЂљРЎв„ўР В Р Р‹Р В Р вЂ° Р В Р Р‹Р Р†РІР‚С™Р’В¬Р В Р’В Р вЂ™Р’ВµР В Р’В Р Р†РІР‚С›РІР‚вЂњР В Р’В Р РЋРІР‚вЂќР В Р’В Р вЂ™Р’В° 0 (Р В Р Р‹Р В Р Р‰Р В Р Р‹Р Р†Р вЂљРЎв„ўР В Р’В Р РЋРІР‚Сћ Р В Р’В Р В РІР‚В¦Р В Р’В Р вЂ™Р’В°Р В Р Р‹Р Р†Р вЂљР Р‹Р В Р’В Р вЂ™Р’В°Р В Р’В Р вЂ™Р’В»Р В Р Р‹Р В Р вЂ°Р В Р’В Р В РІР‚В¦Р В Р’В Р РЋРІР‚СћР В Р’В Р вЂ™Р’Вµ Р В Р’В Р вЂ™Р’В·Р В Р’В Р В РІР‚В¦Р В Р’В Р вЂ™Р’В°Р В Р Р‹Р Р†Р вЂљР Р‹Р В Р’В Р вЂ™Р’ВµР В Р’В Р В РІР‚В¦Р В Р’В Р РЋРІР‚ВР В Р’В Р вЂ™Р’Вµ, Р В Р Р‹Р Р†Р вЂљРЎв„ўР В Р’В Р РЋРІР‚Сћ Р В Р’В Р вЂ™Р’ВµР В Р Р‹Р В РЎвЂњР В Р Р‹Р Р†Р вЂљРЎв„ўР В Р Р‹Р В Р вЂ° Р В Р’В Р РЋРІР‚вЂќР В Р’В Р РЋРІР‚СћР В Р’В Р РЋРІР‚СњР В Р’В Р вЂ™Р’В° Р В Р’В Р РЋРІР‚СњР В Р’В Р В РІР‚В¦Р В Р’В Р РЋРІР‚СћР В Р’В Р РЋРІР‚вЂќР В Р’В Р РЋРІР‚СњР В Р’В Р вЂ™Р’В° Р В Р’В Р В РІР‚В¦Р В Р’В Р вЂ™Р’Вµ Р В Р’В Р вЂ™Р’В°Р В Р’В Р РЋРІР‚СњР В Р Р‹Р Р†Р вЂљРЎв„ўР В Р’В Р РЋРІР‚ВР В Р’В Р В РІР‚В Р В Р’В Р В РІР‚В¦Р В Р’В Р вЂ™Р’В°) -->
+                                <Border x:Name ="glow" 
+        							Width="Auto"                               
+                    		
+        							HorizontalAlignment="Stretch" Grid.ColumnSpan="1" Grid.Row="1" Grid.Column="1" BorderBrush="#FF101010" Margin="0,-0.006,0,0.011" BorderThickness="0">
+                                    <Border.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" SpreadMethod="Reflect">
+                                            <GradientStop Color="#FFCAC4C3" Offset="0.091"/>
+                                            <GradientStop Color="#FFB5B6B5" Offset="0.665"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+
+
+
+                                </Border>
+
+
+                                <ContentPresenter HorizontalAlignment="Center" 
+        							VerticalAlignment="Center" 
+        							Grid.RowSpan="1" Grid.Column="1" Grid.Row="1"/>
+                                <Border BorderThickness="0" Grid.Column="0" Margin="0" Grid.Row="1" HorizontalAlignment="Stretch" Grid.RowSpan="1" Width="Auto"  Height="Auto     ">
+                                    <Border.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <LinearGradientBrush.RelativeTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <RotateTransform Angle="-90" CenterY="0.5" CenterX="0.5"/>
+                                                    <TranslateTransform/>
+                                                </TransformGroup>
+                                            </LinearGradientBrush.RelativeTransform>
+                                            <GradientStop Color="Black" Offset="0"/>
+                                            <GradientStop Color="#FF9BAA95" Offset="0.727"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                </Border>
+                                <Border BorderThickness="0" Grid.Column="2" Margin="0" Grid.Row="1" HorizontalAlignment="Stretch" Grid.RowSpan="1" Width="Auto" Height="Auto     " >
+                                    <Border.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <LinearGradientBrush.RelativeTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                                                    <TranslateTransform/>
+                                                </TransformGroup>
+                                            </LinearGradientBrush.RelativeTransform>
+                                            <GradientStop Color="Black" Offset="0"/>
+                                            <GradientStop Color="#FF9BAA95" Offset="0.727"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                </Border>
+                                <Border BorderThickness="0" Grid.Column="1" Margin="0" Grid.Row="0" HorizontalAlignment="Stretch" Grid.RowSpan="1" Width="Auto" Height="Auto     " >
+                                    <Border.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <LinearGradientBrush.RelativeTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <TranslateTransform/>
+                                                </TransformGroup>
+                                            </LinearGradientBrush.RelativeTransform>
+                                            <GradientStop Color="Black" Offset="0"/>
+                                            <GradientStop Color="#FF9BAA95" Offset="0.727"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                </Border>
+                                <Border BorderThickness="0" Grid.Column="1" Margin="0" Grid.Row="2" HorizontalAlignment="Stretch" Grid.RowSpan="1" Width="Auto" Height="Auto     " >
+                                    <Border.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <LinearGradientBrush.RelativeTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <RotateTransform Angle="180" CenterY="0.5" CenterX="0.5"/>
+                                                    <TranslateTransform/>
+                                                </TransformGroup>
+                                            </LinearGradientBrush.RelativeTransform>
+                                            <GradientStop Color="Black" Offset="0"/>
+                                            <GradientStop Color="#FF9BAA95" Offset="0.727"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                </Border>
+                                <Border BorderThickness="0" Grid.Column="0" Margin="0,-0.011,0,0.011" Grid.Row="2" HorizontalAlignment="Stretch" Grid.RowSpan="1" Width="Auto" Height="Auto     "  RenderTransformOrigin="0.78,0.208">
+                                    <Border.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <LinearGradientBrush.RelativeTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <RotateTransform Angle="225" CenterY="0.5" CenterX="0.5"/>
+                                                    <TranslateTransform/>
+                                                </TransformGroup>
+                                            </LinearGradientBrush.RelativeTransform>
+                                            <GradientStop Color="Black" Offset="0.5"/>
+                                            <GradientStop Color="#FF9BAA95" Offset="0.929"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                </Border>
+                                <Border BorderThickness="0" Grid.Column="2" Margin="0" Grid.Row="2" HorizontalAlignment="Stretch" Grid.RowSpan="1" Width="Auto" Height="Auto     " RenderTransformOrigin="0.78,0.208" >
+                                    <Border.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <LinearGradientBrush.RelativeTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <RotateTransform Angle="490.774" CenterY="0.5" CenterX="0.5"/>
+                                                    <TranslateTransform/>
+                                                </TransformGroup>
+                                            </LinearGradientBrush.RelativeTransform>
+                                            <GradientStop Color="Black" Offset="0.5"/>
+                                            <GradientStop Color="#FF9BAA95" Offset="0.929"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                </Border>
+                                <Border BorderThickness="0" Grid.Column="0" Margin="0" Grid.Row="0" HorizontalAlignment="Stretch" Grid.RowSpan="1" Width="Auto" Height="Auto     " RenderTransformOrigin="0.78,0.208" >
+                                    <Border.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <LinearGradientBrush.RelativeTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <RotateTransform Angle="315" CenterY="0.5" CenterX="0.5"/>
+                                                    <TranslateTransform/>
+                                                </TransformGroup>
+                                            </LinearGradientBrush.RelativeTransform>
+                                            <GradientStop Color="Black" Offset="0.5"/>
+                                            <GradientStop Color="#FF9BAA95" Offset="0.929"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                </Border>
+                                <Border BorderThickness="0" Grid.Column="3" Margin="0,-0.011,0,0.011" Grid.Row="0" HorizontalAlignment="Stretch" Grid.RowSpan="1" Width="Auto" Height="Auto     " RenderTransformOrigin="0.78,0.208">
+                                    <Border.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <LinearGradientBrush.RelativeTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <RotateTransform Angle="408.366" CenterY="0.5" CenterX="0.5"/>
+                                                    <TranslateTransform/>
+                                                </TransformGroup>
+                                            </LinearGradientBrush.RelativeTransform>
+                                            <GradientStop Color="Black" Offset="0.5"/>
+                                            <GradientStop Color="#FF9BAA95" Offset="0.929"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                </Border>
+
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+
+                            <!-- Р В Р’В Р РЋРЎСџР В Р’В Р вЂ™Р’ВµР В Р Р‹Р В РІР‚С™Р В Р’В Р В РІР‚В Р В Р Р‹Р Р†Р вЂљРІвЂћвЂ“Р В Р’В Р Р†РІР‚С›РІР‚вЂњ Р В Р Р‹Р Р†Р вЂљРЎв„ўР В Р Р‹Р В РІР‚С™Р В Р’В Р РЋРІР‚ВР В Р’В Р РЋРІР‚вЂњР В Р’В Р РЋРІР‚вЂњР В Р’В Р вЂ™Р’ВµР В Р Р‹Р В РІР‚С™ IsPressed, Р В Р Р‹Р В РЎвЂњР В Р’В Р РЋРІР‚СћР В Р Р‹Р В РЎвЂњР В Р Р‹Р Р†Р вЂљРЎв„ўР В Р’В Р РЋРІР‚СћР В Р Р‹Р В Р РЏР В Р’В Р В РІР‚В¦Р В Р’В Р РЋРІР‚ВР В Р’В Р вЂ™Р’Вµ Р В Р’В Р РЋРІР‚СњР В Р’В Р РЋРІР‚СћР В Р’В Р РЋРІР‚вЂњР В Р’В Р СћРІР‚ВР В Р’В Р вЂ™Р’В° Р В Р’В Р РЋРІР‚СњР В Р’В Р В РІР‚В¦Р В Р’В Р РЋРІР‚СћР В Р’В Р РЋРІР‚вЂќР В Р’В Р РЋРІР‚СњР В Р’В Р вЂ™Р’В° Р В Р’В Р В РІР‚В¦Р В Р’В Р вЂ™Р’В°Р В Р’В Р вЂ™Р’В¶Р В Р’В Р вЂ™Р’В°Р В Р Р‹Р Р†Р вЂљРЎв„ўР В Р’В Р вЂ™Р’В°. 
+                Р В Р’В Р РЋРЎСџР В Р Р‹Р В РІР‚С™Р В Р’В Р РЋРІР‚СћР В Р Р‹Р В РЎвЂњР В Р Р‹Р Р†Р вЂљРЎв„ўР В Р’В Р РЋРІР‚Сћ Р В Р Р‹Р РЋРІР‚СљР В Р Р‹Р В РЎвЂњР В Р Р‹Р Р†Р вЂљРЎв„ўР В Р’В Р вЂ™Р’В°Р В Р’В Р В РІР‚В¦Р В Р’В Р вЂ™Р’В°Р В Р’В Р В РІР‚В Р В Р’В Р вЂ™Р’В»Р В Р’В Р РЋРІР‚ВР В Р’В Р В РІР‚В Р В Р’В Р вЂ™Р’В°Р В Р’В Р вЂ™Р’ВµР В Р’В Р РЋР’В Р В Р Р‹Р В РЎвЂњР В Р’В Р РЋРІР‚СћР В Р’В Р РЋРІР‚СћР В Р Р‹Р Р†Р вЂљРЎв„ўР В Р’В Р В РІР‚В Р В Р’В Р вЂ™Р’ВµР В Р Р‹Р Р†Р вЂљРЎв„ўР В Р Р‹Р В РЎвЂњР В Р Р‹Р Р†Р вЂљРЎв„ўР В Р’В Р В РІР‚В Р В Р Р‹Р РЋРІР‚СљР В Р Р‹Р В РІР‚в„–Р В Р Р‹Р Р†Р вЂљР’В°Р В Р’В Р РЋРІР‚ВР В Р’В Р вЂ™Р’Вµ Р В Р’В Р вЂ™Р’В·Р В Р’В Р В РІР‚В¦Р В Р’В Р вЂ™Р’В°Р В Р Р‹Р Р†Р вЂљР Р‹Р В Р’В Р вЂ™Р’ВµР В Р’В Р В РІР‚В¦Р В Р’В Р РЋРІР‚ВР В Р Р‹Р В Р РЏ Р В Р’В Р РЋРІР‚вЂќР В Р Р‹Р В РІР‚С™Р В Р’В Р РЋРІР‚СћР В Р’В Р вЂ™Р’В·Р В Р Р‹Р В РІР‚С™Р В Р’В Р вЂ™Р’В°Р В Р Р‹Р Р†Р вЂљР Р‹Р В Р’В Р В РІР‚В¦Р В Р’В Р РЋРІР‚СћР В Р Р‹Р В РЎвЂњР В Р Р‹Р Р†Р вЂљРЎв„ўР В Р’В Р РЋРІР‚В, Р В Р’В Р В РІР‚В Р В Р’В Р РЋРІР‚ВР В Р’В Р СћРІР‚ВР В Р’В Р РЋРІР‚ВР В Р’В Р РЋР’ВР В Р’В Р РЋРІР‚СћР В Р Р‹Р В РЎвЂњР В Р Р‹Р Р†Р вЂљРЎв„ўР В Р’В Р РЋРІР‚В Р В Р’В Р РЋРІР‚В Р В Р Р‹Р Р†Р вЂљРЎвЂєР В Р’В Р РЋРІР‚СћР В Р’В Р В РІР‚В¦Р В Р’В Р вЂ™Р’В°, Р В Р’В Р СћРІР‚ВР В Р’В Р вЂ™Р’В»Р В Р Р‹Р В Р РЏ Р В Р’В Р РЋРІР‚СњР В Р’В Р вЂ™Р’В°Р В Р’В Р вЂ™Р’В¶Р В Р’В Р СћРІР‚ВР В Р’В Р РЋРІР‚СћР В Р’В Р РЋРІР‚вЂњР В Р’В Р РЋРІР‚Сћ Р В Р’В Р РЋРІР‚ВР В Р’В Р вЂ™Р’В· Р В Р Р‹Р Р†РІР‚С™Р’В¬Р В Р’В Р вЂ™Р’ВµР В Р’В Р Р†РІР‚С›РІР‚вЂњР В Р’В Р РЋРІР‚вЂќР В Р’В Р РЋРІР‚СћР В Р’В Р В РІР‚В  (Р В Р Р‹Р РЋРІР‚СљР В Р’В Р РЋРІР‚СњР В Р’В Р вЂ™Р’В°Р В Р’В Р вЂ™Р’В·Р В Р Р‹Р Р†Р вЂљРІвЂћвЂ“Р В Р’В Р В РІР‚В Р В Р’В Р вЂ™Р’В°Р В Р’В Р вЂ™Р’ВµР В Р’В Р РЋР’В Р В Р’В Р вЂ™Р’ВµР В Р’В Р РЋРІР‚вЂњР В Р’В Р РЋРІР‚Сћ Р В Р’В Р РЋРІР‚ВР В Р’В Р РЋР’ВР В Р Р‹Р В Р РЏ Р В Р’В Р В РІР‚В  TargetName) -->
+
+                            <DataTrigger Binding="{Binding clInpu.ValueState}" Value="True">
+                                <Setter Property="Border.Background" TargetName="glow" >
+                                    <Setter.Value>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" SpreadMethod="Reflect">
+                                            <GradientStop Color="#FFFB7964" Offset="0.091"/>
+                                            <GradientStop Color="#FFF7D77F" Offset="0.651"/>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="RenderTransform" TargetName="GridBtn">
+                                    <Setter.Value>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="0.9" ScaleY="0.9"/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+
+
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="FlashCO" TargetType="{x:Type TextBlock}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding COTransparant.ValueState, Source={StaticResource vInPU}}" Value="2">                   
+                   <DataTrigger.EnterActions>
+                        <BeginStoryboard x:Name="FStr">
+                            <Storyboard >
+                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="Background.Color" 
+                                                              Duration="0:0:1" RepeatBehavior="Forever" >
+                                    <DiscreteColorKeyFrame KeyTime="0:0:0.0" Value="Red"/>
+                                    <DiscreteColorKeyFrame KeyTime="0:0:0.5" Value="Transparent"/>
+                                </ColorAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </BeginStoryboard>
+
+                    </DataTrigger.EnterActions>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding COTransparant.ValueState, Source={StaticResource vInPU}}" Value="0">
+                    <DataTrigger.EnterActions>
+                        <StopStoryboard BeginStoryboardName="FStr"/>
+
+                    </DataTrigger.EnterActions>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding COTransparant.ValueState, Source={StaticResource vInPU}}" Value="1">
+                    <DataTrigger.EnterActions>
+                        <StopStoryboard BeginStoryboardName="FStr"/>
+                    </DataTrigger.EnterActions>
+                    <Setter Property="Background" Value="Red"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+
+            <Style x:Key="MenuButton"  TargetType="{x:Type Button}" >
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <ControlTemplate.Resources>
+                            <Storyboard x:Key="OnMouseEnter1">
+                                <ColorAnimation Storyboard.TargetName="brd" 
+                                                          Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                                           To="#FF9DB9C0" Duration="0:0:0.28" />
+                            </Storyboard>
+                            <Storyboard x:Key="OnMouseLeave1">
+                                <ColorAnimation Storyboard.TargetName="brd" 
+                                                     Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                                      From="#FF9DB9C0" Duration="0:0:0.08" />
+                            </Storyboard>
+
+                        </ControlTemplate.Resources>
+                        <Border x:Name="brd" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="3" BorderThickness="1">
+                            <ContentPresenter Content="{TemplateBinding Content}" Cursor="{TemplateBinding Cursor}" ContentTemplate="{TemplateBinding ContentTemplate}" ContentStringFormat="{TemplateBinding ContentStringFormat}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                           
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="BorderBrush" TargetName="brd" Value="Red"/>
+                            </Trigger>
+
+                            <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                                <BeginStoryboard Storyboard="{StaticResource OnMouseLeave1}"/>
+
+                            </EventTrigger>
+
+                            <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                                <BeginStoryboard Storyboard="{StaticResource OnMouseEnter1}"/>
+                            </EventTrigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+
+
+        <Style x:Key="VKLREZBat" TargetType="{x:Type pc:PultCheckBox}">
+            <Setter Property="GeometryText" Value="M111.844429016113,6.92842483520508L111.844429016113,9.79309749603271L112.682998657227,9.79309749603271C113.134399414063,9.79309749603271,113.490310668945,9.7722635269165,113.75074005127,9.73059558868408C114.011161804199,9.68892765045166,114.240341186523,9.60038280487061,114.438262939453,9.46496200561523C114.632713317871,9.32954120635986,114.775077819824,9.17589092254639,114.865356445313,9.00401020050049C114.955635070801,8.83213043212891,115.000778198242,8.60903263092041,115.000778198242,8.33471870422363C115.000778198242,8.04304313659668,114.959106445313,7.80258369445801,114.875778198242,7.61334180831909C114.792434692383,7.42409992218018,114.624031066895,7.26350450515747,114.370552062988,7.13155555725098C114.20735168457,7.0447473526001,114.029396057129,6.98919010162354,113.83667755127,6.96488380432129C113.643966674805,6.94057750701904,113.37052154541,6.92842483520508,113.016342163086,6.92842483520508z M111.844429016113,3.79811859130859L111.844429016113,6.06902265548706L113.016342163086,6.06902265548706C113.33927154541,6.06902265548706,113.577125549316,6.05252933502197,113.729904174805,6.01954221725464C113.882690429688,5.9865550994873,114.040679931641,5.91797637939453,114.203880310059,5.81380653381348C114.360130310059,5.71310901641846,114.471244812012,5.58116006851196,114.537223815918,5.41796064376831C114.60319519043,5.25476121902466,114.636184692383,5.05336618423462,114.636184692383,4.81377506256104C114.636184692383,4.62626981735229,114.604934692383,4.46393823623657,114.542434692383,4.32678079605103C114.479927062988,4.18962383270264,114.379234313965,4.08111381530762,114.240341186523,4.00124979019165C114.073669433594,3.90749740600586,113.887893676758,3.85020351409912,113.683029174805,3.82936954498291C113.478164672852,3.8085355758667,113.195167541504,3.79811859130859,112.834045410156,3.79811859130859z M110.813148498535,2.91788244247437L112.870506286621,2.91788244247437C113.422607421875,2.91788291931152,113.83667755127,2.93611240386963,114.112731933594,2.972571849823C114.388778686523,3.00903129577637,114.653549194336,3.09497165679932,114.907028198242,3.23039245605469C115.184814453125,3.3797025680542,115.387939453125,3.57502126693726,115.516418457031,3.8163480758667C115.644897460938,4.0576753616333,115.709136962891,4.34153842926025,115.709136962891,4.66793727874756C115.709136962891,5.03253221511841,115.612777709961,5.35893106460571,115.420059204102,5.64713430404663C115.227348327637,5.93533802032471,114.960845947266,6.16103935241699,114.620559692383,6.32423877716064L114.620559692383,6.36590719223022C115.082382202148,6.49091148376465,115.44002532959,6.71921682357788,115.693511962891,7.05082416534424C115.946990966797,7.38243198394775,116.07373046875,7.79650735855103,116.07373046875,8.29305076599121C116.07373046875,8.67847919464111,116.00080871582,9.01876735687256,115.854972839355,9.31391525268555C115.709136962891,9.60906410217285,115.51294708252,9.85212707519531,115.266410827637,10.0431051254272C114.974739074707,10.2722787857056,114.662223815918,10.4346103668213,114.328880310059,10.5300998687744C113.995536804199,10.6255884170532,113.564971923828,10.6733331680298,113.037178039551,10.6733331680298L110.813148498535,10.6733331680298z M117.099815368652,2.91788244247437L118.13109588623,2.91788244247437L118.13109588623,6.4127836227417C118.53736114502,6.39889430999756,118.859420776367,6.29646062850952,119.097274780273,6.10548210144043C119.33512878418,5.9145040512085,119.528709411621,5.64019012451172,119.678016662598,5.28253984451294C119.740524291992,5.12628507614136,119.796943664551,4.97784328460693,119.847297668457,4.83721351623535C119.897644042969,4.69658470153809,119.938446044922,4.5776572227478,119.969696044922,4.48043155670166C120.178031921387,3.88666296005249,120.443672180176,3.47779560089111,120.766593933105,3.25383043289185C121.08952331543,3.02986526489258,121.537452697754,2.91788291931152,122.110389709473,2.91788244247437L122.428108215332,2.91788244247437L122.428108215332,3.83978652954102L122.167678833008,3.83978652954102C121.74405670166,3.83978652954102,121.447174072266,3.92225456237793,121.277030944824,4.0871901512146C121.106887817383,4.25212574005127,120.950630187988,4.5637674331665,120.808265686035,5.0221152305603C120.665901184082,5.4804630279541,120.506172180176,5.81641101837158,120.329078674316,6.02995920181274C120.151992797852,6.24350786209106,119.938446044922,6.43188190460205,119.688438415527,6.59508085250854L122.834365844727,10.6733331680298L121.521827697754,10.6733331680298L118.782157897949,7.12113857269287L118.13109588623,7.12113857269287L118.13109588623,10.6733331680298L117.099815368652,10.6733331680298z M124.562973022461,2.91788244247437L129.182907104492,2.91788244247437L129.182907104492,10.6733331680298L128.151626586914,10.6733331680298L128.151626586914,3.83457803726196L125.536956787109,3.83457803726196C125.526542663574,4.22695159912109,125.512657165527,4.60977649688721,125.495292663574,4.98305130004883C125.477928161621,5.35632705688477,125.464042663574,5.69053840637207,125.453620910645,5.98568677902222C125.425842285156,6.71834850311279,125.381576538086,7.32427024841309,125.320808410645,7.80345153808594C125.260040283203,8.28263378143311,125.181045532227,8.68368816375732,125.083824157715,9.00661468505859C124.99006652832,9.32259654998779,124.879821777344,9.57781314849854,124.753082275391,9.7722635269165C124.626342773438,9.96671390533447,124.488319396973,10.1299133300781,124.339004516602,10.2618618011475C124.182754516602,10.4042272567749,124.015213012695,10.5110015869141,123.836387634277,10.5821847915649C123.657562255859,10.6533670425415,123.450088500977,10.6889591217041,123.213973999023,10.6889591217041C123.141052246094,10.6889591217041,123.067268371582,10.686354637146,122.992607116699,10.6811456680298C122.917953491211,10.6759376525879,122.859794616699,10.6733331680298,122.81812286377,10.6733331680298L122.81812286377,9.67330169677734L122.891044616699,9.67330169677734C122.925765991211,9.67677402496338,122.955284118652,9.68024635314941,122.979591369629,9.68371868133545C123.003898620605,9.68719100952148,123.040351867676,9.68892765045166,123.088966369629,9.68892765045166C123.213973999023,9.68892765045166,123.330291748047,9.66982936859131,123.437934875488,9.63163375854492C123.54557800293,9.59343814849854,123.637596130371,9.53440856933594,123.713989257813,9.45454502105713C123.950103759766,9.22189903259277,124.122856140137,8.80782318115234,124.232231140137,8.21231842041016C124.341613769531,7.61681413650513,124.418869018555,6.81557369232178,124.464012145996,5.80859804153442C124.481369018555,5.46830940246582,124.498733520508,5.01864290237427,124.516098022461,4.45959758758545C124.53345489502,3.90055227279663,124.54907989502,3.38664722442627,124.562973022461,2.91788244247437z M113.04443359375,16.6799926757813L113.04443359375,19.7790489196777L113.747581481934,19.7790489196777C114.164260864258,19.7790489196777,114.501075744629,19.7451934814453,114.758026123047,19.6774826049805C115.014984130859,19.6097717285156,115.228530883789,19.4891090393066,115.39867401123,19.3154926300049C115.551460266113,19.159236907959,115.662574768066,18.9890937805176,115.73201751709,18.8050594329834C115.801467895508,18.6210250854492,115.83618927002,18.405740737915,115.83618927002,18.1592063903809C115.83618927002,17.8918361663818,115.790176391602,17.6591911315918,115.698165893555,17.4612674713135C115.606147766113,17.2633438110352,115.466384887695,17.1018810272217,115.278877258301,16.9768772125244C115.115676879883,16.8692359924316,114.925567626953,16.7928428649902,114.708549499512,16.7477035522461C114.49153137207,16.702564239502,114.221557617188,16.6799926757813,113.898628234863,16.6799926757813z M112.013153076172,15.794548034668L113.961128234863,15.794548034668C114.419479370117,15.7945489883423,114.810111999512,15.8327445983887,115.133041381836,15.9091358184814C115.45597076416,15.9855270385742,115.740699768066,16.1087951660156,115.987236022949,16.278938293457C116.275436401367,16.4768619537354,116.501136779785,16.7277374267578,116.664337158203,17.031566619873C116.827537536621,17.3353958129883,116.909141540527,17.7025947570801,116.909141540527,18.1331634521484C116.909141540527,18.4699802398682,116.849243164063,18.7885665893555,116.729446411133,19.0889225006104C116.609649658203,19.3892784118652,116.44384765625,19.6453628540039,116.232032775879,19.8571758270264C115.964660644531,20.121072769165,115.650421142578,20.3207321166992,115.28929901123,20.4561519622803C114.928176879883,20.59157371521,114.471565246582,20.6592845916748,113.919464111328,20.6592845916748L113.04443359375,20.6592845916748L113.04443359375,23.5499992370605L112.013153076172,23.5499992370605z M117.89315032959,15.794548034668L122.742256164551,15.794548034668L122.742256164551,16.7112445831299L118.924430847168,16.7112445831299L118.924430847168,18.836311340332L122.481834411621,18.836311340332L122.481834411621,19.7530059814453L118.924430847168,19.7530059814453L118.924430847168,22.6333045959473L122.742256164551,22.6333045959473L122.742256164551,23.5499992370605L117.89315032959,23.5499992370605z M125.673408508301,15.6539192199707C126.072731018066,15.6539192199707,126.416488647461,15.6877746582031,126.704689025879,15.755485534668C126.992897033691,15.8231954574585,127.256790161133,15.9334421157837,127.496383666992,16.0862236022949C127.756805419922,16.256368637085,127.952125549316,16.4568958282471,128.082336425781,16.6878051757813C128.212554931641,16.9187164306641,128.27766418457,17.1938972473145,128.27766418457,17.5133514404297C128.27766418457,17.9335041046143,128.137893676758,18.2998352050781,127.858375549316,18.6123447418213C127.57884979248,18.9248542785645,127.213386535645,19.1297225952148,126.761985778809,19.2269477844238L126.761985778809,19.3050746917725C126.935600280762,19.3363265991211,127.123977661133,19.3918838500977,127.327110290527,19.4717464447021C127.530242919922,19.5516109466553,127.716873168945,19.6644611358643,127.887023925781,19.8102989196777C128.060638427734,19.9596099853516,128.203872680664,20.1462478637695,128.31672668457,20.3702125549316C128.429565429688,20.5941772460938,128.485992431641,20.8832492828369,128.485992431641,21.2374267578125C128.485992431641,21.584659576416,128.416549682617,21.9067192077637,128.27766418457,22.2036037445068C128.138763427734,22.50048828125,127.947784423828,22.7600440979004,127.704727172852,22.9822731018066C127.454711914063,23.211446762085,127.14567565918,23.3867988586426,126.777610778809,23.5083312988281C126.409545898438,23.6298637390137,125.999809265137,23.6906280517578,125.548408508301,23.6906280517578C125.06575012207,23.6906280517578,124.623031616211,23.6428833007813,124.220237731934,23.5473957061768C123.817451477051,23.4519062042236,123.494522094727,23.3520755767822,123.251457214355,23.2479057312012L123.251457214355,22.0916194915771L123.324378967285,22.0916194915771C123.602165222168,22.2756538391113,123.939849853516,22.4379844665527,124.337432861328,22.5786151885986C124.735015869141,22.7192440032959,125.133460998535,22.7895584106445,125.532783508301,22.7895584106445C125.786262512207,22.7895584106445,126.038871765137,22.7557029724121,126.290618896484,22.6879940032959C126.542358398438,22.6202831268311,126.753303527832,22.5100364685059,126.923446655273,22.3572540283203C127.093597412109,22.2044715881348,127.218597412109,22.038667678833,127.298461914063,21.859842300415C127.378326416016,21.6810169219971,127.418258666992,21.456184387207,127.418258666992,21.1853427886963C127.418258666992,20.921443939209,127.370513916016,20.6992149353027,127.275024414063,20.5186538696289C127.179534912109,20.3380928039551,127.044982910156,20.1922550201416,126.871360778809,20.0811405181885C126.701217651367,19.9700260162354,126.497222900391,19.8910312652588,126.259368896484,19.8441543579102C126.021514892578,19.7972774505615,125.767166137695,19.7738399505615,125.496322631836,19.7738399505615L124.683799743652,19.7738399505615L124.683799743652,18.9092292785645L125.392150878906,18.9092292785645C125.940780639648,18.9092292785645,126.381767272949,18.7998504638672,126.715110778809,18.5810947418213C127.048454284668,18.3623371124268,127.215126037598,18.0428829193115,127.215126037598,17.622730255127C127.215126037598,17.4317531585693,127.174324035645,17.2676849365234,127.092727661133,17.1305274963379C127.011123657227,16.9933700561523,126.895668029785,16.8813896179199,126.746360778809,16.7945804595947C126.583160400391,16.7008285522461,126.412147521973,16.6374568939209,126.233322143555,16.6044692993164C126.054496765137,16.5714836120605,125.859176635742,16.554988861084,125.647369384766,16.554988861084C125.425140380859,16.554988861084,125.206382751465,16.5801639556885,124.991096496582,16.6305122375488C124.775810241699,16.6808624267578,124.572677612305,16.7424964904785,124.381706237793,16.8154144287109C124.201141357422,16.8883323669434,124.043151855469,16.9647254943848,123.907730102539,17.0445880889893C123.772308349609,17.1244506835938,123.661193847656,17.1904258728027,123.57438659668,17.2425117492676L123.506675720215,17.2425117492676L123.506675720215,16.1018505096436C123.742797851563,15.9907360076904,124.063987731934,15.8883018493652,124.470245361328,15.794548034668C124.876510620117,15.7007961273193,125.277565002441,15.6539192199707,125.673408508301,15.6539192199707z M99.6577606201172,32.603630065918L99.6577606201172,35.5464286804199L100.553619384766,35.5464286804199C101.015441894531,35.5464286804199,101.370491027832,35.5238609313965,101.618759155273,35.4787216186523C101.867034912109,35.4335784912109,102.084922790527,35.3467712402344,102.272430419922,35.2182960510254C102.466873168945,35.0828742980957,102.608375549316,34.924015045166,102.696922302246,34.7417182922363C102.785461425781,34.5594215393066,102.829734802246,34.3276443481445,102.829734802246,34.0463829040527C102.829734802246,33.7859573364258,102.787200927734,33.5567855834961,102.702125549316,33.3588638305664C102.617057800293,33.1609382629395,102.48250579834,33.0012130737305,102.298469543457,32.8796806335449C102.107490539551,32.7512054443359,101.886993408203,32.6730766296387,101.636993408203,32.6452980041504C101.386978149414,32.6175193786621,101.034538269043,32.603630065918,100.579666137695,32.603630065918z M98.6264801025391,28.671215057373L103.3505859375,28.671215057373L103.3505859375,29.587911605835L99.6577606201172,29.587911605835L99.6577606201172,31.7129783630371L100.90259552002,31.7129783630371C101.430389404297,31.7129783630371,101.860954284668,31.7433605194092,102.194297790527,31.804126739502C102.527641296387,31.8648910522461,102.841888427734,32.0098609924316,103.13703918457,32.2390365600586C103.400932312012,32.443904876709,103.59538269043,32.6973838806152,103.720390319824,32.9994773864746C103.845390319824,33.3015670776367,103.907890319824,33.6435928344727,103.907897949219,34.0255508422852C103.907890319824,34.400562286377,103.834976196289,34.7408485412598,103.689140319824,35.0464134216309C103.543296813965,35.351978302002,103.347114562988,35.6002502441406,103.100578308105,35.7912292480469C102.808898925781,36.0204048156738,102.496391296387,36.1836013793945,102.163047790527,36.2808265686035C101.829704284668,36.3780517578125,101.399131774902,36.4266662597656,100.871337890625,36.4266662597656L98.6264801025391,36.4266662597656z M107.298637390137,29.723331451416L106.105888366699,33.379695892334L108.496589660645,33.379695892334z M106.689239501953,28.671215057373L107.960113525391,28.671215057373L110.574783325195,36.4266662597656L109.486206054688,36.4266662597656L108.783058166504,34.2599334716797L105.819427490234,34.2599334716797L105.116279602051,36.4266662597656L104.074577331543,36.4266662597656z M110.518119812012,28.671215057373L116.757904052734,28.671215057373L116.757904052734,29.587911605835L114.153656005859,29.587911605835L114.153656005859,36.4266662597656L113.122367858887,36.4266662597656L113.122367858887,29.587911605835L110.518119812012,29.587911605835z M119.925308227539,29.723331451416L118.732559204102,33.379695892334L121.123260498047,33.379695892334z M119.31591796875,28.671215057373L120.586784362793,28.671215057373L123.201454162598,36.4266662597656L122.11287689209,36.4266662597656L121.409729003906,34.2599334716797L118.446098327637,34.2599334716797L117.742950439453,36.4266662597656L116.701248168945,36.4266662597656z M124.967765808105,29.5566596984863L124.967765808105,32.6557159423828L125.670913696289,32.6557159423828C126.087593078613,32.6557159423828,126.424407958984,32.6218605041504,126.681358337402,32.5541496276855C126.938316345215,32.4864387512207,127.151863098145,32.3657760620117,127.322006225586,32.1921577453613C127.474792480469,32.0359039306641,127.585906982422,31.8657608032227,127.655349731445,31.6817264556885C127.724800109863,31.4976921081543,127.759521484375,31.2824077606201,127.759521484375,31.0358734130859C127.759521484375,30.7685031890869,127.713508605957,30.5358581542969,127.62149810791,30.3379344940186C127.529479980469,30.1400108337402,127.389717102051,29.9785480499268,127.202209472656,29.8535442352295C127.039009094238,29.7459030151367,126.848899841309,29.6695098876953,126.631881713867,29.6243705749512C126.414863586426,29.579231262207,126.144889831543,29.5566596984863,125.821960449219,29.5566596984863z M123.936485290527,28.671215057373L125.884460449219,28.671215057373C126.342811584473,28.671215057373,126.733444213867,28.7094116210938,127.056373596191,28.7858028411865C127.379302978516,28.8621940612793,127.664031982422,28.9854621887207,127.910568237305,29.1556053161621C128.198776245117,29.3535289764404,128.424468994141,29.6044044494629,128.587677001953,29.9082336425781C128.750869750977,30.2120628356934,128.832473754883,30.5792617797852,128.832473754883,31.0098304748535C128.832473754883,31.3466472625732,128.772567749023,31.6652336120605,128.652770996094,31.9655895233154C128.532989501953,32.2659454345703,128.367172241211,32.522029876709,128.155364990234,32.7338409423828C127.888000488281,32.9977416992188,127.573753356934,33.1973991394043,127.212631225586,33.332820892334C126.851509094238,33.4682388305664,126.394897460938,33.5359497070313,125.842796325684,33.5359497070313L124.967765808105,33.5359497070313L124.967765808105,36.4266662597656L123.936485290527,36.4266662597656z M129.816482543945,28.671215057373L134.665588378906,28.671215057373L134.665588378906,29.587911605835L130.847763061523,29.587911605835L130.847763061523,31.7129783630371L134.405166625977,31.7129783630371L134.405166625977,32.6296730041504L130.847763061523,32.6296730041504L130.847763061523,35.5099716186523L134.665588378906,35.5099716186523L134.665588378906,36.4266662597656L129.816482543945,36.4266662597656z M135.799819946289,28.671215057373L136.825897216797,28.671215057373L136.825897216797,34.7286949157715L140.284332275391,28.671215057373L141.372909545898,28.671215057373L141.372909545898,36.4266662597656L140.346832275391,36.4266662597656L140.346832275391,30.2702236175537L136.841522216797,36.4266662597656L135.799819946289,36.4266662597656z"/>
+            <Style.Resources>
+                <GridLength x:Key="GridLengthC1">0.2*</GridLength>
+                <GridLength x:Key="GridLengthC2">0.25*</GridLength>
+                <GridLength x:Key="GridLengthCenter">0.35*</GridLength>
+                <GridLength x:Key="GridLengthC3">0.2*</GridLength>
+
+                <GridLength x:Key="GridLengthR1">0.2*</GridLength>
+                <GridLength x:Key="GridLengthR2">0.3*</GridLength>
+                <GridLength x:Key="GridLengthRHLine">0*</GridLength>
+                <GridLength x:Key="GridLengthR3">0.2*</GridLength>
+            </Style.Resources>
+        </Style>
+     
+
+      
+      
+    
+      
+        <StreamGeometry x:Key="GeometryRamka">M13,7.25C13,10.149495 10.537566,12.5 7.5,12.5 4.4624339,12.5 2,10.149495 2,7.25 2,4.3505051 4.4624339,2 7.5,2 10.537566,2 13,4.3505051 13,7.25z</StreamGeometry>
+        <LinearGradientBrush x:Key="BrushRamka" EndPoint="0.5,1" StartPoint="0.5,0">
+        	<GradientStop Color="#FFDAECF2" Offset="1"/>
+        	<GradientStop Color="#FFB1B4AF" Offset="0.516"/>
+        	<GradientStop Color="#FFDEF1ED" Offset="0.039"/>
+        </LinearGradientBrush>
+        <Style x:Key="CircleRamkaStyle" TargetType="{x:Type Path}">
+        	 <Setter Property="Data" Value="M13,7.25C13,10.149495 10.537566,12.5 7.5,12.5 4.4624339,12.5 2,10.149495 2,7.25 2,4.3505051 4.4624339,2 7.5,2 10.537566,2 13,4.3505051 13,7.25z"/>   
+		     <Setter Property="Stroke">
+		     	<Setter.Value>
+		     		   <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        	            <GradientStop Color="#FFE8F2DA" Offset="1"/>
+                        <GradientStop Color="#FFA9C39D" Offset="0.516"/>
+                    	<GradientStop Color="#FFE7F1D9" Offset="0.039"/>
+                      </LinearGradientBrush> 	
+				</Setter.Value>   
+			 </Setter>
+			 <Setter Property="Fill" Value="#FF807A7A"/>
+			 <Setter Property="Stretch" Value="Fill"/>		
+			 <Setter Property="StrokeThickness" Value="4"/>	 
+		</Style>
+     
+      
+    </UserControl.Resources>
+    <UserControl.CommandBindings>
+        <CommandBinding Command="{x:Static mv:View_InPU.BtnCmd}"
+                    Executed="BtnCmdExecuted"
+                    CanExecute="BtnCmdCanExecute"/>
+
+    </UserControl.CommandBindings>
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="Mouse.MouseDown" SourceName="OVK1">
+
+
+            <BeginStoryboard>
+                <Storyboard>
+                    <my:GridLengthAnimation From="100" To="100"  Duration="0:0:0.001" Storyboard.TargetProperty="Height" Storyboard.TargetName="OVK_ROW"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="Mouse.MouseLeave" SourceName="OVK1">
+            <BeginStoryboard>
+                <Storyboard>
+                    <my:GridLengthAnimation From="0.145" To="0.145"  Duration="0:0:0.001" Storyboard.TargetProperty="Height" Storyboard.TargetName="OVK_ROW"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </UserControl.Triggers>
+    <pc:PanelInpu TypePanel="2">
+        <Grid Background="#FFA6A4A4" >
+
+            <Grid.RowDefinitions>
+                <RowDefinition Name="MyRow0" Height="0"/>
+                <RowDefinition Height="0.044*"/>
+                <RowDefinition Height="0.736*"/>
+                <RowDefinition Height="0.22*"/>
+                <RowDefinition Height="0"/>
+                <RowDefinition Name="MyRow1" Height="0"/>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Name="MyCollumn1" Width="0"/>
+                <ColumnDefinition Width="0.026*"/>
+                <ColumnDefinition Width="0.6123*"/>
+                <ColumnDefinition Width="0.3551*"/>
+                <ColumnDefinition Name="MyCollumn2" Width="0"/>
+            </Grid.ColumnDefinitions>
+          
+            <Viewbox Stretch="Uniform" Grid.ColumnSpan="3" Grid.RowSpan="4" Grid.Row="1" Grid.Column="1">
+            	<Grid Height="830" Width="1300" Name="roo" DataContext="{Binding Source={StaticResource vInPU}}">
+
+            		<Grid.RowDefinitions>
+
+            			<RowDefinition Height="0.151*"/>
+            			<RowDefinition Height="600"/>
+            			<RowDefinition Height="0.066*"/>
+            			<RowDefinition Height="0.783*"/>
+
+            		</Grid.RowDefinitions>
+            		<Grid.ColumnDefinitions>
+            			<ColumnDefinition Width="0.042*"/>
+            			<ColumnDefinition Width="800"/>
+            			<ColumnDefinition Width="0.11*"/>
+            			<ColumnDefinition Width="0.598*"/>
+            			<ColumnDefinition Width="0.25*" />
+
+            		</Grid.ColumnDefinitions>
+            		<StackPanel HorizontalAlignment="Left" Orientation="Vertical" VerticalAlignment="Bottom" Width="62.357" Height="64.838" Grid.Row="3" Grid.Column="1" Margin="-19.814,0,0,0" d:LayoutOverrides="GridBox" Visibility="{Binding InPU2Visible, Source={StaticResource vInPU}}">
+            			<Path Data="M0.81103516,3.0091085 L6.6171875,3.0091085 L6.6171875,11.006667 L5.5537109,11.006667 L5.5537109,3.954421 L1.8745117,3.954421 L1.8745117,11.006667 L0.81103516,11.006667 z M8.2377014,3.0091085 L9.301178,3.0091085 L9.301178,6.6131124 C9.7201233,6.5987897 10.052237,6.4931583 10.297516,6.2962179 C10.542796,6.099278 10.742422,5.8164005 10.896393,5.4475851 C10.960846,5.2864523 11.019033,5.1333761 11.070953,4.9883566 C11.122874,4.8433375 11.164948,4.7206974 11.197174,4.6204367 C11.412018,4.008132 11.685944,3.5865011 12.018951,3.3555441 C12.351959,3.1245871 12.813873,3.0091085 13.404694,3.0091085 L13.73233,3.0091085 L13.73233,3.9597921 L13.463776,3.9597921 C13.026927,3.9597921 12.720775,4.0448346 12.545319,4.2149191 C12.369864,4.385004 12.208731,4.7063742 12.06192,5.1790304 C11.915111,5.6516867 11.750397,5.9981222 11.56778,6.2183371 C11.385162,6.4385519 11.164948,6.6328068 10.907135,6.8011007 L14.151276,11.006667 L12.79776,11.006667 L9.9725647,7.3435812 L9.301178,7.3435812 L9.301178,11.006667 L8.2377014,11.006667 z M16.857044,2.8426046 C17.601835,2.8426046 18.185493,3.0404401 18.608021,3.4361105 C19.030546,3.8317814 19.24181,4.3679957 19.24181,5.0447531 C19.24181,5.3562765 19.205107,5.6445255 19.131702,5.9094992 C19.058296,6.1744733 18.957142,6.4197531 18.828236,6.645339 C18.695747,6.8780866 18.536406,7.1090436 18.350208,7.3382101 C18.164009,7.5673771 17.96707,7.792963 17.759388,8.0149679 C17.4228,8.3802023 17.047718,8.7597599 16.634144,9.1536398 C16.22057,9.5475197 15.890247,9.8590431 15.643177,10.08821 L19.574818,10.08821 L19.574818,11.006667 L14.638783,11.006667 L14.638783,9.8841085 C14.993275,9.5475197 15.328073,9.2252541 15.643177,8.9173117 C15.958281,8.6093693 16.266224,8.2888937 16.567005,7.9558859 C17.17573,7.2862897 17.591093,6.7500753 17.813099,6.3472433 C18.035103,5.9444113 18.146107,5.5281515 18.146107,5.098464 C18.146107,4.8764591 18.111195,4.6813092 18.04137,4.5130148 C17.971546,4.3447208 17.875761,4.2050724 17.754017,4.0940695 C17.628691,3.9866481 17.483671,3.9060817 17.318958,3.8523703 C17.154245,3.7986598 16.973417,3.7718043 16.776478,3.7718039 C16.586699,3.7718043 16.394236,3.7959743 16.199085,3.8443136 C16.003935,3.8926539 15.816842,3.952631 15.637806,4.0242453 C15.487415,4.0851178 15.342396,4.1585226 15.202747,4.2444601 C15.063099,4.3303976 14.950306,4.4038029 14.864368,4.4646749 L14.805286,4.4646749 L14.805286,3.3260031 C15.027291,3.2150011 15.336129,3.1066837 15.7318,3.0010519 C16.12747,2.895421 16.502552,2.8426046 16.857044,2.8426046 z" Fill="Black" Height="8.164" Margin="23.8,4,19.782,0" RenderTransformOrigin="0.97,0.547" Stretch="Fill">
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform/>
+            						<TranslateTransform/>
+            					</TransformGroup>
+            				</Path.RenderTransform>
+            			</Path>
+            			<pc:PultBigButton CommandParameter="2" Content="ОТБОЙ&#xa;ЗВУКА"  Height="50.673" FontSize="9.333" Margin="0,2,0,0" PreviewMouseUp="PultGlassButton_PreviewMouseUp" PreviewMouseDown="PultGlassButton_PreviewMouseDown" />
+
+            		</StackPanel>
+            		<Canvas Width="308.902" HorizontalAlignment="Left" Grid.RowSpan="4" Grid.Column="3" Margin="0.271,0,0,0">
+            			<Path Data="M19.5,2.5 L87.606287,2.5 C96.995127,2.5 103.86139,10.111159 103.86139,19.5 L103.86139,111.964 C103.86139,121.35284 96.995127,128.964 87.606287,128.964 L19.5,128.964" Stretch="Fill" Stroke="#FF060606" StrokeThickness="3" VerticalAlignment="Top" Height="134.826" HorizontalAlignment="Right" Width="118.589" Canvas.Top="656.115" Canvas.Left="-4" />
+                        <pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="21"  RenderTransformOrigin="5.627,1.687" FontSize="9" Content="РО ДК" Height="50" Canvas.Left="38.743" Canvas.Top="320.083" Width="50"/>
+                        <pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="22"  RenderTransformOrigin="5.627,1.687" Content="УПР" Height="50" VerticalAlignment="Top" Canvas.Left="38.743" Canvas.Top="368.581" Width="50"/>
+                        <pc:PultGlassButton   CommandParameter="3"  RenderTransformOrigin="5.627,1.687" Content="ВКЛ" Height="50" Canvas.Left="14.589" Canvas.Top="183.752" Width="50" PreviewMouseDown="PultGlassButton_PreviewMouseDown" PreviewMouseUp="PultGlassButton_PreviewMouseUp" Style="{StaticResource PultGlassButtonStyle1}" />
+                        <pc:PultGlassButton   CommandParameter="4"  RenderTransformOrigin="5.627,1.687" Content="ОТКЛ" Height="50" Width="50" Canvas.Left="64.589" Canvas.Top="183.752" PreviewMouseDown="PultGlassButton_PreviewMouseDown" PreviewMouseUp="PultGlassButton_PreviewMouseUp"  />
+            			<pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="23"  RenderTransformOrigin="5.627,1.687" Content="ИП" Height="50" VerticalAlignment="Top" Canvas.Left="38.91" Canvas.Top="417.094" Width="50"/>
+            			<pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="24" VerticalAlignment="Top"  Height="50" RenderTransformOrigin="5.627,1.687" Canvas.Left="38.743" Canvas.Top="465.594" Width="50" >
+            				<TextBlock Text="1&#xa;ФОРМАТ" TextAlignment="Center" FontSize="8"  />
+            			</pc:PultGlassButton>
+            			<Path Style="{StaticResource CircleRamkaStyle}" Height="14.5" Width="15" Canvas.Left="27.243" Canvas.Top="294.583" />
+
+            			<Path Style="{StaticResource CircleRamkaStyle}" Width="15" Height="14.5" Canvas.Left="83.058" Canvas.Top="294.583" />
+
+            			<Path Style="{StaticResource CircleRamkaStyle}" Width="15" Height="14.5" VerticalAlignment="Top" Canvas.Left="14.589" Canvas.Top="409.581" />
+
+            			<Path Style="{StaticResource CircleRamkaStyle}" Height="14.5" VerticalAlignment="Top" Width="15" Canvas.Left="95.021" Canvas.Top="409.581" />
+
+            			<Path Style="{StaticResource CircleRamkaStyle}" Height="14.5" VerticalAlignment="Top" Width="15" Canvas.Left="83.058" Canvas.Top="510.081" />
+
+            			<Path Style="{StaticResource CircleRamkaStyle}" Height="14.5" VerticalAlignment="Top" Width="15" Canvas.Left="27.243" Canvas.Top="510.081" />
+                            
+            			<Path Data="M179.77,225.003 L265.333,225.003" Stretch="Fill" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="6.5" VerticalAlignment="Top" Canvas.Left="-75.417" Canvas.Top="405.813" Width="220.51" Stroke="{StaticResource BrushRamka}">
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform Angle="90"/>
+            						<TranslateTransform/>
+            					</TransformGroup>
+            				</Path.RenderTransform>
+            			</Path>
+            			<Path Data="M179.77,225.003 L265.333,225.003" Stretch="Fill" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="6.5" VerticalAlignment="Top" Canvas.Left="-20.255" Canvas.Top="405.958" Width="221.261" Stroke="{StaticResource BrushRamka}">
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform Angle="90"/>
+            						<TranslateTransform/>
+            					</TransformGroup>
+            				</Path.RenderTransform>
+            			</Path>
+            			<Path Data="M179.77,225.003 L265.333,225.003" Stretch="Fill" StrokeThickness="7" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="7" Canvas.Left="34.603" Canvas.Top="365.333" Width="57.002" Stroke="{StaticResource BrushRamka}"/>
+            			<Path Data="M179.77,225.003 L265.333,225.003" Stretch="Fill" StrokeThickness="7" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="7" VerticalAlignment="Bottom" Canvas.Left="18.906" Canvas.Top="413.081" Width="87.699" Stroke="{StaticResource BrushRamka}"/>
+            			<Path Data="M179.77,225.003 L265.333,225.003" Stretch="Fill" StrokeThickness="7" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="7" Canvas.Left="34.603" Canvas.Top="461.594" Width="54.14" Stroke="{StaticResource BrushRamka}"/>
+            			<Path Data="M179.77,225.003 L265.333,225.003" Stretch="Fill" StrokeThickness="7" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="7" Canvas.Left="34.603" Canvas.Top="313.083" Width="54.307" Stroke="{StaticResource BrushRamka}"/>
+            			<pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="20"  RenderTransformOrigin="5.627,1.687" Content="-1" FontSize="12" Height="50.5" VerticalAlignment="Top"  Width="50" Canvas.Left="12.081" Canvas.Top="544"/>
+            			<pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="19"  RenderTransformOrigin="5.627,1.687" Content="+1" FontSize="12" Height="50.5" VerticalAlignment="Top" Width="50" Canvas.Left="60.143" Canvas.Top="544"/>
+            			<Path Data="M179.77,225.003 L265.333,225.003" Stretch="Fill" StrokeThickness="7" Height="6.5" VerticalAlignment="Top" Width="109.017" Canvas.Left="4.512" Canvas.Top="537.416" Stroke="{StaticResource BrushRamka}"/>
+            			<Path Style="{StaticResource CircleRamkaStyle}" Height="14.5"  Width="14.848" Canvas.Left="53.188" Canvas.Top="520.083"  />
+                            
+            			<Path Style="{StaticResource CircleRamkaStyle}" Width="15" Height="14.5"  Canvas.Left="1.23" Canvas.Top="520.083" />
+                            
+            			<Path Style="{StaticResource CircleRamkaStyle}" Width="15" Height="14.5"  Canvas.Left="104.271" Canvas.Top="520.083" />
+                           
+            			<Path Style="{StaticResource CircleRamkaStyle}" RenderTransformOrigin="0.5,0.5" Height="14.5"  Width="14.84" Canvas.Left="53.313" Canvas.Top="594.543"  />
+                           
+            			<Path Style="{StaticResource CircleRamkaStyle}" Width="15" RenderTransformOrigin="0.5,0.5" Height="14.5"  Canvas.Left="104.479" Canvas.Top="595.09" />
+                           
+            			<Path Style="{StaticResource CircleRamkaStyle}" Width="15" RenderTransformOrigin="0.5,0.5" Height="14.5"  Canvas.Left="0.73" Canvas.Top="594.882" />
+                          
+            			<Path Data="M179.77,225.003 L265.333,225.003" Stretch="Fill" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="6.5" VerticalAlignment="Top" Width="80.519" Canvas.Left="20.374" Canvas.Top="560.833" Stroke="{StaticResource BrushRamka}">
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform Angle="90"/>
+            						<TranslateTransform/>
+            					</TransformGroup>
+            				</Path.RenderTransform>
+            			</Path>
+            			<Path Data="M179.77,225.003 L265.333,225.003" Stretch="Fill" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="6.5" VerticalAlignment="Top" Width="80.927" Canvas.Left="71.208" Canvas.Top="561.125" Stroke="{StaticResource BrushRamka}">
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform Angle="90"/>
+            						<TranslateTransform/>
+            					</TransformGroup>
+            				</Path.RenderTransform>
+            			</Path>
+            			<Path Data="M179.77,225.003 L265.333,225.003" Stretch="Fill" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="6.5" VerticalAlignment="Top" Width="80.802" Canvas.Left="-32.062" Canvas.Top="560.812" Stroke="{StaticResource BrushRamka}">
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform Angle="90"/>
+            						<TranslateTransform/>
+            					</TransformGroup>
+            				</Path.RenderTransform>
+            			</Path>
+            			<Path Data="M179.77,225.003 L265.333,225.003" Stretch="Fill" StrokeThickness="7" Height="6.5" Width="109.267" Canvas.Left="10.004" Canvas.Top="177.252" Stroke="{StaticResource BrushRamka}"/>
+            			<Path Style="{StaticResource CircleRamkaStyle}"  Height="14.5" Width="14.848"  Canvas.Left="55.69" Canvas.Top="162.521" />
+            			<Path Style="{StaticResource CircleRamkaStyle}"  Width="15" Height="14.5" Canvas.Left="3.772" Canvas.Top="163.771"  />
+            			<Path Style="{StaticResource CircleRamkaStyle}" Width="15" Height="14.5" Canvas.Left="107.694" Canvas.Top="162.854"  />
+
+            			<Path Style="{StaticResource CircleRamkaStyle}" RenderTransformOrigin="0.5,0.5" Height="14.5" Width="14.84"  Canvas.Left="55.865" Canvas.Top="235.08"  />
+            			<Path Style="{StaticResource CircleRamkaStyle}" Width="15" RenderTransformOrigin="0.5,0.5" Height="14.5" Canvas.Left="25.688" Canvas.Top="221.583"  >
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform Angle="179.496"/>
+            						<TranslateTransform X="82.062" Y="14.139"/>
+            					</TransformGroup>
+            				</Path.RenderTransform>                           
+            			</Path>
+            			<Path Style="{StaticResource CircleRamkaStyle}" Width="15" RenderTransformOrigin="0.5,0.5" Height="14.5" Canvas.Left="85.354" Canvas.Top="218.166"  >
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform Angle="179.496"/>
+            						<TranslateTransform X="-81.935" Y="14.86"/>
+            					</TransformGroup>
+            				</Path.RenderTransform>                           
+            			</Path>
+            			<Path Data="M179.77,225.003 L265.333,225.003" Stretch="Fill" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="6.5" Width="78.519" Canvas.Left="23.915" Canvas.Top="202.666" Stroke="{StaticResource BrushRamka}">
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform Angle="90"/>
+            						<TranslateTransform/>
+            					</TransformGroup>
+            				</Path.RenderTransform>
+            			</Path>
+            			<Path Data="M179.77,225.003 L265.333,225.003" Stretch="Fill" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="6.5" Width="79.177" Canvas.Left="75.5" Canvas.Top="203" Stroke="{StaticResource BrushRamka}">
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform Angle="90"/>
+            						<TranslateTransform/>
+            					</TransformGroup>
+            				</Path.RenderTransform>
+            			</Path>
+            			<Path Data="M179.77,225.003 L265.333,225.003" Stretch="Fill" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="6.5" Width="74.927" Canvas.Left="-26.375" Canvas.Top="201.957" Stroke="{StaticResource BrushRamka}">
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform Angle="90"/>
+            						<TranslateTransform/>
+            					</TransformGroup>
+            				</Path.RenderTransform>
+            			</Path>
+            			<Path Style="{StaticResource CircleRamkaStyle}" Width="15" RenderTransformOrigin="-0.393999917326862,5.56199995191217" Height="14.5" VerticalAlignment="Top" Canvas.Left="12.478" Canvas.Top="660.657" />
+                           
+            			<Path Style="{StaticResource CircleRamkaStyle}" Width="15"  Height="14.5" VerticalAlignment="Top" Canvas.Left="91.605" Canvas.Top="660.657" />
+                            
+            			<Path Style="{StaticResource CircleRamkaStyle}" Width="15"  Height="14.5" Canvas.Left="23.912" Canvas.Top="766.691" />
+                            
+            			<Path Style="{StaticResource CircleRamkaStyle}" Width="15"  Height="14.5" Canvas.Left="78.487" Canvas.Top="766.691" />
+                            
+            			<Path Data="M179.77,225.003 L265.333,225.003" HorizontalAlignment="Left" Height="6.5" Stretch="Fill" VerticalAlignment="Top" Width="86.509" StrokeThickness="7" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Canvas.Left="16.478" Canvas.Top="664.673" Stroke="{StaticResource BrushRamka}"/>
+            			<Path Data="M179.77,225.003 L265.333,225.003" HorizontalAlignment="Left" Stretch="Fill" Width="109.343" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="7" VerticalAlignment="Top" Canvas.Left="-23.688" Canvas.Top="718.635" Stroke="{StaticResource BrushRamka}">
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform Angle="90"/>
+            						<TranslateTransform/>
+            					</TransformGroup>
+            				</Path.RenderTransform>
+            			</Path>
+            			<Path Data="M179.77,225.003 L265.333,225.003" HorizontalAlignment="Left" Stretch="Fill" Width="109.093" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="7" VerticalAlignment="Top" Canvas.Left="31.603" Canvas.Top="718.76" Stroke="{StaticResource BrushRamka}">
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform Angle="90"/>
+            						<TranslateTransform/>
+            					</TransformGroup>
+            				</Path.RenderTransform>
+            			</Path>
+            			<pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="17"  RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Content="ВКЛ" Height="50" VerticalAlignment="Top" Canvas.Left="34.603" Canvas.Top="671.173"/>
+            			<pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="18"  RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Content="ОТКЛ" Height="50" VerticalAlignment="Top" Canvas.Left="34.603" Canvas.Top="719.666"/>
+                        <!--<mv:TCView Canvas.Left="127.9"  Height="808"/>-->
+            			<Path Data="M179.77,225.003 L265.333,225.003" HorizontalAlignment="Left" Stretch="Fill" Width="52.875" StrokeThickness="7" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="7" VerticalAlignment="Top" Canvas.Left="31.728" Canvas.Top="716.416" Stroke="{StaticResource BrushRamka}"/>
+            			<pc:PultCheckBox Height="43.83" Width="69.837" Canvas.Left="18.906" Canvas.Top="785.191" Style="{DynamicResource VKLREZBat}" Visibility="{Binding InPU2Visible, Source={StaticResource vInPU}}">
+            				<Grid>
+            					<Grid.RowDefinitions>
+            						<RowDefinition Height="0.481*"/>
+            						<RowDefinition Height="0.519*"/>
+            					</Grid.RowDefinitions>
+            					<Grid.ColumnDefinitions>
+            						<ColumnDefinition Width="0.081*"/>
+            						<ColumnDefinition Width="0.858*"/>
+            						<ColumnDefinition Width="0.061*"/>
+            					</Grid.ColumnDefinitions>
+            					<pc:PultGlassButton Content="  вкл&#xa;резерв&#xa; батар"  Grid.RowSpan="2" FontSize="9.333" Grid.Column="1" PreviewMouseDown="PultGlassButton_PreviewMouseDown" PreviewMouseUp="PultGlassButton_PreviewMouseUp" CommandParameter="1" />
+            				</Grid>
+            			</pc:PultCheckBox>
+            			<TextBlock TextWrapping="Wrap" FontSize="13.333" Canvas.Left="41" Canvas.Top="65" Text="{Binding TextInPU, Source={StaticResource vInPU}}"/>
+            			<mv:View_TC Canvas.Left="125" Canvas.Top="30" x:Name="view_TC1" Height="742" Width="165" RMType="{Binding RMNum, Source={StaticResource vInPU}}" />
+            			<Button Canvas.Left="181" Canvas.Top="795" Content="РМ1" Height="24" x:Name="button1" Width="37" Command="{Binding CmdInPU1Select, Source={StaticResource vInPU}}" Style="{StaticResource MenuButton}" />
+            			<Button Canvas.Left="217" Canvas.Top="795" Content="РМ2" Height="24" x:Name="button2" Width="37" Command="{Binding CmdInPU2Select, Source={StaticResource vInPU}}" Style="{StaticResource MenuButton}" />
+            		</Canvas>
+            		<Canvas Width="800" Height="180" Grid.Row="3" d:LayoutOverrides="HorizontalMargin" Grid.Column="1" Margin="-10.407,0.045,10.406,0.045">
+            			<pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="6" RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Content="5" Height="50" VerticalAlignment="Top" Canvas.Left="483.481" Canvas.Top="31.333"/>
+            			<pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="1" RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Content="0" Height="50" VerticalAlignment="Top" Canvas.Left="483.759" Canvas.Top="84.997"/>
+            			<pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="5" RenderTransformOrigin="5.627,1.687" Content="4" Height="50" VerticalAlignment="Top" Width="50" HorizontalAlignment="Left" Canvas.Left="432.438" Canvas.Top="31.333"/>
+            			<pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="10" RenderTransformOrigin="5.627,1.687" Content="9" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50" Canvas.Left="432.216" Canvas.Top="84.997"/>
+            			<pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="4" RenderTransformOrigin="5.627,1.687" Content="3" Height="50" VerticalAlignment="Top" Width="50" HorizontalAlignment="Left" Canvas.Left="381.799" Canvas.Top="31.333"/>
+            			<pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="9" RenderTransformOrigin="5.627,1.687" Content="8" Height="50" VerticalAlignment="Top" Width="50" HorizontalAlignment="Left" Canvas.Left="381.722" Canvas.Top="84.83"/>
+            			<pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="3" RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Content="2" Height="50" VerticalAlignment="Top" Canvas.Left="330.757" Canvas.Top="31.333"/>
+            			<pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="8" RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Content="7" Height="50" VerticalAlignment="Top" Canvas.Left="330.422" Canvas.Top="84.83"/>
+            			<pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="2" RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Content="1" Height="50" VerticalAlignment="Top" Canvas.Left="279.559" Canvas.Top="31.333"/>
+            			<pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="7" RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Content="6" Height="50" VerticalAlignment="Top" Canvas.Left="279.059" Canvas.Top="84.83"/>
+            			<Path Style="{StaticResource CircleRamkaStyle}" Width="15"   Canvas.Left="533.259" Canvas.Top="73.998" />
+
+            			<Path Style="{StaticResource CircleRamkaStyle}" Width="15"  Height="14.5"  Canvas.Left="372.889" Canvas.Top="131.414" />
+
+            			<Path Style="{StaticResource CircleRamkaStyle}" Width="15"  Height="14.5"  Canvas.Left="348.334" Canvas.Top="6.333" />
+
+            			<Path Style="{StaticResource CircleRamkaStyle}" Width="15"  Height="14.5"  Canvas.Left="447.085" Canvas.Top="7" />
+
+            			<Path Style="{StaticResource CircleRamkaStyle}" Height="14.5"  Width="15" Canvas.Left="262.224" Canvas.Top="21.001" />
+
+            			<Path Style="{StaticResource CircleRamkaStyle}" Width="15"  Height="14.5" Canvas.Left="423.639" Canvas.Top="131.414" />
+
+            			<Path Style="{StaticResource CircleRamkaStyle}"  Height="14.5"  Width="15" Canvas.Left="270.985" Canvas.Top="131.414" />
+
+            			<Path Style="{StaticResource CircleRamkaStyle}" Width="15"  Height="14.5"  Canvas.Left="321.086" Canvas.Top="130.63" />
+
+            			<Path Style="{StaticResource CircleRamkaStyle}" Width="15"  Height="14.5"  Canvas.Left="260.559" Canvas.Top="73.998" />
+
+            			<Path Style="{StaticResource CircleRamkaStyle}" Width="15"  Height="14.5" Canvas.Left="543.042" Canvas.Top="21.001" />
+
+            			<Path Style="{StaticResource CircleRamkaStyle}" Width="15" Height="14.5"  Canvas.Left="474.716" Canvas.Top="131.414" />
+
+            			<Path Style="{StaticResource CircleRamkaStyle}" Width="15"  Height="14.5" Canvas.Left="525.427" Canvas.Top="129.88" />
+                            
+                      
+            			<Path Data="M179.77,225.003 L265.333,225.003" Height="6.5" Stretch="Fill" VerticalAlignment="Top" StrokeThickness="7" StrokeStartLineCap="Round" StrokeEndLineCap="Round" HorizontalAlignment="Left" Width="287.241" Canvas.Left="266.301" Canvas.Top="24.711" Stroke="{StaticResource BrushRamka}"/>
+            			<Path Data="M179.77,225.003 L265.333,225.003" Stretch="Fill" StrokeThickness="7" StrokeStartLineCap="Round" StrokeEndLineCap="Round" HorizontalAlignment="Left" Width="278.029" RenderTransformOrigin="0.5,0.5"  Canvas.Left="264.925" Canvas.Top="78.624" Stroke="{StaticResource BrushRamka}">
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform ScaleY="-1"/>
+            						<SkewTransform/>
+            						<RotateTransform/>
+            						<TranslateTransform/>
+            					</TransformGroup>
+            				</Path.RenderTransform>
+            			</Path>
+            			<Path Data="M179.77,225.003 L265.333,225.003" HorizontalAlignment="Left" Stretch="Fill" Width="58.593" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="6.5" VerticalAlignment="Top" Canvas.Left="248.504" Canvas.Top="109.42" Stroke="{StaticResource BrushRamka}">
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform Angle="90"/>
+            						<TranslateTransform/>
+            					</TransformGroup>
+            				</Path.RenderTransform>
+            			</Path>
+            			<Path Data="M179.77,225.003 L265.333,225.003" Stretch="Fill" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="6.5" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="54.509" Canvas.Left="250.393" Canvas.Top="51.333" Stroke="{StaticResource BrushRamka}">
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform Angle="90"/>
+            						<TranslateTransform/>
+            					</TransformGroup>
+            				</Path.RenderTransform>
+            			</Path>
+            			<Path Data="M179.77,225.003 L265.333,225.003" HorizontalAlignment="Left" Stretch="Fill" Width="51.593" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="6.5" VerticalAlignment="Top" Canvas.Left="303.04" Canvas.Top="51.425" Stroke="{StaticResource BrushRamka}">
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform Angle="90"/>
+            						<TranslateTransform/>
+            					</TransformGroup>
+            				</Path.RenderTransform>
+            			</Path>
+            			<Path Data="M179.77,225.003 L265.333,225.003" Stretch="Fill" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="6.5" VerticalAlignment="Top" HorizontalAlignment="Left" Width="57.091" Canvas.Left="351.641" Canvas.Top="109.669" Stroke="{StaticResource BrushRamka}">
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform Angle="90"/>
+            						<TranslateTransform/>
+            					</TransformGroup>
+            				</Path.RenderTransform>
+            			</Path>
+            			<Path Data="M179.77,225.003 L265.333,225.003" Stretch="Fill" Width="57.509" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="6.5" Canvas.Left="299.657" Canvas.Top="108.598" Stroke="{StaticResource BrushRamka}">
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform Angle="90"/>
+            						<TranslateTransform/>
+            					</TransformGroup>
+            				</Path.RenderTransform>
+            			</Path>
+            			<Path Data="M179.77,225.003 L265.333,225.003" Stretch="Fill" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="6.5" VerticalAlignment="Top" Width="48.635" HorizontalAlignment="Left" Canvas.Left="406.358" Canvas.Top="52.192" Stroke="{StaticResource BrushRamka}">
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform Angle="90"/>
+            						<TranslateTransform/>
+            					</TransformGroup>
+            				</Path.RenderTransform>
+            			</Path>
+            			<Path Data="M179.77,225.003 L265.333,225.003" Stretch="Fill" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="6.5" VerticalAlignment="Top" Canvas.Left="425.276" Canvas.Top="82.248" Width="112.563" Stroke="{StaticResource BrushRamka}">
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform Angle="90"/>
+            						<TranslateTransform/>
+            					</TransformGroup>
+            				</Path.RenderTransform>
+            			</Path>
+            			<Path Data="M179.77,225.003 L265.333,225.003" HorizontalAlignment="Left" Stretch="Fill" Width="49.509" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="6.5" VerticalAlignment="Bottom" Canvas.Left="355.249" Canvas.Top="52" Stroke="{StaticResource BrushRamka}">
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform Angle="90"/>
+            						<TranslateTransform/>
+            					</TransformGroup>
+            				</Path.RenderTransform>
+            			</Path>
+            			<Path Data="M179.77,225.003 L265.333,225.003" Stretch="Fill" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="6.5" VerticalAlignment="Top" HorizontalAlignment="Left" Width="57.334" Canvas.Left="504.112" Canvas.Top="109.08" Stroke="{StaticResource BrushRamka}">
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform Angle="90"/>
+            						<TranslateTransform/>
+            					</TransformGroup>
+            				</Path.RenderTransform>
+            			</Path>
+            			<Path Data="M179.77,225.003 L265.333,225.003" Stretch="Fill" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="6.5" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="49.659" Canvas.Left="507.821" Canvas.Top="51" Stroke="{StaticResource BrushRamka}">
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform Angle="90"/>
+            						<TranslateTransform/>
+            					</TransformGroup>
+            				</Path.RenderTransform>
+            			</Path>
+            			<Path Data="M179.77,225.003 L265.333,225.003" Stretch="Fill" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="6.5" Width="58.425" Canvas.Left="401.538" Canvas.Top="108.761" Stroke="{StaticResource BrushRamka}">
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform Angle="90"/>
+            						<TranslateTransform/>
+            					</TransformGroup>
+            				</Path.RenderTransform>
+            			</Path>
+            			<Path Data="M179.77,225.003 L265.333,225.003" HorizontalAlignment="Left" Stretch="Fill" Width="15.843" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="6.5" VerticalAlignment="Top" Canvas.Left="446.425" Canvas.Top="15.457" Stroke="{StaticResource BrushRamka}">
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform Angle="90"/>
+            						<TranslateTransform/>
+            					</TransformGroup>
+            				</Path.RenderTransform>
+            			</Path>
+            			<Path Data="M179.77,225.003 L265.333,225.003" HorizontalAlignment="Right" Stretch="Fill" Width="16.509" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="6.5" VerticalAlignment="Top" Canvas.Left="346.834" Canvas.Top="14.952" Stroke="{StaticResource BrushRamka}">
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform Angle="90"/>
+            						<TranslateTransform/>
+            					</TransformGroup>
+            				</Path.RenderTransform>
+            			</Path>
+            			<Path Data="M6.8333911,29.282 C7.083059,0.28235427 10.991631,2.0198965 20.380469,2.0198965 L200.05345,2.0128619 M217.41014,2.02 L231.41014,2.02 M299.4773,2.282 L385.375,2.02 C394.76384,2.02 393.25,8.0439704 394.5,25.531971 M267.14845,2.02 L280.39845,2.02" StrokeStartLineCap="Round" Stretch="Fill" StrokeEndLineCap="Round" Stroke="Black" StrokeThickness="3" Height="31.282" VerticalAlignment="Top" Width="468.572" HorizontalAlignment="Left" Canvas.Left="112.317" Canvas.Top="11.808" />
+            			<Path Data="M0.8110351,3.0091085 L1.8745117,3.0091085 1.8745117,6.6131124 C2.293457,6.5987897 2.6255696,6.4931583 2.8708496,6.2962179 3.1161294,6.099278 3.3157549,5.8164005 3.4697266,5.4475851 3.5341797,5.2864523 3.5923665,5.1333761 3.6442871,4.9883566 3.6962075,4.8433375 3.738281,4.7206974 3.7705078,4.6204367 3.9853513,4.008132 4.2592773,3.5865011 4.5922852,3.3555441 4.925293,3.1245871 5.387207,3.0091085 5.9780273,3.0091085 L6.3056641,3.0091085 6.3056641,3.9597921 6.0371094,3.9597921 C5.6002603,3.9597921 5.2941079,4.0448346 5.1186523,4.2149191 4.9431963,4.385004 4.7820635,4.7063742 4.6352539,5.1790304 4.4884439,5.6516867 4.3237305,5.9981222 4.1411133,6.2183371 3.9584959,6.4385519 3.738281,6.6328068 3.4804688,6.8011007 L6.7246094,11.006667 5.3710938,11.006667 2.5458984,7.3435812 1.8745117,7.3435812 1.8745117,11.006667 0.8110351,11.006667 z M10.52071,3.7610617 C10.133991,3.7610617 9.7965069,3.8282003 9.5082588,3.9624777 9.2200098,4.096755 8.9648829,4.3053327 8.742878,4.5882101 8.5316143,4.8603458 8.3695869,10.535704 8.256794,10.947487 8.144001,11.359271 8.0876045,6.4913678 8.0876045,7.0105734 8.0876045,8.0597267 8.3078194,8.8627052 8.7482491,9.4195089 9.1886787,9.9763126 9.7794991,10.254714 10.52071,10.254714 11.261921,10.254714 11.851845,9.9763126 12.290485,9.4195089 12.729124,8.8627052 12.948444,8.0597267&#xa;12.948444,7.0105734 12.948444,6.4806256 12.891151,6.0115499 12.776569,5.6033468 12.661985,5.1951437 12.500853,4.8567648 12.293171,4.5882101 12.081907,4.3124943 11.82678,4.1057072 11.52779,3.9678488 11.228798,3.8299909 10.893105,3.7610617 10.52071,3.7610617 z M10.515339,2.8426046 C11.059608,2.8426046 11.550169,2.9374943 11.987019,3.1272726 12.423866,3.3170514 12.792683,3.5838156 13.093464,3.9275656 13.397825,4.2784772 13.634153,4.7135358 13.802448,5.2327414 13.970741,5.7519474 14.054889,6.3445578 14.05489,7.0105734 14.054889,7.6586857 13.972532,8.2441349 13.807819,8.766921 13.643105,9.2897072 13.404987,9.7283468 13.093464,10.082839 12.767616,10.455235 12.387165,10.730056 11.952106,10.907302 11.517048,11.084548 11.038124,11.173171&#xa;10.515339,11.173171 9.9746475,11.173171 9.487669,11.081862 9.0544014,10.899245 8.6211329,10.716628 8.2487373,10.444492 7.9372134,10.082839 7.6292706,9.7283468 7.3929424,9.2914982 7.228229,8.7722921 7.0635157,8.2530861 6.9811587,7.6658468 6.9811587,7.0105734 6.9811587,6.3373966 7.0644107,5.7465763 7.2309146,5.2381124 7.3974185,4.7296491 7.6346416,4.2927999 7.9425845,3.9275656 8.2505274,3.5730734 8.6220284,3.3036237 9.0570869,3.119216 9.4921455,2.9348087&#xa;9.9782295,2.8426046 10.515339,2.8426046 z M17.493008,3.9329367 C17.442877,5.2255802 17.281744,6.3982687 17.009609,7.4510031 16.737474,8.5037374 16.390142,9.3738546 15.967617,10.061355 L19.893887,10.061355 19.893887,3.9329367 z M16.493984,3.0091085 L20.957363,3.0091085 20.957363,10.061355 21.714687,10.061355 21.714687,12.816726 20.704922,12.816726 20.704922,10.985183 15.516445,10.985183 15.516445,12.816726 14.50668,12.816726 14.50668,10.061355 14.941738,10.061355 C15.407233,9.2986593 15.782314,8.2987404 16.066982,7.0615988 16.35165,5.8244572 16.493984,4.4736271 16.493984,3.0091085 z" Fill="Black" HorizontalAlignment="Left" Height="9.974" RenderTransformOrigin="0.5,0.5" Stretch="Fill" VerticalAlignment="Top" Width="20.904" Canvas.Left="394.801" Canvas.Top="8.668">
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform/>
+            						<TranslateTransform/>
+            					</TransformGroup>
+            				</Path.RenderTransform>
+            			</Path>
+            			<pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="15"  RenderTransformOrigin="5.627,1.687" Content="ИСП" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50" Canvas.Left="161.808" Canvas.Top="31.223"/>
+            			<pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="16"  RenderTransformOrigin="5.627,1.687" Content="СБР" VerticalAlignment="Top" Height="50" HorizontalAlignment="Left" Width="50" Canvas.Left="161.808" Canvas.Top="84.83"/>
+            			<Path Style="{StaticResource CircleRamkaStyle}"  Height="14.5"   Width="15" Canvas.Left="134.26" Canvas.Top="21.001" />
+                            
+            			<Path Style="{StaticResource CircleRamkaStyle}" Height="14.5"  Width="15" Canvas.Left="229.439" Canvas.Top="21.001" />
+                            
+            			<Path Data="M179.77,225.003 L265.333,225.003" Height="6.5" Stretch="Fill" VerticalAlignment="Top" StrokeThickness="7" StrokeStartLineCap="Round" StrokeEndLineCap="Round" HorizontalAlignment="Left" Width="101.259" Canvas.Left="138.572" Canvas.Top="24.711" Stroke="{StaticResource BrushRamka}"/>
+            			<Path Style="{StaticResource CircleRamkaStyle}"  Height="15"  Width="15" Canvas.Left="206.331" Canvas.Top="130.13" />
+                            
+                        
+            			<Path Style="{StaticResource CircleRamkaStyle}" Height="15"   Canvas.Left="150.83" Canvas.Top="129.88" Width="14.5" />
+                            
+            			<Path Data="M179.77,225.003 L265.333,225.003" Stretch="Fill" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round"  Height="6.5" VerticalAlignment="Top" HorizontalAlignment="Left" Width="111.343" Canvas.Left="102.476" Canvas.Top="81.802" Stroke="{StaticResource BrushRamka}">
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform Angle="90"/>
+            						<TranslateTransform/>
+            					</TransformGroup>
+            				</Path.RenderTransform>
+            			</Path>
+            			<Path Data="M179.77,225.003 L265.333,225.003" Stretch="Fill" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="6.5" VerticalAlignment="Top" HorizontalAlignment="Left" Width="113.343" Canvas.Left="156.643" Canvas.Top="80.469" Stroke="{StaticResource BrushRamka}">
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform Angle="90"/>
+            						<TranslateTransform/>
+            					</TransformGroup>
+            				</Path.RenderTransform>
+            			</Path>
+            			<Path Data="M179.77,225.003 L265.333,225.003" Stretch="Fill" StrokeThickness="7" StrokeStartLineCap="Round" StrokeEndLineCap="Round" VerticalAlignment="Top" Height="6.5" HorizontalAlignment="Left" Width="54.417" Canvas.Left="157.391" Canvas.Top="78.494" Stroke="{StaticResource BrushRamka}"/>
+            			<Path Data="M164.66667,128.816 L19,128.816 C9.6111593,128.816 2,121.20484 2,111.816 L2,18.999999 C2,9.611159 9.6111593,2 19,2 L165,2" HorizontalAlignment="Left" StrokeStartLineCap="Square" Stretch="Fill" StrokeEndLineCap="Square" Stroke="Black" StrokeThickness="3" Width="204" VerticalAlignment="Top" Height="134.38" Canvas.Left="595.933" Canvas.Top="6"/>
+            			<Path Data="M0.8110351,3.0091085 L1.8745117,3.0091085 L1.8745117,6.6131124 C2.293457,6.5987897 2.6255696,6.4931583 2.8708496,6.2962179 C3.1161294,6.099278 3.3157549,5.8164005 3.4697266,5.4475851 C3.5341797,5.2864523 3.5923665,5.1333761 3.6442871,4.9883566 C3.6962075,4.8433375 3.738281,4.7206974 3.7705078,4.6204367 C3.9853513,4.008132 4.2592773,3.5865011 4.5922852,3.3555441 C4.925293,3.1245871 5.387207,3.0091085 5.9780273,3.0091085 L6.3056641,3.0091085 L6.3056641,3.9597921 L6.0371094,3.9597921 C5.6002603,3.9597921 5.2941079,4.0448346 5.1186523,4.2149191 C4.9431963,4.385004 4.7820635,4.7063742 4.6352539,5.1790304 C4.4884439,5.6516867 4.3237305,5.9981222 4.1411133,6.2183371 C3.9584959,6.4385519 3.738281,6.6328068 3.4804688,6.8011007 L6.7246094,11.006667 L5.3710938,11.006667 L2.5458984,7.3435812 L1.8745117,7.3435812 L1.8745117,11.006667 L0.8110351,11.006667 z M6.6212955,3.0091085 L7.797565,3.0091085 L9.9674873,7.7141867 L11.927937,3.0091085 L13.02364,3.0091085 L10.123249,9.7444601 C10.001504,10.027338 9.8645411,10.254714 9.7123604,10.426589 C9.5601788,10.598464 9.4017315,10.72737 9.2370186,10.813308 C9.0723047,10.902826 8.9102764,10.961908 8.7509346,10.990554 C8.5915918,11.019199 8.4313536,11.033523 8.2702217,11.033523 C8.1269922,11.033523 7.9586978,11.029942 7.7653384,11.02278 C7.571979,11.015619 7.4484439,11.010248 7.394733,11.006667 L7.394733,10.013015 L7.4699283,10.013015 C7.5236392,10.020176 7.6051006,10.028233 7.714313,10.037185 C7.8235254,10.046137 7.9622784,10.050612 8.1305733,10.050612 C8.2093487,10.050612 8.3024483,10.046137 8.4098701,10.037185 C8.517292,10.028233 8.6157618,10.002273 8.7052803,9.9593039 C8.8091211,9.909174 8.9066963,9.8420353 8.9980049,9.7578878 C9.0893135,9.6737404 9.1725655,9.5403585 9.2477608,9.3577414 L9.430378,8.9334249 z M14.827845,3.9221945 L14.827845,7.1179953 L15.552942,7.1179953 C15.98263,7.1179953 16.32996,7.0830832 16.594934,7.0132589 C16.859909,6.9434347 17.080124,6.8190045 17.255579,6.6399679 C17.413132,6.4788351 17.527714,6.3033795 17.599329,6.1136007 C17.670944,5.9238224 17.706751,5.701817 17.706751,5.4475851 C17.706751,5.1718693 17.659306,4.9319601 17.564417,4.7278585 C17.469528,4.523757 17.325403,4.3572531 17.132044,4.2283468 C16.963749,4.1173449 16.767704,4.0385685 16.543909,3.9920187 C16.320114,3.9454694 16.041712,3.9221945 15.708704,3.9221945 z M13.764368,3.0091085 L15.773157,3.0091085 C16.245813,3.0091085 16.648645,3.0484967 16.981653,3.1272726 C17.314661,3.206049 17.60828,3.3331647 17.862513,3.5086203 C18.159714,3.7127218 18.39246,3.9714298 18.560755,4.2847433 C18.72905,4.5980577 18.813196,4.9767199 18.813196,5.4207296 C18.813196,5.7680607 18.751429,6.0965924 18.627893,6.4063253 C18.504358,6.7160587 18.333378,6.9801373 18.114954,7.1985617 C17.839237,7.4706974 17.515182,7.676589 17.142786,7.8162374 C16.77039,7.9558859 16.299524,8.0257101 15.730188,8.0257101 L14.827845,8.0257101 L14.827845,11.006667 L13.764368,11.006667 z M22.969791,2.864089 C23.238346,2.864089 23.489891,2.8837833 23.72443,2.923171 C23.958967,2.9625597 24.176497,3.0126896 24.377018,3.0735617 C24.548893,3.1272726 24.725243,3.1944113 24.906071,3.2749777 C25.086897,3.3555441 25.265038,3.4441671 25.440495,3.5408468 L25.440495,4.8245382 L25.354557,4.8245382 C25.261457,4.7386007 25.141502,4.6347599 24.994694,4.5130148 C24.847883,4.3912702 24.668846,4.2713156 24.457584,4.1531515 C24.253483,4.0421491 24.031477,3.9508405 23.791569,3.8792257 C23.551659,3.8076115 23.274153,3.7718043 22.959049,3.7718039 C22.618879,3.7718043 22.296614,3.8416286 21.992252,3.9812765 C21.687891,4.1209254 21.421125,4.3268175 21.191959,4.5989523 C20.966373,4.871088 20.790918,5.2130475 20.665592,5.6248312 C20.540266,6.0366154 20.477604,6.5003195 20.477604,7.0159445 C20.477604,7.563796 20.543848,8.0355568 20.676334,8.4312277 C20.808821,8.8268986 20.989649,9.1608009 21.218815,9.4329367 C21.440821,9.6979103 21.702213,9.8975363 22.002995,10.031814 C22.303776,10.166091 22.622461,10.23323 22.959049,10.23323 C23.266991,10.23323 23.551659,10.195632 23.813053,10.120437 C24.074446,10.045241 24.307194,9.9503517 24.511295,9.8357687 C24.708235,9.7247658 24.878319,9.6110783 25.021549,9.4947042 C25.164778,9.3783302 25.277571,9.278965 25.359928,9.1966085 L25.440495,9.1966085 L25.440495,10.464187 C25.265038,10.546543 25.09943,10.625319 24.943668,10.700515 C24.787907,10.77571 24.599022,10.849115 24.377018,10.92073 C24.14427,10.995925 23.928532,11.053217 23.729801,11.092605 C23.531071,11.131992 23.272362,11.151687 22.953678,11.151687 C22.430891,11.151687 21.950178,11.063959 21.511539,10.888503 C21.072901,10.713047 20.694239,10.451654 20.375553,10.104323 C20.056868,9.7569923 19.809797,9.3237247 19.634342,8.8045187 C19.458887,8.2853127 19.371159,7.6891217 19.371159,7.0159445 C19.371159,6.3463483 19.456202,5.7626896 19.626286,5.2649679 C19.79637,4.7672467 20.044336,4.3339787 20.370182,3.9651632 C20.688868,3.6070905 21.066633,3.3340597 21.503483,3.1460714 C21.940331,2.9580832 22.4291,2.864089 22.969791,2.864089 z M29.517376,3.7610617 C29.130657,3.7610617 28.793173,3.8282003 28.504925,3.9624777 C28.216677,4.096755 27.96155,4.3053327 27.739544,4.5882101 C27.52828,4.8603458 27.366253,5.2023058 27.25346,5.614089 C27.140667,6.0258732 27.08427,6.4913678 27.08427,7.0105734 C27.08427,8.0597267 27.304485,8.8627052 27.744915,9.4195089 C28.185345,9.9763126 28.776165,10.254714 29.517376,10.254714 C30.258587,10.254714 30.848511,9.9763126 31.287151,9.4195089 C31.72579,8.8627052 31.94511,8.0597267 31.94511,7.0105734 C31.94511,6.4806256 31.887817,6.0115499 31.773235,5.6033468 C31.658651,5.1951437 31.497519,4.8567648 31.289837,4.5882101 C31.078573,4.3124943 30.823446,4.1057072 30.524456,3.9678488 C30.225464,3.8299909 29.889771,3.7610617 29.517376,3.7610617 z M29.512005,2.8426046 C30.056274,2.8426046 30.546835,2.9374943 30.983685,3.1272726 C31.420532,3.3170514 31.789349,3.5838156 32.09013,3.9275656 C32.394493,4.2784772 32.630821,4.7135358 32.799114,5.2327414 C32.967407,5.7519474 33.051556,6.3445578 33.051556,7.0105734 C33.051556,7.6586857 32.9692,8.2441349 32.804485,8.766921 C32.639771,9.2897072 32.401653,9.7283468 32.09013,10.082839 C31.764282,10.455235 31.383831,10.730056 30.948772,10.907302 C30.513714,11.084548 30.03479,11.173171 29.512005,11.173171 C28.971313,11.173171 28.484335,11.081862 28.051067,10.899245 C27.6178,10.716628 27.245403,10.444492 26.93388,10.082839 C26.625937,9.7283468 26.389608,9.2914982 26.224895,8.7722921 C26.060183,8.2530861 25.977825,7.6658468 25.977825,7.0105734 C25.977825,6.3373966 26.061077,5.7465763 26.227581,5.2381124 C26.394085,4.7296491 26.631308,4.2927999 26.939251,3.9275656 C27.247194,3.5730734 27.618694,3.3036237 28.053753,3.119216 C28.488811,2.9348087 28.974895,2.8426046 29.512005,2.8426046 z M35.281178,3.9221945 L35.281178,7.1179953 L36.006275,7.1179953 C36.435963,7.1179953 36.783295,7.0830832 37.048267,7.0132589 C37.31324,6.9434347 37.533455,6.8190045 37.708912,6.6399679 C37.866463,6.4788351 37.981049,6.3033795 38.052662,6.1136007 C38.124275,5.9238224 38.160084,5.701817 38.160084,5.4475851 C38.160084,5.1718693 38.11264,4.9319601 38.01775,4.7278585 C37.922859,4.523757 37.778736,4.3572531 37.585377,4.2283468 C37.417084,4.1173449 37.221039,4.0385685 36.997242,3.9920187 C36.773445,3.9454694 36.495045,3.9221945 36.162037,3.9221945 z M34.217701,3.0091085 L36.22649,3.0091085 C36.699146,3.0091085 37.101978,3.0484967 37.434986,3.1272726 C37.767994,3.206049 38.061615,3.3331647 38.315845,3.5086203 C38.613045,3.7127218 38.845795,3.9714298 39.014088,4.2847433 C39.182381,4.5980577 39.266529,4.9767199 39.266529,5.4207296 C39.266529,5.7680607 39.204762,6.0965924 39.081226,6.4063253 C38.957691,6.7160587 38.786713,6.9801373 38.568287,7.1985617 C38.292572,7.4706974 37.968513,7.676589 37.596119,7.8162374 C37.223724,7.9558859 36.752857,8.0257101 36.183521,8.0257101 L35.281178,8.0257101 L35.281178,11.006667 L34.217701,11.006667 z" Fill="Black" HorizontalAlignment="Left" Height="8.33" RenderTransformOrigin="0.5,0.5" Stretch="Fill" VerticalAlignment="Top" Width="38.456" Canvas.Left="687.505" Canvas.Top="8.32">
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform/>
+            						<TranslateTransform/>
+            					</TransformGroup>
+            				</Path.RenderTransform>
+            			</Path>
+            			<pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="14" RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Height="50" VerticalAlignment="Top" Canvas.Left="686.588" Canvas.Top="24.711">
+            				<Path Data="M5.25,0.5 L0.5,8.5638996 L3.825,8.5638996 L3.825,26.998999 L6.675,26.998999 L6.675,8.5638996 L10,8.5638996 z" Fill="#FF1A1A1A" HorizontalAlignment="Left" Height="26.999"  Stretch="Fill" Stroke="Black" VerticalAlignment="Bottom" Width="10"/>
+
+            			</pc:PultGlassButton>
+            			<pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="13" RenderTransformOrigin="5.627,1.687"  Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50" Canvas.Left="686.505" Canvas.Top="78.494">
+            				<Path Data="M5.25,26.998999 L0.5,18.9351 L3.825,18.9351 L3.825,0.5 L6.675,0.5 L6.675,18.9351 L10,18.9351 z" Fill="#FF1A1A1A" HorizontalAlignment="Left" Height="26.999" Stretch="Fill" Stroke="Black" VerticalAlignment="Bottom" Width="10"/>
+
+            			</pc:PultGlassButton>
+            			<pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="11" RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Height="50" VerticalAlignment="Top" Canvas.Left="741.06" Canvas.Top="51.056" >
+            				<Path Data="M26.5,5.2495002 L18.436949,0.5 L18.436949,3.8246501 L0.5,3.8246501 L0.5,6.6743503 L18.436949,6.6743503 L18.436949,9.9990004 z" Fill="#FF1A1A1A" HorizontalAlignment="Left" Height="9.999"  Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="26.5"/>
+
+            			</pc:PultGlassButton>
+            			<pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="12" RenderTransformOrigin="5.627,1.687"  Width="50" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Canvas.Left="631.636" Canvas.Top="53.929">
+            				<Path Data="M0.5,5.2495002 L8.563051,0.5 L8.563051,3.8246501 L26.5,3.8246501 L26.5,6.6743503 L8.563051,6.6743503 L8.563051,9.9990004 z" Fill="#FF1A1A1A" HorizontalAlignment="Left" Height="9.999"  Stretch="Fill" Stroke="Black" VerticalAlignment="Bottom" Width="26.5"/>
+
+            			</pc:PultGlassButton>
+            			<Path Style="{StaticResource CircleRamkaStyle}" Width="15" Height="14.5"  Canvas.Left="668.343" Canvas.Top="14.817" />
+
+            			<Path Style="{StaticResource CircleRamkaStyle}" Width="15"  Height="14.5"  Canvas.Left="734.504" Canvas.Top="14.817" />
+                           
+            			<Path Style="{StaticResource CircleRamkaStyle}" Width="15"  Height="14.5"  Canvas.Left="785.254" Canvas.Top="32.223" />
+                        
+            			<Path Style="{StaticResource CircleRamkaStyle}" Width="15"  Height="14.5" Canvas.Left="674.961" Canvas.Top="122.243" />
+
+            			<Path Style="{StaticResource CircleRamkaStyle}" Width="15"  Height="14.5"  Canvas.Left="729.763" Canvas.Top="122.243" />
+
+            			<Path Style="{StaticResource CircleRamkaStyle}" Width="15"  Height="14.5"  Canvas.Left="785.254" Canvas.Top="97.626" />
+
+            			<Path Style="{StaticResource CircleRamkaStyle}" Width="15"  Height="14.5"  Canvas.Left="614.004" Canvas.Top="33.14" />
+
+            			<Path Style="{StaticResource CircleRamkaStyle}" Width="15"  Height="14.5"  Canvas.Left="621.837" Canvas.Top="99.001" />
+                          
+            			<Path Data="M179.77,225.003 L265.333,225.003" HorizontalAlignment="Left" Height="6.5" Stretch="Fill" VerticalAlignment="Top" Width="72.092" StrokeThickness="7" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Canvas.Left="672.671" Canvas.Top="18.833" Stroke="{StaticResource BrushRamka}"/>
+            			<Path Data="M179.77,225.003 L265.333,225.003" HorizontalAlignment="Left" Stretch="Fill" Width="112.009" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="7" VerticalAlignment="Top" Canvas.Left="626.671" Canvas.Top="74.128" Stroke="{StaticResource BrushRamka}">
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform Angle="90"/>
+            						<TranslateTransform/>
+            					</TransformGroup>
+            				</Path.RenderTransform>
+            			</Path>
+            			<Path Data="M179.77,225.003 L265.333,225.003" HorizontalAlignment="Left" Stretch="Fill" Width="112.343" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="7" VerticalAlignment="Top" Canvas.Left="681.004" Canvas.Top="73.045" Stroke="{StaticResource BrushRamka}">
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform Angle="90"/>
+            						<TranslateTransform/>
+            					</TransformGroup>
+            				</Path.RenderTransform>
+            			</Path>
+            			<Path Data="M179.77,225.003 L265.333,225.003" HorizontalAlignment="Left" Stretch="Fill" Width="52.056" StrokeThickness="7" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="7" VerticalAlignment="Top" Canvas.Left="684.504" Canvas.Top="72" Stroke="{StaticResource BrushRamka}"/>
+            			<Path Data="M179.77,225.003 L265.333,225.003" HorizontalAlignment="Left" Height="6.5" Stretch="Fill" VerticalAlignment="Top" Width="63.535" StrokeThickness="7" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Canvas.Left="618.17" Canvas.Top="36.5" Stroke="{StaticResource BrushRamka}"/>
+            			<Path Data="M179.77,225.003 L265.333,225.003" HorizontalAlignment="Left" Stretch="Fill" Width="70.675" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="7" VerticalAlignment="Top" Canvas.Left="593.671" Canvas.Top="70.794" Stroke="{StaticResource BrushRamka}">
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform Angle="90"/>
+            						<TranslateTransform/>
+            					</TransformGroup>
+            				</Path.RenderTransform>
+            			</Path>
+            			<Path Data="M179.77,225.003 L265.333,225.003" HorizontalAlignment="Left" Height="6.5" Stretch="Fill" VerticalAlignment="Top" Width="57.18" StrokeThickness="7" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Canvas.Left="736.56" Canvas.Top="44.556" Stroke="{StaticResource BrushRamka}"/>
+            			<Path Data="M179.77,225.003 L265.333,225.003" HorizontalAlignment="Left" Stretch="Fill" Width="72.259" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="7" VerticalAlignment="Top" Canvas.Left="756.629" Canvas.Top="68.753" Stroke="{StaticResource BrushRamka}">
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform Angle="90"/>
+            						<TranslateTransform/>
+            					</TransformGroup>
+            				</Path.RenderTransform>
+            			</Path>
+            			<Path Data="M799.02,138.37752 L852.02,138.38118" Height="3.004" Canvas.Left="798.02" Stretch="Fill" Stroke="#FF060606" StrokeThickness="3" Canvas.Top="137.378" Width="56"/>
+            			<Path Data="M820,657.11274 L869.83335,656.91025" Height="3.203" Stretch="Fill" Stroke="#FF060606" StrokeThickness="3" Canvas.Left="798" Canvas.Top="5.911" Width="52.832"/>
+            		</Canvas>
+
+            		<Grid Height="180" Grid.Row="3" Grid.Column="1" Margin="0.186,0.045,9,0.045" d:LayoutOverrides="HorizontalMargin" Grid.ColumnSpan="2">
+            			<Grid.RowDefinitions>
+            				<RowDefinition Height="0.855*"/>
+            				<RowDefinition x:Name="OVK_ROW" Height="0.154*"/>
+						
+            			</Grid.RowDefinitions>
+					
+            			<mv:View_OVK x:Name="OVK1" Grid.Row="1" Margin="152,0,0,0" />
+            		</Grid>
+            		<Border BorderBrush="Black" BorderThickness="0" Grid.RowSpan="3" Grid.ColumnSpan="3" Margin="0,0,-0.271,0" Background="#FFC2C2C2">
+            			<Border.LayoutTransform>
+            				<TransformGroup>
+            					<ScaleTransform CenterX="0.15"/>
+            					<SkewTransform CenterX="0.15"/>
+            					<RotateTransform CenterX="0.15"/>
+            					<TranslateTransform/>
+            				</TransformGroup>
+            			</Border.LayoutTransform>
+            			<Border BorderBrush="#FFA19F9F" BorderThickness="1" Margin="10,8,9,8" Background="#FFB8B7B7" Visibility="Hidden" />
+            		</Border>
+                    <Border x:Name="comCO" Margin="-20,0,0,0" VerticalAlignment="Bottom" Height="34.73" HorizontalAlignment="Center" Width="97.964" Grid.Column="1" Visibility="{Binding InPU2Visible, Source={StaticResource vInPU}}">
+
+            			<Grid>
+            				<Grid.RowDefinitions>
+            					<RowDefinition Height="0.182*"/>
+            					<RowDefinition Height="0*"/>
+            					<RowDefinition Height="0.663*"/>
+            					<RowDefinition Height="0.155*"/>
+            				</Grid.RowDefinitions>
+            				<Grid.ColumnDefinitions>
+            					<ColumnDefinition Width="0.041*"/>
+            					<ColumnDefinition Width="0.915*"/>
+            					<ColumnDefinition Width="0.044*"/>
+            				</Grid.ColumnDefinitions>
+            				<Path Data="M2,9 C2,5.1340068 5.581722,2 10,2 L47,2 C51.418278,2 55,5.1340068 55,9 L55,111.496 C55,115.36199 51.418278,118.496 47,118.496 L10,118.496 C5.581722,118.496 2,115.36199 2,111.496 z" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Grid.ColumnSpan="3" Grid.RowSpan="4">
+            					<Path.RenderTransform>
+            						<TransformGroup>
+            							<ScaleTransform ScaleY="-1"/>
+            							<SkewTransform/>
+            							<RotateTransform/>
+            							<TranslateTransform/>
+            						</TransformGroup>
+            					</Path.RenderTransform>
+            					<Path.Fill>
+            						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            							<LinearGradientBrush.RelativeTransform>
+            								<TransformGroup>
+            									<ScaleTransform CenterY="0.5" CenterX="0.5"/>
+            									<SkewTransform CenterY="0.5" CenterX="0.5"/>
+            									<RotateTransform Angle="180" CenterY="0.5" CenterX="0.5"/>
+            									<TranslateTransform/>
+            								</TransformGroup>
+            							</LinearGradientBrush.RelativeTransform>
+            							<GradientStop Color="#FF9EADA1" Offset="0.965"/>
+            							<GradientStop Color="#FFB1B4B2" Offset="0.039"/>
+            						</LinearGradientBrush>
+            					</Path.Fill>
+            					<Path.Stroke>
+            						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            							<LinearGradientBrush.RelativeTransform>
+            								<TransformGroup>
+            									<ScaleTransform CenterY="0.5" CenterX="0.5"/>
+            									<SkewTransform CenterY="0.5" CenterX="0.5"/>
+            									<RotateTransform Angle="203.42900000000003" CenterY="0.5" CenterX="0.5"/>
+            									<TranslateTransform/>
+            								</TransformGroup>
+            							</LinearGradientBrush.RelativeTransform>
+            							<GradientStop Color="#FF55744B" Offset="0"/>
+            							<GradientStop Color="#FFD1E3DA" Offset="1"/>
+            						</LinearGradientBrush>
+            					</Path.Stroke>
+            				</Path>
+            				<TextBlock Text="ЦО" Grid.Column="1" TextAlignment="Center" FontSize="16" 
+                                       LineHeight="16" Margin="5.899,1.424,5.605,-1.563" 
+                                       Grid.RowSpan="3" Style="{StaticResource FlashCO}" Name="coText" />
+            			</Grid>
+<!--Visibility="{Binding InPU2Visible, Source={StaticResource vInPU}}"-->
+            		</Border>
+
+            	
+            		<Path Grid.Column="3" Data="M0.81103516,3.0091085 L6.6171875,3.0091085 L6.6171875,11.006667 L5.5537109,11.006667 L5.5537109,3.954421 L1.8745117,3.954421 L1.8745117,11.006667 L0.81103516,11.006667 z M8.2377014,3.0091085 L9.2958069,3.0091085 L9.2958069,9.2556906 L12.862213,3.0091085 L13.984772,3.0091085 L13.984772,11.006667 L12.926666,11.006667 L12.926666,4.6580343 L9.3119202,11.006667 L8.2377014,11.006667 z M14.791296,3.0091085 L21.225866,3.0091085 L21.225866,3.954421 L18.540319,3.954421 L18.540319,11.006667 L17.476843,11.006667 L17.476843,3.954421 L14.791296,3.954421 z M24.490995,4.0940695 L23.261015,7.8645773 L25.726347,7.8645773 z M23.862577,3.0091085 L25.173124,3.0091085 L27.869413,11.006667 L26.746855,11.006667 L26.021757,8.7722921 L22.965605,8.7722921 L22.240507,11.006667 L21.166288,11.006667 z M28.627703,3.0091085 L29.691179,3.0091085 L29.691179,6.1458273 L33.370377,6.1458273 L33.370377,3.0091085 L34.433853,3.0091085 L34.433853,11.006667 L33.370377,11.006667 L33.370377,7.0911398 L29.691179,7.0911398 L29.691179,11.006667 L28.627703,11.006667 z M36.054367,3.0091085 L37.112473,3.0091085 L37.112473,9.2556906 L40.678879,3.0091085 L41.801437,3.0091085 L41.801437,11.006667 L40.743332,11.006667 L40.743332,4.6580343 L37.128586,11.006667 L36.054367,11.006667 z M43.42437,3.0091085 L48.424858,3.0091085 L48.424858,3.954421 L44.487846,3.954421 L44.487846,6.1458273 L48.156303,6.1458273 L48.156303,7.0911398 L44.487846,7.0911398 L44.487846,10.061355 L48.424858,10.061355 L48.424858,11.006667 L43.42437,11.006667 z" Fill="Black" HorizontalAlignment="Left" Height="7.998" Margin="38.811,114.605,0,0" Grid.Row="1" RenderTransformOrigin="0.5,0.5" Stretch="Fill" VerticalAlignment="Top" Width="47.614">
+            			<Path.RenderTransform>
+            				<TransformGroup>
+            					<ScaleTransform/>
+            					<SkewTransform/>
+            					<RotateTransform/>
+            					<TranslateTransform/>
+            				</TransformGroup>
+            			</Path.RenderTransform>
+            		</Path>
+            		<pc:PultLamp   VklLamp="{Binding Path=DejRegim.ValueState, Source={StaticResource vInPU}}" Grid.Column="3" HorizontalAlignment="Left" Margin="51,86.105,0,0" Grid.Row="1" VerticalAlignment="Top" Height="24" Width="24"/>
+            		<TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="30,65.105,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="ru-ru" Text="ДЕЖ РЕЖИМ"/></TextBlock>
+            		<pc:PultLamp Grid.Column="3" HorizontalAlignment="Left" Margin="51,86.105,0,0" Grid.Row="1" VerticalAlignment="Top" Height="24" Width="24" VklLamp="{Binding DejRegim.ValueState, Source={StaticResource vInPU}}" />
+            		<mv:View_NeptunP1  Grid.Column="4" Grid.Row="1" Grid.RowSpan="3" Height="795" HorizontalAlignment="Left" Margin="6,0,0,0" x:Name="view_NeptunP11" VerticalAlignment="Top" Width="119" Visibility="{Binding InPU2Visible, Source={StaticResource vInPU}}" />
+            		<mv:View_RUS x:Name="RUSKlapan" Width="408.411" Grid.Column="3" Margin="-16.488,13.738,0,11" Grid.RowSpan="4" Grid.ColumnSpan="2" Visibility="Hidden"/>
+                </Grid>
+
+            </Viewbox>
+            <pc:PanelInpu Grid.Column="2" Grid.Row="2">
+                <ContentControl x:Name="WinPult" Content="{Binding }"  Background="#FFE73737" BorderBrush="#FFD03131"   />
+            </pc:PanelInpu>
+
+        </Grid>
+    </pc:PanelInpu>
+</UserControl>

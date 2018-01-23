@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="VirtualPultValves.Views.View_RAP7"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+               xmlns:pc="clr-namespace:VirtualPultValves.PultControl"
+			xmlns:vm="clr-namespace:VirtualPultValves.ViewModel">
+    <UserControl.Resources>
+        <vm:ViewModel_RAP7 x:Key="VarRap7" />
+        <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+            <Setter   Property="Background" >
+                <Setter.Value>
+                    <ImageBrush ImageSource="pack://siteoforigin:,,,/PictureValves/SA/rap7u.jpg" Stretch="Uniform"   />
+
+                </Setter.Value>
+            </Setter>
+            <Setter Property="CommandParameter" Value="0"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Rap.ValueState}" Value="True">
+                    <Setter   Property="Background" >
+                        <Setter.Value>
+                            <ImageBrush ImageSource="pack://siteoforigin:,,,/PictureValves/SA/rap7d.jpg" Stretch="Uniform"   />
+
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="CommandParameter" Value="1"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+    </UserControl.Resources>
+    <!--<Control x:Name="MainControl" Template="{StaticResource ControlControlTemplate1}"/>
+-->
+    <Viewbox DataContext="{Binding Source={StaticResource VarRap7}}">
+        <Canvas    Width="1020" Height="680">
+            <Canvas.Background>
+                <ImageBrush ImageSource="pack://siteoforigin:,,,/PictureValves/SA/rap7.jpg" Stretch="Uniform" />
+            </Canvas.Background>
+            <pc:PultKlapanButton Width="94" Height="84" Canvas.Left="462" Canvas.Top="280" Style="{StaticResource ButtonStyle}" Command="{Binding Path=CmdRap}" Cursor="Hand" ClipToBounds="True">
+                <!--<Button.Background>
+                    <ImageBrush ImageSource="pack://siteoforigin:,,,/PictureValves/SA/rap7d.jpg" />
+                </Button.Background>-->
+            </pc:PultKlapanButton >
+        </Canvas>
+    </Viewbox>
+</UserControl>

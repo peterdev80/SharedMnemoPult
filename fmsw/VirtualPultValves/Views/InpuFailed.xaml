@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="VirtualPultValves.Views.InpuFailed"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             Background="Black"
+             d:DesignHeight="600" d:DesignWidth="800">
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="Control.Loaded">
+            <BeginStoryboard Name="gm">
+                <Storyboard Duration="0:0:1" Timeline.DesiredFrameRate="10"
+                            RepeatBehavior="Forever">
+                    <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="Background.Color" 
+                                                  Storyboard.TargetName="textBlock">
+                        <DiscreteColorKeyFrame KeyTime="0:0:0.0" Value="Black"/>
+                        <DiscreteColorKeyFrame KeyTime="0:0:0.5" Value="White"/>
+                    </ColorAnimationUsingKeyFrames>
+                    <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground.Color" 
+                                                  Storyboard.TargetName="textBlock">
+                        <DiscreteColorKeyFrame KeyTime="0:0:0.5" Value="White"/>
+                        <DiscreteColorKeyFrame KeyTime="0:0:0.5" Value="Black"/>
+                    </ColorAnimationUsingKeyFrames>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+        
+        <EventTrigger RoutedEvent="Control.Unloaded">
+            <RemoveStoryboard BeginStoryboardName="gm" />
+        </EventTrigger>
+    </UserControl.Triggers>
+    <Grid>
+        <StackPanel>
+            <Border Margin="4" BorderThickness="3" BorderBrush="White" Padding="4" VerticalAlignment="Top" >
+                <TextBlock x:Name="textBlock" Foreground="White"
+                           TextAlignment="Center"
+                           UseLayoutRounding="True" SnapsToDevicePixels="True"
+                           FontFamily="Courier New" 
+                           Background="Black"
+                           FontSize="38" RenderTransformOrigin="0.5 0.5" >
+                    <Run Text="GURU MEDITATION" /><Run x:Name="errorcode" />
+                </TextBlock>
+            </Border>
+            <TextBlock Foreground="White" FontSize="14" 
+                       FontFamily="Consolas"
+                       TextWrapping="Wrap" Margin="4">
+                <Run x:Name="t1" />
+                <LineBreak />
+                <LineBreak />
+                <Run x:Name="t2" />
+                <LineBreak />
+                <LineBreak />
+                <Run Foreground="Red" FontSize="18"
+                     Text="В работе ИнПУ обнаружена неустранимая ошибка. Рекомендуется перезапуск ПО тренажера на этой машине." />
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+</UserControl>

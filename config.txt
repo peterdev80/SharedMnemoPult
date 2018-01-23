@@ -1,0 +1,4 @@
+﻿Version=S700
+FMSUpdaterBaseName=S700
+TCRef=0.05
+

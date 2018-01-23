@@ -1,0 +1,98 @@
+﻿<UserControl x:Class="VirtualPultValves.Views.View_KVDBO"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+               xmlns:pc="clr-namespace:VirtualPultValves.PultControl"
+			xmlns:vm="clr-namespace:VirtualPultValves.ViewModel">
+    <UserControl.Resources>
+        <vm:ViewModel_KVDBO x:Key="VarKvdbo"/>
+        <Style x:Key="CanvasStyle1" TargetType="{x:Type Canvas}">
+            <Setter   Property="Background" >
+                <Setter.Value>
+                    <ImageBrush ImageSource="pack://siteoforigin:,,,/PictureValves/BO/bo_otkr1.jpg"   />
+
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding  Otkr.ValueState}" Value="True">
+                    <Setter   Property="Background" >
+                        <Setter.Value>
+                            <ImageBrush ImageSource="pack://siteoforigin:,,,/PictureValves/BO/bo_otkr1.jpg"   />
+
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding  Zakr.ValueState}" Value="True">
+                    <Setter   Property="Background" >
+                        <Setter.Value>
+                            <ImageBrush ImageSource="pack://siteoforigin:,,,/PictureValves/BO/bo_close1.jpg"    />
+
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+
+
+        <Style x:Key="CanvasStyle2" TargetType="{x:Type Canvas}">
+            <Setter   Property="Background" >
+                <Setter.Value>
+                    <ImageBrush ImageSource="pack://siteoforigin:,,,/PictureValves/BO/bo_m_kks.jpg"   />
+
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding  KKCOtkr.ValueState}" Value="True">
+                    <Setter   Property="Background" >
+                        <Setter.Value>
+                            <ImageBrush ImageSource="pack://siteoforigin:,,,/PictureValves/BO/bo_m_kks.jpg"   />
+
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding  KKZakr.ValueState}" Value="True">
+                    <Setter   Property="Background" >
+                        <Setter.Value>
+                            <ImageBrush ImageSource="pack://siteoforigin:,,,/PictureValves/BO/bo_main_close.jpg"    />
+
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding  KKTOtkr.ValueState}" Value="True">
+                    <Setter   Property="Background" >
+                        <Setter.Value>
+                            <ImageBrush ImageSource="pack://siteoforigin:,,,/PictureValves/BO/bo_m_kkt.jpg"    />
+
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+
+
+            </Style.Triggers>
+        </Style>
+
+    </UserControl.Resources>
+
+    <Viewbox DataContext="{Binding Source={StaticResource VarKvdbo}}">
+        <Grid Height="680" Width="1020">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.582*"/>
+                <RowDefinition Height="0.418*"/>
+            </Grid.RowDefinitions>
+            <Canvas Style="{StaticResource CanvasStyle1}">
+
+                <pc:PultZonaButton Content="ОТКР" Canvas.Left="148" Canvas.Top="256" Width="217" Height="103"  Command="{Binding Path=CmdOtkr}" />
+                <pc:PultZonaButton Content="ЗАКР" Canvas.Left="566" Canvas.Top="277" Width="140" Height="82"   Command="{Binding Path=CmdZakr}" />
+            </Canvas>
+            <Canvas   Style="{StaticResource CanvasStyle2}" Grid.Row="1">
+
+                <pc:PultZonaButton Content="закр" Canvas.Left="415" Width="88" Height="106"  Command="{Binding Path=CmdKK}" />
+                <pc:PultZonaButton Content="ОТКР" Canvas.Left="546" Canvas.Top="18" Width="114" Height="120"   Command="{Binding Path=CmdsKKT}" />
+                <pc:PultZonaButton Canvas.Left="252" Canvas.Top="18" Command="{Binding Path=CmdKKS}" Content="ОТКР" Height="138" Width="163"  />
+            </Canvas>
+        </Grid>
+    </Viewbox>
+</UserControl>

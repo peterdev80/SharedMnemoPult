@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
+
+  <PropertyGroup Condition="'$(FMSVersion)' == ''">
+	<FMSConfigFilePath>$(MSBuildThisFileDirectory)\..\config.txt</FMSConfigFilePath>
+
+	<_FMSConfigFile>$([System.IO.File]::ReadAllText('$(FMSConfigFilePath)'))</_FMSConfigFile>
+    <_FMSRegOpts>System.Text.RegularExpressions.RegexOptions.Singleline | System.Text.RegularExpressions.RegexOptions.IgnoreCase</_FMSRegOpts>
+
+	<FMSVersion>$([System.Text.RegularExpressions.Regex]::Replace($(_FMSConfigFile), '.*Version\s*=\s*(\S*).*', '$1', $(_FMSRegOpts)))</FMSVersion> 
+	<FMSUpdaterBaseName>$([System.Text.RegularExpressions.Regex]::Replace($(_FMSConfigFile), '.*FMSUpdaterBaseName\s*=\s*(\S*).*', '$1', $(_FMSRegOpts)))</FMSUpdaterBaseName>
+	<TCREF>$([System.Text.RegularExpressions.Regex]::Replace($(_FMSConfigFile), '.*TCRef\s*=\s*(\S*).*', '$1', $(_FMSRegOpts)))</TCREF>
+  </PropertyGroup>                                                                                                         
+
+  <Target Name="CheckFMSConfig" BeforeTargets="BeforeBuild;PrintFMSBuildConfiguration">
+	<Error Text="Не определено значение конфигурации FMSVersion" Condition="'$(FMSVersion)' == ''" />
+	<Error Text="Не определено значение конфигурации FMSUpdaterBaseName" Condition="'$(FMSUpdaterBaseName)' == ''" />
+	<Error Text="Не определено значение конфигурации TCREF" Condition="'$(TCREF)' == ''" />
+  </Target>
+
+  <Target Name="PrintFMSBuildConfiguration" Condition="'$(PrintFMSBuildConfiguration)' != ''" BeforeTargets="BeforeBuild">
+    <Message Importance="High" Text=" " />
+    <Message Importance="High" Text="FMSBuildConfig:" />
+    <Message Importance="High" Text="FMSVersion:         $(FMSVersion)" />
+    <Message Importance="High" Text="FMSUpdaterBaseName: $(FMSUpdaterBaseName)" />
+    <Message Importance="High" Text="TCRef:              $(TCREF)" />
+    <Message Importance="High" Text=" " />
+  </Target>
+
+</Project>

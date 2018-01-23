@@ -1,1 +1,0 @@
-git@github.com:peterdev80/SharedMnemoPult.git

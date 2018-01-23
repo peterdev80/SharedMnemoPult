@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ROOT>
+  <Values State="State">
+    <Value vid="0"  VarState="__KLAPAN_1"    Type="Bit" />
+    <Value vid="1" VarState="__KLAPAN_2"    Type="Bit" />
+    <Value vid="2" VarState="__KLAPAN_4"    Type="Bit" />
+    <Value vid="0" VarState="__SET_DSD"     Type="Int" />
+    <Value vid="1" VarState="__P_MANUVAK"   Type="Int" />
+    <Value vid="2" VarState="__SET_U_VOLTM" Type="Int" />
+    <Value vid="3" VarState="__SET_CENTR_OGON_TYPE" Type="Int" />
+    <!--Пультовые переменные-->
+   
+    <Value vid="0" VarState="__SET_PODS_PIT_VKL" Type="Bool" />
+    <Value vid="1" VarState="__SET_CENTR_OGON" Type="Bool" />
+    <Value vid="2" VarState="__SET_USO_INPU1_DEJUR_REJ" Type="Bool" />
+    <Value vid="3" VarState="__SET_USO_INPU2_DEJUR_REJ" Type="Bool" />
+    <!--Переменные ФМС-->
+    <Value vid="0" VarState="__FMS_WD_INPU1_LOADED" Type="BoolFMS"/>
+    <Value vid="1" VarState="__FMS_WD_INPU2_LOADED" Type="BoolFMS"/>
+  </Values>
+
+  <Values State="Send">
+    <Value ii="0" vid="0" VarState="__KLAPAN_TO_1" Type="Bit" />
+    <Value ii="1" vid="1" VarState="__KLAPAN_TO_2" Type="Bit" />
+    <Value ii="2" vid="2" VarState="__KLAPAN_TO_3" Type="Bit" />
+    <Value ii="3" vid="3" VarState="__KLAPAN_TO_4" Type="Bit" />
+    <Value ii="4" vid="0" VarState="__DSD"         Type="Int" />
+    <Value ii="5" vid="1" VarState="__BUTTON_RUS"  Type="Int" />
+    
+    <!--Пультовые переменные-->
+    <Value ii="6" vid="0" VarState="__OTBOI_ZVUKA" Type="KVar" />
+    <Value ii="7" vid="1" VarState="__VKL_REZ_BATAR" Type="KVar"/>
+    <Value ii="8" vid="2" VarState="__NASTR_BDUS_1" Type="KVar"/>
+    <Value ii="9" vid="3" VarState="__NASTR_BDUS_2" Type="KVar"/>
+    <Value ii="10" vid="4" VarState="__NASTR_BDUS_3" Type="KVar"/>
+    <Value ii="11" vid="5" VarState="__BDUS_1" Type="KVar"/>
+    <Value ii="12" vid="6" VarState="__SBROS_AVAR_SIGN" Type="KVar"/>
+    <Value ii="13" vid="7" VarState="__PITANIE_VKL" Type="KVar"/>
+    <Value ii="14" vid="8" VarState="__PITANIE_OTKL" Type="KVar"/>
+    <Value ii="15" vid="9" VarState="__KONSERV" Type="KVar"/>
+    <Value ii="16" vid="10" VarState="__OVK_ODR" Type="KVar"/>
+    <Value ii="17" vid="11" VarState="__OVK_OB_SEKC_NADD" Type="KVar"/>
+    <Value ii="18" vid="12" VarState="__OVK_OTCTREL_BO" Type="KVar"/>
+    <Value ii="19" vid="13" VarState="__OVK_OTCTREL_BO_2" Type="KVar"/>
+    <Value ii="20" vid="14" VarState="__OVK_TD_PODKL" Type="KVar"/>
+    <Value ii="21" vid="15" VarState="__OVK_TD_OTKL" Type="KVar"/>
+    <Value ii="22" vid="16" VarState="__OVK_KO_2" Type="KVar"/>
+    <Value ii="23" vid="17" VarState="__OVK_KO" Type="KVar"/>
+    <Value ii="24" vid="18" VarState="__OVK_VKL_SKD" Type="KVar"/>
+    <Value ii="25" vid="19" VarState="__OVK_RAZDEL" Type="KVar"/>
+    <Value ii="26" vid="20" VarState="__OVK_OTKL_SKD" Type="KVar"/>
+    <Value ii="27" vid="21" VarState="__OVK_OTSCREL_ST_MEH" Type="KVar"/>
+    <Value ii="28" vid="22" VarState="__OVK_VUBOR_DPO_B_NA_SP" Type="KVar"/>
+    <Value ii="29" vid="23" VarState="__OVK_PEZERV_RASST" Type="KVar"/>
+    <Value ii="30" vid="24" VarState="__OVK_PODGOT_RAZDEL" Type="KVar"/>
+    <Value ii="31" vid="25" VarState="__OVK_PRIZNAK_SPUSK" Type="KVar"/>
+    <Value ii="32" vid="26" VarState="__OVK_OTKR_KSD_BO" Type="KVar"/>
+    <Value ii="33" vid="27" VarState="__OVK_RUD" Type="KVar"/>
+    <Value ii="34" vid="28" VarState="__OVK_RO_AK" Type="KVar"/>
+    <Value ii="35" vid="29" VarState="__OVK_RAZGERM" Type="KVar"/>
+    <Value ii="36" vid="30" VarState="__OVK_PODG_RAZGERM" Type="KVar"/>
+    <Value ii="37" vid="31" VarState="__OVK_AVAR_VKL_PIT" Type="KVar"/>
+    <Value ii="38" vid="0" VarState="__KONTROL_IP" Type="KBool" />
+    <Value ii="39" vid="1" VarState="__KONTR_TC"   Type="KBool"/>
+    <Value ii="40" vid="2" VarState="__VENTIL_BI"  Type="KBool" />
+    <Value ii="41" vid="3" VarState="__VENTIL_KK"  Type="KBool"/>
+    <Value ii="42" vid="4" VarState="__VENTIL_KI"  Type="KBool" />
+
+    <Value ii="43" vid="4" VarState="__NEPTUN_CMDS_1" Type="Bit"/>    
+  </Values>
+
+</ROOT>

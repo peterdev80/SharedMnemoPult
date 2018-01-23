@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="ZBuild" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <CopyBuildOutputToOutputDirectory>false</CopyBuildOutputToOutputDirectory>
+    <ProjectGuid>{C29B550C-0ECA-4EE4-82F6-D0CB4107ADEE}</ProjectGuid>
+    <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+    <_FMSObjDir Condition="'$(FMSObjDir)' != ''">$(FMSObjDir)\PS\</_FMSObjDir>
+    <OutputPath>$(_FMSObjDir)bin\$(Configuration)\</OutputPath>
+    <BaseIntermediateOutputPath>$(_FMSObjDir)obj\</BaseIntermediateOutputPath>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'ReleaseClean'">
+    <AllowedReferenceRelatedFileExtensions>.xml</AllowedReferenceRelatedFileExtensions>
+    <OutputPath>..\FMSReleaseBinary</OutputPath>
+    <OutputPath Condition="'$(FMSReleaseDir)' != ''">$(FMSReleaseDir)</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\fmsnet\fmslapi\fmslapi.csproj">
+      <Project>{DFBF2C76-486B-44FC-BE13-82C41EFEE1AF}</Project>
+      <Name>fmslapi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\fmsman\fmsman.csproj">
+      <Project>{BB93BE3E-DB2D-4A7A-9AD3-2307412C1D91}</Project>
+      <Name>fmsman</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\fmsnet\fmsldr\fmsldr.csproj">
+      <Project>{ACF2362E-28F8-45F1-A289-7F77BCFA05CA}</Project>
+      <Name>fmsldr</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\fmsnet\fmslstrap\fmslstrap.csproj">
+      <Project>{21FBB563-FA40-4875-ABA3-E5588E52EBC5}</Project>
+      <Name>fmslstrap</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\fmsproxy\fmsproxy.csproj">
+      <Project>{FA518495-56E8-4782-8025-88BC3EA03C1F}</Project>
+      <Name>fmsproxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\fmsw\FMS\FMS.csproj">
+      <Project>{25F2266F-DAA4-44C9-B607-94CCDA4FB36F}</Project>
+      <Name>FMS %28FMS\FMS%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\fmsw\hostvega\hostvega.vcxproj">
+      <Project>{2e400f4e-de4a-4a6b-9922-d805c288d040}</Project>
+      <Name>hostvega</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\fmsw\InpuL\InpuL.csproj">
+      <Project>{e85f6a4d-6dff-4a64-aab9-a688e322d943}</Project>
+      <Name>InpuL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\fmsw\PultNeptun\PultNeptun.csproj">
+      <Project>{504463d4-c8db-4e8a-a20f-f933e26f2ade}</Project>
+      <Name>PultNeptun</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\fmsw\ValueModel\ValueModel.csproj">
+      <Project>{8fe10a49-5b2e-4a5c-8847-9e7f5e4fe9c8}</Project>
+      <Name>ValueModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\fmsw\VirtualPultValves\VirtualPultValves.csproj">
+      <Project>{dc240f6e-15f0-468a-8ee5-57441ce394c9}</Project>
+      <Name>VirtualPultValves</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ExternalBaseline Include="$(ProjectDir)..\external\baseline\**">
+      <Visible>False</Visible>
+    </ExternalBaseline>
+  </ItemGroup>
+  <PropertyGroup>
+    <ZBuildDependsOn>
+        BuildOnlySettings;
+        PrepareForBuild;
+        ResolveReferences;
+        GetTargetPath;
+        PrepareForRun;
+        ExternalBaselineCopy;
+	</ZBuildDependsOn>
+  </PropertyGroup>
+  <Target Name="ZBuild" DependsOnTargets="$(ZBuildDependsOn)">
+    <Message Text="Создание бинарной сборки" />
+  </Target>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(ProjectDir)..\BuildTools\buildtools.targets" />
+  <Import Project="$(ProjectDir)..\Model\Model\ModelDirs.targets" />
+</Project>

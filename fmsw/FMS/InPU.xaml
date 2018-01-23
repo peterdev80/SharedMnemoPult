@@ -1,0 +1,17 @@
+﻿<Window x:Class="FMS.InPU"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:lapi="clr-namespace:fmslapi.WPF;assembly=fmslapi"
+        xmlns:wvlapi="clr-namespace:fmslapi.WPF.Variables;assembly=fmslapi"
+        Cursor="None"
+        Title="InPU" Height="768" Width="1024">
+    <Grid>
+        <lapi:APIHost ComponentID="337DDAE5-6781-4EA8-B829-9FFDA5557E8C" EndPoint="INPU700" ID="IWKS" x:Name="apih">
+            <wvlapi:VariablesManager VariablesMap="VarModel" Endpoint="InPU"  Channel="InPU_Variables" Key="VarModel" IgnoreInitEvents="True" />
+            <wvlapi:VariablesManager VariablesMap="VarNeptun" Endpoint="Neptun"  Channel="Neptun_Variables" Key="Neptun" IgnoreInitEvents="True" />
+            <wvlapi:VariablesManager VariablesMap="FMSControl" Endpoint="FMSControl"  Channel="FMSControl_Variables" Key="FMSControl" IgnoreInitEvents="True" />
+            <wvlapi:VariablesManager x:Name="vc" VariablesMap="VarControl" Endpoint="VarControl"  Channel="VarControl_Variables" Key="VarControl" IgnoreInitEvents="True" />
+        </lapi:APIHost>
+        <Border x:Name="g" />
+    </Grid>
+</Window>

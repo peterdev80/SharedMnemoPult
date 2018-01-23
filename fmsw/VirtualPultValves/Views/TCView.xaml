@@ -1,0 +1,239 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d" 
+             
+             x:Class="VirtualPultValves.Views.TCView">
+    <UserControl.Resources>
+    	<Style x:Key="PathStyle1" TargetType="{x:Type Path}">
+    		<Setter Property="Data" Value="M2,9 C2,5.1340068 5.581722,2 10,2 L47,2 C51.418278,2 55,5.1340068 55,9 L55,111.496 C55,115.36199 51.418278,118.496 47,118.496 L10,118.496 C5.581722,118.496 2,115.36199 2,111.496 z"/>
+    		<Setter Property="StrokeThickness" Value="4"/>
+    		<Setter Property="Stretch" Value="Fill"/>
+    		<Setter Property="Fill">
+    			<Setter.Value>
+    				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+    					<LinearGradientBrush.RelativeTransform>
+    						<TransformGroup>
+    							<ScaleTransform CenterY="0.5" CenterX="0.5"/>
+    							<SkewTransform CenterY="0.5" CenterX="0.5"/>
+    							<RotateTransform Angle="180" CenterY="0.5" CenterX="0.5"/>
+    							<TranslateTransform/>
+    						</TransformGroup>
+    					</LinearGradientBrush.RelativeTransform>
+    					<GradientStop Color="#FF9EADA1" Offset="0.965"/>
+    					<GradientStop Color="#FF719578" Offset="0.039"/>
+    				</LinearGradientBrush>
+    			</Setter.Value>
+    		</Setter>
+    		<Setter Property="Stroke">
+    			<Setter.Value>
+
+    				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+    					<LinearGradientBrush.RelativeTransform>
+    						<TransformGroup>
+    							<ScaleTransform CenterY="0.5" CenterX="0.5"/>
+    							<SkewTransform CenterY="0.5" CenterX="0.5"/>
+    							<RotateTransform Angle="203.42900000000003" CenterY="0.5" CenterX="0.5"/>
+    							<TranslateTransform/>
+    						</TransformGroup>
+    					</LinearGradientBrush.RelativeTransform>
+    					<GradientStop Color="#FF55744B" Offset="0"/>
+    					<GradientStop Color="#FFD1E3DA" Offset="1"/>
+    				</LinearGradientBrush>
+
+    			</Setter.Value>
+    		</Setter>
+
+    	</Style>
+
+    	<ControlTemplate x:Key="TextBoxControlTemplate1" TargetType="{x:Type TextBox}">
+    		<Grid  Background="{TemplateBinding Background}">
+    			<Grid.RowDefinitions>
+    				<RowDefinition Height="0.05*"/>
+    				<RowDefinition Height="0.903*"/>
+    				<RowDefinition Height="0.047*"/>
+    			</Grid.RowDefinitions>
+    			<ContentPresenter x:Name="CaptionPresenter" Content="{TemplateBinding Text}" Grid.RowSpan="1"   HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.ColumnSpan="1" Height="Auto"/>
+    			<Border BorderBrush="Black" BorderThickness="1,0" Margin="0" Opacity="0.5" Grid.RowSpan="1" Grid.ColumnSpan="1" Grid.Row="1">
+    				<Border.Background>
+    					<LinearGradientBrush EndPoint="0.5,1" Opacity="0.795" StartPoint="0.5,0">
+    						<LinearGradientBrush.RelativeTransform>
+    							<TransformGroup>
+    								<ScaleTransform CenterY="0.5" CenterX="0.5"/>
+    								<SkewTransform CenterY="0.5" CenterX="0.5"/>
+    								<RotateTransform CenterY="0.5" CenterX="0.5"/>
+    								<TranslateTransform/>
+    							</TransformGroup>
+    						</LinearGradientBrush.RelativeTransform>
+    						<GradientStop Color="#FF7F816C" Offset="0.496"/>
+    						<GradientStop Color="White" Offset="1"/>
+    						<GradientStop Color="#FFE5E7D4"/>
+    					</LinearGradientBrush>
+    				</Border.Background>
+    			</Border>
+    			<Border BorderThickness="0,1,0,0" Margin="0,0,0,-0.04">
+    				<Border.BorderBrush>
+    					<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+    						<GradientStop Color="#FF7F7F7F" Offset="0.486"/>
+    						<GradientStop Color="#FFF7F7F7" Offset="0.666"/>
+    						<GradientStop Color="White" Offset="0.199"/>
+    						<GradientStop Color="White" Offset="0.2"/>
+    					</LinearGradientBrush>
+    				</Border.BorderBrush>
+    			</Border>
+    			<Border BorderThickness="0,0,0,1" Grid.Row="2" Margin="0" >
+    				<Border.BorderBrush>
+    					<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+    						<GradientStop Color="#FF4D4A4A" Offset="0.521"/>
+    						<GradientStop Color="White" Offset="0.174"/>
+    						<GradientStop Color="#FFB6B6B6" Offset="0.797"/>
+    					</LinearGradientBrush>
+    				</Border.BorderBrush>
+    			</Border>
+
+    		</Grid>
+    	</ControlTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.018*"/>
+            <RowDefinition Height="0.138*"/>
+            <RowDefinition Height="0.018*"/>
+            <RowDefinition Height="0.138*"/>
+            <RowDefinition Height="0.018*"/>
+            <RowDefinition Height="0.1382*"/>
+            <RowDefinition Height="0.018*"/>
+            <RowDefinition Height="0.138*"/>
+           
+           
+        </Grid.RowDefinitions>
+        <Border BorderBrush="Black" BorderThickness="0" CornerRadius="6" Background="Black" Grid.Row="1">
+            <Grid Margin="0.667,2.001,0.668,1.587">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.063*"/>
+                    <RowDefinition Height="0.277*"/>
+                    <RowDefinition Height="0.035*"/>
+                    <RowDefinition Height="0.277*"/>
+                    <RowDefinition Height="0.039*"/>
+                    <RowDefinition Height="0.277*"/>
+                    <RowDefinition Height="0.063*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.054*"/>
+                    <ColumnDefinition Width="0.4*"/>
+                    <ColumnDefinition Width="0.045*"/>
+                    <ColumnDefinition Width="0.056*"/>
+                    <ColumnDefinition Width="0.4*"/>
+                    <ColumnDefinition Width="0.054*"/>
+                </Grid.ColumnDefinitions>
+                <Path Style="{StaticResource PathStyle1}" Margin="0,0,1.317,0.583"   Grid.RowSpan="7" Grid.ColumnSpan="3"/>
+                <Path  Margin="1.348,0.583,0,0" Grid.Column="3" Grid.RowSpan="7" Grid.ColumnSpan="3" Style="{StaticResource PathStyle1}"/>
+                <TextBox   Template="{StaticResource TextBoxControlTemplate1}"  Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Background="{Binding TCColor}" Text="{Binding TransporantName}" DataContext="{Binding TCList[0].BlockList[0]}" TextAlignment="Center" FontSize="12" />
+                <TextBox   Template="{StaticResource TextBoxControlTemplate1}"  Grid.Column="4" Grid.Row="1" TextWrapping="Wrap" Background="{Binding TCColor}" Text="{Binding TransporantName}" DataContext="{Binding TCList[0].BlockList[3]}" TextAlignment="Center" FontSize="12"/>
+                <TextBox   Template="{StaticResource TextBoxControlTemplate1}"  Grid.Column="4" Grid.Row="3" TextWrapping="Wrap" Background="{Binding TCColor}" Text="{Binding TransporantName}" DataContext="{Binding TCList[0].BlockList[4]}" TextAlignment="Center" FontSize="12"/>
+                <TextBox   Template="{StaticResource TextBoxControlTemplate1}"  Grid.Column="4" Grid.Row="5" TextWrapping="Wrap" Background="{Binding TCColor}" Text="{Binding TransporantName}" DataContext="{Binding TCList[0].BlockList[5]}" TextAlignment="Center" FontSize="12"/>
+                <TextBox   Template="{StaticResource TextBoxControlTemplate1}"  Grid.Column="1" Grid.Row="5" TextWrapping="Wrap" Background="{Binding TCColor}" Text="{Binding TransporantName}" DataContext="{Binding TCList[0].BlockList[2]}" TextAlignment="Center" FontSize="12" />
+                <TextBox   Template="{StaticResource TextBoxControlTemplate1}"  Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Background="{Binding TCColor}" Text="{Binding TransporantName}" DataContext="{Binding TCList[0].BlockList[1]}" TextAlignment="Center" FontSize="12" />
+
+            </Grid>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="0" CornerRadius="6" Background="Black" Grid.Row="3">
+            <Grid Margin="0.667,2.001,0.668,1.587">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.063*"/>
+                    <RowDefinition Height="0.277*"/>
+                    <RowDefinition Height="0.035*"/>
+                    <RowDefinition Height="0.277*"/>
+                    <RowDefinition Height="0.039*"/>
+                    <RowDefinition Height="0.277*"/>
+                    <RowDefinition Height="0.063*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.054*"/>
+                    <ColumnDefinition Width="0.4*"/>
+                    <ColumnDefinition Width="0.045*"/>
+                    <ColumnDefinition Width="0.056*"/>
+                    <ColumnDefinition Width="0.4*"/>
+                    <ColumnDefinition Width="0.054*"/>
+                </Grid.ColumnDefinitions>
+                <Path Style="{StaticResource ResourceKey=PathStyle1}" Margin="0,0,1.317,0.583"   Grid.RowSpan="7" Grid.ColumnSpan="3"/>
+                <Path  Margin="1.348,0.583,0,0" Grid.Column="3" Grid.RowSpan="7" Grid.ColumnSpan="3" Style="{StaticResource PathStyle1}"/>
+                <TextBox   Template="{StaticResource TextBoxControlTemplate1}" Background="{Binding TCColor}" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Text="{Binding TransporantName}" DataContext="{Binding TCList[1].BlockList[0]}" TextAlignment="Center" FontSize="12" />
+                <TextBox   Template="{StaticResource TextBoxControlTemplate1}" Background="{Binding TCColor}" Grid.Column="4" Grid.Row="1" TextWrapping="Wrap" Text="{Binding TransporantName}" DataContext="{Binding TCList[1].BlockList[3]}" TextAlignment="Center" FontSize="12" />
+                <TextBox   Template="{StaticResource TextBoxControlTemplate1}" Background="{Binding TCColor}" Grid.Column="4" Grid.Row="3" TextWrapping="Wrap" Text="{Binding TransporantName}" DataContext="{Binding TCList[1].BlockList[4]}" TextAlignment="Center" FontSize="12" />
+                <TextBox   Template="{StaticResource TextBoxControlTemplate1}" Background="{Binding TCColor}" Grid.Column="4" Grid.Row="5" TextWrapping="Wrap" Text="{Binding TransporantName}" DataContext="{Binding TCList[1].BlockList[5]}" TextAlignment="Center" FontSize="12" />
+                <TextBox   Template="{StaticResource TextBoxControlTemplate1}" Background="{Binding TCColor}" Grid.Column="1" Grid.Row="5" TextWrapping="Wrap" Text="{Binding TransporantName}" DataContext="{Binding TCList[1].BlockList[2]}" TextAlignment="Center" FontSize="12" />
+                <TextBox   Template="{StaticResource TextBoxControlTemplate1}" Background="{Binding TCColor}" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Text="{Binding TransporantName}" DataContext="{Binding TCList[1].BlockList[1]}" TextAlignment="Center" FontSize="12" />
+
+            </Grid>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="0" CornerRadius="6" Background="Black" Grid.Row="5">
+            <Grid Margin="0.667,2.001,0.668,1.587">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.063*"/>
+                    <RowDefinition Height="0.277*"/>
+                    <RowDefinition Height="0.035*"/>
+                    <RowDefinition Height="0.277*"/>
+                    <RowDefinition Height="0.039*"/>
+                    <RowDefinition Height="0.277*"/>
+                    <RowDefinition Height="0.063*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.054*"/>
+                    <ColumnDefinition Width="0.4*"/>
+                    <ColumnDefinition Width="0.045*"/>
+                    <ColumnDefinition Width="0.056*"/>
+                    <ColumnDefinition Width="0.4*"/>
+                    <ColumnDefinition Width="0.054*"/>
+                </Grid.ColumnDefinitions>
+                <Path Style="{StaticResource ResourceKey=PathStyle1}" Margin="0,0,1.317,0.583"   Grid.RowSpan="7" Grid.ColumnSpan="3"/>
+                <Path  Margin="1.348,0.583,0,0" Grid.Column="3" Grid.RowSpan="7" Grid.ColumnSpan="3" Style="{StaticResource PathStyle1}"/>
+                <TextBox   Template="{StaticResource TextBoxControlTemplate1}" Background="{Binding TCColor}" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Text="{Binding TransporantName}" DataContext="{Binding TCList[2].BlockList[0]}" TextAlignment="Center" FontSize="12" />
+                <TextBox   Template="{StaticResource TextBoxControlTemplate1}" Background="{Binding TCColor}" Grid.Column="4" Grid.Row="1" TextWrapping="Wrap" Text="{Binding TransporantName}" DataContext="{Binding TCList[2].BlockList[3]}" TextAlignment="Center" FontSize="12" />
+                <TextBox   Template="{StaticResource TextBoxControlTemplate1}" Background="{Binding TCColor}" Grid.Column="4" Grid.Row="3" TextWrapping="Wrap" Text="{Binding TransporantName}" DataContext="{Binding TCList[2].BlockList[4]}" TextAlignment="Center" FontSize="12" />
+                <TextBox   Template="{StaticResource TextBoxControlTemplate1}" Background="{Binding TCColor}" Grid.Column="4" Grid.Row="5" TextWrapping="Wrap" Text="{Binding TransporantName}" DataContext="{Binding TCList[2].BlockList[5]}" TextAlignment="Center" FontSize="12" />
+                <TextBox   Template="{StaticResource TextBoxControlTemplate1}" Background="{Binding TCColor}" Grid.Column="1" Grid.Row="5" TextWrapping="Wrap" Text="{Binding TransporantName}" DataContext="{Binding TCList[2].BlockList[2]}" TextAlignment="Center" FontSize="12" />
+                <TextBox   Template="{StaticResource TextBoxControlTemplate1}" Background="{Binding TCColor}" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Text="{Binding TransporantName}" DataContext="{Binding TCList[2].BlockList[1]}" TextAlignment="Center" FontSize="12" />
+
+            </Grid>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="0" CornerRadius="6" Background="Black" Grid.Row="7">
+            <Grid Margin="0.667,2.001,0.668,1.587">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.035*"/>
+                    <RowDefinition Height="0.277*"/>
+                    <RowDefinition Height="0.035*"/>
+                    <RowDefinition Height="0.277*"/>
+                    <RowDefinition Height="0.035*"/>
+                    <RowDefinition Height="0.277*"/>
+                    <RowDefinition Height="0.035*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.054*"/>
+                    <ColumnDefinition Width="0.4*"/>
+                    <ColumnDefinition Width="0.045*"/>
+                    <ColumnDefinition Width="0.056*"/>
+                    <ColumnDefinition Width="0.4*"/>
+                    <ColumnDefinition Width="0.054*"/>
+                </Grid.ColumnDefinitions>
+                <Path Style="{StaticResource PathStyle1}" Margin="0,0,1.317,0.583"   Grid.RowSpan="7" Grid.ColumnSpan="3"/>
+                <Path  Margin="1.348,0.583,0,0" Grid.Column="3" Grid.RowSpan="7" Grid.ColumnSpan="3" Style="{StaticResource PathStyle1}"/>
+                <TextBox   Template="{StaticResource TextBoxControlTemplate1}"  Grid.Column="1" Grid.Row="1" TextWrapping="Wrap"  Background="{Binding TCColor}" Text="{Binding TransporantName}" DataContext="{Binding TCList[3].BlockList[0]}" TextAlignment="Center" FontSize="12" />
+                <TextBox   Template="{StaticResource TextBoxControlTemplate1}"  Grid.Column="4" Grid.Row="1" TextWrapping="Wrap"  Background="{Binding TCColor}"  Text="{Binding TransporantName}" DataContext="{Binding TCList[3].BlockList[3]}" TextAlignment="Center" FontSize="12"/>
+                <TextBox   Template="{StaticResource TextBoxControlTemplate1}"  Grid.Column="4" Grid.Row="3" TextWrapping="Wrap"  Background="{Binding TCColor}" Text="{Binding TransporantName}" DataContext="{Binding TCList[3].BlockList[4]}" TextAlignment="Center" FontSize="12" />
+                <TextBox   Template="{StaticResource TextBoxControlTemplate1}"  Grid.Column="4" Grid.Row="5" TextWrapping="Wrap"  Background="{Binding TCColor}" Text="{Binding TransporantName}" DataContext="{Binding TCList[3].BlockList[5]}" TextAlignment="Center" FontSize="12"/>
+                <TextBox   Template="{StaticResource TextBoxControlTemplate1}"  Grid.Column="1" Grid.Row="5" TextWrapping="Wrap"  Background="{Binding TCColor}" Text="{Binding TransporantName}" DataContext="{Binding TCList[3].BlockList[2]}" TextAlignment="Center" FontSize="12" />
+                <TextBox   Template="{StaticResource TextBoxControlTemplate1}"  Grid.Column="1" Grid.Row="3" TextWrapping="Wrap"  Background="{Binding TCColor}" Text="{Binding TransporantName}" DataContext="{Binding TCList[3].BlockList[1]}" TextAlignment="Center" FontSize="12" />
+
+            </Grid>
+        </Border>
+        <!--Заголовки ТС-->
+        <TextBlock TextWrapping="Wrap" Text="{Binding TCGroupName}" TextAlignment="Center" DataContext="{Binding TCList[0]}" FontSize="18" />
+        <TextBlock TextWrapping="Wrap" Text="{Binding TCGroupName}" TextAlignment="Center" Grid.Row="2" DataContext="{Binding TCList[1]}" FontSize="18" />
+        <TextBlock TextWrapping="Wrap" Text="{Binding TCGroupName}"  TextAlignment="Center" Grid.Row="4" DataContext="{Binding TCList[2]}" FontSize="18" Height="18.589" />
+        <TextBlock TextWrapping="Wrap" Text="{Binding TCGroupName}" TextAlignment="Center" Grid.Row="6" DataContext="{Binding TCList[3]}" FontSize="18.667"/>
+       
+    </Grid>
+</UserControl>

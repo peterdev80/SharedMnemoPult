@@ -1,0 +1,978 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:VirtualPultValves.PultControl"
+    xmlns:diag="clr-namespace:System.Diagnostics;assembly=WindowsBase"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d">
+    <RadialGradientBrush x:Key="BrushBorderPodl">
+        <GradientStop Color="#FF7D817C" Offset="0"/>
+        <GradientStop Color="#FFA0A59F" Offset="1"/>
+    </RadialGradientBrush>
+    <RadialGradientBrush x:Key="BrushBorderBackground">
+        <GradientStop Color="#FF7D817C" Offset="0"/>
+        <GradientStop Color="#FFA0A59F" Offset="1"/>
+    </RadialGradientBrush>
+    <RadialGradientBrush x:Key="Brush1BorderBrush">
+        <GradientStop Color="#FF212121" Offset="0"/>
+        <GradientStop Color="#FFD2EADC" Offset="1"/>
+    </RadialGradientBrush>
+
+
+
+
+    <Style   TargetType="{x:Type local:PultCheckBox}">
+        <Style.Resources>
+            <StreamGeometry x:Key="GeometryText">M6.228229,4.5476561L7.212604,4.5476561 7.212604,8.4968748 7.2360415,8.4968748C7.290729,8.4109373,7.3649478,8.3152342,7.4586978,8.2097654L10.599323,4.5476561 11.823933,4.5476561 8.220417,8.5789061 12.075886,12.95 10.704792,12.95 7.4586978,9.1062498C7.337604,8.9617186,7.2633853,8.8640623,7.2360415,8.8132811L7.212604,8.8132811 7.212604,12.95 6.228229,12.95z M16.64526,5.2976561C15.762448,5.2976565 15.045651,5.6160159 14.49487,6.2527342 13.944089,6.8894529 13.668698,7.7253904 13.668698,8.7605467 13.668698,9.7957029 13.937253,10.628711 14.474362,11.25957 15.011472,11.890429 15.711667,12.205859 16.574947,12.205859 17.496822,12.205859 18.223385,11.905078 18.754635,11.303515 19.285885,10.701953 19.55151,9.8601561 19.55151,8.7781248 19.55151,7.6687498 19.293697,6.8113279 18.778072,6.2058592 18.262447,5.6003909 17.55151,5.2976565 16.64526,5.2976561z M16.715572,4.4070311C17.875729,4.4070311 18.810299,4.7976561 19.519283,5.5789061 20.228268,6.3601565 20.58276,7.3816409 20.58276,8.6433592 20.58276,10.014453 20.219479,11.098437 19.492916,11.895312 18.766354,12.692187 17.793697,13.090625 16.574947,13.090625 15.383542,13.090625 14.42944,12.698047 13.712644,11.91289 12.995847,11.127734 12.637448,10.10625 12.637448,8.8484373 12.637448,7.4968753 13.002683,6.4187503 13.733151,5.6140623 14.46362,4.8093748 15.457761,4.4070311 16.715572,4.4070311z M22.234896,4.5476561L23.219271,4.5476561 23.219271,8.2332029 27.566927,8.2332029 27.566927,4.5476561 28.551302,4.5476561 28.551302,12.95 27.566927,12.95 27.566927,9.1179686 23.219271,9.1179686 23.219271,12.95 22.234896,12.95z M34.493179,4.4070311C35.290051,4.4070311,35.950207,4.5222654,36.473648,4.7527342L36.473648,5.8015623C35.872086,5.4656253 35.208023,5.2976565 34.481461,5.2976561 33.516613,5.2976565 32.734386,5.6199222 32.134781,6.2644529 31.53517,6.9089842 31.235365,7.7703123 31.235365,8.8484373 31.235365,9.8718748 31.515638,10.687304 32.076187,11.294726 32.63673,11.902148 33.372082,12.205859 34.282242,12.205859 35.125992,12.205859 35.856461,12.018359 36.473648,11.643359L36.473648,12.598437C35.852554,12.926562 35.079117,13.090625 34.153336,13.090625 32.958023,13.090625 32.000992,12.705859 31.28224,11.936328 30.56349,11.166797 30.204115,10.157031 30.204115,8.9070311 30.204115,7.5632815 30.608412,6.477344 31.417006,5.6492186 32.225601,4.8210936 33.250992,4.4070311 34.493179,4.4070311z M38.184895,4.5476561L42.45052,4.5476561 42.45052,5.4382811 39.16927,5.4382811 39.16927,8.2332029 42.204426,8.2332029 42.204426,9.1179686 39.16927,9.1179686 39.16927,12.059375 42.63802,12.059375 42.63802,12.95 38.184895,12.95z M45.239269,5.4382811L45.239269,8.8835936 46.270519,8.8835936C46.950207,8.8835936 47.468761,8.7283201 47.826183,8.4177732 48.183605,8.1072264 48.362316,7.6687498 48.362316,7.1023436 48.362316,5.992969 47.706066,5.4382815 46.393566,5.4382811z M44.254894,4.5476561L46.563488,4.5476561C47.461926,4.5476561 48.158215,4.7664061 48.652355,5.2039061 49.146496,5.6414065 49.393566,6.258594 49.393566,7.0554686 49.393566,7.8523436 49.119152,8.5046873 48.570324,9.0124998 48.021496,9.5203123 47.280285,9.7742186 46.346691,9.7742186L45.239269,9.7742186 45.239269,12.95 44.254894,12.95z M9.7859373,24.995937L9.7859373,28.019375 11.121875,28.019375C11.7,28.019375 12.148242,27.882656 12.466601,27.609219 12.784961,27.335781 12.94414,26.960781 12.94414,26.484219 12.94414,25.492031 12.268359,24.995937 10.916797,24.995937z M9.7859373,21.398281L9.7859373,24.111172 10.79375,24.111172C11.332812,24.111172 11.75664,23.981289 12.065234,23.721523 12.373828,23.461758 12.528125,23.095547 12.528125,22.62289 12.528125,21.806484 11.991015,21.398281 10.916797,21.398281z M8.8015623,20.507656L11.192187,20.507656C11.91875,20.507656 12.494922,20.68539 12.920703,21.040859 13.346484,21.396328 13.559375,21.859219 13.559375,22.429531 13.559375,22.906094 13.430469,23.320156 13.172656,23.671719 12.914844,24.023281 12.559375,24.273281 12.10625,24.421719L12.10625,24.445156C12.672656,24.511562 13.125781,24.72543 13.465625,25.086758 13.805468,25.448086 13.975389,25.917812 13.97539,26.495937 13.975389,27.214687 13.717577,27.796719 13.201953,28.242031 12.686328,28.687344 12.035937,28.91 11.250781,28.91L8.8015623,28.91z M18.412031,21.527187C18.372969,21.765469,18.328047,21.952969,18.277266,22.089687L16.970625,25.669765 19.882734,25.669765 18.564375,22.089687C18.521406,21.9725,18.478437,21.785,18.435469,21.527187z M17.931562,20.507656L18.951094,20.507656 22.185469,28.91 21.095625,28.91 20.205,26.554531 16.6425,26.554531 15.804609,28.91 14.708906,28.91z M23.421562,20.507656L24.405937,20.507656 24.405937,28.019375 28.753593,28.019375 28.753593,20.507656 29.737968,20.507656 29.737968,28.019375 30.862968,28.019375 30.862968,31.165859 29.954765,31.165859 29.954765,28.91 23.421562,28.91z M32.328232,20.507656L33.312607,20.507656 33.312607,26.425625C33.312607,27.058437,33.296982,27.470547,33.265732,27.661953L33.289169,27.661953C33.375107,27.490078,33.484482,27.302578,33.617294,27.099453L37.836044,20.507656 39.101669,20.507656 39.101669,28.91 38.117294,28.91 38.117294,22.839687C38.11729,22.292812,38.136822,21.908047,38.175888,21.68539L38.140732,21.68539C38.066509,21.876797,37.976665,22.052578,37.871201,22.212734L33.546982,28.91 32.328232,28.91z M43.846146,21.398281C43.291458,21.398281 42.860794,21.52914 42.554153,21.790859 42.247513,22.052578 42.094193,22.421719 42.094193,22.898281 42.094193,23.374844 42.250443,23.751797 42.562943,24.02914 42.875443,24.306484 43.295364,24.445156 43.822708,24.445156L45.21138,24.445156 45.21138,21.398281z M43.758255,20.507656L46.195755,20.507656 46.195755,28.91 45.21138,28.91 45.21138,25.335781 43.986771,25.335781C43.752396,25.335781 43.546341,25.399258 43.368607,25.526211 43.190872,25.653164 43.000443,25.937344 42.797318,26.37875L41.74263,28.91 40.570755,28.91 41.848099,26.103359C41.93013,25.919765 42.056107,25.72543 42.226028,25.520351 42.39595,25.315273 42.594193,25.169765 42.820755,25.083828L42.820755,25.06039C42.262161,24.939297 41.827591,24.683437 41.517044,24.292812 41.206497,23.902187 41.051224,23.429531 41.051224,22.874844 41.051224,22.16 41.300247,21.586758 41.798294,21.155117 42.296341,20.723476 42.949661,20.507656 43.758255,20.507656z</StreamGeometry>
+            <GridLength x:Key="GridLengthC1">0.1*</GridLength>
+            <GridLength x:Key="GridLengthC2">0.4*</GridLength>
+            <GridLength x:Key="GridLengthCenter">0.4*</GridLength>
+            <GridLength x:Key="GridLengthC3">0.1*</GridLength>
+            <GridLength x:Key="GridLengthR1">0.187*</GridLength>
+            <GridLength x:Key="GridLengthR2">0.580*</GridLength>
+            <GridLength x:Key="GridLengthRHLine">0*</GridLength>
+            <GridLength x:Key="GridLengthR3">0.233*</GridLength>
+            <StreamGeometry x:Key="GeometryLine"/>
+
+        </Style.Resources>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate  TargetType="{x:Type local:PultCheckBox}">
+                    <Grid x:Name="grid" Height="Auto" Width="Auto" Background="Black">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.015*"/>
+                            <RowDefinition Height="0.1*"/>
+                            <RowDefinition Height="0.885*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.048*"/>
+                            <ColumnDefinition Width="0.904*"/>
+                            <ColumnDefinition Width="0.048*"/>
+                        </Grid.ColumnDefinitions>
+                        <ContentControl x:Name="Content"  VerticalAlignment="Stretch" Grid.ColumnSpan="3" Grid.RowSpan="3"  Content="{TemplateBinding Content}" Cursor="Hand"/>
+                        <Border BorderThickness="1,0" Grid.RowSpan="3" Background="{StaticResource BrushBorderBackground}" BorderBrush="{StaticResource Brush1BorderBrush}" Cursor="SizeNS"/>
+                        <Border BorderThickness="1,0" Grid.RowSpan="3" Grid.Column="2" BorderBrush="{StaticResource Brush1BorderBrush}" Background="{StaticResource BrushBorderBackground}" Cursor="SizeNS"/>
+                        <Border x:Name="border" BorderThickness="1" Grid.ColumnSpan="1" Grid.Column="1" Grid.Row="1" CornerRadius="1" Cursor="SizeNS">
+                            <Border.BorderBrush>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FFB1C3B9" Offset="0"/>
+                                    <GradientStop Color="#FFA0A59F" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.BorderBrush>
+                            <Border.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="Black" Offset="0"/>
+                                    <GradientStop Color="#FFD2EADC" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                        </Border>
+                        <Grid x:Name="grClose" Grid.ColumnSpan="3" Grid.RowSpan="2" Grid.Row="1" Cursor="UpArrow">
+                            <Grid.ColumnDefinitions>
+                          
+						<ColumnDefinition Width="{DynamicResource GridLengthC1}"/>
+						<ColumnDefinition Width="{DynamicResource GridLengthC2}"/>
+						<ColumnDefinition Width="{DynamicResource GridLengthCenter}"/>
+						<ColumnDefinition Width="{DynamicResource GridLengthC3}"/>
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="{DynamicResource GridLengthR1}"/>
+						<RowDefinition Height="{DynamicResource GridLengthR2}"/>
+						<RowDefinition Height="{DynamicResource GridLengthRHLine}"/>
+						<RowDefinition Height="{DynamicResource GridLengthR3}"/>
+
+                            </Grid.RowDefinitions>
+                            <Path x:Name="path" Grid.Column="0" Data="M-7.256812,0.5 L305.68318,0.5 306.57717,112 324.65501,123.65954 325.07907,135.5 -21.926841,135.5 -21.061589,123.0807 -6.1665019,112.66667 z" HorizontalAlignment="Stretch" Stretch="Fill" Width="Auto" Grid.ColumnSpan="4" StrokeThickness="2" Grid.RowSpan="4" Margin="-2.004,0,-1.837,0" >
+                                <Path.Stroke>
+                                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                        <LinearGradientBrush.RelativeTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                                <RotateTransform Angle="223.72700000000003" CenterY="0.5" CenterX="0.5"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </LinearGradientBrush.RelativeTransform>
+                                        <GradientStop Color="#FF918F8F" Offset="0"/>
+                                        <GradientStop Color="#FF5C5B5B" Offset="1"/>
+                                        <GradientStop Color="#FF474444" Offset="0.453"/>
+                                        <GradientStop Color="#FF959996" Offset="0.638"/>
+                                        <GradientStop Color="#FF606A61" Offset="0.168"/>
+                                    </LinearGradientBrush>
+                                </Path.Stroke>
+                                <Path.Fill>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FFC4C3C3" Offset="0"/>
+                                        <GradientStop Color="#FF565353" Offset="1"/>
+                                        <GradientStop Color="#FEB1AEAE" Offset="0.177"/>
+                                    </LinearGradientBrush>
+                                </Path.Fill>
+                            </Path>
+
+                            <Path Grid.Column="2" Data="{TemplateBinding GeometryLine}" HorizontalAlignment="Left" Margin="0" Grid.Row="1" Stretch="Fill" Width="1" Stroke="Black" Grid.RowSpan="1"/>
+                            <Path Data="{TemplateBinding GeometryText}" Grid.Row="1"  Stretch="Fill" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Fill="Black" Height="Auto"/>
+                        </Grid>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Visibility" TargetName="grClose" Value="Hidden"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+   
+
+    <Style TargetType="{x:Type local:PultBigButton}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:PultBigButton}">
+                   
+                        <Border BorderBrush="Black" BorderThickness="0" Background="#FF100202" CornerRadius="4" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,1,0">
+                            <Grid x:Name="GridBtn" Margin="0,1,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"  RenderTransformOrigin="0.506,0.538">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+
+                                </Grid.ColumnDefinitions>
+                                <Path Grid.Column="0" Data="M0.11297384,3.0412423 C0.11297384,1.384388 1.5704529,0.52057553 3.2273072,0.52057553 L55.116,0.5 C56.772854,0.5 57.782001,1.2591458 57.782001,2.9160001 L58.116,33.734 C58.116,35.390854 56.772854,36.734 55.116,36.734 L3.5,36.734 C1.8431458,36.734 0.5,35.390854 0.5,33.734 z" Margin="3.354,6.939,1.625,1.832" Grid.Row="0" StrokeStartLineCap="Round" Stretch="Fill" StrokeEndLineCap="Round" Stroke="#FFBBCFBC" StrokeThickness="1">
+                                    <Path.Fill>
+                                        <RadialGradientBrush RadiusX="13.5">
+                                            <RadialGradientBrush.RelativeTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                                                    <TranslateTransform/>
+                                                </TransformGroup>
+                                            </RadialGradientBrush.RelativeTransform>
+                                            <GradientStop Color="#FFC8CCC5" Offset="0"/>
+                                            <GradientStop Color="#FFA3A7A1" Offset="1"/>
+                                        </RadialGradientBrush>
+                                    </Path.Fill>
+                                </Path>
+                                <Path Grid.ColumnSpan="1" Grid.Column="0" Data="M0.5,0.5 L57.474,0.5 57.185565,8.1266668 0.5,8.104 z" Height="8.627" Margin="3.502,0.083,2.506,0" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" Stretch="Fill" StrokeEndLineCap="Round" Stroke="#FFBBCFBC" StrokeThickness="1" VerticalAlignment="Top">
+                                    <Path.Fill>
+                                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                            <LinearGradientBrush.RelativeTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <RotateTransform Angle="-168.366" CenterY="0.5" CenterX="0.5"/>
+                                                    <TranslateTransform/>
+                                                </TransformGroup>
+                                            </LinearGradientBrush.RelativeTransform>
+                                            <GradientStop Color="#FFB3B4B3" Offset="0.45"/>
+                                            <GradientStop Color="#FF676C63" Offset="1"/>
+                                            <GradientStop Color="#FF576057" Offset="0.99"/>
+                                        </LinearGradientBrush>
+                                    </Path.Fill>
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform AngleX="9"/>
+                                            <RotateTransform/>
+                                            <TranslateTransform X="0.0018214210637310657"/>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+                                <Path Data="M0.20807823,-1.3195493 L0.38364964,-2.3241125 1.6020375,-2.3003652 1.4131623,-0.14740087 1.195,33.185 0,33.185 z" HorizontalAlignment="Left" Margin="2.616,1.992,0,8.164" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" Stretch="Fill" StrokeEndLineCap="Round" Stroke="#FFBBCFBC" StrokeThickness="0" Width="1.603" >
+                                    <Path.Fill>
+                                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                            <LinearGradientBrush.RelativeTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <RotateTransform Angle="-252.64600000000002" CenterY="0.5" CenterX="0.5"/>
+                                                    <TranslateTransform/>
+                                                </TransformGroup>
+                                            </LinearGradientBrush.RelativeTransform>
+                                            <GradientStop Color="#FFB2B6B0" Offset="0.511"/>
+                                            <GradientStop Color="#FF4F504E" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Path.Fill>
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleY="1.004"/>
+                                            <SkewTransform AngleY="81" AngleX="0.038"/>
+                                            <RotateTransform/>
+                                            <TranslateTransform X="-0.057225916692645207" Y="0.928655308993708"/>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+                                <ContentPresenter Height="Auto" Margin="12.785,16.639,11.786,8" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="RenderTransform" TargetName="GridBtn">
+                                    <Setter.Value>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="0.9" ScaleY="0.9"/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type local:PultGlassButton}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:PultGlassButton}">
+
+                    <ControlTemplate.Resources>
+                        <LinearGradientBrush x:Key="SolidColorBolder" EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" SpreadMethod="Repeat" StartPoint="0.5,0">
+                            <GradientStop Color="#FF82957F" Offset="0.977"/>
+                            <GradientStop Color="#FF010201"/>
+                        </LinearGradientBrush>
+                    </ControlTemplate.Resources>
+
+
+
+
+
+
+                    <Border x:Name= "border" 
+			BorderBrush="#FF000000" 
+			BorderThickness="1,1,1,1" Margin="0,0,2,2" Background="Black">
+
+
+                        <Grid x:Name="GridBtn" RenderTransformOrigin="0.5,0.5">
+                            <Grid.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Grid.RenderTransform>
+
+                            <Grid.ColumnDefinitions>
+
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="15*"/>
+                                <ColumnDefinition Width="1*"/>
+
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="15*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+
+
+
+
+
+
+                            <!-- Р В Р’В Р вЂ™Р’В Р В Р’В Р РЋРІР‚ВР В Р Р‹Р В РЎвЂњР В Р Р‹Р РЋРІР‚СљР В Р’В Р вЂ™Р’ВµР В Р’В Р РЋР’В Р В Р’В Р В РІР‚В Р В Р’В Р В РІР‚В¦Р В Р Р‹Р РЋРІР‚СљР В Р Р‹Р Р†Р вЂљРЎв„ўР В Р Р‹Р В РІР‚С™Р В Р’В Р РЋРІР‚В Р В Р’В Р РЋРІР‚СњР В Р’В Р В РІР‚В¦Р В Р’В Р РЋРІР‚СћР В Р’В Р РЋРІР‚вЂќР В Р’В Р РЋРІР‚СњР В Р’В Р РЋРІР‚В "Р В Р Р‹Р В РЎвЂњР В Р’В Р В РІР‚В Р В Р’В Р вЂ™Р’ВµР В Р Р‹Р Р†Р вЂљР Р‹Р В Р’В Р вЂ™Р’ВµР В Р’В Р В РІР‚В¦Р В Р’В Р РЋРІР‚ВР В Р’В Р вЂ™Р’Вµ". Р В Р’В Р РЋРЎвЂєР В Р’В Р РЋРІР‚СћР В Р Р‹Р Р†Р вЂљРЎв„ў Р В Р Р‹Р В РЎвЂњР В Р’В Р вЂ™Р’В°Р В Р’В Р РЋР’ВР В Р Р‹Р Р†Р вЂљРІвЂћвЂ“Р В Р’В Р Р†РІР‚С›РІР‚вЂњ Р В Р Р‹Р В Р Р‰Р В Р Р‹Р Р†Р вЂљРЎвЂєР В Р Р‹Р Р†Р вЂљРЎвЂєР В Р’В Р вЂ™Р’ВµР В Р’В Р РЋРІР‚СњР В Р Р‹Р Р†Р вЂљРЎв„ў Р В Р’В Р РЋРІР‚СњР В Р’В Р РЋРІР‚СћР В Р Р‹Р Р†Р вЂљРЎв„ўР В Р’В Р РЋРІР‚СћР В Р Р‹Р В РІР‚С™Р В Р Р‹Р Р†Р вЂљРІвЂћвЂ“Р В Р’В Р Р†РІР‚С›РІР‚вЂњ Р В Р’В Р РЋРІР‚вЂќР В Р Р‹Р В РІР‚С™Р В Р’В Р РЋРІР‚СћР В Р’В Р РЋРІР‚ВР В Р Р‹Р В РЎвЂњР В Р Р‹Р Р†Р вЂљР’В¦Р В Р’В Р РЋРІР‚СћР В Р’В Р СћРІР‚ВР В Р’В Р РЋРІР‚ВР В Р Р‹Р Р†Р вЂљРЎв„ў Р В Р’В Р РЋРІР‚вЂќР В Р Р‹Р В РІР‚С™Р В Р’В Р РЋРІР‚В Р В Р’В Р В РІР‚В¦Р В Р’В Р вЂ™Р’В°Р В Р’В Р В РІР‚В Р В Р’В Р вЂ™Р’ВµР В Р’В Р СћРІР‚ВР В Р’В Р вЂ™Р’ВµР В Р’В Р В РІР‚В¦Р В Р’В Р РЋРІР‚ВР В Р’В Р РЋРІР‚В Р В Р’В Р В РІР‚В¦Р В Р’В Р вЂ™Р’В° Р В Р’В Р РЋРІР‚СњР В Р’В Р В РІР‚В¦Р В Р’В Р РЋРІР‚СћР В Р’В Р РЋРІР‚вЂќР В Р’В Р РЋРІР‚СњР В Р Р‹Р РЋРІР‚Сљ Р В Р’В Р РЋРІР‚СњР В Р Р‹Р РЋРІР‚СљР В Р Р‹Р В РІР‚С™Р В Р Р‹Р В РЎвЂњР В Р’В Р РЋРІР‚СћР В Р Р‹Р В РІР‚С™Р В Р’В Р РЋРІР‚СћР В Р’В Р РЋР’В Р В Р’В Р РЋР’ВР В Р Р‹Р Р†Р вЂљРІвЂћвЂ“Р В Р Р‹Р Р†РІР‚С™Р’В¬Р В Р’В Р РЋРІР‚В. Р В Р’В Р РЋРЎС™Р В Р’В Р вЂ™Р’В°Р В Р’В Р вЂ™Р’В·Р В Р’В Р В РІР‚В Р В Р’В Р вЂ™Р’В°Р В Р’В Р В РІР‚В¦Р В Р’В Р РЋРІР‚ВР В Р’В Р вЂ™Р’Вµ Р В Р Р‹Р Р†РІР‚С™Р’В¬Р В Р’В Р вЂ™Р’ВµР В Р’В Р Р†РІР‚С›РІР‚вЂњР В Р’В Р РЋРІР‚вЂќР В Р’В Р вЂ™Р’В° Р В Р’В Р вЂ™Р’В±Р В Р Р‹Р РЋРІР‚СљР В Р’В Р СћРІР‚ВР В Р’В Р вЂ™Р’ВµР В Р Р‹Р Р†Р вЂљРЎв„ў glow -->
+                            <!-- Р В Р’В Р Р†Р вЂљРІР‚СњР В Р’В Р вЂ™Р’В°Р В Р’В Р СћРІР‚ВР В Р’В Р вЂ™Р’В°Р В Р Р‹Р Р†Р вЂљР’ВР В Р’В Р РЋР’В Р В Р’В Р В РІР‚В¦Р В Р’В Р вЂ™Р’ВµР В Р’В Р РЋРІР‚вЂќР В Р Р‹Р В РІР‚С™Р В Р’В Р РЋРІР‚СћР В Р’В Р вЂ™Р’В·Р В Р Р‹Р В РІР‚С™Р В Р’В Р вЂ™Р’В°Р В Р Р‹Р Р†Р вЂљР Р‹Р В Р’В Р В РІР‚В¦Р В Р’В Р РЋРІР‚СћР В Р Р‹Р В РЎвЂњР В Р Р‹Р Р†Р вЂљРЎв„ўР В Р Р‹Р В Р вЂ° Р В Р Р‹Р Р†РІР‚С™Р’В¬Р В Р’В Р вЂ™Р’ВµР В Р’В Р Р†РІР‚С›РІР‚вЂњР В Р’В Р РЋРІР‚вЂќР В Р’В Р вЂ™Р’В° 0 (Р В Р Р‹Р В Р Р‰Р В Р Р‹Р Р†Р вЂљРЎв„ўР В Р’В Р РЋРІР‚Сћ Р В Р’В Р В РІР‚В¦Р В Р’В Р вЂ™Р’В°Р В Р Р‹Р Р†Р вЂљР Р‹Р В Р’В Р вЂ™Р’В°Р В Р’В Р вЂ™Р’В»Р В Р Р‹Р В Р вЂ°Р В Р’В Р В РІР‚В¦Р В Р’В Р РЋРІР‚СћР В Р’В Р вЂ™Р’Вµ Р В Р’В Р вЂ™Р’В·Р В Р’В Р В РІР‚В¦Р В Р’В Р вЂ™Р’В°Р В Р Р‹Р Р†Р вЂљР Р‹Р В Р’В Р вЂ™Р’ВµР В Р’В Р В РІР‚В¦Р В Р’В Р РЋРІР‚ВР В Р’В Р вЂ™Р’Вµ, Р В Р Р‹Р Р†Р вЂљРЎв„ўР В Р’В Р РЋРІР‚Сћ Р В Р’В Р вЂ™Р’ВµР В Р Р‹Р В РЎвЂњР В Р Р‹Р Р†Р вЂљРЎв„ўР В Р Р‹Р В Р вЂ° Р В Р’В Р РЋРІР‚вЂќР В Р’В Р РЋРІР‚СћР В Р’В Р РЋРІР‚СњР В Р’В Р вЂ™Р’В° Р В Р’В Р РЋРІР‚СњР В Р’В Р В РІР‚В¦Р В Р’В Р РЋРІР‚СћР В Р’В Р РЋРІР‚вЂќР В Р’В Р РЋРІР‚СњР В Р’В Р вЂ™Р’В° Р В Р’В Р В РІР‚В¦Р В Р’В Р вЂ™Р’Вµ Р В Р’В Р вЂ™Р’В°Р В Р’В Р РЋРІР‚СњР В Р Р‹Р Р†Р вЂљРЎв„ўР В Р’В Р РЋРІР‚ВР В Р’В Р В РІР‚В Р В Р’В Р В РІР‚В¦Р В Р’В Р вЂ™Р’В°) -->
+
+                            <!-- Р В Р’В Р Р†Р вЂљРІР‚СњР В Р’В Р вЂ™Р’В°Р В Р’В Р СћРІР‚ВР В Р’В Р вЂ™Р’В°Р В Р Р‹Р Р†Р вЂљР’ВР В Р’В Р РЋР’В Р В Р’В Р В РІР‚В¦Р В Р’В Р вЂ™Р’ВµР В Р’В Р РЋРІР‚вЂќР В Р Р‹Р В РІР‚С™Р В Р’В Р РЋРІР‚СћР В Р’В Р вЂ™Р’В·Р В Р Р‹Р В РІР‚С™Р В Р’В Р вЂ™Р’В°Р В Р Р‹Р Р†Р вЂљР Р‹Р В Р’В Р В РІР‚В¦Р В Р’В Р РЋРІР‚СћР В Р Р‹Р В РЎвЂњР В Р Р‹Р Р†Р вЂљРЎв„ўР В Р Р‹Р В Р вЂ° Р В Р Р‹Р Р†РІР‚С™Р’В¬Р В Р’В Р вЂ™Р’ВµР В Р’В Р Р†РІР‚С›РІР‚вЂњР В Р’В Р РЋРІР‚вЂќР В Р’В Р вЂ™Р’В° 0 (Р В Р Р‹Р В Р Р‰Р В Р Р‹Р Р†Р вЂљРЎв„ўР В Р’В Р РЋРІР‚Сћ Р В Р’В Р В РІР‚В¦Р В Р’В Р вЂ™Р’В°Р В Р Р‹Р Р†Р вЂљР Р‹Р В Р’В Р вЂ™Р’В°Р В Р’В Р вЂ™Р’В»Р В Р Р‹Р В Р вЂ°Р В Р’В Р В РІР‚В¦Р В Р’В Р РЋРІР‚СћР В Р’В Р вЂ™Р’Вµ Р В Р’В Р вЂ™Р’В·Р В Р’В Р В РІР‚В¦Р В Р’В Р вЂ™Р’В°Р В Р Р‹Р Р†Р вЂљР Р‹Р В Р’В Р вЂ™Р’ВµР В Р’В Р В РІР‚В¦Р В Р’В Р РЋРІР‚ВР В Р’В Р вЂ™Р’Вµ, Р В Р Р‹Р Р†Р вЂљРЎв„ўР В Р’В Р РЋРІР‚Сћ Р В Р’В Р вЂ™Р’ВµР В Р Р‹Р В РЎвЂњР В Р Р‹Р Р†Р вЂљРЎв„ўР В Р Р‹Р В Р вЂ° Р В Р’В Р РЋРІР‚вЂќР В Р’В Р РЋРІР‚СћР В Р’В Р РЋРІР‚СњР В Р’В Р вЂ™Р’В° Р В Р’В Р РЋРІР‚СњР В Р’В Р В РІР‚В¦Р В Р’В Р РЋРІР‚СћР В Р’В Р РЋРІР‚вЂќР В Р’В Р РЋРІР‚СњР В Р’В Р вЂ™Р’В° Р В Р’В Р В РІР‚В¦Р В Р’В Р вЂ™Р’Вµ Р В Р’В Р вЂ™Р’В°Р В Р’В Р РЋРІР‚СњР В Р Р‹Р Р†Р вЂљРЎв„ўР В Р’В Р РЋРІР‚ВР В Р’В Р В РІР‚В Р В Р’В Р В РІР‚В¦Р В Р’В Р вЂ™Р’В°) -->
+                            <Border x:Name ="glow" 
+					Width="Auto"                               
+                    		
+					HorizontalAlignment="Stretch" Grid.ColumnSpan="1" Grid.Row="1" Grid.Column="1" BorderBrush="#FF101010" Margin="0,-0.006,0,0.011" BorderThickness="0">
+                                <Border.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" SpreadMethod="Reflect">
+                                        <GradientStop Color="#FFC6CAC3" Offset="0.091"/>
+                                        <GradientStop Color="#FFB5B6B5" Offset="0.665"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+
+
+
+                            </Border>
+
+
+                            <ContentPresenter HorizontalAlignment="Center" 
+					VerticalAlignment="Center" 
+					Grid.RowSpan="1" Grid.Column="1" Grid.Row="1"/>
+                            <Border BorderThickness="0" Grid.Column="0" Margin="0" Grid.Row="1" HorizontalAlignment="Stretch" Grid.RowSpan="1" Width="Auto"  Height="Auto     ">
+                                <Border.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <LinearGradientBrush.RelativeTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                                <RotateTransform Angle="-90" CenterY="0.5" CenterX="0.5"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </LinearGradientBrush.RelativeTransform>
+                                        <GradientStop Color="Black" Offset="0"/>
+                                        <GradientStop Color="#FF9BAA95" Offset="0.727"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                            </Border>
+                            <Border BorderThickness="0" Grid.Column="2" Margin="0" Grid.Row="1" HorizontalAlignment="Stretch" Grid.RowSpan="1" Width="Auto" Height="Auto     " >
+                                <Border.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <LinearGradientBrush.RelativeTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                                <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </LinearGradientBrush.RelativeTransform>
+                                        <GradientStop Color="Black" Offset="0"/>
+                                        <GradientStop Color="#FF9BAA95" Offset="0.727"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                            </Border>
+                            <Border BorderThickness="0" Grid.Column="1" Margin="0" Grid.Row="0" HorizontalAlignment="Stretch" Grid.RowSpan="1" Width="Auto" Height="Auto     " >
+                                <Border.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <LinearGradientBrush.RelativeTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                                <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </LinearGradientBrush.RelativeTransform>
+                                        <GradientStop Color="Black" Offset="0"/>
+                                        <GradientStop Color="#FF9BAA95" Offset="0.727"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                            </Border>
+                            <Border BorderThickness="0" Grid.Column="1" Margin="0" Grid.Row="2" HorizontalAlignment="Stretch" Grid.RowSpan="1" Width="Auto" Height="Auto     " >
+                                <Border.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <LinearGradientBrush.RelativeTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                                <RotateTransform Angle="180" CenterY="0.5" CenterX="0.5"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </LinearGradientBrush.RelativeTransform>
+                                        <GradientStop Color="Black" Offset="0"/>
+                                        <GradientStop Color="#FF9BAA95" Offset="0.727"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                            </Border>
+                            <Border BorderThickness="0" Grid.Column="0" Margin="0,-0.011,0,0.011" Grid.Row="2" HorizontalAlignment="Stretch" Grid.RowSpan="1" Width="Auto" Height="Auto     "  RenderTransformOrigin="0.78,0.208">
+                                <Border.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <LinearGradientBrush.RelativeTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                                <RotateTransform Angle="225" CenterY="0.5" CenterX="0.5"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </LinearGradientBrush.RelativeTransform>
+                                        <GradientStop Color="Black" Offset="0.5"/>
+                                        <GradientStop Color="#FF9BAA95" Offset="0.929"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                            </Border>
+                            <Border BorderThickness="0" Grid.Column="2" Margin="0" Grid.Row="2" HorizontalAlignment="Stretch" Grid.RowSpan="1" Width="Auto" Height="Auto     " RenderTransformOrigin="0.78,0.208" >
+                                <Border.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <LinearGradientBrush.RelativeTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                                <RotateTransform Angle="490.774" CenterY="0.5" CenterX="0.5"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </LinearGradientBrush.RelativeTransform>
+                                        <GradientStop Color="Black" Offset="0.5"/>
+                                        <GradientStop Color="#FF9BAA95" Offset="0.929"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                            </Border>
+                            <Border BorderThickness="0" Grid.Column="0" Margin="0" Grid.Row="0" HorizontalAlignment="Stretch" Grid.RowSpan="1" Width="Auto" Height="Auto     " RenderTransformOrigin="0.78,0.208" >
+                                <Border.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <LinearGradientBrush.RelativeTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                                <RotateTransform Angle="315" CenterY="0.5" CenterX="0.5"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </LinearGradientBrush.RelativeTransform>
+                                        <GradientStop Color="Black" Offset="0.5"/>
+                                        <GradientStop Color="#FF9BAA95" Offset="0.929"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                            </Border>
+                            <Border BorderThickness="0" Grid.Column="3" Margin="0,-0.011,0,0.011" Grid.Row="0" HorizontalAlignment="Stretch" Grid.RowSpan="1" Width="Auto" Height="Auto     " RenderTransformOrigin="0.78,0.208">
+                                <Border.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <LinearGradientBrush.RelativeTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                                <RotateTransform Angle="408.366" CenterY="0.5" CenterX="0.5"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </LinearGradientBrush.RelativeTransform>
+                                        <GradientStop Color="Black" Offset="0.5"/>
+                                        <GradientStop Color="#FF9BAA95" Offset="0.929"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                            </Border>
+
+                            <!-- Р В Р’В Р Р†Р вЂљР’ВР В Р’В Р вЂ™Р’В»Р В Р’В Р РЋРІР‚ВР В Р’В Р РЋРІР‚Сњ Р В Р’В Р В РІР‚В¦Р В Р’В Р вЂ™Р’В°Р В Р Р‹Р В РІР‚С™Р В Р’В Р РЋРІР‚ВР В Р Р‹Р В РЎвЂњР В Р’В Р РЋРІР‚СћР В Р’В Р В РІР‚В Р В Р’В Р вЂ™Р’В°Р В Р’В Р вЂ™Р’В»Р В Р’В Р РЋРІР‚В -->
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+
+                        <!-- Р В Р’В Р РЋРЎСџР В Р’В Р вЂ™Р’ВµР В Р Р‹Р В РІР‚С™Р В Р’В Р В РІР‚В Р В Р Р‹Р Р†Р вЂљРІвЂћвЂ“Р В Р’В Р Р†РІР‚С›РІР‚вЂњ Р В Р Р‹Р Р†Р вЂљРЎв„ўР В Р Р‹Р В РІР‚С™Р В Р’В Р РЋРІР‚ВР В Р’В Р РЋРІР‚вЂњР В Р’В Р РЋРІР‚вЂњР В Р’В Р вЂ™Р’ВµР В Р Р‹Р В РІР‚С™ IsPressed, Р В Р Р‹Р В РЎвЂњР В Р’В Р РЋРІР‚СћР В Р Р‹Р В РЎвЂњР В Р Р‹Р Р†Р вЂљРЎв„ўР В Р’В Р РЋРІР‚СћР В Р Р‹Р В Р РЏР В Р’В Р В РІР‚В¦Р В Р’В Р РЋРІР‚ВР В Р’В Р вЂ™Р’Вµ Р В Р’В Р РЋРІР‚СњР В Р’В Р РЋРІР‚СћР В Р’В Р РЋРІР‚вЂњР В Р’В Р СћРІР‚ВР В Р’В Р вЂ™Р’В° Р В Р’В Р РЋРІР‚СњР В Р’В Р В РІР‚В¦Р В Р’В Р РЋРІР‚СћР В Р’В Р РЋРІР‚вЂќР В Р’В Р РЋРІР‚СњР В Р’В Р вЂ™Р’В° Р В Р’В Р В РІР‚В¦Р В Р’В Р вЂ™Р’В°Р В Р’В Р вЂ™Р’В¶Р В Р’В Р вЂ™Р’В°Р В Р Р‹Р Р†Р вЂљРЎв„ўР В Р’В Р вЂ™Р’В°. 
+                Р В Р’В Р РЋРЎСџР В Р Р‹Р В РІР‚С™Р В Р’В Р РЋРІР‚СћР В Р Р‹Р В РЎвЂњР В Р Р‹Р Р†Р вЂљРЎв„ўР В Р’В Р РЋРІР‚Сћ Р В Р Р‹Р РЋРІР‚СљР В Р Р‹Р В РЎвЂњР В Р Р‹Р Р†Р вЂљРЎв„ўР В Р’В Р вЂ™Р’В°Р В Р’В Р В РІР‚В¦Р В Р’В Р вЂ™Р’В°Р В Р’В Р В РІР‚В Р В Р’В Р вЂ™Р’В»Р В Р’В Р РЋРІР‚ВР В Р’В Р В РІР‚В Р В Р’В Р вЂ™Р’В°Р В Р’В Р вЂ™Р’ВµР В Р’В Р РЋР’В Р В Р Р‹Р В РЎвЂњР В Р’В Р РЋРІР‚СћР В Р’В Р РЋРІР‚СћР В Р Р‹Р Р†Р вЂљРЎв„ўР В Р’В Р В РІР‚В Р В Р’В Р вЂ™Р’ВµР В Р Р‹Р Р†Р вЂљРЎв„ўР В Р Р‹Р В РЎвЂњР В Р Р‹Р Р†Р вЂљРЎв„ўР В Р’В Р В РІР‚В Р В Р Р‹Р РЋРІР‚СљР В Р Р‹Р В РІР‚в„–Р В Р Р‹Р Р†Р вЂљР’В°Р В Р’В Р РЋРІР‚ВР В Р’В Р вЂ™Р’Вµ Р В Р’В Р вЂ™Р’В·Р В Р’В Р В РІР‚В¦Р В Р’В Р вЂ™Р’В°Р В Р Р‹Р Р†Р вЂљР Р‹Р В Р’В Р вЂ™Р’ВµР В Р’В Р В РІР‚В¦Р В Р’В Р РЋРІР‚ВР В Р Р‹Р В Р РЏ Р В Р’В Р РЋРІР‚вЂќР В Р Р‹Р В РІР‚С™Р В Р’В Р РЋРІР‚СћР В Р’В Р вЂ™Р’В·Р В Р Р‹Р В РІР‚С™Р В Р’В Р вЂ™Р’В°Р В Р Р‹Р Р†Р вЂљР Р‹Р В Р’В Р В РІР‚В¦Р В Р’В Р РЋРІР‚СћР В Р Р‹Р В РЎвЂњР В Р Р‹Р Р†Р вЂљРЎв„ўР В Р’В Р РЋРІР‚В, Р В Р’В Р В РІР‚В Р В Р’В Р РЋРІР‚ВР В Р’В Р СћРІР‚ВР В Р’В Р РЋРІР‚ВР В Р’В Р РЋР’ВР В Р’В Р РЋРІР‚СћР В Р Р‹Р В РЎвЂњР В Р Р‹Р Р†Р вЂљРЎв„ўР В Р’В Р РЋРІР‚В Р В Р’В Р РЋРІР‚В Р В Р Р‹Р Р†Р вЂљРЎвЂєР В Р’В Р РЋРІР‚СћР В Р’В Р В РІР‚В¦Р В Р’В Р вЂ™Р’В°, Р В Р’В Р СћРІР‚ВР В Р’В Р вЂ™Р’В»Р В Р Р‹Р В Р РЏ Р В Р’В Р РЋРІР‚СњР В Р’В Р вЂ™Р’В°Р В Р’В Р вЂ™Р’В¶Р В Р’В Р СћРІР‚ВР В Р’В Р РЋРІР‚СћР В Р’В Р РЋРІР‚вЂњР В Р’В Р РЋРІР‚Сћ Р В Р’В Р РЋРІР‚ВР В Р’В Р вЂ™Р’В· Р В Р Р‹Р Р†РІР‚С™Р’В¬Р В Р’В Р вЂ™Р’ВµР В Р’В Р Р†РІР‚С›РІР‚вЂњР В Р’В Р РЋРІР‚вЂќР В Р’В Р РЋРІР‚СћР В Р’В Р В РІР‚В  (Р В Р Р‹Р РЋРІР‚СљР В Р’В Р РЋРІР‚СњР В Р’В Р вЂ™Р’В°Р В Р’В Р вЂ™Р’В·Р В Р Р‹Р Р†Р вЂљРІвЂћвЂ“Р В Р’В Р В РІР‚В Р В Р’В Р вЂ™Р’В°Р В Р’В Р вЂ™Р’ВµР В Р’В Р РЋР’В Р В Р’В Р вЂ™Р’ВµР В Р’В Р РЋРІР‚вЂњР В Р’В Р РЋРІР‚Сћ Р В Р’В Р РЋРІР‚ВР В Р’В Р РЋР’ВР В Р Р‹Р В Р РЏ Р В Р’В Р В РІР‚В  TargetName) -->
+
+
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="RenderTransform" TargetName="GridBtn">
+                                <Setter.Value>
+                                    <TransformGroup>
+                                        <ScaleTransform ScaleX="0.9" ScaleY="0.9"/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+
+
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <SolidColorBrush x:Key="MyBtnBrush" Color="#FFC3C7CA" Opacity="0.02"/>
+    <Style TargetType="{x:Type local:PultZonaButton}">
+        <Setter Property="Foreground" Value="#FF2861ED"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="32"/>
+        <Setter Property="Opacity" Value="0.015"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:PultZonaButton}">
+                    <Border x:Name="brd" BorderThickness="0" BorderBrush="Yellow" Cursor="{TemplateBinding Cursor}" Background="{StaticResource MyBtnBrush}">
+
+                        <ContentPresenter Content="{TemplateBinding Content}" Cursor="{TemplateBinding Cursor}" ContentTemplate="{TemplateBinding ContentTemplate}" ContentStringFormat="{TemplateBinding ContentStringFormat}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="BorderThickness" TargetName="brd" Value="2"/>
+                        </Trigger>
+
+                        <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation From="0.02" To="1"  Duration="0:0:0.7" Storyboard.TargetProperty="(UIElement.Opacity)" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation From="1" To="0.02"  Duration="0:0:0.1" Storyboard.TargetProperty="(UIElement.Opacity)" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+
+                        <Trigger Property="IsKeyboardFocused" Value="true"/>
+                        <Trigger Property="ToggleButton.IsChecked" Value="true"/>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+
+    <RadialGradientBrush x:Key="BrushActivLamp">
+        <GradientStop Color="#FFFF1010" Offset="1"/>
+        <GradientStop Color="#FFF1C90C"/>
+        <GradientStop Color="#FFF37C10" Offset="0.375"/>
+    </RadialGradientBrush>
+    <RadialGradientBrush x:Key="BrushPasivLamp" RadiusX="0.9" RadiusY="0.9">
+        <GradientStop Color="#FFAB3608" Offset="1"/>
+        <GradientStop Color="#FFF1C90C"/>
+        <GradientStop Color="#FFAF968D"/>
+        <GradientStop Color="#FFA18980"/>
+    </RadialGradientBrush>
+    <Style TargetType="{x:Type local:PultLampButton}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:PultLampButton}">
+                     <Border BorderBrush="Black" BorderThickness="0" Background="#FF100202" CornerRadius="4" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,1,0">
+                     	<Grid x:Name="GridBtn" Margin="0,1,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"  RenderTransformOrigin="0.506,0.538">
+                     		<Grid.RowDefinitions>
+                     			<RowDefinition Height="*"/>
+
+                     		</Grid.RowDefinitions>
+                     		<Grid.ColumnDefinitions>
+                     			<ColumnDefinition Width="*"/>
+
+                     		</Grid.ColumnDefinitions>
+                     		<Path Grid.Column="0" Data="M0.11297384,3.0412423 C0.11297384,1.384388 1.5704529,0.52057553 3.2273072,0.52057553 L55.116,0.5 C56.772854,0.5 57.782001,1.2591458 57.782001,2.9160001 L58.116,33.734 C58.116,35.390854 56.772854,36.734 55.116,36.734 L3.5,36.734 C1.8431458,36.734 0.5,35.390854 0.5,33.734 z" Margin="3.354,6.939,1.625,1.832" Grid.Row="0" StrokeStartLineCap="Round" Stretch="Fill" StrokeEndLineCap="Round" Stroke="#FFBBCFBC" StrokeThickness="1">
+                     			<Path.Fill>
+                     				<RadialGradientBrush RadiusX="13.5">
+                     					<RadialGradientBrush.RelativeTransform>
+                     						<TransformGroup>
+                     							<ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                     							<SkewTransform CenterY="0.5" CenterX="0.5"/>
+                     							<RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                     							<TranslateTransform/>
+                     						</TransformGroup>
+                     					</RadialGradientBrush.RelativeTransform>
+                     					<GradientStop Color="#FFBFCEB5" Offset="0"/>
+                     					<GradientStop Color="#FF97A98C" Offset="1"/>
+                     				</RadialGradientBrush>
+                     			</Path.Fill>
+                     		</Path>
+                     		<Path Grid.ColumnSpan="1" Grid.Column="0" Data="M0.5,0.5 L57.474,0.5 57.185565,8.1266668 0.5,8.104 z" Height="8.627" Margin="3.502,0.083,2.506,0" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" Stretch="Fill" StrokeEndLineCap="Round" Stroke="#FFBBCFBC" StrokeThickness="1" VerticalAlignment="Top">
+                     			<Path.Fill>
+                     				<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                     					<LinearGradientBrush.RelativeTransform>
+                     						<TransformGroup>
+                     							<ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                     							<SkewTransform CenterY="0.5" CenterX="0.5"/>
+                     							<RotateTransform Angle="-168.366" CenterY="0.5" CenterX="0.5"/>
+                     							<TranslateTransform/>
+                     						</TransformGroup>
+                     					</LinearGradientBrush.RelativeTransform>
+                     					<GradientStop Color="#FFA2B29A" Offset="0.45"/>
+                     					<GradientStop Color="#FF676C63" Offset="1"/>
+                     					<GradientStop Color="#FF416142" Offset="0.99"/>
+                     				</LinearGradientBrush>
+                     			</Path.Fill>
+                     			<Path.RenderTransform>
+                     				<TransformGroup>
+                     					<ScaleTransform/>
+                     					<SkewTransform AngleX="9"/>
+                     					<RotateTransform/>
+                     					<TranslateTransform X="0.0018214210637310657"/>
+                     				</TransformGroup>
+                     			</Path.RenderTransform>
+                     		</Path>
+                     		<Path Data="M0.20807823,-1.3195493 L0.38364964,-2.3241125 1.6020375,-2.3003652 1.4131623,-0.14740087 1.195,33.185 0,33.185 z" HorizontalAlignment="Left" Margin="2.616,1.992,0,8.164" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" Stretch="Fill" StrokeEndLineCap="Round" Stroke="#FFBBCFBC" StrokeThickness="0" Width="1.603" >
+                     			<Path.Fill>
+                     				<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                     					<LinearGradientBrush.RelativeTransform>
+                     						<TransformGroup>
+                     							<ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                     							<SkewTransform CenterY="0.5" CenterX="0.5"/>
+                     							<RotateTransform Angle="-252.64600000000002" CenterY="0.5" CenterX="0.5"/>
+                     							<TranslateTransform/>
+                     						</TransformGroup>
+                     					</LinearGradientBrush.RelativeTransform>
+                     					<GradientStop Color="#FFABB7A5" Offset="0.511"/>
+                     					<GradientStop Color="#FF4F504E" Offset="1"/>
+                     				</LinearGradientBrush>
+                     			</Path.Fill>
+                     			<Path.RenderTransform>
+                     				<TransformGroup>
+                     					<ScaleTransform ScaleY="1.004"/>
+                     					<SkewTransform AngleY="81" AngleX="0.038"/>
+                     					<RotateTransform/>
+                     					<TranslateTransform X="-0.057225916692645207" Y="0.928655308993708"/>
+                     				</TransformGroup>
+                     			</Path.RenderTransform>
+                     		</Path>
+                     		<TextBlock Height="Auto"  VerticalAlignment="Center" Text="{TemplateBinding Content}" TextAlignment="Center" />
+                            <Path Fill="{StaticResource BrushPasivLamp}" x:Name="Lamp" Data="M11.126,5.167 C11.126,7.7445129 8.7472889,9.834 5.813,9.834 C2.8787111,9.834 0.5,7.7445129 0.5,5.167 C0.5,2.5894871 2.8787111,0.5 5.813,0.5 C8.7472889,0.5 11.126,2.5894871 11.126,5.167 z"  HorizontalAlignment="Right" Height="10.334" Margin="0,10.166,5,0" StrokeStartLineCap="Round" Stretch="Fill" StrokeEndLineCap="Round" StrokeThickness="1" VerticalAlignment="Top" Width="11.626" >
+                     			<Path.Stroke>
+                     				<RadialGradientBrush>
+                     					<GradientStop Color="#FF0E0E0E" Offset="0"/>
+                     					<GradientStop Color="#FF1B1313" Offset="1"/>
+                     					<GradientStop Color="#FF4D170E" Offset="0.522"/>
+                     				</RadialGradientBrush>
+                     			</Path.Stroke>
+                     		</Path>
+                          
+                     	</Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="RenderTransform" TargetName="GridBtn">
+                                    <Setter.Value>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="0.9" ScaleY="0.9"/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        <Trigger Property="VklLamp" Value="False">
+                            <Setter Property="Fill" TargetName="Lamp" Value="{StaticResource BrushPasivLamp}"/>
+                        </Trigger>
+                        <Trigger Property="VklLamp" Value="True">
+                            <Setter Property="Fill" TargetName="Lamp" Value="{StaticResource BrushActivLamp}"/>
+                        </Trigger>
+
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type local:PultKlapanButton}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:PultKlapanButton}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}" Cursor="Hand"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type local:RusKlapan}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:RusKlapan}">
+                    <Border x:Name="bb" Background="{TemplateBinding Background}">
+                        <ContentPresenter x:Name="cc"  Content="{TemplateBinding Content}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter Property="Visibility" TargetName="cc" Value="Hidden"/>
+                                <Setter Property="Opacity" TargetName="bb" Value="0.01"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type local:InPUSelector}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:InPUSelector}">
+                	<Border >
+                		<Grid >
+                			<Grid.ColumnDefinitions>
+                				<ColumnDefinition Width="0.344*"/>
+                				<ColumnDefinition Width="0.15*"/>
+                				<ColumnDefinition Width="0.157*"/>
+                				<ColumnDefinition Width="0.348*"/>
+                			</Grid.ColumnDefinitions>
+                			<Path x:Name="a1_Copy" Grid.ColumnSpan="2" Grid.Column="1" Data="M0,17.5 L8.7280808,0 8.7280808,12.425 18.768768,12.425 18.768768,22.575 8.7280808,22.575 8.7280808,35 z M38.413414,17.5 L29.493752,0 29.493752,12.425 18.768769,12.425 18.768769,22.575 29.493752,22.575 29.493752,35 z" Fill="#FF49322D" Height="Auto" Stretch="Fill" Width="Auto" Cursor="Hand" />
+                			<Path x:Name="a1" Grid.ColumnSpan="1" Grid.Column="1" Data="M0,17.5 L8.7251784,0 L8.7251784,12.425 L18.762527,12.425 L18.762527,22.575 L8.7251784,22.575 L8.7251784,35 z" Fill="#FFB84A32" Height="Auto" Stretch="Fill" Width="Auto" Visibility="Visible" />
+                			<Path x:Name="a2" Grid.ColumnSpan="1" Grid.Column="2" Data="M19.63811,17.5 L10.721415,0 L10.721415,12.425 L0,12.425 L0,22.575 L10.721415,22.575 L10.721415,35 z" Fill="#FFB84A32" Height="Auto" Stretch="Fill" Width="Auto" Cursor="None" Visibility="Hidden" />
+                			<Path Data="M3.63536,7.6039658 L3.63536,13.801785 L5.0415878,13.801785 C5.8749075,13.801785 6.5485086,13.734078 7.0623899,13.598663 C7.5762701,13.463249 8.0033474,13.221933 8.3436193,12.874717 C8.6491699,12.562222 8.8713884,12.221949 9.0102758,11.853899 C9.1491623,11.485849 9.218606,11.055302 9.218606,10.562253 C9.218606,10.027539 9.1265936,9.5622683 8.9425688,9.166441 C8.758544,8.7706146 8.4790344,8.4477034 8.1040401,8.1977062 C7.7776561,7.9824324 7.3974533,7.8296566 6.9634328,7.7393799 C6.5294113,7.6491041 5.9894896,7.6039658 5.3436666,7.6039658 z M1.572892,5.8331594 L5.4686646,5.8331594 C6.3853168,5.8331604 7.1665545,5.9095478 7.8123779,6.0623226 C8.4582005,6.2150984 9.0276365,6.4616222 9.5206842,6.8018942 C10.097065,7.1977224 10.548447,7.6994514 10.87483,8.3070793 C11.201214,8.9147091 11.364406,9.6490726 11.364406,10.51017 C11.364406,11.183771 11.244616,11.820913 11.005036,12.421598 C10.765456,13.022284 10.433865,13.534429 10.010261,13.958033 C9.4755468,14.485803 8.847084,14.885102 8.1248732,15.155931 C7.4026618,15.42676 6.4894819,15.562174 5.3853326,15.562174 L3.63536,15.562174 L3.63536,21.343334 L1.572892,21.343334 z M13.332892,5.8331594 L16.145348,5.8331594 L20.020287,14.468441 L23.759813,5.8331594 L26.624352,5.8331594 L26.624352,21.343334 L24.561884,21.343334 L24.561884,7.97896 L20.520279,17.072567 L19.2703,17.072567 L15.259946,7.97896 L15.259946,21.343334 L13.332892,21.343334 z M29.134151,13.614288 L35.00906,13.614288 L35.00906,15.499676 L29.134151,15.499676 z M41.498665,5.7810774 L43.11322,5.7810774 L43.11322,19.760025 L45.863178,19.760025 L45.863178,21.343334 L38.300797,21.343334 L38.300797,19.760025 L41.113251,19.760025 L41.113251,9.3643541 L38.300797,9.3643541 L38.300797,7.94771 C39.363281,7.947711 40.146255,7.7966709 40.649719,7.4945917 C41.153183,7.1925144 41.436165,6.6213427 41.498665,5.7810774 z" Fill="Black" Height="Auto" RenderTransformOrigin="0.5,0.5" Stretch="Fill" VerticalAlignment="Stretch" >
+                				<Path.RenderTransform>
+                					<TransformGroup>
+                						<ScaleTransform/>
+                						<SkewTransform/>
+                						<RotateTransform/>
+                						<TranslateTransform/>
+                					</TransformGroup>
+                				</Path.RenderTransform>
+                			</Path>
+                			<Path Grid.Column="3" Data="M1.8745117,3.9221945 L1.8745117,7.1179953 L2.5996094,7.1179953 C3.0292969,7.1179953 3.3766274,7.0830832 3.6416016,7.0132589 C3.9065754,6.9434347 4.12679,6.8190045 4.3022461,6.6399679 C4.4597979,6.4788351 4.5743814,6.3033795 4.6459961,6.1136007 C4.7176104,5.9238224 4.753418,5.701817 4.753418,5.4475851 C4.753418,5.1718693 4.7059731,4.9319601 4.611084,4.7278585 C4.5161943,4.523757 4.3720703,4.3572531 4.1787109,4.2283468 C4.0104165,4.1173449 3.8143716,4.0385685 3.5905762,3.9920187 C3.3667803,3.9454694 3.0883787,3.9221945 2.7553711,3.9221945 z M0.81103522,3.0091085 L2.8198242,3.0091085 C3.2924802,3.0091085 3.6953123,3.0484967 4.0283203,3.1272726 C4.3613281,3.206049 4.6549478,3.3331647 4.9091797,3.5086203 C5.2063799,3.7127218 5.4391274,3.9714298 5.6074219,4.2847433 C5.7757158,4.5980577 5.8598633,4.9767199 5.8598633,5.4207296 C5.8598633,5.7680607 5.7980957,6.0965924 5.6745605,6.4063253 C5.5510254,6.7160587 5.3800454,6.9801373 5.1616211,7.1985617 C4.8859048,7.4706974 4.5618486,7.676589 4.1894531,7.8162374 C3.8170571,7.9558859 3.3461914,8.0257101 2.7768555,8.0257101 L1.8745117,8.0257101 L1.8745117,11.006667 L0.81103522,11.006667 z M6.8743687,3.0091085 L8.324564,3.0091085 L10.322611,7.4617453 L12.250834,3.0091085 L13.727884,3.0091085 L13.727884,11.006667 L12.664408,11.006667 L12.664408,4.1155539 L10.580423,8.8045187 L9.9358921,8.8045187 L7.868021,4.1155539 L7.868021,11.006667 L6.8743687,11.006667 z M15.023398,7.0213156 L18.052696,7.0213156 L18.052696,7.9934835 L15.023398,7.9934835 z M21.340378,2.8426046 C22.085169,2.8426046 22.668827,3.0404401 23.091354,3.4361105 C23.51388,3.8317814 23.725143,4.3679957 23.725143,5.0447531 C23.725143,5.3562765 23.68844,5.6445255 23.615036,5.9094992 C23.54163,6.1744733 23.440475,6.4197531 23.311569,6.645339 C23.179081,6.8780866 23.019739,7.1090436 22.833542,7.3382101 C22.647343,7.5673771 22.450403,7.792963 22.242722,8.0149679 C21.906134,8.3802023 21.531052,8.7597599 21.117477,9.1536398 C20.703903,9.5475197 20.373581,9.8590431 20.126511,10.08821 L24.058151,10.08821 L24.058151,11.006667 L19.122116,11.006667 L19.122116,9.8841085 C19.476608,9.5475197 19.811407,9.2252541 20.126511,8.9173117 C20.441614,8.6093693 20.749557,8.2888937 21.050339,7.9558859 C21.659063,7.2862897 22.074427,6.7500753 22.296432,6.3472433 C22.518436,5.9444113 22.62944,5.5281515 22.62944,5.098464 C22.62944,4.8764591 22.594528,4.6813092 22.524704,4.5130148 C22.45488,4.3447208 22.359095,4.2050724 22.23735,4.0940695 C22.112024,3.9866481 21.967005,3.9060817 21.802292,3.8523703 C21.637579,3.7986598 21.456751,3.7718043 21.259811,3.7718039 C21.070032,3.7718043 20.877569,3.7959743 20.682419,3.8443136 C20.487268,3.8926539 20.300177,3.952631 20.12114,4.0242453 C19.970749,4.0851178 19.825729,4.1585226 19.686081,4.2444601 C19.546432,4.3303976 19.43364,4.4038029 19.347702,4.4646749 L19.28862,4.4646749 L19.28862,3.3260031 C19.510626,3.2150011 19.819464,3.1066837 20.215134,3.0010519 C20.610804,2.895421 20.985886,2.8426046 21.340378,2.8426046 z" Fill="Black" Height="Auto" RenderTransformOrigin="0.5,0.5" Stretch="Fill" VerticalAlignment="Stretch">
+                				<Path.RenderTransform>
+                					<TransformGroup>
+                						<ScaleTransform/>
+                						<SkewTransform/>
+                						<RotateTransform/>
+                						<TranslateTransform/>
+                					</TransformGroup>
+                				</Path.RenderTransform>
+                			</Path>
+                		</Grid>
+                	</Border>
+                	<ControlTemplate.Triggers>
+                		<Trigger Property="IsChecked" Value="True">
+                			<Setter Property="Visibility" TargetName="a1" Value="Hidden"/>                			
+                			<Setter Property="Visibility" TargetName="a2" Value="Visible"/>
+                		</Trigger>
+                	</ControlTemplate.Triggers>
+					
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type local:PultLamp}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:PultLamp}">
+                    <Border  >
+                		<Path Fill="{StaticResource BrushPasivLamp}" x:Name="Lamp" Data="M11.126,5.167 C11.126,7.7445129 8.7472889,9.834 5.813,9.834 C2.8787111,9.834 0.5,7.7445129 0.5,5.167 C0.5,2.5894871 2.8787111,0.5 5.813,0.5 C8.7472889,0.5 11.126,2.5894871 11.126,5.167 z" StrokeStartLineCap="Round" Stretch="Fill" StrokeEndLineCap="Round" StrokeThickness="1">
+                			<Path.Stroke>
+                				<RadialGradientBrush>
+                					<GradientStop Color="#FF0E0E0E" Offset="0"/>
+                					<GradientStop Color="#FF1B1313" Offset="1"/>
+                					<GradientStop Color="#FF4D170E" Offset="0.522"/>
+                				</RadialGradientBrush>
+                			</Path.Stroke>
+                		</Path>
+                	</Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="VklLamp" Value="False">
+                            <Setter Property="Fill" TargetName="Lamp" Value="{StaticResource BrushPasivLamp}"/>
+                        </Trigger>
+                        <Trigger Property="VklLamp" Value="True">
+                            <Setter Property="Fill" TargetName="Lamp" Value="{StaticResource BrushActivLamp}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <SolidColorBrush x:Key="BrushLabel" Color="#FFAFDE19"/>
+    <SolidColorBrush x:Key="BrushVoltBorder" Color="#FF01371F"/>
+    <SolidColorBrush x:Key="BrushSkala1" Color="#FFBFC699"/>
+    <SolidColorBrush x:Key="BrushSkala2" Color="#FF929389"/>
+    <Style TargetType="{x:Type local:Voltmetr}">        
+        <Setter Property="BorderBrush" Value="{StaticResource {x:Static SystemColors.ControlDarkDarkBrushKey}}"/>
+        <Setter Property="BorderThickness" Value="1"/>       
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:Voltmetr}">
+                    <Border x:Name="TemplateRoot" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3" SnapsToDevicePixels="true" Height="Auto" VerticalAlignment="Stretch">
+                        <Grid Background="Black">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.161*"/>
+                                <RowDefinition Height="0.229*"/>
+                                <RowDefinition Height="0.458*"/>
+                                <RowDefinition Height="0.152*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.046*"/>
+                                <ColumnDefinition Width="0.954*"/>
+                            </Grid.ColumnDefinitions>
+                            <DockPanel x:Name="PART_Track" LastChildFill="false" Margin="2,1,1,2" 
+                                       Visibility="Hidden" Grid.ColumnSpan="2" Grid.RowSpan="4">
+                                <Rectangle x:Name="PART_Indicator" Visibility="Hidden"  />
+                            </DockPanel>
+                            <Border BorderThickness="0" Grid.ColumnSpan="2" Grid.RowSpan="4">
+                                <Path Data="M0,3.3333333 L20.833333,0 87.083333,0 108,3.25 108,227.5 86.583333,231.5 20.25,231.5 0,227.25 z" 
+                                                              Fill="{StaticResource BrushVoltBorder}" Stretch="Fill" StrokeLineJoin="Bevel"/>
+                            </Border>
+                            <Border BorderThickness="0" CornerRadius="2" Grid.ColumnSpan="2" Grid.RowSpan="1" Grid.Row="1">
+                                <Path Data="M0,1.6666352 L19.833333,0 92.333333,0 92.333333,0 108,2.3332893 108,53.0135 0,53.0135 z" 
+                                      Fill="{StaticResource BrushSkala1}" Stretch="Fill" StrokeLineJoin="Bevel" Margin="0,0,0,-0.001"/>
+                            </Border>
+                            <Border x:Name="border"   VerticalAlignment="Stretch" RenderTransformOrigin="0.49,1.373" Height="Auto" 
+                                                                          HorizontalAlignment="Stretch" Width="Auto" Grid.Row="1" >
+                                <Border.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform X="{Binding Path=ActualWidth, ElementName=PART_Indicator}"/>
+                                    </TransformGroup>
+                                </Border.RenderTransform>
+                                <Path Data="M2.484,0 L4.9679999,53.013501 L-1.2648367E-08,53.013501 z" Fill="#FF0E0E10" HorizontalAlignment="Stretch" Height="Auto" Margin="0,0,0,-0.001" RenderTransformOrigin="0.500000007799741,0.499999997985201" Stretch="Fill" VerticalAlignment="Stretch" >
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="180"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+                            </Border>
+                            <Border BorderThickness="0" CornerRadius="2" Grid.ColumnSpan="2" Grid.RowSpan="1" Grid.Row="2">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="0.191*"/>
+                                        <RowDefinition Height="0.247*"/>
+                                        <RowDefinition Height="0.087*"/>
+                                        <RowDefinition Height="0.458*"/>
+                                        <RowDefinition Height="0.017*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition  />
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+
+                                    </Grid.ColumnDefinitions>
+
+                                    <Path Grid.ColumnSpan="42" Grid.Column="0" Data="M0,0 L108,0 108,102.027 88,106.027 20.5,106.027 0,102.027 z" Fill="{DynamicResource BrushSkala2}" Height="Auto" Grid.Row="0" Grid.RowSpan="5" Stretch="Fill" StrokeLineJoin="Bevel" Margin="0,0.917,0,-0.917"/>
+
+                                    <Border BorderBrush="Black" BorderThickness="1" Background="{StaticResource BrushLabel}" Grid.Row="0" Grid.RowSpan="2" Grid.Column="1"/>
+                                    <Border BorderBrush="Black" BorderThickness="1" Background="{StaticResource BrushLabel}" Grid.Row="0" Grid.RowSpan="2" Grid.Column="11"/>
+                                    <Border BorderBrush="Black" BorderThickness="1" Background="{StaticResource BrushLabel}" Grid.Row="0" Grid.RowSpan="2" Grid.Column="21"/>
+                                    <Border BorderBrush="Black" BorderThickness="1" Background="{StaticResource BrushLabel}" Grid.Row="0" Grid.RowSpan="2" Grid.Column="31"/>
+                                    <Border BorderBrush="Black" BorderThickness="1" Background="{StaticResource BrushLabel}" Grid.Row="0" Grid.RowSpan="2" Grid.Column="41"/>
+                                    <Border BorderBrush="Black" BorderThickness="1" Background="{StaticResource BrushLabel}" Grid.Row="0" Grid.RowSpan="1" Grid.Column="3"/>
+                                    <Border BorderBrush="Black" BorderThickness="1" Background="{StaticResource BrushLabel}" Grid.Row="0" Grid.RowSpan="1" Grid.Column="5"/>
+                                    <Border BorderBrush="Black" BorderThickness="1" Background="{StaticResource BrushLabel}" Grid.Row="0" Grid.RowSpan="1" Grid.Column="7"/>
+                                    <Border BorderBrush="Black" BorderThickness="1" Background="{StaticResource BrushLabel}" Grid.Row="0" Grid.RowSpan="1" Grid.Column="9"/>
+                                    <Border BorderBrush="Black" BorderThickness="1" Background="{StaticResource BrushLabel}" Grid.Row="0" Grid.RowSpan="1" Grid.Column="13"/>
+                                    <Border BorderBrush="Black" BorderThickness="1" Background="{StaticResource BrushLabel}" Grid.Row="0" Grid.RowSpan="1" Grid.Column="15"/>
+                                    <Border BorderBrush="Black" BorderThickness="1" Background="{StaticResource BrushLabel}" Grid.Row="0" Grid.RowSpan="1" Grid.Column="17"/>
+                                    <Border BorderBrush="Black" BorderThickness="1" Background="{StaticResource BrushLabel}" Grid.Row="0" Grid.RowSpan="1" Grid.Column="19"/>
+                                    <Border BorderBrush="Black" BorderThickness="1" Background="{StaticResource BrushLabel}" Grid.Row="0" Grid.RowSpan="1" Grid.Column="23"/>
+                                    <Border BorderBrush="Black" BorderThickness="1" Background="{StaticResource BrushLabel}" Grid.Row="0" Grid.RowSpan="1" Grid.Column="25"/>
+                                    <Border BorderBrush="Black" BorderThickness="1" Background="{StaticResource BrushLabel}" Grid.Row="0" Grid.RowSpan="1" Grid.Column="27"/>
+                                    <Border BorderBrush="Black" BorderThickness="1" Background="{StaticResource BrushLabel}" Grid.Row="0" Grid.RowSpan="1" Grid.Column="19"/>
+                                    <Border BorderBrush="Black" BorderThickness="1" Background="{StaticResource BrushLabel}" Grid.Row="0" Grid.RowSpan="1" Grid.Column="29"/>
+                                    <Border BorderBrush="Black" BorderThickness="1" Background="{StaticResource BrushLabel}" Grid.Row="0" Grid.RowSpan="1" Grid.Column="33"/>
+                                    <Border BorderBrush="Black" BorderThickness="1" Background="{StaticResource BrushLabel}" Grid.Row="0" Grid.RowSpan="1" Grid.Column="35"/>
+                                    <Border BorderBrush="Black" BorderThickness="1" Background="{StaticResource BrushLabel}" Grid.Row="0" Grid.RowSpan="1" Grid.Column="37"/>
+                                    <Border BorderBrush="Black" BorderThickness="1" Background="{StaticResource BrushLabel}" Grid.Row="0" Grid.RowSpan="1" Grid.Column="39"/>
+                                    <Path Data="M3.2871094,4.4078121 C4.0371094,4.4078121 4.6269531,4.6109371 5.0566406,5.0171871 C5.4863281,5.4234376 5.7011719,5.9683595 5.7011719,6.6519527 C5.7011719,7.1910152 5.5527344,7.7173824 5.2558594,8.2310543 C4.9589844,8.7447262 4.4257813,9.3824215 3.65625,10.14414 L1.7167969,12.060156 L1.7167969,12.083593 L5.625,12.083593 L5.625,12.950781 L0.5625,12.950781 L0.5625,12.095312 L3.0117188,9.640234 C3.6367185,9.015234 4.0830078,8.4947262 4.3505859,8.0787106 C4.6181641,7.6626949 4.7519531,7.218359 4.7519531,6.7457027 C4.7519531,6.2613282 4.6132813,5.8863282 4.3359375,5.6207027 C4.0585938,5.3550782 3.6640623,5.2222657 3.1523438,5.2222652 C2.4023438,5.2222657 1.6835936,5.5425782 0.99609375,6.1832027 L0.99609375,5.1753902 C1.6523436,4.6636715 2.4160156,4.4078121 3.2871094,4.4078121 z M9.7571087,5.2222652 C8.5578899,5.2222657 7.958281,6.4390626 7.958281,8.8726559 C7.958281,11.146093 8.5461712,12.282812 9.7219524,12.282812 C10.882109,12.282812 11.462187,11.126562 11.462187,8.8140621 C11.462187,6.4195313 10.893827,5.2222657 9.7571087,5.2222652 z M9.8098431,4.4078121 C11.567656,4.4078121 12.446562,5.8433595 12.446562,8.7144527 C12.446562,10.136328 12.198515,11.221289 11.702421,11.969336 C11.206327,12.717382 10.512968,13.091406 9.6223431,13.091406 C8.7903118,13.091406 8.1408978,12.733984 7.6741014,12.01914 C7.2073045,11.304296 6.973906,10.271093 6.973906,8.9195309 C6.973906,7.4351563 7.2170701,6.3121095 7.7033982,5.5503902 C8.1897259,4.7886715 8.8918743,4.4078121 9.8098431,4.4078121 z" Fill="{StaticResource BrushLabel}" RenderTransformOrigin="0.5,0.5" Stretch="Fill" StrokeThickness="6" Width="{Binding ActualHeight, ElementName=brd20, Mode=OneWay}" Grid.ColumnSpan="44" Grid.Column="0" Grid.RowSpan="1" Grid.Row="3" Height="{Binding ActualWidth, ElementName=brd20, Mode=OneWay}">
+                                        <Path.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform/>
+                                                <RotateTransform Angle="90"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </Path.RenderTransform>
+
+                                    </Path>
+                                    <Border x:Name="brd20" BorderBrush="Black" BorderThickness="0" Grid.ColumnSpan="4" Grid.Column="19" Grid.Row="3" Grid.RowSpan="2"/>
+                                    <Border x:Name="brd10" BorderBrush="Black" BorderThickness="0" Grid.ColumnSpan="3" Grid.Column="9" Grid.Row="3" Grid.RowSpan="2"/>
+                                    <Path Grid.ColumnSpan="23" Grid.Column="0" Data="M3.890625,4.3609371 L3.890625,12.107031 L5.7832031,12.107031 L5.7832031,12.950781 L1.03125,12.950781 L1.03125,12.107031 L2.9296875,12.107031 L2.9296875,5.5796871 L0.98437494,6.1597652 L0.98437494,5.2457027 z M9.7571087,5.2222652 C8.5578899,5.2222657 7.958281,6.4390626 7.958281,8.8726559 C7.958281,11.146093 8.5461712,12.282812 9.7219524,12.282812 C10.882109,12.282812 11.462187,11.126562 11.462187,8.8140621 C11.462187,6.4195313 10.893827,5.2222657 9.7571087,5.2222652 z M9.8098431,4.4078121 C11.567656,4.4078121 12.446562,5.8433595 12.446562,8.7144527 C12.446562,10.136328 12.198515,11.221289 11.702421,11.969336 C11.206327,12.717382 10.512968,13.091406 9.6223431,13.091406 C8.7903118,13.091406 8.1408978,12.733984 7.6741014,12.01914 C7.2073045,11.304296 6.973906,10.271093 6.973906,8.9195309 C6.973906,7.4351563 7.2170701,6.3121095 7.7033982,5.5503902 C8.1897259,4.7886715 8.8918743,4.4078121 9.8098431,4.4078121 z" Fill="{StaticResource BrushLabel}" Grid.Row="3" Grid.RowSpan="1" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Width="{Binding ActualHeight, ElementName=brd10, Mode=OneWay}" Height="{Binding ActualWidth, ElementName=brd10, Mode=OneWay}">
+                                        <Path.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform/>
+                                                <RotateTransform Angle="90"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </Path.RenderTransform>
+                                    </Path>
+                                    <Border x:Name="brd0" BorderBrush="Black" BorderThickness="0" Grid.ColumnSpan="2" Grid.Row="3" Grid.RowSpan="1"/>
+                                    <Path Grid.Column="0" Data="M3.2871094,5.2222652 C2.0878906,5.2222657 1.4882813,6.4390626 1.4882813,8.8726559 C1.4882813,11.146093 2.0761719,12.282812 3.2519531,12.282812 C4.4121094,12.282812 4.9921875,11.126562 4.9921875,8.8140621 C4.9921875,6.4195313 4.4238281,5.2222657 3.2871094,5.2222652 z M3.3398438,4.4078121 C5.0976563,4.4078121 5.9765625,5.8433595 5.9765625,8.7144527 C5.9765625,10.136328 5.7285156,11.221289 5.2324219,11.969336 C4.7363281,12.717382 4.0429688,13.091406 3.1523438,13.091406 C2.3203125,13.091406 1.6708983,12.733984 1.2041016,12.01914 C0.73730469,11.304296 0.50390625,10.271093 0.50390625,8.9195309 C0.50390625,7.4351563 0.74707031,6.3121095 1.2333984,5.5503902 C1.7197264,4.7886715 2.421875,4.4078121 3.3398438,4.4078121 z" Fill="{StaticResource BrushLabel}" Grid.Row="3" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Width="{Binding ActualHeight, ElementName=brd0, Mode=OneWay}" Height="{Binding ActualWidth, ElementName=brd0, Mode=OneWay}" VerticalAlignment="Stretch" Grid.ColumnSpan="18" HorizontalAlignment="Left" Visibility="Hidden">
+                                        <Path.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform/>
+                                                <RotateTransform Angle="90"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </Path.RenderTransform>
+                                    </Path>
+                                    <Path Grid.ColumnSpan="23" Grid.Column="20" Data="M3,4.4078121 C3.707031,4.4078121 4.2724609,4.5953121 4.6962891,4.9703121 C5.1201172,5.3453126 5.3320313,5.8257813 5.3320313,6.4117184 C5.3320313,7.5171871 4.7695313,8.2281246 3.6445313,8.5445309 L3.6445313,8.5679684 C4.25,8.6265621 4.7314453,8.8384762 5.0888672,9.2037106 C5.4462891,9.5689449 5.625,10.025 5.625,10.571875 C5.625,11.325781 5.3544922,11.934179 4.8134766,12.39707 C4.2724609,12.859961 3.5585935,13.091406 2.671875,13.091406 C1.875,13.091406 1.2402344,12.941015 0.76757813,12.640234 L0.76757813,11.603125 C1.3417968,12.05625 1.9902343,12.282812 2.7128906,12.282812 C3.2988279,12.282812 3.7666013,12.136328 4.1162109,11.843359 C4.4658203,11.55039 4.640625,11.155859 4.640625,10.659765 C4.640625,9.562109 3.8613279,9.0132809 2.3027344,9.0132809 L1.6054688,9.0132809 L1.6054688,8.1988277 L2.2675781,8.1988277 C3.6542966,8.1988277 4.3476563,7.6832027 4.3476563,6.6519527 C4.3476563,5.6988282 3.8183591,5.2222657 2.7597656,5.2222652 C2.1699219,5.2222657 1.6132811,5.4234376 1.0898438,5.8257809 L1.0898438,4.8882809 C1.6289061,4.5679684 2.265625,4.4078121 3,4.4078121 z M9.7571087,5.2222652 C8.5578899,5.2222657 7.958281,6.4390626 7.958281,8.8726559 C7.958281,11.146093 8.5461712,12.282812 9.7219524,12.282812 C10.882109,12.282812 11.462187,11.126562 11.462187,8.8140621 C11.462187,6.4195313 10.893827,5.2222657 9.7571087,5.2222652 z M9.8098431,4.4078121 C11.567656,4.4078121 12.446562,5.8433595 12.446562,8.7144527 C12.446562,10.136328 12.198515,11.221289 11.702421,11.969336 C11.206327,12.717382 10.512968,13.091406 9.6223431,13.091406 C8.7903118,13.091406 8.1408978,12.733984 7.6741014,12.01914 C7.2073045,11.304296 6.973906,10.271093 6.973906,8.9195309 C6.973906,7.4351563 7.2170701,6.3121095 7.7033982,5.5503902 C8.1897259,4.7886715 8.8918743,4.4078121 9.8098431,4.4078121 z" Grid.Row="3" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Fill="{StaticResource BrushLabel}" Width="{Binding ActualHeight, ElementName=brd10, Mode=OneWay}" Height="{Binding ActualWidth, ElementName=brd10, Mode=OneWay}">
+                                        <Path.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform/>
+                                                <RotateTransform Angle="90"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </Path.RenderTransform>
+                                    </Path>
+                                    <Path Grid.ColumnSpan="43" Grid.Column="0" Data="M4.03125,5.4390621 C3.9765623,5.5796876 3.8691404,5.7945313 3.7089844,6.0835934 L1.125,9.9390621 L4.03125,9.9390621 L4.03125,6.3062496 C4.03125,6.0484376 4.0390625,5.7593751 4.0546875,5.4390621 z M3.8203125,4.5484371 L4.9804688,4.5484371 L4.9804688,9.9390621 L6.0585938,9.9390621 L6.0585938,10.718359 L4.9804688,10.718359 L4.9804688,12.950781 L4.03125,12.950781 L4.03125,10.718359 L0.082031272,10.718359 L0.082031272,10.091406 z M9.7571087,5.2222652 C8.5578899,5.2222657 7.958281,6.4390626 7.958281,8.8726559 C7.958281,11.146093 8.5461712,12.282812 9.7219524,12.282812 C10.882109,12.282812 11.462187,11.126562 11.462187,8.8140621 C11.462187,6.4195313 10.893827,5.2222657 9.7571087,5.2222652 z M9.8098431,4.4078121 C11.567656,4.4078121 12.446562,5.8433595 12.446562,8.7144527 C12.446562,10.136328 12.198515,11.221289 11.702421,11.969336 C11.206327,12.717382 10.512968,13.091406 9.6223431,13.091406 C8.7903118,13.091406 8.1408978,12.733984 7.6741014,12.01914 C7.2073045,11.304296 6.973906,10.271093 6.973906,8.9195309 C6.973906,7.4351563 7.2170701,6.3121095 7.7033982,5.5503902 C8.1897259,4.7886715 8.8918743,4.4078121 9.8098431,4.4078121 z" Fill="{StaticResource BrushLabel}" Height="{Binding ActualWidth, ElementName=brd0, Mode=OneWay}" Grid.Row="3" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Width="{Binding ActualHeight, ElementName=brd0, Mode=OneWay}" HorizontalAlignment="Right">
+                                        <Path.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform/>
+                                                <RotateTransform Angle="90"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </Path.RenderTransform>
+                                    </Path>
+                                    <Path Grid.ColumnSpan="15" Grid.Column="0" Data="M3.2871094,5.2222652 C2.0878906,5.2222657 1.4882813,6.4390626 1.4882813,8.8726559 C1.4882813,11.146093 2.0761719,12.282812 3.2519531,12.282812 C4.4121094,12.282812 4.9921875,11.126562 4.9921875,8.8140621 C4.9921875,6.4195313 4.4238281,5.2222657 3.2871094,5.2222652 z M3.3398438,4.4078121 C5.0976563,4.4078121 5.9765625,5.8433595 5.9765625,8.7144527 C5.9765625,10.136328 5.7285156,11.221289 5.2324219,11.969336 C4.7363281,12.717382 4.0429688,13.091406 3.1523438,13.091406 C2.3203125,13.091406 1.6708983,12.733984 1.2041016,12.01914 C0.73730469,11.304296 0.50390625,10.271093 0.50390625,8.9195309 C0.50390625,7.4351563 0.74707031,6.3121095 1.2333984,5.5503902 C1.7197264,4.7886715 2.421875,4.4078121 3.3398438,4.4078121 z M11.063308,11.761328 C11.246902,11.761328 11.403152,11.826757 11.532058,11.957617 C11.660964,12.088476 11.725417,12.24375 11.725417,12.423437 C11.725417,12.603125 11.660964,12.757421 11.532058,12.886328 C11.403152,13.015234 11.246902,13.079687 11.063308,13.079687 C10.88362,13.079687 10.7303,13.015234 10.603347,12.886328 C10.476394,12.757421 10.412917,12.603125 10.412917,12.423437 C10.412917,12.24375 10.476394,12.088476 10.603347,11.957617 C10.7303,11.826757 10.88362,11.761328 11.063308,11.761328 z" Fill="{StaticResource BrushLabel}" Grid.Row="3" RenderTransformOrigin="0.5,0.5" Stretch="Fill" HorizontalAlignment="Left" Width="{Binding ActualHeight, ElementName=brd0, Mode=OneWay}" Height="{Binding ActualWidth, ElementName=brd0, Mode=OneWay}">
+                                        <Path.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform/>
+                                                <RotateTransform Angle="90"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </Path.RenderTransform>
+                                    </Path>
+
+                                </Grid>
+                            </Border>
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,0" Grid.ColumnSpan="4" Grid.RowSpan="5" Opacity="0.34" d:IsHidden="True">
+                                <Border.Background>
+                                    <RadialGradientBrush RadiusY="3.5">
+                                        <GradientStop Color="Black" Offset="1"/>
+                                        <GradientStop Color="White"/>
+                                    </RadialGradientBrush>
+                                </Border.Background>
+                            </Border>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Orientation" Value="Vertical">
+                            <Setter Property="LayoutTransform" TargetName="TemplateRoot">
+                                <Setter.Value>
+                                    <RotateTransform Angle="-90"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

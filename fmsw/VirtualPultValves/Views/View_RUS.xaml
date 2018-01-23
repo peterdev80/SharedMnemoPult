@@ -1,0 +1,130 @@
+﻿<UserControl x:Class="VirtualPultValves.Views.View_RUS"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+            xmlns:pc="clr-namespace:VirtualPultValves.PultControl"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="820" d:DesignWidth="478" Loaded="UserControl_Loaded"
+             xmlns:vm="clr-namespace:VirtualPultValves.ViewModel">
+    <UserControl.Resources>
+        <vm:ViewModel_RUS x:Key="VarRus"/>
+        <ControlTemplate x:Key="ButtonControlTemplate1" TargetType="{x:Type Button}">
+            <Grid x:Name="cvt" Background="{TemplateBinding Background}">
+                <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="{TemplateBinding Content}" TextAlignment="Center" Height="Auto" Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{TemplateBinding Foreground}" FontSize="16"/>
+                </Border>
+            </Grid>
+            <ControlTemplate.Triggers>
+
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="RenderTransform" TargetName="cvt">
+                        <Setter.Value>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="0.9" ScaleY="0.9"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+
+
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        <ControlTemplate x:Key="ButtonControlTemplate2" TargetType="{x:Type Button}">
+            <Grid Background="{TemplateBinding Background}"/>
+        </ControlTemplate>
+    </UserControl.Resources>
+    <Viewbox DataContext="{Binding Source={StaticResource VarRus}}">
+        <Canvas Height="820" Width="478">
+            <Image Source="/VirtualPultValves;component/PictureValves/RUS/rys%20copy.png" />
+            <pc:RusKlapan Canvas.Left="99" Canvas.Top="0" Height="154" x:Name="rusKlapan1" Width="151" IsChecked="False">
+                <pc:RusKlapan.Background>
+                    <ImageBrush ImageSource="/VirtualPultValves;component/PictureValves/RUS/rg.png" Stretch="Uniform" TileMode="None" />
+                </pc:RusKlapan.Background>
+                <Button Command="{Binding CmdRus}" CommandParameter="2" Content="РГ" Margin="28,60,60,32" Template="{StaticResource ButtonControlTemplate1}">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/VirtualPultValves;component/PictureValves/RUS/btn.png" />
+                    </Button.Background>
+                </Button>
+            </pc:RusKlapan>
+            <pc:RusKlapan Canvas.Left="235" Canvas.Top="8" Height="128" IsChecked="False" x:Name="rusKlapan2" Width="128">
+                <pc:RusKlapan.Background>
+                    <ImageBrush ImageSource="/VirtualPultValves;component/PictureValves/RUS/pit.png" />
+                </pc:RusKlapan.Background>
+                <Button Command="{Binding CmdRus}" CommandParameter="3" HorizontalAlignment="Right" Width="55" Margin="0,45,8,8" Template="{DynamicResource ButtonControlTemplate2}" Height="86" Click="Button_Click" x:Name="btnPit">
+                    <Button.Foreground>
+                        <ImageBrush ImageSource="/VirtualPultValves;component/PictureValves/RUS/bigpit2.png" Stretch="Uniform" TileMode="None" />
+                    </Button.Foreground>
+                    <Button.Background>
+                        <ImageBrush ImageSource="/VirtualPultValves;component/PictureValves/RUS/bigpit1.png" Stretch="Uniform" TileMode="None" />
+                    </Button.Background>
+                </Button>
+            </pc:RusKlapan>
+            <pc:RusKlapan Canvas.Left="141" Canvas.Top="140" Height="96" IsChecked="False" x:Name="rusKlapan3" Width="211">
+                <pc:RusKlapan.Background>
+                    <ImageBrush ImageSource="/VirtualPultValves;component/PictureValves/RUS/bsr.png" Stretch="Uniform" TileMode="None" />
+                </pc:RusKlapan.Background>
+                <Button Command="{Binding CmdRus}" CommandParameter="5" Content="БСР" Margin="56,18,92,16" Template="{StaticResource ButtonControlTemplate1}" Foreground="#FFBDB53F">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/VirtualPultValves;component/PictureValves/RUS/btn.png" />
+                    </Button.Background>
+                </Button>
+            </pc:RusKlapan>
+            <pc:RusKlapan Canvas.Left="141" Canvas.Top="230" Height="115" IsChecked="False" x:Name="rusKlapan4" Width="211">
+                <pc:RusKlapan.Background>
+                    <ImageBrush ImageSource="/VirtualPultValves;component/PictureValves/RUS/bc.png" Stretch="Uniform" TileMode="None" />
+                </pc:RusKlapan.Background>
+                <Button Command="{Binding CmdRus}" CommandParameter="6" Content="БС" Margin="57,24,91,29" Template="{StaticResource ButtonControlTemplate1}" Foreground="#FFCAC131">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/VirtualPultValves;component/PictureValves/RUS/btn.png" />
+                    </Button.Background>
+                </Button>
+            </pc:RusKlapan>
+            <pc:RusKlapan Canvas.Left="141" Canvas.Top="340" Height="106" IsChecked="False" x:Name="rusKlapan5" Width="158">
+                <pc:RusKlapan.Background>
+                    <ImageBrush ImageSource="/VirtualPultValves;component/PictureValves/RUS/p5.png" Stretch="Uniform" TileMode="None" />
+                </pc:RusKlapan.Background>
+                <Button Command="{Binding CmdRus}" CommandParameter="7" Content="ПР-5" Margin="64,21,31,23" Template="{StaticResource ButtonControlTemplate1}">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/VirtualPultValves;component/PictureValves/RUS/btn.png" />
+                    </Button.Background>
+                </Button>
+            </pc:RusKlapan>
+            <pc:RusKlapan Canvas.Left="141" Canvas.Top="440" Height="106" IsChecked="False" x:Name="rusKlapan6" Width="158">
+                <pc:RusKlapan.Background>
+                    <ImageBrush ImageSource="/VirtualPultValves;component/PictureValves/RUS/tc.png" Stretch="Uniform" TileMode="None" />
+                </pc:RusKlapan.Background>
+                <Button Command="{Binding CmdRus}" CommandParameter="8" Content="Тс" Margin="64,22,31,22" Template="{StaticResource ButtonControlTemplate1}">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/VirtualPultValves;component/PictureValves/RUS/btn.png" />
+                    </Button.Background>
+                </Button>
+            </pc:RusKlapan>
+            <pc:RusKlapan Canvas.Left="99" Canvas.Top="552" Height="114" IsChecked="False" x:Name="rusKlapan7" Width="139">
+                <pc:RusKlapan.Background>
+                    <ImageBrush ImageSource="/VirtualPultValves;component/PictureValves/RUS/ro.png" Stretch="Uniform" TileMode="None" />
+                </pc:RusKlapan.Background>
+                <Button Command="{Binding CmdRus}" CommandParameter="9" Content="РО" Margin="18,17,58,35" Template="{StaticResource ButtonControlTemplate1}">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/VirtualPultValves;component/PictureValves/RUS/btn.png" />
+                    </Button.Background>
+                </Button>
+            </pc:RusKlapan>
+            <pc:RusKlapan Canvas.Left="233" Canvas.Top="552" Height="114" IsChecked="False" x:Name="rusKlapan8" Width="130">
+                <pc:RusKlapan.Background>
+                    <ImageBrush ImageSource="/VirtualPultValves;component/PictureValves/RUS/rusbtn.png" Stretch="Uniform" TileMode="None" />
+                </pc:RusKlapan.Background>
+                <Button Command="{Binding CmdRus}" CommandParameter="10" Content="РУС" Margin="45,19,22,33" Template="{StaticResource ButtonControlTemplate1}">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/VirtualPultValves;component/PictureValves/RUS/btn.png" />
+                    </Button.Background>
+                </Button>
+            </pc:RusKlapan>
+            <pc:PultZonaButton Canvas.Left="389" Canvas.Top="100" Height="88" x:Name="pultZonaButton1" Width="75" CommandParameter="4" Command="{Binding Path=CmdRus}" />
+            <pc:PultZonaButton Canvas.Left="0" Canvas.Top="96" Height="88" x:Name="pultZonaButton2" Width="75" Command="{Binding Path=CmdRus}" CommandParameter="1" />
+        </Canvas>
+    </Viewbox>
+</UserControl>

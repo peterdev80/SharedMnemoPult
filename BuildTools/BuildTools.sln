@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VDLCompiler", "VDLCompiler\VDLCompiler.csproj", "{EE018D15-68A9-4F50-9644-BDB0CDADB806}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug_ProxyTools|Any CPU = Debug_ProxyTools|Any CPU
+		Debug_StrapTools|Any CPU = Debug_StrapTools|Any CPU
+		Debug_UpdaterPack|Any CPU = Debug_UpdaterPack|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE018D15-68A9-4F50-9644-BDB0CDADB806}.Debug_ProxyTools|Any CPU.ActiveCfg = Debug_ProxyTools|Any CPU
+		{EE018D15-68A9-4F50-9644-BDB0CDADB806}.Debug_ProxyTools|Any CPU.Build.0 = Debug_ProxyTools|Any CPU
+		{EE018D15-68A9-4F50-9644-BDB0CDADB806}.Debug_StrapTools|Any CPU.ActiveCfg = Debug_StrapTools|Any CPU
+		{EE018D15-68A9-4F50-9644-BDB0CDADB806}.Debug_StrapTools|Any CPU.Build.0 = Debug_StrapTools|Any CPU
+		{EE018D15-68A9-4F50-9644-BDB0CDADB806}.Debug_UpdaterPack|Any CPU.ActiveCfg = Debug_UpdaterPack|Any CPU
+		{EE018D15-68A9-4F50-9644-BDB0CDADB806}.Debug_UpdaterPack|Any CPU.Build.0 = Debug_UpdaterPack|Any CPU
+		{EE018D15-68A9-4F50-9644-BDB0CDADB806}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE018D15-68A9-4F50-9644-BDB0CDADB806}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE018D15-68A9-4F50-9644-BDB0CDADB806}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE018D15-68A9-4F50-9644-BDB0CDADB806}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

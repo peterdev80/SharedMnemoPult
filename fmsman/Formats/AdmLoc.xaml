@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="fmsman.Formats.AdmLoc"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="399" d:DesignWidth="610.275">
+    <Grid Margin="8,8,0,0">
+    	<StackPanel VerticalAlignment="Top" >
+    		<WrapPanel VerticalAlignment="Center" Margin="0,0,0,4">
+    			<Button Content="start" Width="75" VerticalAlignment="Center" Click="start"/>
+    			<ComboBox x:Name="starttb" Margin="25,0,0,0" Width="100" VerticalAlignment="Center" IsEditable="True">
+    				<ListBoxItem Content="fms"/>
+    			</ComboBox>
+    			<TextBlock Margin="150,0,0,0" Text="Запуск задачи" VerticalAlignment="Center"/>
+    		</WrapPanel>    		
+			<WrapPanel VerticalAlignment="Center" Margin="0,0,0,4">
+    			<Button Content="lstart" Width="75" VerticalAlignment="Center" Click="lstart"/>
+                <ComboBox x:Name="tblstart" Margin="25,0,0,0" Width="100" VerticalAlignment="Center" IsEditable="True">
+                    <ListBoxItem Content="fmswsample"/>
+                    <ListBoxItem Content="fmsproxy"/>
+                </ComboBox>
+                <TextBlock Margin="150,0,0,0" Text="Локальный запуск задачи" VerticalAlignment="Center"/>
+    		</WrapPanel>
+			<WrapPanel VerticalAlignment="Center" Margin="0,0,0,4">
+    			<Button Content="rstart" Width="75" VerticalAlignment="Center" Click="rstart"/>
+                <ComboBox x:Name="tbrstart" Margin="25,0,0,0" Width="100" VerticalAlignment="Center" IsEditable="True">
+                    <ListBoxItem Content="fmswsample"/>
+                    <ListBoxItem Content="fmsproxy"/>
+                </ComboBox>
+                <TextBox x:Name="tbrstarthost" Margin="25,0,0,0" Width="100" VerticalAlignment="Center" Text="*"/>
+    			<TextBlock Margin="25,0,0,0" Text="Удаленный запуск задачи" VerticalAlignment="Center"/>
+    		</WrapPanel>
+			<WrapPanel VerticalAlignment="Center" Margin="0,0,0,4">
+    			<Button Content="stop" Width="75" VerticalAlignment="Center"/>
+                <ComboBox Margin="25,0,0,0" Width="100" VerticalAlignment="Center" IsEditable="True">
+                    <ListBoxItem Content="fmswsample"/>
+                    <ListBoxItem Content="fmsproxy"/>
+                </ComboBox>
+    			<TextBlock Margin="150,0,0,0" Text="Останов задачи" VerticalAlignment="Center"/>
+    		</WrapPanel>   
+			<WrapPanel VerticalAlignment="Center" Margin="0,0,0,4">
+    			<Button Content="killall" Width="75" VerticalAlignment="Center" Click="Killall"/>
+    			<TextBlock Margin="275,0,0,0" Text="Экстренная остановка" VerticalAlignment="Center"/>
+			</WrapPanel>
+            <WrapPanel VerticalAlignment="Center" Margin="0,0,0,4">
+                <Button Content="shutdown" Width="75" VerticalAlignment="Center" Click="shutdown"/>
+                <TextBlock Margin="275,0,0,0" Text="Полная остановка" VerticalAlignment="Center"/>
+            </WrapPanel>
+        </StackPanel>
+            
+    </Grid>
+</UserControl>

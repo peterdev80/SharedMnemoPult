@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="fmsman.Formats.Log"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" x:Name="logformat"
+             d:DesignHeight="422" d:DesignWidth="682">
+    <DockPanel>
+        <ToolBar DockPanel.Dock="Top" x:Name="ftb">
+        </ToolBar>
+        <DataGrid AutoGenerateColumns="False" HorizontalAlignment="Stretch" Name="logg" 
+                  CanUserAddRows="False" 
+                  VerticalAlignment="Stretch" ItemsSource="{Binding}" CanUserReorderColumns="False">
+            <DataGrid.RowHeaderStyle>
+                <Style TargetType="DataGridRowHeader">
+                    <Setter Property="Width" Value="0" />
+                </Style>
+            </DataGrid.RowHeaderStyle>
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Время" Width="2.5*" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <!-- ReSharper disable once Xaml.BindingWithContextNotResolved -->
+                            <TextBlock x:Name="PART_txt" Text="{Binding LogTime,StringFormat={}\{0:dd.MM.yyyy hh:mm:ss\}}" />
+                            
+                            <DataTemplate.Triggers>
+                                <!-- ReSharper disable once Xaml.BindingWithContextNotResolved -->
+                                <DataTrigger Binding="{Binding HideTime}" Value="True">
+                                    <Setter TargetName="PART_txt" Property="Visibility" Value="Collapsed" />
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Источник" Binding="{Binding LogSender}" />
+                <DataGridTemplateColumn Header="Сообщение" Width="13*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <!-- ReSharper disable once Xaml.BindingWithContextNotResolved -->
+                            <TextBlock Text="{Binding LogString}" TextWrapping="Wrap" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</UserControl>

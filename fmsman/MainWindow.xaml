@@ -1,0 +1,19 @@
+﻿<Window x:Class="fmsman.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        TextOptions.TextFormattingMode="Display"
+        ResizeMode="CanResizeWithGrip"
+        Title="Административная консоль fmsldr" Height="519" Width="805" Icon="/fmsman;component/AppIcon.ico">
+    <!-- ReSharper disable InconsistentNaming -->
+    <DockPanel >
+        <Menu DockPanel.Dock="Top" x:Name="mmenu">
+            <MenuItem Header="Connect" Click="MenuItem_Click" x:Name="_Connect" />
+            <MenuItem Header="Disconnect" Click="_Disconnect_Click" x:Name="_Disconnect" IsEnabled="False" />
+            <MenuItem Header="Наборы переменных" x:Name="worksets" >
+                <Separator />
+                <MenuItem Header="Добавить набор..." Click="AddWorkset" />
+            </MenuItem> 
+        </Menu>
+        <TabControl x:Name="tabs" DockPanel.Dock="Bottom" Margin="0,2,0,0" Padding="0" BorderThickness="0" SelectionChanged="tabs_SelectionChanged" />
+    </DockPanel>
+</Window>
