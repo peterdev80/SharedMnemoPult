@@ -4,9 +4,8 @@
                      xmlns:avm="clr-namespace:VirtualPultValves.ViewModel;assembly=VirtualPultValves"
             
                     xmlns:local="clr-namespace:PultNeptun">
-   
-        <avm:ViewModel_InPU x:Key="vInPU"/>
-
+    <avm:ViewModel_InPU x:Key="vInPU"/>
+  
         <!-- <mm:TransporantModel x:Key="rTC" ActiveColor="Red" PassiveColor="Silver" TransporantName="ЦО" VarVal="__SET_CENTR_OGON"/>-->
         <Style x:Key="PultGlassButtonStyle1" TargetType="{x:Type pc:PultGlassButton}">
             <Setter Property="Template">

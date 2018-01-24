@@ -9,12 +9,13 @@
              xmlns:avm="clr-namespace:VirtualPultValves.ViewModel;assembly=VirtualPultValves"
              mc:Ignorable="d" Width="1900" Height="998.9">
     <UserControl.Resources>
-        <avm:ViewModel_InPU x:Key="vInPU"/>
+   
+           <avm:ViewModel_InPU x:Key="vInPU"/>
     </UserControl.Resources>
     <UserControl.CommandBindings>
-        <!-- <CommandBinding Command="{x:Static mv:View_InPU.BtnCmd}"
+        <CommandBinding Command="{x:Static local:WindowInpuR.BtnCmd}"
                     Executed="BtnCmdExecuted"
-                    CanExecute="BtnCmdCanExecute"/>-->
+                    CanExecute="BtnCmdCanExecute"/>
 
     </UserControl.CommandBindings>
 
@@ -42,16 +43,16 @@
 
 
         <Viewbox Grid.Column="4" Grid.RowSpan="4" Stretch="Fill" Grid.ColumnSpan="2">
-            <Canvas Height="864" Width="879">
-                <mv:View_NeptunP2  Height="807.989" Canvas.Left="323.082" Canvas.Top="30.275" Width="506.828" />
+            <Canvas x:Name="roo" Height="864" Width="879" DataContext="{Binding Source={StaticResource vInPU}}" >
+              <mv:View_NeptunP2  Height="807.989" Canvas.Left="323.082" Canvas.Top="30.275" Width="506.828" />
 
                 <Path Data="M19.5,2.5 L87.606287,2.5 C96.995127,2.5 103.86139,10.111159 103.86139,19.5 L103.86139,111.964 C103.86139,121.35284 96.995127,128.964 87.606287,128.964 L19.5,128.964" Stretch="Fill" Stroke="#FF060606" StrokeThickness="3" VerticalAlignment="Top" Height="134.826" HorizontalAlignment="Right" Width="118.589" Canvas.Top="523.058" Canvas.Left="-32.91" />
-                <pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="21"  RenderTransformOrigin="5.627,1.687" Content="ТЕСТ" Height="50" Canvas.Left="9.833" Canvas.Top="212.203" Width="50"/>
-                <pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="22"  RenderTransformOrigin="5.627,1.687" Content="УПР" Height="50" VerticalAlignment="Top" Canvas.Left="9.833" Canvas.Top="260.701" Width="50"/>
+                <pc:PultGlassButton Command="{x:Static local:WindowInpuR.BtnCmd}"  CommandParameter="21"  RenderTransformOrigin="5.627,1.687" Content="ТЕСТ" Height="50" Canvas.Left="9.833" Canvas.Top="212.203" Width="50"/>
+                <pc:PultGlassButton Command="{x:Static local:WindowInpuR.BtnCmd}"  CommandParameter="22"  RenderTransformOrigin="5.627,1.687" Content="УПР" Height="50" VerticalAlignment="Top" Canvas.Left="9.833" Canvas.Top="260.701" Width="50"/>
                 <pc:PultGlassButton   CommandParameter="3"  RenderTransformOrigin="5.627,1.687" Content="ВКЛ" Height="50" Canvas.Left="-22.305" Canvas.Top="127.2" Width="50" PreviewMouseDown="PultGlassButton_PreviewMouseDown" PreviewMouseUp="PultGlassButton_PreviewMouseUp" Style="{StaticResource PultGlassButtonStyle1}" />
                 <pc:PultGlassButton   CommandParameter="4"  RenderTransformOrigin="5.627,1.687" Content="ОТКЛ" Height="51.328" Width="50" Canvas.Left="27.695" Canvas.Top="125.872" PreviewMouseDown="PultGlassButton_PreviewMouseDown" PreviewMouseUp="PultGlassButton_PreviewMouseUp"  />
-                <pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="23"  RenderTransformOrigin="5.627,1.687" Content="ИП" Height="50" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="309.214" Width="50"/>
-                <pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="24" VerticalAlignment="Top"  Height="50" RenderTransformOrigin="5.627,1.687" Canvas.Left="9.833" Canvas.Top="357.714" Width="50" >
+                <pc:PultGlassButton Command="{x:Static local:WindowInpuR.BtnCmd}"  CommandParameter="23"  RenderTransformOrigin="5.627,1.687" Content="ИП" Height="50" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="309.214" Width="50"/>
+                <pc:PultGlassButton Command="{x:Static local:WindowInpuR.BtnCmd}"  CommandParameter="24" VerticalAlignment="Top"  Height="50" RenderTransformOrigin="5.627,1.687" Canvas.Left="9.833" Canvas.Top="357.714" Width="50" >
                     <TextBlock Text="1&#xA;ФОРМАТ" TextAlignment="Center" FontSize="8"  />
                 </pc:PultGlassButton>
                 <Path Style="{StaticResource CircleRamkaStyle}" Height="14.5" Width="15" Canvas.Left="-1.667" Canvas.Top="186.703" />
@@ -90,8 +91,8 @@
                 <Path Data="M179.77,225.003 L265.333,225.003" Stretch="Fill" StrokeThickness="7" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="7" VerticalAlignment="Bottom" Canvas.Left="-10.004" Canvas.Top="305.201" Width="87.699" Stroke="{StaticResource BrushRamka}"/>
                 <Path Data="M179.77,225.003 L265.333,225.003" Stretch="Fill" StrokeThickness="7" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="7" Canvas.Left="5.693" Canvas.Top="353.714" Width="54.14" Stroke="{StaticResource BrushRamka}"/>
                 <Path Data="M179.77,225.003 L265.333,225.003" Stretch="Fill" StrokeThickness="7" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="7" Canvas.Left="5.693" Canvas.Top="205.203" Width="54.307" Stroke="{StaticResource BrushRamka}"/>
-                <pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="20"  RenderTransformOrigin="5.627,1.687" Content="-1" FontSize="12" Height="50.5" VerticalAlignment="Top"  Width="50" Canvas.Left="-16.829" Canvas.Top="436.12"/>
-                <pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="19"  RenderTransformOrigin="5.627,1.687" Content="+1" FontSize="12" Height="50.5" VerticalAlignment="Top" Width="50" Canvas.Left="31.233" Canvas.Top="436.12"/>
+                <pc:PultGlassButton Command="{x:Static local:WindowInpuR.BtnCmd}"  CommandParameter="20"  RenderTransformOrigin="5.627,1.687" Content="-1" FontSize="12" Height="50.5" VerticalAlignment="Top"  Width="50" Canvas.Left="-16.829" Canvas.Top="436.12"/>
+                <pc:PultGlassButton Command="{x:Static local:WindowInpuR.BtnCmd}"  CommandParameter="19"  RenderTransformOrigin="5.627,1.687" Content="+1" FontSize="12" Height="50.5" VerticalAlignment="Top" Width="50" Canvas.Left="31.233" Canvas.Top="436.12"/>
                 <Path Data="M179.77,225.003 L265.333,225.003" Stretch="Fill" StrokeThickness="7" Height="6.5" VerticalAlignment="Top" Width="109.017" Canvas.Left="-24.398" Canvas.Top="429.536" Stroke="{StaticResource BrushRamka}"/>
                 <Path Style="{StaticResource CircleRamkaStyle}" Height="14.5"  Width="14.848" Canvas.Left="24.278" Canvas.Top="412.203"  />
 
@@ -220,23 +221,23 @@
                         </TransformGroup>
                     </Path.RenderTransform>
                 </Path>
-                <pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="17"  RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Content="ВКЛ" Height="50" VerticalAlignment="Top" Canvas.Left="5.693" Canvas.Top="538.116"/>
-                <pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="18"  RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Content="ОТКЛ" Height="50" VerticalAlignment="Top" Canvas.Left="5.693" Canvas.Top="586.609"/>
+                <pc:PultGlassButton Command="{x:Static local:WindowInpuR.BtnCmd}"  CommandParameter="17"  RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Content="ВКЛ" Height="50" VerticalAlignment="Top" Canvas.Left="5.693" Canvas.Top="538.116"/>
+                <pc:PultGlassButton Command="{x:Static local:WindowInpuR.BtnCmd}"  CommandParameter="18"  RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Content="ОТКЛ" Height="50" VerticalAlignment="Top" Canvas.Left="5.693" Canvas.Top="586.609"/>
                 <!--<mv:TCView Canvas.Left="127.9"  Height="808"/>-->
                 <Path Data="M179.77,225.003 L265.333,225.003" HorizontalAlignment="Left" Stretch="Fill" Width="52.875" StrokeThickness="7" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="7" VerticalAlignment="Top" Canvas.Left="2.818" Canvas.Top="583.359" Stroke="{StaticResource BrushRamka}"/>
                 <TextBlock TextWrapping="Wrap" FontSize="13.333" Canvas.Left="12.089" Canvas.Top="-42.881" Text="{Binding TextInPU, Source={StaticResource vInPU}}"/>
 
                 <mv:View_TC Canvas.Left="107.744" Canvas.Top="12.52" x:Name="view_TC1" Height="751.191" Width="173.902" RMType="1"  />
-                <pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="6" RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Content="5" Height="50" VerticalAlignment="Top" Canvas.Left="-375.525" Canvas.Top="548.48"/>
-                <pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="1" RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Content="0" Height="50" VerticalAlignment="Top" Canvas.Left="-375.247" Canvas.Top="602.144"/>
-                <pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="5" RenderTransformOrigin="5.627,1.687" Content="4" Height="50" VerticalAlignment="Top" Width="50" HorizontalAlignment="Left" Canvas.Left="-426.568" Canvas.Top="548.48"/>
-                <pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="10" RenderTransformOrigin="5.627,1.687" Content="9" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50" Canvas.Left="-426.79" Canvas.Top="602.144"/>
-                <pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="4" RenderTransformOrigin="5.627,1.687" Content="3" Height="50" VerticalAlignment="Top" Width="50" HorizontalAlignment="Left" Canvas.Left="-477.207" Canvas.Top="548.48"/>
-                <pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="9" RenderTransformOrigin="5.627,1.687" Content="8" Height="50" VerticalAlignment="Top" Width="50" HorizontalAlignment="Left" Canvas.Left="-477.284" Canvas.Top="601.977"/>
-                <pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="3" RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Content="2" Height="50" VerticalAlignment="Top" Canvas.Left="-528.249" Canvas.Top="548.48"/>
-                <pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="8" RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Content="7" Height="50" VerticalAlignment="Top" Canvas.Left="-528.584" Canvas.Top="601.977"/>
-                <pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="2" RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Content="1" Height="50" VerticalAlignment="Top" Canvas.Left="-579.447" Canvas.Top="548.48"/>
-                <pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="7" RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Content="6" Height="50" VerticalAlignment="Top" Canvas.Left="-579.947" Canvas.Top="601.977"/>
+                <pc:PultGlassButton Command="{x:Static local:WindowInpuR.BtnCmd}"  CommandParameter="6" RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Content="5" Height="50" VerticalAlignment="Top" Canvas.Left="-375.525" Canvas.Top="548.48"/>
+                <pc:PultGlassButton Command="{x:Static local:WindowInpuR.BtnCmd}"  CommandParameter="1" RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Content="0" Height="50" VerticalAlignment="Top" Canvas.Left="-375.247" Canvas.Top="602.144"/>
+                <pc:PultGlassButton Command="{x:Static local:WindowInpuR.BtnCmd}"  CommandParameter="5" RenderTransformOrigin="5.627,1.687" Content="4" Height="50" VerticalAlignment="Top" Width="50" HorizontalAlignment="Left" Canvas.Left="-426.568" Canvas.Top="548.48"/>
+                <pc:PultGlassButton Command="{x:Static local:WindowInpuR.BtnCmd}"  CommandParameter="10" RenderTransformOrigin="5.627,1.687" Content="9" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50" Canvas.Left="-426.79" Canvas.Top="602.144"/>
+                <pc:PultGlassButton Command="{x:Static local:WindowInpuR.BtnCmd}"  CommandParameter="4" RenderTransformOrigin="5.627,1.687" Content="3" Height="50" VerticalAlignment="Top" Width="50" HorizontalAlignment="Left" Canvas.Left="-477.207" Canvas.Top="548.48"/>
+                <pc:PultGlassButton Command="{x:Static local:WindowInpuR.BtnCmd}"  CommandParameter="9" RenderTransformOrigin="5.627,1.687" Content="8" Height="50" VerticalAlignment="Top" Width="50" HorizontalAlignment="Left" Canvas.Left="-477.284" Canvas.Top="601.977"/>
+                <pc:PultGlassButton Command="{x:Static local:WindowInpuR.BtnCmd}"  CommandParameter="3" RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Content="2" Height="50" VerticalAlignment="Top" Canvas.Left="-528.249" Canvas.Top="548.48"/>
+                <pc:PultGlassButton Command="{x:Static local:WindowInpuR.BtnCmd}"  CommandParameter="8" RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Content="7" Height="50" VerticalAlignment="Top" Canvas.Left="-528.584" Canvas.Top="601.977"/>
+                <pc:PultGlassButton Command="{x:Static local:WindowInpuR.BtnCmd}"  CommandParameter="2" RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Content="1" Height="50" VerticalAlignment="Top" Canvas.Left="-579.447" Canvas.Top="548.48"/>
+                <pc:PultGlassButton Command="{x:Static local:WindowInpuR.BtnCmd}"  CommandParameter="7" RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Content="6" Height="50" VerticalAlignment="Top" Canvas.Left="-579.947" Canvas.Top="601.977"/>
                 <Path Style="{StaticResource CircleRamkaStyle}" Width="15"   Canvas.Left="-325.747" Canvas.Top="591.144" />
                 <Path Style="{StaticResource CircleRamkaStyle}" Width="15"  Height="14.5"  Canvas.Left="-486.117" Canvas.Top="648.561" />
                 <Path Style="{StaticResource CircleRamkaStyle}" Width="15"  Height="14.5"  Canvas.Left="-510.672" Canvas.Top="523.48" />
@@ -401,8 +402,8 @@
                         </TransformGroup>
                     </Path.RenderTransform>
                 </Path>
-                <pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="15"  RenderTransformOrigin="5.627,1.687" Content="ИСП" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50" Canvas.Left="-697.198" Canvas.Top="548.37"/>
-                <pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="16"  RenderTransformOrigin="5.627,1.687" Content="СБР" VerticalAlignment="Top" Height="50" HorizontalAlignment="Left" Width="50" Canvas.Left="-697.198" Canvas.Top="601.977"/>
+                <pc:PultGlassButton Command="{x:Static local:WindowInpuR.BtnCmd}"  CommandParameter="15"  RenderTransformOrigin="5.627,1.687" Content="ИСП" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50" Canvas.Left="-697.198" Canvas.Top="548.37"/>
+                <pc:PultGlassButton Command="{x:Static local:WindowInpuR.BtnCmd}"  CommandParameter="16"  RenderTransformOrigin="5.627,1.687" Content="СБР" VerticalAlignment="Top" Height="50" HorizontalAlignment="Left" Width="50" Canvas.Left="-697.198" Canvas.Top="601.977"/>
                 <Path Style="{StaticResource CircleRamkaStyle}"  Height="14.5"   Width="15" Canvas.Left="-724.746" Canvas.Top="538.148" />
                 <Path Style="{StaticResource CircleRamkaStyle}" Height="14.5"  Width="15" Canvas.Left="-629.567" Canvas.Top="538.148" />
                 <Path Data="M179.77,225.003 L265.333,225.003" Height="6.5" Stretch="Fill" VerticalAlignment="Top" StrokeThickness="7" StrokeStartLineCap="Round" StrokeEndLineCap="Round" HorizontalAlignment="Left" Width="101.259" Canvas.Left="-720.434" Canvas.Top="541.858" Stroke="{StaticResource BrushRamka}"/>
@@ -440,19 +441,19 @@
                         </TransformGroup>
                     </Path.RenderTransform>
                 </Path>
-                <pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="14" RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Height="50" VerticalAlignment="Top" Canvas.Left="-172.418" Canvas.Top="541.858">
+                <pc:PultGlassButton Command="{x:Static local:WindowInpuR.BtnCmd}"  CommandParameter="14" RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Height="50" VerticalAlignment="Top" Canvas.Left="-172.418" Canvas.Top="541.858">
                     <Path Data="M5.25,0.5 L0.5,8.5638996 L3.825,8.5638996 L3.825,26.998999 L6.675,26.998999 L6.675,8.5638996 L10,8.5638996 z" Fill="#FF1A1A1A" HorizontalAlignment="Left" Height="26.999"  Stretch="Fill" Stroke="Black" VerticalAlignment="Bottom" Width="10"/>
 
                 </pc:PultGlassButton>
-                <pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="13" RenderTransformOrigin="5.627,1.687"  Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50" Canvas.Left="-172.501" Canvas.Top="595.641">
+                <pc:PultGlassButton Command="{x:Static local:WindowInpuR.BtnCmd}"  CommandParameter="13" RenderTransformOrigin="5.627,1.687"  Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50" Canvas.Left="-172.501" Canvas.Top="595.641">
                     <Path Data="M5.25,26.998999 L0.5,18.9351 L3.825,18.9351 L3.825,0.5 L6.675,0.5 L6.675,18.9351 L10,18.9351 z" Fill="#FF1A1A1A" HorizontalAlignment="Left" Height="26.999" Stretch="Fill" Stroke="Black" VerticalAlignment="Bottom" Width="10"/>
 
                 </pc:PultGlassButton>
-                <pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="11" RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Height="50" VerticalAlignment="Top" Canvas.Left="-117.946" Canvas.Top="568.203" >
+                <pc:PultGlassButton Command="{x:Static local:WindowInpuR.BtnCmd}"  CommandParameter="11" RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Height="50" VerticalAlignment="Top" Canvas.Left="-117.946" Canvas.Top="568.203" >
                     <Path Data="M26.5,5.2495002 L18.436949,0.5 L18.436949,3.8246501 L0.5,3.8246501 L0.5,6.6743503 L18.436949,6.6743503 L18.436949,9.9990004 z" Fill="#FF1A1A1A" HorizontalAlignment="Left" Height="9.999"  Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="26.5"/>
 
                 </pc:PultGlassButton>
-                <pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="12" RenderTransformOrigin="5.627,1.687"  Width="50" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Canvas.Left="-227.37" Canvas.Top="571.076">
+                <pc:PultGlassButton Command="{x:Static local:WindowInpuR.BtnCmd}"  CommandParameter="12" RenderTransformOrigin="5.627,1.687"  Width="50" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Canvas.Left="-227.37" Canvas.Top="571.076">
                     <Path Data="M0.5,5.2495002 L8.563051,0.5 L8.563051,3.8246501 L26.5,3.8246501 L26.5,6.6743503 L8.563051,6.6743503 L8.563051,9.9990004 z" Fill="#FF1A1A1A" HorizontalAlignment="Left" Height="9.999"  Stretch="Fill" Stroke="Black" VerticalAlignment="Bottom" Width="26.5"/>
 
                 </pc:PultGlassButton>

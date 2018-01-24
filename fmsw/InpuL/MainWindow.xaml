@@ -16,7 +16,7 @@
             <wvlapi:VariablesManager x:Name="vc" VariablesMap="VarControl" Endpoint="VarControl"  Channel="VarControl_Variables" Key="VarControl" IgnoreInitEvents="True" />-->
         </lapi:APIHost>
 
-        <pn:WindowInpu Width="Auto" Height="Auto" />
+        <pn:WindowInpuR Width="Auto" Height="Auto" />
     </Grid>
 </Window>
 
