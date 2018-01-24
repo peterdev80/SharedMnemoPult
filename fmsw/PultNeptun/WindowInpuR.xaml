@@ -7,7 +7,7 @@
              xmlns:local="clr-namespace:PultNeptun"
                xmlns:mv="clr-namespace:VirtualPultValves.Views;assembly=VirtualPultValves"       
              xmlns:avm="clr-namespace:VirtualPultValves.ViewModel;assembly=VirtualPultValves"
-             mc:Ignorable="d" Width="1900" Height="998.9">
+             mc:Ignorable="d" Width="1900" Height="998.9" PreviewKeyDown="UserControl_KeyDown">
     <UserControl.Resources>
    
            <avm:ViewModel_InPU x:Key="vInPU"/>
@@ -511,7 +511,6 @@
                 </Path>
                 <Path Data="M799.02,138.37752 L852.02,138.38118" Height="3.004" Canvas.Left="-60.986" Stretch="Fill" Stroke="#FF060606" StrokeThickness="3" Canvas.Top="654.525" Width="56"/>
                 <Path Data="M820,657.11274 L869.83335,656.91025" Height="3.203" Stretch="Fill" Stroke="#FF060606" StrokeThickness="3" Canvas.Left="-61.006" Canvas.Top="523.058" Width="52.832"/>
-                <mv:View_OVK x:Name="OVK1" Height="189.993" Canvas.Left="-750.567" Canvas.Top="666.527" Width="832.944" />
                 <Border x:Name="comCO" VerticalAlignment="Top" Height="34.73" HorizontalAlignment="Center" Width="97.964" Visibility="{Binding InPU2Visible, Source={StaticResource vInPU}}" Canvas.Left="-493.2" Canvas.Top="4.12">
 
                     <!--Visibility="{Binding InPU2Visible, Source={StaticResource vInPU}}"-->

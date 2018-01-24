@@ -34,11 +34,27 @@ namespace PultNeptun
         public WindowInpu()
         {
             InitializeComponent();
-         
-           
+
+          
             _inwin1.InpuNum = NumInpu;
+            InPUControl = _inwin1.InPUControl;
             WinPult.DataContext = _inwin1;
             vminpu = roo.DataContext as VirtualPultValves.ViewModel.ViewModel_InPU;
+        }
+
+        private void UserControl_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case Key.Left: InPUControl.PressNeptKey(NumInpu, 12); break;
+                case Key.Right: InPUControl.PressNeptKey(NumInpu, 11); break;
+                case Key.Up: InPUControl.PressNeptKey(NumInpu, 14); break;
+                case Key.Down: InPUControl.PressNeptKey(NumInpu, 13); break;
+                case Key.Enter: InPUControl.PressNeptKey(NumInpu, 17); break;
+                case Key.Escape: InPUControl.PressNeptKey(NumInpu, 24); break;
+            }
+
+            e.Handled = true;
         }
         #region Commanda BtnClick
 

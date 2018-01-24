@@ -7,7 +7,7 @@
              xmlns:local="clr-namespace:PultNeptun"
                xmlns:mv="clr-namespace:VirtualPultValves.Views;assembly=VirtualPultValves"       
              xmlns:avm="clr-namespace:VirtualPultValves.ViewModel;assembly=VirtualPultValves"
-             mc:Ignorable="d" Width="1900" Height="998.9">
+             mc:Ignorable="d" Width="1900" Height="998.9" PreviewKeyDown="UserControl_KeyDown">
     <UserControl.Resources>
         <avm:ViewModel_InPU x:Key="vInPU"/>
     </UserControl.Resources>
