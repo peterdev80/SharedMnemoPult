@@ -134,6 +134,9 @@
     <Compile Include="Views\InpuFailed.xaml.cs">
       <DependentUpon>InpuFailed.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ViewInpuPSector.xaml.cs">
+      <DependentUpon>ViewInpuPSector.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ViewLDI11.xaml.cs">
       <DependentUpon>ViewLDI11.xaml</DependentUpon>
     </Compile>
@@ -251,6 +254,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\InpuFailed.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ViewInpuPSector.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -386,6 +393,7 @@
   <ItemGroup>
     <Content Include="PictureValves\SU\KSDSUClose.jpg" />
     <Content Include="PictureValves\SU\KSDSUOpen.jpg" />
+    <Resource Include="Views\psector.png" />
     <Resource Include="Data\InitXMLFile.xml" />
     <Resource Include="Data\VariableList.xml">
       <SubType>Designer</SubType>

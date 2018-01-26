@@ -9,8 +9,8 @@
              xmlns:avm="clr-namespace:VirtualPultValves.ViewModel;assembly=VirtualPultValves"
              mc:Ignorable="d" Width="1900" Height="998.9" PreviewKeyDown="UserControl_KeyDown">
     <UserControl.Resources>
-   
-           <avm:ViewModel_InPU x:Key="vInPU"/>
+
+        <avm:ViewModel_InPU x:Key="vInPU"/>
     </UserControl.Resources>
     <UserControl.CommandBindings>
         <CommandBinding Command="{x:Static local:WindowInpuR.BtnCmd}"
@@ -44,7 +44,7 @@
 
         <Viewbox Grid.Column="4" Grid.RowSpan="4" Stretch="Fill" Grid.ColumnSpan="2">
             <Canvas x:Name="roo" Height="864" Width="879" DataContext="{Binding Source={StaticResource vInPU}}" >
-              <mv:View_NeptunP2  Height="807.989" Canvas.Left="323.082" Canvas.Top="30.275" Width="506.828" />
+                <mv:View_NeptunP2  Height="833.725" Canvas.Left="372.172" Canvas.Top="30.275" Width="506.828" />
 
                 <Path Data="M19.5,2.5 L87.606287,2.5 C96.995127,2.5 103.86139,10.111159 103.86139,19.5 L103.86139,111.964 C103.86139,121.35284 96.995127,128.964 87.606287,128.964 L19.5,128.964" Stretch="Fill" Stroke="#FF060606" StrokeThickness="3" VerticalAlignment="Top" Height="134.826" HorizontalAlignment="Right" Width="118.589" Canvas.Top="523.058" Canvas.Left="-32.91" />
                 <pc:PultGlassButton Command="{x:Static local:WindowInpuR.BtnCmd}"  CommandParameter="21"  RenderTransformOrigin="5.627,1.687" Content="ТЕСТ" Height="50" Canvas.Left="9.833" Canvas.Top="212.203" Width="50"/>
@@ -227,7 +227,7 @@
                 <Path Data="M179.77,225.003 L265.333,225.003" HorizontalAlignment="Left" Stretch="Fill" Width="52.875" StrokeThickness="7" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="7" VerticalAlignment="Top" Canvas.Left="2.818" Canvas.Top="583.359" Stroke="{StaticResource BrushRamka}"/>
                 <TextBlock TextWrapping="Wrap" FontSize="13.333" Canvas.Left="12.089" Canvas.Top="-42.881" Text="{Binding TextInPU, Source={StaticResource vInPU}}"/>
 
-                <mv:View_TC Canvas.Left="107.744" Canvas.Top="12.52" x:Name="view_TC1" Height="751.191" Width="173.902" RMType="1"  />
+                <mv:View_TC Canvas.Left="95.569" x:Name="view_TC1" Height="751.191" Width="173.902" RMType="1"  />
                 <pc:PultGlassButton Command="{x:Static local:WindowInpuR.BtnCmd}"  CommandParameter="6" RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Content="5" Height="50" VerticalAlignment="Top" Canvas.Left="-375.525" Canvas.Top="548.48"/>
                 <pc:PultGlassButton Command="{x:Static local:WindowInpuR.BtnCmd}"  CommandParameter="1" RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Content="0" Height="50" VerticalAlignment="Top" Canvas.Left="-375.247" Canvas.Top="602.144"/>
                 <pc:PultGlassButton Command="{x:Static local:WindowInpuR.BtnCmd}"  CommandParameter="5" RenderTransformOrigin="5.627,1.687" Content="4" Height="50" VerticalAlignment="Top" Width="50" HorizontalAlignment="Left" Canvas.Left="-426.568" Canvas.Top="548.48"/>
@@ -583,6 +583,11 @@
                 <pc:PultLamp   VklLamp="{Binding DejRegim.ValueState, Source={StaticResource vInPU}}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="24" Width="24" RenderTransformOrigin="0.188,-5.438" Canvas.Left="9.171" Canvas.Top="56.253"/>
                 <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="15.96" Width="71.03" Canvas.Left="-16.829" Canvas.Top="40.293"><Run Language="ru-ru" Text="ДЕЖ РЕЖИМ"/></TextBlock>
                 <pc:PultLamp HorizontalAlignment="Left" VerticalAlignment="Top" Height="24" Width="24" VklLamp="{Binding DejRegim.ValueState, Source={StaticResource vInPU}}" RenderTransformOrigin="-0.212,-5.438" Canvas.Left="10" Canvas.Top="56.253" />
+                <Grid Height="130" Canvas.Left="271" Canvas.Top="730" Width="261">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="Svyaz2_1.png"/>
+                    </Grid.Background>
+                </Grid>
             </Canvas>
 
 
