@@ -54,6 +54,10 @@
       <Project>{e85f6a4d-6dff-4a64-aab9-a688e322d943}</Project>
       <Name>InpuL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\fmsw\InpuR\InpuR.csproj">
+      <Project>{971bf00e-7b6b-4fca-a9b6-860e1752b101}</Project>
+      <Name>InpuR</Name>
+    </ProjectReference>
     <ProjectReference Include="..\fmsw\PultNeptun\PultNeptun.csproj">
       <Project>{504463d4-c8db-4e8a-a20f-f933e26f2ade}</Project>
       <Name>PultNeptun</Name>
