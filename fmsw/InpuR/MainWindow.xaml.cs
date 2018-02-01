@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using fmslapi.Bindings.WPF;
 
 namespace InpuR
 {
@@ -21,6 +22,12 @@ namespace InpuR
     {
         public MainWindow()
         {
+            var rc = App.SetRootContext(this);
+
+            var cc = VariablesDataContext.GetNamedContext("Klapany");
+            cc.Manager = rc.Manager;
+            cc.VariablesChannelName = "VarNeptun";
+
             InitializeComponent();
         }
     }
