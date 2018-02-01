@@ -107,11 +107,5 @@
       <Name>VirtualPultValves</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Svyaz2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Svyaz2_1.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
