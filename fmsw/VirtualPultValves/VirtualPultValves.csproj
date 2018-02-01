@@ -55,9 +55,6 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BDUSControl.xaml.cs">
-      <DependentUpon>BDUSControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="BitPosValueStruct.cs" />
     <Compile Include="ConverterClasess.cs" />
     <Compile Include="DataAccess\DataReader.cs" />
@@ -255,10 +252,6 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="BDUSControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -407,7 +400,6 @@
   <ItemGroup>
     <Content Include="PictureValves\SU\KSDSUClose.jpg" />
     <Content Include="PictureValves\SU\KSDSUOpen.jpg" />
-    <Resource Include="Views\psector.png" />
     <Resource Include="Data\InitXMLFile.xml" />
     <Resource Include="Data\VariableList.xml">
       <SubType>Designer</SubType>
