@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,6 +21,33 @@ namespace VirtualPultValves.Views
     /// </summary>
     public partial class View_LDI : UserControl
     {
+        private class Inv
+        {
+            private WeakReference _tgt;
+            private MethodInfo _mi;
+
+            public Inv(Delegate Target)
+            {
+                var il = Target.GetInvocationList();
+                if (il.Length != 1)
+                    return;
+
+                _tgt = new WeakReference(il[0].Target);
+                _mi = il[0].Method;
+            }
+
+            public void EventHandler(object sender, KeyEventArgs e)
+            {
+                var t = _tgt.Target;
+
+                if (t == null)
+                    return;
+
+                _mi.Invoke(t, new[] { sender, e });
+            }
+        }
+
+
         DispatcherTimer timer;
         DispatcherTimer timerSS;
 
@@ -49,6 +77,9 @@ namespace VirtualPultValves.Views
         {
             
             InitializeComponent();
+
+            var i = new Inv(new KeyEventHandler(UserControl_KeyDown));
+            Application.Current.MainWindow.PreviewKeyDown += i.EventHandler;
            
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1.0);
@@ -198,28 +229,31 @@ namespace VirtualPultValves.Views
         }
         private void UserControl_KeyDown(object sender, KeyEventArgs e)
         {
+            if (!IsVisible)
+                return;
+
             switch (e.Key)
             {
-                case Key.NumPad0: VM_Bvk.CmdCif.Execute(0); ; break;
-                case Key.NumPad1: VM_Bvk.CmdCif.Execute(1); ; break;
-                case Key.NumPad2: VM_Bvk.CmdCif.Execute(2); ; break;
-                case Key.NumPad3: VM_Bvk.CmdCif.Execute(3); ; break;
-                case Key.NumPad4: VM_Bvk.CmdCif.Execute(4); ; break;
-                case Key.NumPad5: VM_Bvk.CmdCif.Execute(5); ; break;
-                case Key.NumPad6: VM_Bvk.CmdCif.Execute(6); ; break;
-                case Key.NumPad7: VM_Bvk.CmdCif.Execute(7); ; break;
-                case Key.NumPad8: VM_Bvk.CmdCif.Execute(8); ; break;
-                case Key.NumPad9: VM_Bvk.CmdCif.Execute(9); ; break;
-                case Key.D0: VM_Bvk.CmdCif.Execute(0); ; break;
-                case Key.D1: VM_Bvk.CmdCif.Execute(1); ; break;
-                case Key.D2: VM_Bvk.CmdCif.Execute(2); ; break;
-                case Key.D3: VM_Bvk.CmdCif.Execute(3); ; break;
-                case Key.D4: VM_Bvk.CmdCif.Execute(4); ; break;
-                case Key.D5: VM_Bvk.CmdCif.Execute(5); ; break;
-                case Key.D6: VM_Bvk.CmdCif.Execute(6); ; break;
-                case Key.D7: VM_Bvk.CmdCif.Execute(7); ; break;
-                case Key.D8: VM_Bvk.CmdCif.Execute(8); ; break;
-                case Key.D9: VM_Bvk.CmdCif.Execute(9); ; break;
+                case Key.NumPad0: VM_Bvk.CmdCif.Execute(0); break;
+                case Key.NumPad1: VM_Bvk.CmdCif.Execute(1); break;
+                case Key.NumPad2: VM_Bvk.CmdCif.Execute(2); break;
+                case Key.NumPad3: VM_Bvk.CmdCif.Execute(3); break;
+                case Key.NumPad4: VM_Bvk.CmdCif.Execute(4); break;
+                case Key.NumPad5: VM_Bvk.CmdCif.Execute(5); break;
+                case Key.NumPad6: VM_Bvk.CmdCif.Execute(6); break;
+                case Key.NumPad7: VM_Bvk.CmdCif.Execute(7); break;
+                case Key.NumPad8: VM_Bvk.CmdCif.Execute(8); break;
+                case Key.NumPad9: VM_Bvk.CmdCif.Execute(9); break;
+                case Key.D0: VM_Bvk.CmdCif.Execute(0); break;
+                case Key.D1: VM_Bvk.CmdCif.Execute(1); break;
+                case Key.D2: VM_Bvk.CmdCif.Execute(2); break;
+                case Key.D3: VM_Bvk.CmdCif.Execute(3); break;
+                case Key.D4: VM_Bvk.CmdCif.Execute(4); break;
+                case Key.D5: VM_Bvk.CmdCif.Execute(5); break;
+                case Key.D6: VM_Bvk.CmdCif.Execute(6); break;
+                case Key.D7: VM_Bvk.CmdCif.Execute(7); break;
+                case Key.D8: VM_Bvk.CmdCif.Execute(8); break;
+                case Key.D9: VM_Bvk.CmdCif.Execute(9); break;
 
                     /* case Key.Right: InPUControl.PressNeptKey(NumInpu, 11); break;
                      case Key.Up: InPUControl.PressNeptKey(NumInpu, 14); break;

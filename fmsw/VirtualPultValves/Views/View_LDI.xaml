@@ -7,9 +7,7 @@
             xmlns:vm="clr-namespace:VirtualPultValves.ViewModel"
     xmlns:System="clr-namespace:System;assembly=mscorlib"
     xmlns:VirtualPultValves_PultControl="clr-namespace:VirtualPultValves.PultControl" 
-    x:Class="VirtualPultValves.Views.View_LDI"
-     PreviewKeyDown="UserControl_KeyDown"
-             >
+    x:Class="VirtualPultValves.Views.View_LDI" >
 	<UserControl.Resources>
         <!--<SolidColorBrush x:Key="numbrush" Color="#fff9450f" />-->
         <SolidColorBrush x:Key="numbrush" Color="Red" />
