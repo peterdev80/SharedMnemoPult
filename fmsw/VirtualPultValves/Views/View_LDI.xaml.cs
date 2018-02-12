@@ -196,5 +196,39 @@ namespace VirtualPultValves.Views
                 timerSS.Start();
 
         }
+        private void UserControl_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case Key.NumPad0: VM_Bvk.CmdCif.Execute(0); ; break;
+                case Key.NumPad1: VM_Bvk.CmdCif.Execute(1); ; break;
+                case Key.NumPad2: VM_Bvk.CmdCif.Execute(2); ; break;
+                case Key.NumPad3: VM_Bvk.CmdCif.Execute(3); ; break;
+                case Key.NumPad4: VM_Bvk.CmdCif.Execute(4); ; break;
+                case Key.NumPad5: VM_Bvk.CmdCif.Execute(5); ; break;
+                case Key.NumPad6: VM_Bvk.CmdCif.Execute(6); ; break;
+                case Key.NumPad7: VM_Bvk.CmdCif.Execute(7); ; break;
+                case Key.NumPad8: VM_Bvk.CmdCif.Execute(8); ; break;
+                case Key.NumPad9: VM_Bvk.CmdCif.Execute(9); ; break;
+                case Key.D0: VM_Bvk.CmdCif.Execute(0); ; break;
+                case Key.D1: VM_Bvk.CmdCif.Execute(1); ; break;
+                case Key.D2: VM_Bvk.CmdCif.Execute(2); ; break;
+                case Key.D3: VM_Bvk.CmdCif.Execute(3); ; break;
+                case Key.D4: VM_Bvk.CmdCif.Execute(4); ; break;
+                case Key.D5: VM_Bvk.CmdCif.Execute(5); ; break;
+                case Key.D6: VM_Bvk.CmdCif.Execute(6); ; break;
+                case Key.D7: VM_Bvk.CmdCif.Execute(7); ; break;
+                case Key.D8: VM_Bvk.CmdCif.Execute(8); ; break;
+                case Key.D9: VM_Bvk.CmdCif.Execute(9); ; break;
+
+                    /* case Key.Right: InPUControl.PressNeptKey(NumInpu, 11); break;
+                     case Key.Up: InPUControl.PressNeptKey(NumInpu, 14); break;
+                     case Key.Down: InPUControl.PressNeptKey(NumInpu, 13); break;
+                     case Key.Enter: InPUControl.PressNeptKey(NumInpu, 17); break;
+                     case Key.Escape: InPUControl.PressNeptKey(NumInpu, 24); break;*/
+            }
+
+            e.Handled = true;
+        }
     }
 }

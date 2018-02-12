@@ -4,7 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
                xmlns:my="clr-namespace:VirtualPultValves"
-            xmlns:vm="clr-namespace:VirtualPultValves.ViewModel" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:VirtualPultValves_PultControl="clr-namespace:VirtualPultValves.PultControl" x:Class="VirtualPultValves.Views.View_LDI"
+            xmlns:vm="clr-namespace:VirtualPultValves.ViewModel"
+    xmlns:System="clr-namespace:System;assembly=mscorlib"
+    xmlns:VirtualPultValves_PultControl="clr-namespace:VirtualPultValves.PultControl" 
+    x:Class="VirtualPultValves.Views.View_LDI"
+     PreviewKeyDown="UserControl_KeyDown"
              >
 	<UserControl.Resources>
         <!--<SolidColorBrush x:Key="numbrush" Color="#fff9450f" />-->

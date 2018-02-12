@@ -653,7 +653,7 @@
             			<Button Canvas.Left="181" Canvas.Top="795" Content="РМ1" Height="24" x:Name="button1" Width="37" Command="{Binding CmdInPU1Select, Source={StaticResource vInPU}}" Style="{StaticResource MenuButton}" />
             			<Button Canvas.Left="217" Canvas.Top="795" Content="РМ2" Height="24" x:Name="button2" Width="37" Command="{Binding CmdInPU2Select, Source={StaticResource vInPU}}" Style="{StaticResource MenuButton}" />
             		</Canvas>
-            		<Canvas Width="800" Height="180" Grid.Row="3" d:LayoutOverrides="HorizontalMargin" Grid.Column="1" Margin="-10.407,0.045,10.406,0.045">
+            		<Canvas Width="800" Height="180" Grid.Row="3"  Grid.Column="1" Margin="-10.407,0.045,10.406,0.045">
             			<pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="6" RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Content="5" Height="50" VerticalAlignment="Top" Canvas.Left="483.481" Canvas.Top="31.333"/>
             			<pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="1" RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Content="0" Height="50" VerticalAlignment="Top" Canvas.Left="483.759" Canvas.Top="84.997"/>
             			<pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="5" RenderTransformOrigin="5.627,1.687" Content="4" Height="50" VerticalAlignment="Top" Width="50" HorizontalAlignment="Left" Canvas.Left="432.438" Canvas.Top="31.333"/>
@@ -965,7 +965,7 @@
             			<Path Data="M820,657.11274 L869.83335,656.91025" Height="3.203" Stretch="Fill" Stroke="#FF060606" StrokeThickness="3" Canvas.Left="798" Canvas.Top="5.911" Width="52.832"/>
             		</Canvas>
 
-            		<Grid Height="180" Grid.Row="3" Grid.Column="1" Margin="0.186,0.045,9,0.045" d:LayoutOverrides="HorizontalMargin" Grid.ColumnSpan="2">
+            		<Grid Height="180" Grid.Row="3" Grid.Column="1" Margin="0.186,0.045,9,0.045"  Grid.ColumnSpan="2">
             			<Grid.RowDefinitions>
             				<RowDefinition Height="0.855*"/>
             				<RowDefinition x:Name="OVK_ROW" Height="0.154*"/>

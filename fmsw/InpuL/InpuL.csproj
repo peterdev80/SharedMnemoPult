@@ -94,6 +94,10 @@
       <Project>{504463d4-c8db-4e8a-a20f-f933e26f2ade}</Project>
       <Name>PultNeptun</Name>
     </ProjectReference>
+    <ProjectReference Include="..\VirtualPultValves\VirtualPultValves.csproj">
+      <Project>{DC240F6E-15F0-468A-8EE5-57441CE394C9}</Project>
+      <Name>VirtualPultValves</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
