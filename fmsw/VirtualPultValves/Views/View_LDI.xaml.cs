@@ -254,6 +254,10 @@ namespace VirtualPultValves.Views
                 case Key.D7: VM_Bvk.CmdCif.Execute(7); break;
                 case Key.D8: VM_Bvk.CmdCif.Execute(8); break;
                 case Key.D9: VM_Bvk.CmdCif.Execute(9); break;
+                case Key.Escape: { VM_Bvk.CmdISX.Execute(null); Button_ClickISX(this, new RoutedEventArgs()); } break;
+                case Key.Back: VM_Bvk.CmdOBN.Execute(null); break;
+                case Key.Enter: { VM_Bvk.CmdEnter.Execute(null); Button_Click_1(this, new RoutedEventArgs()); } break;
+
 
                     /* case Key.Right: InPUControl.PressNeptKey(NumInpu, 11); break;
                      case Key.Up: InPUControl.PressNeptKey(NumInpu, 14); break;
