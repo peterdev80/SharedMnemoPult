@@ -732,7 +732,6 @@
             </Canvas>
         </Viewbox>
         <CheckBox Content="ПИТ        РБС-У II" Height="20" HorizontalAlignment="Center" Margin="12,0,0,0" x:Name="checkBox1" VerticalAlignment="Top"  FontSize="15" Click="checkBox1_Click" />
-        <local:View_LDI HorizontalAlignment="Left" Height="100" Margin="-154,468.4,0,-91.6" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
-    </Grid>
+        </Grid>
 
 </UserControl>
