@@ -1,5 +1,4 @@
-﻿using fmslapi.Bindings.WPF;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
@@ -22,7 +21,9 @@ namespace ValueModel.BaseModel
 //            }
 //            catch (ApplicationException) { }
 //#endif
+            /*
             ExpressionBinding.SetBinding(bnd, CicloIntVar.VarCicloIntProperty, varObmen);
+            */
 
 
         }
@@ -37,8 +38,9 @@ namespace ValueModel.BaseModel
 //            catch (ApplicationException) { }
 //#endif
 
+            /*
             ExpressionBinding.SetBinding(bnd, BitIntVar.VarBitIntProperty, varObmen);
-
+            */
 
 
 
@@ -53,8 +55,10 @@ namespace ValueModel.BaseModel
 //            }
 //            catch (ApplicationException) { }
 //#endif
-            ExpressionBinding.SetBinding(bnd, BitVar.VaRStateBitProperty, varObmen);
 
+            /*
+            ExpressionBinding.SetBinding(bnd, BitVar.VaRStateBitProperty, varObmen);
+            */
 
 
         }
@@ -69,7 +73,9 @@ namespace ValueModel.BaseModel
 //            catch (ApplicationException) { }
 //#endif
 
+            /*
             ExpressionBinding.SetBinding(bnd, BoolVar.VaRStateBoolProperty, varObmen);
+            */
         }
         public static void DoubleBinding(VarClass bnd, string varObmen, string varID)
         {
@@ -83,7 +89,9 @@ namespace ValueModel.BaseModel
 //            catch (ApplicationException) { }
 //#endif
 
+            /*
             ExpressionBinding.SetBinding(bnd, DoubleVar.VaRStateDoubleProperty, varObmen);
+            */
         }
         public static void IntBinding(VarClass bnd, string varObmen, string varID)
         {
@@ -97,7 +105,9 @@ namespace ValueModel.BaseModel
 //#endif
 
 
+            /*
             ExpressionBinding.SetBinding(bnd, IntVar.VaRStateIntProperty, varObmen);
+            */
         }
         public static void FloatBinding(VarClass bnd, DependencyProperty dp, string varObmen, string varID)
         {
@@ -111,7 +121,9 @@ namespace ValueModel.BaseModel
 //            catch (ApplicationException) { }
 //#endif
 
+            /*
             ExpressionBinding.SetBinding(bnd, dp, varObmen);
+            */
 
         }
         public static void StateBinding(VarClass bnd, DependencyProperty dp, string varObmen, string varID)
@@ -128,7 +140,9 @@ namespace ValueModel.BaseModel
 //#endif
 
 
+            /*
             ExpressionBinding.SetBinding(bnd, dp, varObmen);
+            */
         }
 
       

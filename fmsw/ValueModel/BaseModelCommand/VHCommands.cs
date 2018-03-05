@@ -1,5 +1,4 @@
-﻿using fmslapi.Bindings.WPF;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,9 +23,11 @@ namespace ValueModel.BaseModelCommand
         //    if (pos != -1) { }
 
            
+            /*
             var v = VariablesDataContext.GetNamedContext(varID).VariablesChannel.GetBoolVariable(VarName);
             v.AutoSend = true;
             v.Value = val;
+            */
         }
 
         public static void ComIntK(string varID, string VarName, object PARAM)
@@ -36,9 +37,12 @@ namespace ValueModel.BaseModelCommand
             /*  var VaRSend = VHClass.Instance.GetVHPC(varID).VHCurr.GetIntVariable(VarName);
               VaRSend.AutoSend = true;
               VaRSend.Value = i;*/
+
+            /*
             var v = VariablesDataContext.GetNamedContext(varID).VariablesChannel.GetIntVariable(VarName);
             v.AutoSend = true;
             v.Value = i;
+            */
         }
         public static void ComComK(string varID, string VarName, object PARAM)
         {
@@ -47,9 +51,12 @@ namespace ValueModel.BaseModelCommand
             /*  var VaRSend = VHClass.Instance.GetVHPC(varID).VHCurr.GetKVariable(VarName);
               VaRSend.AutoSend = true;
               VaRSend.Set();*/
+
+            /*
             var v = VariablesDataContext.GetNamedContext(varID).VariablesChannel.GetKVariable(VarName);
             v.AutoSend = true;
             v.Set();
+            */
         }
         public static void ComBitK(string varID, string VarName, object PARAM, List<BitPosValue> KeyBit)
         {
@@ -59,9 +66,12 @@ namespace ValueModel.BaseModelCommand
             /* var VaRSend = VHClass.Instance.GetVHPC(varID).VHCurr.GetIntVariable(VarName);
              VaRSend.AutoSend = true;
              VaRSend.Value = (int)_val;*/
+
+            /*
             var v = VariablesDataContext.GetNamedContext(varID).VariablesChannel.GetIntVariable(VarName);
             v.AutoSend = true;
             v.Value = (int)_val;
+            */
         }
     }
 }

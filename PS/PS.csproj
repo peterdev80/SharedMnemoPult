@@ -26,22 +26,6 @@
       <Project>{DFBF2C76-486B-44FC-BE13-82C41EFEE1AF}</Project>
       <Name>fmslapi</Name>
     </ProjectReference>
-    <ProjectReference Include="..\fmsman\fmsman.csproj">
-      <Project>{BB93BE3E-DB2D-4A7A-9AD3-2307412C1D91}</Project>
-      <Name>fmsman</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\fmsnet\fmsldr\fmsldr.csproj">
-      <Project>{ACF2362E-28F8-45F1-A289-7F77BCFA05CA}</Project>
-      <Name>fmsldr</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\fmsnet\fmslstrap\fmslstrap.csproj">
-      <Project>{21FBB563-FA40-4875-ABA3-E5588E52EBC5}</Project>
-      <Name>fmslstrap</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\fmsproxy\fmsproxy.csproj">
-      <Project>{FA518495-56E8-4782-8025-88BC3EA03C1F}</Project>
-      <Name>fmsproxy</Name>
-    </ProjectReference>
     <ProjectReference Include="..\fmsw\FMS\FMS.csproj">
       <Project>{25F2266F-DAA4-44C9-B607-94CCDA4FB36F}</Project>
       <Name>FMS %28FMS\FMS%29</Name>

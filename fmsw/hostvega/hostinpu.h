@@ -4,9 +4,7 @@ using namespace System;
 using namespace System::Windows;
 using namespace System::Windows::Interop;
 using namespace System::Runtime::InteropServices;
-using namespace fmslapi::WPF;
 using namespace fmslapi;
-using namespace fmslapi::Channel;
 using namespace System::Diagnostics;
 using namespace System::Collections::Generic;
 using namespace System::Threading;
@@ -49,23 +47,15 @@ namespace AVIAKOM
         int _inpuType;
         int hostHeight, hostWidth;
         IChannel ^_ioneptun;
-        IChannel ^_ioneptuntomodel;
         IChannel ^_iointerinpu;
-        //IChannel ^_iovs;
-        IVariablesChannel ^_ctl;
-        Queue<Tuple<Byte, array<Byte>^>^> ^_io_q;
-		//Queue<array<Byte>^> ^_vs_q;
+
         Queue<Int32> ^_nk;
 		bool _failed;
-
-		IWatchDogVariable ^_iwd;
 
 		ManualResetEvent ^_unloaded;
 
 		void Worker(Object ^state);
 
-		void InterInpuReceived(ISenderChannel ^Sender, ReceivedMessage ^Data);
-		void NeptunReceived(ISenderChannel ^Sender, ReceivedMessage ^Data);
 		//void VegaReceived(ISenderChannel ^Sender, array<Byte>^ Data);
 		void NeptunSend(void *Buffer, UINT32 %Len, UINT32 Sender, UINT32 Receiver);
 

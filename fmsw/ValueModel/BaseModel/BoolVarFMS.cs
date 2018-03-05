@@ -1,5 +1,4 @@
-﻿using fmslapi.Bindings.WPF;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -7,7 +6,6 @@ using ValueModel.BaseType;
 
 namespace ValueModel.BaseModel
 {
-    [UseNamedVariablesContext("inpudc")]
     public class BoolVarFMS : VarClass
     {
         public BoolVarFMS(string varID)

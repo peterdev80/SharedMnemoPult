@@ -1,5 +1,4 @@
-﻿using fmslapi.Bindings.WPF;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +7,6 @@ using ValueModel.BaseModel;
 
 namespace ValueModel.BaseModelCommand
 {
-    [UseNamedVariablesContext("mnemo")]
     public abstract class VarSendClass 
     {
         private string _VarName = String.Empty;

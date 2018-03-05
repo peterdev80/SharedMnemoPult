@@ -1,5 +1,4 @@
 ﻿using fmslapi;
-using fmslapi.Channel;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -8,7 +7,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Threading;
-using fmslapi.Bindings.WPF;
 using ValueModel.BaseModel;
 namespace VirtualPultValves.Model
 {
@@ -57,10 +55,8 @@ namespace VirtualPultValves.Model
                 dins[i] = new BitVector32();
             dins[valnum][1 << poss] = vall;
             sendBuf();
-
-
-
         }
+
         public void SetSendVar(int vall, int valnum)
         {
             for (var i = 0; i < dins.Length; i++)
@@ -72,35 +68,35 @@ namespace VirtualPultValves.Model
         }
 
 
-
-
-
-
         public LinkInpu()
         {
-
+            /*
             var m = Manager.GetAPI("VirtKlapany", new Guid("{0BDF2636-CF7F-42D3-AF39-7801EDAFEFD5}"));
 
             _chan = m.JoinChannel("IO_KLAPANS", null);
             _chan.SyncReceive = true;
             //_rcvchannel = new SyncChannel(m.JoinChannel("MODEL_TO_KLAPANY", null));
+            */
+
+            _chan = new Channel("KlapansPort", "ModelAddr");
 
             _dt = new DispatcherTimer(TimeSpan.FromMilliseconds(50), DispatcherPriority.Normal, OnTimer, Dispatcher.CurrentDispatcher);
             _dt.Start();
 
             var repos = ModelVariableRepository.Instance;
+            /*
             ExpressionBinding.SetBinding(repos.BoolFMSValues[0], BoolVarFMS.VaRStateBoolPropertyFMS, "__FMS_WD_INPU1_LOADED");
             ExpressionBinding.SetBinding(repos.BoolFMSValues[1], BoolVarFMS.VaRStateBoolPropertyFMS, "__FMS_WD_INPU2_LOADED");
+            */
         }
         private void OnTimer(object sender, EventArgs e)
         {
-            ISenderChannel sc;
-            ReceivedMessage rm;
+            byte[] d;
 
-            while (_chan.Receive(out sc, out rm))
+            while ((d = _chan.TryGetMessage()) != null)
             {
                 var b = new UInt32[LINVAR];
-                var rd = new BinaryReader(new MemoryStream(rm.Data));
+                var rd = new BinaryReader(new MemoryStream(d));
                 if (rd.ReadUInt32() != 2002)
                     break;
                 for (var i = 0; i < LINVAR; i++)
@@ -111,13 +107,10 @@ namespace VirtualPultValves.Model
                 for (int i = 0; i < 3; i++)
                 {
                     repos.BitValues[i].VaRStateInt = (Int32)b[i];
-
-
                 }
+
                 for (int i = 0; i < 3; i++)
                     repos.IntValues[i].VaRStateInt = (Int32)b[i + 3];
-
-
             }
         }
     }

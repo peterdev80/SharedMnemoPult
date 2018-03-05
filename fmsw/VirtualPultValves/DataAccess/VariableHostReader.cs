@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using fmslapi.WPF.Variables;
 
 namespace VirtualPultValves.DataAccess
 {
+    /*
     class VariableHostReader
     {
 
@@ -16,4 +16,5 @@ namespace VirtualPultValves.DataAccess
             get { return VariableHostReader.vh; }
         }
     }
+    */
 }

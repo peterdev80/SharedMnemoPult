@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using VirtualPultValves.Model;
 using System.Windows.Input;
-using fmslapi.WPF.Variables;
 using System.Diagnostics;
 using ValueModel.BaseType;
 

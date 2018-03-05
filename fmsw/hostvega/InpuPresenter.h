@@ -5,7 +5,6 @@
 using namespace System;
 using namespace System::Windows::Interop;
 using namespace System::Runtime::InteropServices;
-using namespace fmslapi::WPF;
 using namespace fmslapi;
 using namespace System::Diagnostics;
 using namespace System::Collections::Generic;

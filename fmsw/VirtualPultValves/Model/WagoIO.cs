@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
-using fmslapi.Channel;
 using fmslapi;
 using System.Windows.Threading;
 using System.Collections.Specialized;
@@ -14,8 +13,7 @@ namespace VirtualPultValves.Model
     public sealed class WagoIO
     {
         private static volatile WagoIO instance;
-        private readonly SyncChannel _rcvchannel;
-        private readonly IChannel _sendchannel;
+        private readonly IChannel _channel;
         private readonly DispatcherTimer _dt;
 
         private static UInt32 _pid;
@@ -75,10 +73,7 @@ namespace VirtualPultValves.Model
             clInpu_2 = new BoolValue();
             cLapmPult = new BoolValue();
 
-            var m = Manager.GetAPI("VirtWago", new Guid("{F7AE9595-2CCD-4683-9240-BC5F135677A9}"));
-
-            _sendchannel = m.SafeJoinChannel("IO_NEPTUN_TO_MODEL", null);
-            _rcvchannel = new SyncChannel(m.JoinChannel("MODEL_TO_WAGO", null));
+            _channel = new Channel("WagoPort", "ModelAddr");
 
             _dt = new DispatcherTimer(TimeSpan.FromMilliseconds(50), DispatcherPriority.Normal, OnTimer, Dispatcher.CurrentDispatcher);
             _dt.Start();
@@ -86,14 +81,11 @@ namespace VirtualPultValves.Model
         
         private void OnTimer(object sender, EventArgs e)
         {
-            while (_rcvchannel.HasMessages)
+            byte[] m;
+
+            while ((m = _channel.TryGetMessage()) != null)
             {
-                var m = _rcvchannel.TryGetMessage();
-
-                if (m == null)
-                    break;
-
-                var rd = new BinaryReader(new MemoryStream(m.Data));
+                var rd = new BinaryReader(new MemoryStream(m));
 
                 if (rd.ReadUInt32() != 0x71AF5A13)
                     continue;
@@ -217,7 +209,7 @@ namespace VirtualPultValves.Model
             foreach (var bb in bs)
                 wr.Write(bb);
 
-            _sendchannel.SendMessage(ms.ToArray());
+            _channel.SendMessage(ms.ToArray());
         }
     }
 }

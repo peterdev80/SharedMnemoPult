@@ -15,8 +15,6 @@ namespace AVIAKOM
 	{
 		HideCursor = false;
 
-		_io_q = gcnew Queue<Tuple<Byte, array<Byte>^>^>();
-		//_vs_q = gcnew Queue<array<Byte>^>();
 		_nk = gcnew Queue<Int32>();
 
 		_inpuType = InpuNum;
@@ -46,8 +44,6 @@ namespace AVIAKOM
 		SetErrorMode(SEM_FAILCRITICALERRORS);
 		//SetDllDirectory(_T(".\\vega\\"));						// В ./vegabfi/ ресурсы и конфиг. Код загружается из ./vega/
 		_hlib = LoadLibrary(_T("InPU.dll"));
-
-		auto man = APIHost::GetAssociatedAPIHost("iwks")->Manager;
 
 		if (_hlib == NULL) 
 		{
@@ -128,15 +124,6 @@ namespace AVIAKOM
 			return;
 		}
 
-		_ctl = man->JoinVariablesChannel("Control", "FMSControl", nullptr, nullptr);
-		_iwd = _ctl->GetWatchDogVariable(String::Format("__FMS_WD_INPU{0}_LOADED", _inpuType));
-
-		if (_iwd->Value)
-		{
-			Dispatcher->BeginInvoke(Failed, gcnew array<Exception^>(1) { gcnew ExternalException("Нельзя запустить несколько экземпляров ИнПУ.", 0xdeadbeef) });
-			return;	
-		}
-
 		_hf = gcnew System::Windows::Forms::Form();
 		hwndInpu = (HWND)_hf->Handle.ToPointer();
 		_hf->Width = 800;
@@ -150,10 +137,6 @@ namespace AVIAKOM
 		_hft->Tick += gcnew EventHandler(this, &ControlHost::OnpTick);
 		_hft->Enabled = true;
 
-		_iwd->CheckDups = false;
-		_iwd->AutoSend = true;
-		_iwd->Reset(60);
-
 		switch(_inpuType)
 		{
 		case 1: Inpu_Start(hwndInpu, NULL, 2, 2, NULL); break;
@@ -163,31 +146,14 @@ namespace AVIAKOM
 		if (HideCursor)
 			ShowCursor(false);
 
-		// Канал данных от модели
-		_ioneptun = man->JoinChannel("IO_NEPTUN", gcnew DataReceived(this, &ControlHost::NeptunReceived)); 
-		_ioneptun->UsePacketOrder = gcnew Reorder::PacketReorder();
-
-		// Канал данных в модель
-		_ioneptuntomodel = man->JoinChannel("IO_NEPTUN_TO_MODEL", nullptr);
+		// Канал данных модели
+		_ioneptun = gcnew Channel(_inpuType == 1 ? "Inpu1Port" : "Inpu2Port", "ModelAddr");
 
 		// Канал обмена ИнПУ между собой
-		_iointerinpu = man->JoinChannel("IO_INTERINPU", gcnew DataReceived(this, &ControlHost::InterInpuReceived));  
-		_iointerinpu->UsePacketOrder = gcnew Reorder::PacketReorder();
+		_iointerinpu = gcnew Channel(nullptr, _inpuType == 1 ? "Inpu2Addr" : "Inpu1Addr");
 
 		// Канал данных визуализации БФИ
 		//_iovs = man->JoinChannel("IO_VS", gcnew DataReceived(this, &ControlHost::VegaReceived));                     
-
-		auto vl = _ctl->GetKVariable("__FMS_VEGA_LOADED_ACK");
-		vl->AutoSend = true;
-		vl->Set();
-
-		auto _fps = _ctl->GetFloatVariable(String::Format("__FMS_INPU{0}_FPS", _inpuType));
-		_fps->AutoSend = true;
-		_fps->CheckDups = true;
-
-		auto fq = gcnew Queue<int>();
-		for(int i=0; i<200; i++)
-			fq->Enqueue(0);
 
 		Dispatcher->BeginInvoke(InpuLoaded);
 
@@ -199,7 +165,6 @@ namespace AVIAKOM
 		_unloaded->Set();
 
 		_ioneptun->Leave();
-		_ioneptuntomodel->Leave();
 		_iointerinpu->Leave();
 		//_iovs->Leave();
 
@@ -215,18 +180,8 @@ namespace AVIAKOM
 
 	void ControlHost::OnpTick(Object ^Sender, EventArgs ^e)
 	{
-		//VSEPCommandBuffer ipack;
-
-		static int phase = 0;
-
 		if(Inpu_Run != NULL)
 		{
-			if (++phase == 40)
-			{
-				phase = 0;
-				_iwd->Reset();
-			}
-
 			// Нажатие клавиш пульта
 			Monitor::Enter(_nk);
 			while(_nk->Count > 0)
@@ -245,34 +200,24 @@ namespace AVIAKOM
 			Monitor::Exit(_nk);
 
 			// Данные ИнПУ
-			Monitor::Enter(_io_q);
-			while(_io_q->Count > 0)
-			{
-				auto d = _io_q->Dequeue();
-				pin_ptr<Byte> dp = &d->Item2[0];
-				UINT32 len = d->Item2->Length;
+			array<Byte> ^d;
 
-				Inpu_Receive(dp, len, d->Item1, _inpuType);
-			}
-			Monitor::Exit(_io_q);
-
-			// Данные СКГИ
-			/*Monitor::Enter(_vs_q);
-			while(_vs_q->Count > 0)
+			while((d = _ioneptun->TryGetMessage()) != nullptr)
 			{
-				auto d = _vs_q->Dequeue();
 				pin_ptr<Byte> dp = &d[0];
 				UINT32 len = d->Length;
-				SV_receive(dp, len);
+
+				auto rd = gcnew System::IO::BinaryReader(gcnew System::IO::MemoryStream(d));
+
+				if (rd->ReadUInt32() != 0x71AF5A13)
+					continue;
+
+				auto sender = rd->ReadUInt16();
+				auto receiver = rd->ReadUInt16();
+
+				Inpu_Receive(dp, len, sender, receiver);
 			}
-			Monitor::Exit(_vs_q);*/
-
-			/*CreatePacket(ipack);
-			UINT32 l = ipack.GetLength();
-
-			if (l != 0 && !_failed)
-				SV_receive(ipack.GetBuffer(), l);*/
-
+			
 			Inpu_Run();
 		}
 
@@ -310,45 +255,6 @@ namespace AVIAKOM
 		_unloaded = nullptr;
 	}
 
-	// Прием данных от соседнего ИнПУ
-	void ControlHost::InterInpuReceived(ISenderChannel ^Sender, ReceivedMessage ^Message)
-	{
-		auto Data = Message->Data;
-
-		if (_failed)
-			return;
-
-		auto sender = _inpuType == 1 ? 2 : 1;
-
-		Monitor::Enter(_io_q);
-		_io_q->Enqueue(gcnew Tuple<Byte, barr>(sender, Data));
-		Monitor::Exit(_io_q);
-	}
-
-	// Прием данных от модели
-	void ControlHost::NeptunReceived(ISenderChannel ^Sender, ReceivedMessage ^Message)
-	{
-		auto Data = Message->Data;
-
-		if (_failed)
-			return;
-
-		Monitor::Enter(_io_q);
-		_io_q->Enqueue(gcnew Tuple<Byte, barr>(3, Data));
-		Monitor::Exit(_io_q);
-	}
-
-	// Прием данных от модели для СКГИ
-	/*void ControlHost::VegaReceived(ISenderChannel ^Sender, array<Byte>^ Data)
-	{
-		if (_failed)
-			return;
-
-		Monitor::Enter(_vs_q);
-		_vs_q->Enqueue(Data);
-		Monitor::Exit(_vs_q);
-	}*/
-
 	// Передача данных в модель и соседнее ИнПУ
 	void ControlHost::NeptunSend(void *Buffer, UINT32 %Len, UINT32 Sender, UINT32 Receiver)
 	{
@@ -356,8 +262,8 @@ namespace AVIAKOM
 			return;
 
 		// Отправка в модель
-		if (Receiver == 3 && _ioneptuntomodel != nullptr)
-			_ioneptuntomodel->SendMessage(IntPtr(Buffer), (int)Len);
+		if (Receiver == 3 && _ioneptun != nullptr)
+			_ioneptun->SendMessage(IntPtr(Buffer), (int)Len);
 
 		// Отправка на соседний ИнПУ
 		if (Receiver == (_inpuType == 1 ? 2 : 1) && _iointerinpu != nullptr)
