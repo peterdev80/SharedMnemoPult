@@ -951,7 +951,7 @@
                     </Path>
 
                 </Grid>
-                <pc:PultBigButton   Content="ПЕРЕДАЧА" FontSize="8"  x:Name="kip1" Height="43.867" Canvas.Left="121.199" Canvas.Top="39.592" Width="64.867"/>
+                <pc:PultBigButton   Content="ПЕРЕДАЧА" FontSize="8"  x:Name="kip1" Height="43.867" Canvas.Left="121.199" Canvas.Top="39.592" Width="64.867" ClickMode="Press"/>
                 <Grid x:Name="Lamp1" Height="19" Canvas.Left="143.266" Canvas.Top="-1.2" Width="19">
                     <Ellipse Height="19" Stroke="Black"  Width="19" Fill="#FF454544" Margin="0,16.5,0,-16.5"/>
                     <Ellipse HorizontalAlignment="Left" Height="14" Stroke="Black" VerticalAlignment="Top" Width="14" Margin="2.567,19.166,0,-14.166">
@@ -1056,7 +1056,7 @@
                     </Path>
 
                 </Grid>
-                <pc:PultBigButton   Content="ПЕРЕДАЧА" FontSize="8"  x:Name="kip2" Height="43.867" Canvas.Left="32.399" Canvas.Top="40.392" Width="64.867"/>
+                <pc:PultBigButton   Content="ПЕРЕДАЧА" FontSize="8"  x:Name="kip2" Height="43.867" Canvas.Left="32.399" Canvas.Top="40.392" Width="64.867" />
                 <Grid x:Name="Lamp2" Height="19" Canvas.Left="54.466" Canvas.Top="-0.4" Width="19">
                     <Ellipse Height="19" Stroke="Black"  Width="19" Fill="#FF454544" Margin="0,16.5,0,-16.5"/>
                     <Ellipse HorizontalAlignment="Left" Height="14" Stroke="Black" VerticalAlignment="Top" Width="14" Margin="2.567,19.166,0,-14.166">

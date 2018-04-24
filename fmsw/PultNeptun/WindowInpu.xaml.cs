@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using VirtualPultValves.Model;
 using VirtualPultValves.Views;
 
 namespace PultNeptun
@@ -40,6 +41,7 @@ namespace PultNeptun
             InPUControl = _inwin1.InPUControl;
             WinPult.DataContext = _inwin1;
             vminpu = roo.DataContext as VirtualPultValves.ViewModel.ViewModel_InPU;
+            WagoIO.Instance.SenderType = 8; //Инпу1
         }
 
         private void UserControl_KeyDown(object sender, KeyEventArgs e)

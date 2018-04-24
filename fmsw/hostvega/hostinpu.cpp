@@ -4,6 +4,11 @@
 #include "hostinpu.h"
 #include "hpet.h"
 
+#include <stdio.h>
+using namespace System::IO; 
+using namespace System::Text;
+
+
 #pragma managed(push, off)
 void LoadNeptunFont();
 void UnloadNeptunFont();
@@ -11,6 +16,20 @@ void UnloadNeptunFont();
 
 namespace AVIAKOM
 {
+
+	/*struct TFormReq
+	{
+		UINT32 magic;
+		UINT16 sender;
+		UINT16 receiver;
+		UINT32 id;
+		UINT32 num;
+		UINT8 extId;
+		int formNum;
+		UINT16 sf1;
+		UINT16 sf2;
+	};*/
+
 	ControlHost::ControlHost(double height, double width, int InpuNum)
 	{
 		HideCursor = false;
@@ -41,7 +60,7 @@ namespace AVIAKOM
 		pSV_netInit SV_netInit;
 #pragma endregion
 
-		SetErrorMode(SEM_FAILCRITICALERRORS);
+		SetErrorMode(SEM_FAILCRITICALERRORS);   
 		//SetDllDirectory(_T(".\\vega\\"));						// В ./vegabfi/ ресурсы и конфиг. Код загружается из ./vega/
 		_hlib = LoadLibrary(_T("InPU.dll"));
 
@@ -201,8 +220,7 @@ namespace AVIAKOM
 
 			// Данные ИнПУ
 			array<Byte> ^d;
-
-			while((d = _ioneptun->TryGetMessage()) != nullptr)
+			while ((d = _ioneptun->TryGetMessage()) != nullptr)
 			{
 				pin_ptr<Byte> dp = &d[0];
 				UINT32 len = d->Length;
@@ -214,9 +232,114 @@ namespace AVIAKOM
 
 				auto sender = rd->ReadUInt16();
 				auto receiver = rd->ReadUInt16();
+				auto id = rd->ReadInt32();
+				auto num = rd->ReadUInt32();
+				auto extid = rd->ReadByte();
 
-				Inpu_Receive(dp, len, sender, receiver);
+
+				if (receiver != 0 && receiver != 2 && receiver != 1)
+					continue;
+
+				if (id == 2 && extid == 3)
+				{
+					auto n = rd->ReadInt32();
+
+					if (n != 0)
+					{
+						int a = 2;
+					}
+				}
+				Inpu_Receive(dp, len, sender, receiver == 0 ? _inpuType : receiver);
 			}
+#pragma region Trash
+
+
+
+		/*	while((d = _ioneptun->TryGetMessage()) != nullptr)
+			{
+				pin_ptr<Byte> dp = &d[0];
+				UINT32 len = d->Length;
+
+				auto rd = gcnew System::IO::BinaryReader(gcnew System::IO::MemoryStream(d));
+
+				if (rd->ReadUInt32() != 0x71AF5A13)
+					continue;
+
+				auto sender = rd->ReadUInt16();
+				auto receiver = rd->ReadUInt16();							
+				auto id = rd->ReadUInt32();
+				auto num = rd->ReadUInt32();
+				
+			
+				TFormReq fr;
+				fr.magic = 0x71AF5A13;
+				fr.sender = sender;
+				fr.receiver = receiver;
+				fr.id = id;
+				fr.num = num;
+				
+				
+				//if (id == 0x0002)
+				{
+					auto extId = rd->ReadByte();
+					auto formNum = rd->ReadInt32();
+					fr.sf1 = rd->ReadUInt16();
+					fr.sf2 = rd->ReadUInt16();
+					fr.extId = extId;
+				fr.formNum = 0;
+
+					//if (extId == 0x03)
+					//{
+
+						
+
+						
+
+						UINT32 len1 = sizeof(TFormReq);
+
+						
+
+						
+
+				
+
+						//sw->WriteLine("+++++++++++++++++++++");
+						//for (int i = 0; i < d->Length; i++)
+						//{
+						//	/*if (i == 0) sw->WriteLine("Magic Val");
+						//	if (i == 4) sw->WriteLine("Sender");
+						//	if (i == 6) sw->WriteLine("Reciver");
+						//	if (i == 8) sw->WriteLine("Id");
+						//	if (i == 12) sw->WriteLine("NUM");
+						//	if (i == 16) sw->WriteLine("ExtId");
+						//	if (i == 17) sw->WriteLine("Data");
+						//	sw->WriteLine(dp[i]);
+						//	sw->WriteLine(sender);
+						//	sw->WriteLine(receiver);
+						//	sw->WriteLine(id);
+						//	sw->WriteLine(num);
+						//	sw->WriteLine(extId);
+						//	sw->WriteLine(formNum);
+						//	sw->WriteLine(fr.formNum);
+						//	sw->WriteLine("----------------------------------------");						
+						//}
+						//sw->Close();
+					//}
+				//}
+						
+							
+				//Inpu_Receive(dp, len, sender, receiver);  
+				//Inpu_Receive(&fr, len, sender, _inpuType);
+				FILE *fp = fopen("packet.txt", "a+");
+				if (fp)
+				{
+					fprintf(fp, "num = %d", num);
+					fclose(fp);
+				}
+		//	if(!sended) Inpu_Receive(dp, len, sender, _inpuType);
+		//	}
+		*/
+#pragma endregion
 			
 			Inpu_Run();
 		}

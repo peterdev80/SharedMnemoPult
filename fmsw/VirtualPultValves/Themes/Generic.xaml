@@ -66,7 +66,7 @@
                                 </LinearGradientBrush>
                             </Border.Background>
                         </Border>
-                        <Grid x:Name="grClose" Grid.ColumnSpan="3" Grid.RowSpan="2" Grid.Row="1" Cursor="UpArrow">
+                        <Grid x:Name="grClose" Grid.ColumnSpan="3" Grid.RowSpan="2" Grid.Row="1" Cursor=" UpArrow">
                             <Grid.ColumnDefinitions>
                           
 						<ColumnDefinition Width="{DynamicResource GridLengthC1}"/>

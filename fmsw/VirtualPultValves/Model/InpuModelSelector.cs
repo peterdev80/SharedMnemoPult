@@ -30,15 +30,19 @@ namespace VirtualPultValves.Model
             }
         }
         #endregion
-
+        /// <summary>
+        /// Конструктор для внутреннего использования через Instance
+        /// </summary>
         public InpuModelSelector()
         {
             LoadedInpu = String.Empty;
         }
-
+       //Имя загруженного ИнПУ
       public  string LoadedInpu { get; set; }  
           
-     
+     /// <summary>
+     /// Перегрузка ИнПу пусстым значением
+     /// </summary>
       public  void ReloadSelectInpu()
       {
           LoadedInpu = String.Empty;

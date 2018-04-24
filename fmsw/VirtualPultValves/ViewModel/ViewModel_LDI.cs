@@ -10,33 +10,36 @@ namespace VirtualPultValves.ViewModel
 {
     public class ViewModel_LDI : ViewModelBase
     {
-       //счетчик разряда числа
-        int step = 5;
-        int sec = 0;
-        public IntValue l1 { get; set; }
-        public IntValue l2 { get; set; }
-        public IntValue l3 { get; set; }
-        public IntValue l4 { get; set; }
-        public IntValue l5 { get; set; }
 
-        public IntValue ls1 { get; set; }
-        public IntValue ls2 { get; set; }
-        public IntValue ls3 { get; set; }
-        public IntValue ls4 { get; set; }
+        int step = 5;//счетчик разряда числа
+        int sec = 0;//время замера
+        private int curValue1; //замер 1
+        private int curValue2; //замер 2
+        private int curValue3; //буфер замера
+        double rspeed; //расчетная скорость
+        private string curValue;//значение текущего замера
 
-        public BoolValue lamp1 { get; set; }
-        public BoolValue lamp2 { get; set; }
-        public IntValue Indicator { get; private set; }
-        public IntValue Razryad { get; private set; }
-        public DoubleValue Speed { get; set; }
-        private int curValue1;
-        private int curValue2;
-        private int curValue3;
-        double  rspeed;
+        public IntValue l1 { get; set; }// Первый сегмент ввода
+        public IntValue l2 { get; set; }//сегмент ввода
+        public IntValue l3 { get; set; }//сегмент ввода
+        public IntValue l4 { get; set; }//сегмент ввода
+        public IntValue l5 { get; set; }//пятый сегмент ввода
+
+        public IntValue ls1 { get; set; }//первый сегмент выывода
+        public IntValue ls2 { get; set; }//сегмент вывода
+        public IntValue ls3 { get; set; }//сегмент вывода
+        public IntValue ls4 { get; set; }//сегмент вывода
 
 
-        private string curValue;
+        public BoolValue lamp1 { get; set; } //Лампа первого замера
+        public BoolValue lamp2 { get; set; } //Лампа второго замера
+        public IntValue Indicator { get; private set; } // Индикатор состояния прибора
+        public IntValue Razryad { get; private set; }//точка разряда
+        public DoubleValue Speed { get; set; } //расчитанная скорость
 
+        /// <summary>
+        /// Конструкор, инициализация состояний
+        /// </summary>
         public ViewModel_LDI()
         {
             l1 = new IntValue();
@@ -64,7 +67,7 @@ namespace VirtualPultValves.ViewModel
             lamp1.ValueState = false;
             lamp2 = new BoolValue();
             lamp2.ValueState = false;
-           
+
 
             Indicator = new IntValue();
             Indicator.ValueState = 0;
@@ -79,8 +82,10 @@ namespace VirtualPultValves.ViewModel
         }
 
         #region Command
-        private RelayCommand cmdCif,cmdTimerStop, cmdOBN, cmdISX, cmdI;
-
+        private RelayCommand cmdCif, cmdTimerStop, cmdOBN, cmdISX, cmdI;
+        /// <summary>
+        ///Комманда нажатия цифры
+        /// </summary>
         public ICommand CmdCif
         {
             get
@@ -90,28 +95,29 @@ namespace VirtualPultValves.ViewModel
                 return cmdCif;
             }
         }
-
+        //обработка цифр
         private void osnSend(object param)
         {
-           
-            
-            
-            if (step<4)
-            { 
-               
-                step++; 
+            //определяем последовательность и разряд цифр
+            if (step < 4)
+            {
+                step++;
                 Razryad.ValueState = step;
-            curValue=curValue+param.ToString();
-            if (step == 1) l2.ValueState = Int32.Parse(param.ToString());
-            if (step == 2) l3.ValueState = Int32.Parse(param.ToString());
-            if (step == 3) l4.ValueState = Int32.Parse(param.ToString());
-            if (step == 4) l5.ValueState = Int32.Parse(param.ToString());
-           // if (step == 5) l5.ValueState = Int32.Parse(param.ToString());
+                curValue = curValue + param.ToString();
+                //В зависимости от порядка ввода заполняем индикаторы
+                if (step == 1) l2.ValueState = Int32.Parse(param.ToString());
+                if (step == 2) l3.ValueState = Int32.Parse(param.ToString());
+                if (step == 3) l4.ValueState = Int32.Parse(param.ToString());
+                if (step == 4) l5.ValueState = Int32.Parse(param.ToString());
+
             }
 
         }
 
 
+        /// <summary>
+        /// Комманда приведение в исходное состояние
+        /// </summary>
         public ICommand CmdISX
         {
             get
@@ -121,7 +127,6 @@ namespace VirtualPultValves.ViewModel
                 return cmdISX;
             }
         }
-
         private void osnSendISX(object param)
         {
             obnul();
@@ -132,46 +137,41 @@ namespace VirtualPultValves.ViewModel
             Speed.ValueState = 0d;
             SpeedShow(Speed.ValueState);
             lampSetup();
-
-
-
-
         }
 
 
+        /// <summary>
+        /// Комманда обнуление ввода
+        /// </summary>
         public ICommand CmdOBN
         {
             get
             {
                 if (cmdOBN == null)
-                    cmdOBN = new RelayCommand(param => osnSendOBN(param));
+                    cmdOBN = new RelayCommand(param => { obnul(); });
                 return cmdOBN;
             }
         }
 
-        private void osnSendOBN(object param)
-        {
-            obnul();
-
-        }
 
 
+        /// <summary>
+        /// Команда остановки таймера
+        /// </summary>
         public ICommand TimerStop
         {
             get
             {
-                if (cmdTimerStop==null)
-                    cmdTimerStop=new RelayCommand(param=>onTime(param));
+                if (cmdTimerStop == null)
+                    cmdTimerStop = new RelayCommand(param => { sec = int.Parse(param.ToString()); });
                 return cmdTimerStop;
             }
         }
 
-        private void onTime(object param)
-        {
-            sec = int.Parse(param.ToString());
-           /// 
-        }
 
+        /// <summary>
+        /// Комманда принятия данных
+        /// </summary>
         public ICommand CmdEnter
         {
             get
@@ -185,14 +185,17 @@ namespace VirtualPultValves.ViewModel
         private void onEnter(object param)
         {
 
-            
-            
-            if (Indicator.ValueState<2)
-            Indicator.ValueState++;
+
+            //определяем какой замер 1,2
+            if (Indicator.ValueState < 2) Indicator.ValueState++;
+            //Установка значения выбброной лампы в зависимости от замера
             lampSetup();
-            if ((curValue != null)&&(curValue!=""))
+            //проверяем коректность состояния 
+            if ((curValue != null) && (curValue != ""))
             {
+                //при первом замере сохраняем значение растояния
                 if (Indicator.ValueState == 1) curValue1 = int.Parse(curValue);
+                //Если второй замер расчитываем скорость
                 if (Indicator.ValueState == 2)
                 {
                     curValue2 = int.Parse(curValue);
@@ -200,119 +203,106 @@ namespace VirtualPultValves.ViewModel
                     if (sec != 0)
                     {
 
-                       
+
                         Speed.ValueState = Math.Round((double)metr / (double)sec, 1);
 
                     }
-                   
+                    //вывод скорости на индикаторы
                     SpeedShow(Speed.ValueState);
 
                     curValue3 = curValue2;
-                    
+
                 }
             }
 
             obnul();
 
-          
+
 
         }
 
-        
 
 
-        #endregion
+        //обнуление полей ввода
         private void obnul()
         {
-           
             l1.ValueState = 0;
-            
             l2.ValueState = 0;
-           
             l3.ValueState = 0;
-           
             l4.ValueState = 0;
-           
-            l5.ValueState = 0;     
-           
-           
-            Razryad.ValueState =0;
+            l5.ValueState = 0;
+            Razryad.ValueState = 0;
             step = 0;
             curValue = "";
-
         }
-
         private void SpeedShow(double var_s)
         {
             if (var_s == 0)
             {
                 ls1.ValueState = -1;
-
                 ls2.ValueState = 0;
-
                 ls3.ValueState = 0;
-
                 ls4.ValueState = 0;
 
-                
             }
-            //первый разряд сближения расхлждения
-            if (var_s < 0) ls1.ValueState = -1;
-            if (var_s>0) ls1.ValueState=10;
+            //первый разряд сближения расхождения 
+            if (var_s < 0) ls1.ValueState = -1;//сближение
+            if (var_s > 0) ls1.ValueState = 10;//расхождение
             if (var_s != 0)
             {
-
                 var_s = Math.Abs(var_s);
                 //первый десятичный разряд
                 double i1 = Math.Truncate(var_s / 10);
-
+                //второй десятичный разряд
                 double i2 = Math.Truncate(var_s - i1 * 10);
-
+                //третий десятичный разряд
                 double i3 = Math.Truncate((var_s - i1 * 10 - i2) * 10);
-
-
+                //Разряды скорости 2,3,4
                 ls2.ValueState = (int)i1;
-
                 ls3.ValueState = (int)i2;
-
                 ls4.ValueState = (int)i3;
-             
+
             }
 
 
         }
-
-        public void SRasShow(int timsec)
-        {
-            rspeed = -1 * Speed.ValueState;
-
-
-            double metr = rspeed * timsec + curValue3;
-
-            double i1 = Math.Truncate(metr / 1000);
-
-            double i2 = Math.Truncate((metr - i1 * 1000)/100);
-
-            double i3 = Math.Truncate((metr - i1 * 1000 - i2*100) / 10);
-            double i4= Math.Truncate((metr - i1 * 1000 - i2 * 100-i3*10));
-
-            l2.ValueState = (int)i1;
-            l3.ValueState = (int)i2;
-            l4.ValueState = (int)i3;
-            l5.ValueState = (int)i4;
-            Razryad.ValueState = 4;
-
-
-        }
-
+        //Установка ламп в зависимости от измерения
         private void lampSetup()
         {
             lamp1.ValueState = false;
             lamp2.ValueState = false;
 
-            if (Indicator.ValueState == 1) lamp1.ValueState = true;
-            if (Indicator.ValueState == 2) lamp2.ValueState = true;
+            if (Indicator.ValueState == 1) lamp1.ValueState = true; //первое измерение
+            if (Indicator.ValueState == 2) lamp2.ValueState = true; //второе измерение
         }
+
+
+        #endregion
+
+
+        /// <summary>
+        /// отображение прогноза растояние в зависимости от расчета скорости
+        /// </summary>
+        /// <param name="timsec"></param>
+        public void SRasShow(int timsec)        {
+            rspeed = -1 * Speed.ValueState;
+            double metr = rspeed * timsec + curValue3; //расчет расстоянмя
+
+            //разложение расстояние по индикаторам
+            double i1 = Math.Truncate(metr / 1000);
+            double i2 = Math.Truncate((metr - i1 * 1000) / 100);
+            double i3 = Math.Truncate((metr - i1 * 1000 - i2 * 100) / 10);
+            double i4 = Math.Truncate((metr - i1 * 1000 - i2 * 100 - i3 * 10));
+            l2.ValueState = (int)i1;
+            l3.ValueState = (int)i2;
+            l4.ValueState = (int)i3;
+            l5.ValueState = (int)i4;
+
+            Razryad.ValueState = 4; //убрать точку
+
+
+        }
+
     }
 
 }

@@ -24,9 +24,9 @@
 
         <Grid.RowDefinitions>
             <RowDefinition x:Name="MyRow0" Height="0"/>
-            <RowDefinition Height="50*"/>
-            <RowDefinition Height="595*"/>
-            <RowDefinition Height="433*"/>
+            <RowDefinition Height="16*"/>
+            <RowDefinition Height="580*"/>
+            <RowDefinition Height="403*"/>
             <RowDefinition Height="0"/>
             <RowDefinition x:Name="MyRow1" Height="0"/>
 
@@ -226,7 +226,7 @@
                 <Path Data="M179.77,225.003 L265.333,225.003" HorizontalAlignment="Left" Stretch="Fill" Width="52.875" StrokeThickness="7" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="7" VerticalAlignment="Top" Canvas.Left="2.818" Canvas.Top="583.359" Stroke="{StaticResource BrushRamka}"/>
                 <TextBlock TextWrapping="Wrap" FontSize="13.333" Canvas.Left="12.089" Canvas.Top="-42.881" Text="{Binding TextInPU, Source={StaticResource vInPU}}"/>
 
-                <mv:View_TC Canvas.Left="95.569" x:Name="view_TC1" Height="751.191" Width="173.902" RMType="1"  />
+                <mv:View_TC Canvas.Left="95.569" x:Name="view_TC1" Height="751.191" Width="173.902" RMType="2"  />
                 <pc:PultGlassButton Command="{x:Static local:WindowInpuR.BtnCmd}"  CommandParameter="6" RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Content="5" Height="50" VerticalAlignment="Top" Canvas.Left="-375.525" Canvas.Top="548.48"/>
                 <pc:PultGlassButton Command="{x:Static local:WindowInpuR.BtnCmd}"  CommandParameter="1" RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Content="0" Height="50" VerticalAlignment="Top" Canvas.Left="-375.247" Canvas.Top="602.144"/>
                 <pc:PultGlassButton Command="{x:Static local:WindowInpuR.BtnCmd}"  CommandParameter="5" RenderTransformOrigin="5.627,1.687" Content="4" Height="50" VerticalAlignment="Top" Width="50" HorizontalAlignment="Left" Canvas.Left="-426.568" Canvas.Top="548.48"/>
@@ -624,7 +624,10 @@
 
         </Viewbox>
 
-        <pc:PanelInpu Grid.Column="3" Grid.Row="2" Background="#FFF30B0B" TypePanel="1" Margin="59.5,0">
+        <pc:PanelInpu Grid.Column="3" Grid.Row="2" TypePanel="1" Margin="59.5,0">
+            <pc:PanelInpu.Background>
+                <SolidColorBrush Color="#FFF30B0B" Opacity="0"/>
+            </pc:PanelInpu.Background>
             <ContentControl x:Name="WinPult" Content="{Binding ''}"  Background="#FFE73737" BorderBrush="#FFD03131"    />
         </pc:PanelInpu>
 

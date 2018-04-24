@@ -19,13 +19,13 @@
     </UserControl.CommandBindings>
 
 
-    <Grid Background="#FFA6A4A4" >
+    <Grid Background="#FF7A8486" >
 
         <Grid.RowDefinitions>
             <RowDefinition x:Name="MyRow0" Height="0"/>
-            <RowDefinition Height="50*"/>
-            <RowDefinition Height="595*"/>
-            <RowDefinition Height="433*"/>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="556*"/>
+            <RowDefinition Height="406*"/>
             <RowDefinition Height="0"/>
             <RowDefinition x:Name="MyRow1" Height="0"/>
 
@@ -41,7 +41,7 @@
         </Grid.ColumnDefinitions>
 
 
-        <Viewbox Grid.Column="4" Grid.RowSpan="4" Stretch="Fill" Grid.ColumnSpan="2">
+        <Viewbox Grid.Column="4" Grid.RowSpan="5" Stretch="Fill" Grid.ColumnSpan="2">
             <Canvas x:Name="roo" Height="864" Width="879" DataContext="{Binding Source={StaticResource vInPU}}">
                 <Path Data="M19.5,2.5 L87.606287,2.5 C96.995127,2.5 103.86139,10.111159 103.86139,19.5 L103.86139,111.964 C103.86139,121.35284 96.995127,128.964 87.606287,128.964 L19.5,128.964" Stretch="Fill" Stroke="#FF060606" StrokeThickness="3" VerticalAlignment="Top" Height="134.826" HorizontalAlignment="Right" Width="118.589" Canvas.Top="517.77" Canvas.Left="524.873" />
                 <pc:PultGlassButton Command="{x:Static local:WindowInpu.BtnCmd}"  CommandParameter="21"  RenderTransformOrigin="5.627,1.687" Content="ТЕСТ" Height="50" Canvas.Left="567.616" Canvas.Top="206.915" Width="50"/>
@@ -224,7 +224,7 @@
                 <Path Data="M179.77,225.003 L265.333,225.003" HorizontalAlignment="Left" Stretch="Fill" Width="52.875" StrokeThickness="7" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="7" VerticalAlignment="Top" Canvas.Left="560.601" Canvas.Top="578.071" Stroke="{StaticResource BrushRamka}"/>
                 <TextBlock TextWrapping="Wrap" FontSize="13.333" Canvas.Left="569.872" Canvas.Top="-48.168" Text="{Binding TextInPU, Source={StaticResource vInPU}}"/>
 
-                <mv:View_TC Canvas.Left="665.527" Canvas.Top="7.232" x:Name="view_TC1" Height="751.191" Width="173.902" RMType="2"  />
+                <mv:View_TC Canvas.Left="665.527" Canvas.Top="7.232" x:Name="view_TC1" Height="751.191" Width="173.902" RMType="1"  />
                 <pc:PultGlassButton Command="{x:Static local:WindowInpu.BtnCmd}"  CommandParameter="6" RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Content="5" Height="50" VerticalAlignment="Top" Canvas.Left="182.258" Canvas.Top="543.192"/>
                 <pc:PultGlassButton Command="{x:Static local:WindowInpu.BtnCmd}"  CommandParameter="1" RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Content="0" Height="50" VerticalAlignment="Top" Canvas.Left="182.536" Canvas.Top="596.856"/>
                 <pc:PultGlassButton Command="{x:Static local:WindowInpu.BtnCmd}"  CommandParameter="5" RenderTransformOrigin="5.627,1.687" Content="4" Height="50" VerticalAlignment="Top" Width="50" HorizontalAlignment="Left" Canvas.Left="131.215" Canvas.Top="543.192"/>
@@ -586,7 +586,10 @@
 
         </Viewbox>
 
-        <pc:PanelInpu Grid.Column="3" Grid.Row="2" Background="#FFF30B0B" TypePanel="1" Grid.ColumnSpan="2">
+        <pc:PanelInpu Grid.Column="3" Grid.Row="2" TypePanel="1" Grid.ColumnSpan="2">
+            <pc:PanelInpu.Background>
+                <SolidColorBrush Color="#FF252526" Opacity="0"/>
+            </pc:PanelInpu.Background>
             <ContentControl x:Name="WinPult" Content="{Binding ''}"  Background="#FFE73737" BorderBrush="#FFD03131"    />
         </pc:PanelInpu>
 

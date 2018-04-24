@@ -21,12 +21,22 @@ namespace VirtualPultValves.Views
     public partial class ViewLDI11 : UserControl
     {
 
+        //свойство 
+        public static readonly DependencyProperty PowerLDIProperty = DependencyProperty.Register(
+        "IsPowerLDI", typeof(bool), typeof(ViewLDI11), new FrameworkPropertyMetadata(false));
+        public bool IsPowerLDI
+        {
+            get { return (bool)GetValue(PowerLDIProperty); }
+            set { this.SetValue(PowerLDIProperty, value); }
+        }
+
         #region Event
-      
+
         //Измерить
-        
+
         public static readonly RoutedEvent MeasureEvent = EventManager.RegisterRoutedEvent("Measure", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(ViewLDI11));
         public static readonly RoutedEvent EndMeasureEvent = EventManager.RegisterRoutedEvent("EndMeasure", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(ViewLDI11));
+
         public new event RoutedEventHandler Measure
         {
             add { AddHandler(MeasureEvent, value); }
@@ -84,31 +94,33 @@ namespace VirtualPultValves.Views
 
         private void mlb(object Sender, MouseButtonEventArgs E)
         {
-            RaiseEvent(new RoutedEventArgs(MeasureEvent));
+            if (cb.IsChecked == true) RaiseEvent(new RoutedEventArgs(MeasureEvent));
         }
 
         private void mlbu(object Sender, MouseButtonEventArgs E)
         {
-            RaiseEvent(new RoutedEventArgs(EndMeasureEvent));
+
+            if (cb.IsChecked == true) RaiseEvent(new RoutedEventArgs(EndMeasureEvent));
         }
-        private void slb(object Sender, MouseButtonEventArgs E)
+     /*   private void slb(object Sender, MouseButtonEventArgs E)
         {
+
             RaiseEvent(new RoutedEventArgs(StartingEvent));
         }
 
         private void slbu(object Sender, MouseButtonEventArgs E)
         {
             RaiseEvent(new RoutedEventArgs(EndStartingEvent));
-        }
+        }*/
 
-        private void TurnOn(object Sender, MouseButtonEventArgs E)
+      /*  private void TurnOn(object Sender, MouseButtonEventArgs E)
         {
             RaiseEvent(new RoutedEventArgs(SwitchonEvent));
         }
         private void TurnOff(object Sender, MouseButtonEventArgs E)
         {
             RaiseEvent(new RoutedEventArgs(SwitchoffEvent));
-        }
+        }*/
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
@@ -117,9 +129,18 @@ namespace VirtualPultValves.Views
 
         private void cb_Click(object sender, RoutedEventArgs e)
         {
-            if (cb.IsChecked==true) RaiseEvent(new RoutedEventArgs(SwitchonEvent)); else
-                RaiseEvent(new RoutedEventArgs(SwitchoffEvent));
+            if (cb.IsChecked == true)
+            {
+                RaiseEvent(new RoutedEventArgs(SwitchonEvent));
+                IsPowerLDI = true;
+            }
+            else
+            {
 
+            
+                RaiseEvent(new RoutedEventArgs(SwitchoffEvent));
+                IsPowerLDI = false;
+            }
            // if (cb.IsChecked == true) Debug.WriteLine("VKL"); else Debug.WriteLine("---");
         }
 

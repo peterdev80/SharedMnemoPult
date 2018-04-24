@@ -15,7 +15,7 @@ namespace VirtualPultValves.Model
         private static volatile WagoIO instance;
         private readonly IChannel _channel;
         private readonly DispatcherTimer _dt;
-
+        private int _senderType = 7;
         private static UInt32 _pid;
 
         private int _stage;
@@ -38,6 +38,8 @@ namespace VirtualPultValves.Model
         public BoolValue clInpu_1 { get; set; }
         public BoolValue clInpu_2 { get; set; }
         public BoolValue cLapmPult { get; set;}
+
+        public int SenderType { get { return _senderType; }  set { _senderType = value; } }
 
         public void SetListTC(List<TCModel> val1, int stage)
         {
@@ -181,7 +183,7 @@ namespace VirtualPultValves.Model
 
                     CentOgon.ValueState = true;
                 }
-
+                CentOgon.ValueState = v1.HasFlag(BitPosValue.key9);
                 DejRegim1.ValueState = v4.HasFlag(BitPosValue.key15);
                 DejRegim2.ValueState = v4.HasFlag(BitPosValue.key16);
                 clInpu_1.ValueState = v3.HasFlag(BitPosValue.key5) || v3.HasFlag(BitPosValue.key6);
@@ -201,7 +203,7 @@ namespace VirtualPultValves.Model
             var wr = new BinaryWriter(ms);
 
             wr.Write((UInt32)0x71AF5A13);
-            wr.Write((UInt16)7);            // sender
+            wr.Write((UInt16)SenderType);            // sender 7-пульт, 8-ИнПу1, 9-ИнПу2
             wr.Write((UInt16)3);            // receiver
             wr.Write((UInt32)120);          // id
             wr.Write((UInt32)_pid++);       // num
