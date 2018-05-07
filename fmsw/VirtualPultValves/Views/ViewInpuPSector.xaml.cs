@@ -23,10 +23,12 @@ namespace VirtualPultValves.Views
     {
         private ViewModel.ViewModel_NeptunP1 vmp1;
         private ViewModel.ViewModel_NeptunP2 vmp2;
+        private ViewModel.ViewModel_Svyaz vms;
         public ViewInpuPSector()
         {
             InitializeComponent();
             vmp2 = croot.DataContext as ViewModel.ViewModel_NeptunP2;
+            vms = sroot.DataContext as ViewModel.ViewModel_Svyaz;
         }
    
     public ViewModel.ViewModel_NeptunP1 VM
@@ -217,7 +219,21 @@ namespace VirtualPultValves.Views
 
         }
 
-      
+        private void kip1_Click(object sender, RoutedEventArgs e)
+        {
+            if ((bool)kip1.IsChecked) vms.BSvyz2_dn.Execute(1);
+            else
+                vms.BSvyz2_up.Execute(1);
+        }
+
+        private void kip2_Click(object sender, RoutedEventArgs e)
+        {
+
+            if ((bool)kip2.IsChecked) vms.BSvyz3_dn.Execute(1);
+            else
+                vms.BSvyz3_up.Execute(1);
+
+        }
     }
 }
 

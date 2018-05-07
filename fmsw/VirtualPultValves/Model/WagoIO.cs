@@ -38,6 +38,9 @@ namespace VirtualPultValves.Model
         public BoolValue clInpu_1 { get; set; }
         public BoolValue clInpu_2 { get; set; }
         public BoolValue cLapmPult { get; set;}
+        public BoolValue LampSvyaz1 { get; set; }
+        public BoolValue LampSvyaz2 { get; set; }
+        public BoolValue LampSvyaz3 { get; set; }
 
         public int SenderType { get { return _senderType; }  set { _senderType = value; } }
 
@@ -74,6 +77,9 @@ namespace VirtualPultValves.Model
             clInpu_1 = new BoolValue();
             clInpu_2 = new BoolValue();
             cLapmPult = new BoolValue();
+            LampSvyaz1 = new BoolValue();
+            LampSvyaz2 = new BoolValue();
+            LampSvyaz3 = new BoolValue();
 
             _channel = new Channel("WagoPort", "ModelAddr");
 
@@ -189,6 +195,11 @@ namespace VirtualPultValves.Model
                 clInpu_1.ValueState = v3.HasFlag(BitPosValue.key5) || v3.HasFlag(BitPosValue.key6);
                 clInpu_2.ValueState = v3.HasFlag(BitPosValue.key2) || v3.HasFlag(BitPosValue.key4);
                 cLapmPult.ValueState = v3.HasFlag(BitPosValue.key3);
+
+
+                LampSvyaz1.ValueState = v6.HasFlag(BitPosValue.key11);
+                LampSvyaz2.ValueState = v6.HasFlag(BitPosValue.key13);
+                LampSvyaz3.ValueState = v6.HasFlag(BitPosValue.key15);
             }
 
             var bs = new UInt16[34];    // Пакеты меньшего размера отбрасываются в LinkINPU700

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ValueModel.BaseType;
 using VirtualPultValves.Model;
 using VirtualPultValves.Views;
 
@@ -28,7 +29,7 @@ namespace PultNeptun
         public InpuPresenter InPUControl;
         private static int NumInpu = 1;
         private VirtualPultValves.ViewModel.ViewModel_InPU vminpu;
-
+      
 
 
 
@@ -40,7 +41,9 @@ namespace PultNeptun
             _inwin1.InpuNum = NumInpu;
             InPUControl = _inwin1.InPUControl;
             WinPult.DataContext = _inwin1;
+            vminpu.RMNum = 1; //переключение дежурного режима из ViewModel на InPu1
             vminpu = roo.DataContext as VirtualPultValves.ViewModel.ViewModel_InPU;
+           
             WagoIO.Instance.SenderType = 8; //Инпу1
         }
 

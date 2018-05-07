@@ -44,7 +44,7 @@
         <Viewbox Grid.Column="4" Grid.RowSpan="5" Stretch="Fill" Grid.ColumnSpan="2">
             <Canvas x:Name="roo" Height="864" Width="879" DataContext="{Binding Source={StaticResource vInPU}}">
                 <Path Data="M19.5,2.5 L87.606287,2.5 C96.995127,2.5 103.86139,10.111159 103.86139,19.5 L103.86139,111.964 C103.86139,121.35284 96.995127,128.964 87.606287,128.964 L19.5,128.964" Stretch="Fill" Stroke="#FF060606" StrokeThickness="3" VerticalAlignment="Top" Height="134.826" HorizontalAlignment="Right" Width="118.589" Canvas.Top="517.77" Canvas.Left="524.873" />
-                <pc:PultGlassButton Command="{x:Static local:WindowInpu.BtnCmd}"  CommandParameter="21"  RenderTransformOrigin="5.627,1.687" Content="ТЕСТ" Height="50" Canvas.Left="567.616" Canvas.Top="206.915" Width="50"/>
+                <pc:PultGlassButton Command="{x:Static local:WindowInpu.BtnCmd}"  CommandParameter="21"  RenderTransformOrigin="5.627,1.687" Content="РО ДК" Height="50" Canvas.Left="567.616" Canvas.Top="206.915" Width="50"/>
                 <pc:PultGlassButton Command="{x:Static local:WindowInpu.BtnCmd}"  CommandParameter="22"  RenderTransformOrigin="5.627,1.687" Content="УПР" Height="50" VerticalAlignment="Top" Canvas.Left="567.616" Canvas.Top="255.413" Width="50"/>
                 <pc:PultGlassButton   CommandParameter="3"  RenderTransformOrigin="5.627,1.687" Content="ВКЛ" Height="50" Canvas.Left="535.478" Canvas.Top="121.912" Width="50" PreviewMouseDown="PultGlassButton_PreviewMouseDown" PreviewMouseUp="PultGlassButton_PreviewMouseUp" Style="{StaticResource PultGlassButtonStyle1}" />
                 <pc:PultGlassButton   CommandParameter="4"  RenderTransformOrigin="5.627,1.687" Content="ОТКЛ" Height="51.328" Width="50" Canvas.Left="585.478" Canvas.Top="120.584" PreviewMouseDown="PultGlassButton_PreviewMouseDown" PreviewMouseUp="PultGlassButton_PreviewMouseUp"  />
@@ -509,7 +509,7 @@
                 <Path Data="M799.02,138.37752 L852.02,138.38118" Height="3.004" Canvas.Left="496.797" Stretch="Fill" Stroke="#FF060606" StrokeThickness="3" Canvas.Top="649.237" Width="56"/>
                 <Path Data="M820,657.11274 L869.83335,656.91025" Height="3.203" Stretch="Fill" Stroke="#FF060606" StrokeThickness="3" Canvas.Left="496.777" Canvas.Top="517.77" Width="52.832"/>
                 <mv:View_OVK x:Name="OVK1" Height="189.993" Canvas.Left="-192.784" Canvas.Top="661.239" Width="832.944" />
-                <Border x:Name="comCO" VerticalAlignment="Top" Height="34.73" HorizontalAlignment="Center" Width="97.964" Visibility="{Binding InPU2Visible, Source={StaticResource vInPU}}" Canvas.Left="64.583" Canvas.Top="-1.168">
+                <Border x:Name="comCO" VerticalAlignment="Top" Height="34.73" HorizontalAlignment="Center" Width="97.964" Canvas.Left="64.583" Canvas.Top="-1.168" Visibility="Hidden">
 
                     <!--Visibility="{Binding InPU2Visible, Source={StaticResource vInPU}}"-->
 
@@ -580,7 +580,29 @@
                 </Path>
                 <pc:PultLamp   VklLamp="{Binding DejRegim.ValueState, Source={StaticResource vInPU}}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="24" Width="24" RenderTransformOrigin="0.188,-5.438" Canvas.Left="566.954" Canvas.Top="50.965"/>
                 <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="15.96" Width="71.03" Canvas.Left="540.954" Canvas.Top="35.005"><Run Language="ru-ru" Text="ДЕЖ РЕЖИМ"/></TextBlock>
-                <pc:PultLamp HorizontalAlignment="Left" VerticalAlignment="Top" Height="24" Width="24" VklLamp="{Binding DejRegim.ValueState, Source={StaticResource vInPU}}" RenderTransformOrigin="-0.212,-5.438" Canvas.Left="567.783" Canvas.Top="50.965" />
+                <mv:ViewSvyaz1 HorizontalAlignment="Left" Height="145" Margin="0" VerticalAlignment="Top" Width="466" Canvas.Left="-659" Canvas.Top="707"/>
+                <Path Data="M34.4,856.00271 C16.505974,856.00271 2,820.79507 2,798.70368 L2,42 C2,19.90861 16.505974,-9.532716 34.4,-9.532716" HorizontalAlignment="Left" Height="869.537" Stretch="Fill" Stroke="Black" StrokeThickness="4" VerticalAlignment="Top" Width="82.79" Canvas.Left="-659.2" Canvas.Top="-0.8" />
+                <pc:PultLamp HorizontalAlignment="Left" VerticalAlignment="Top" Height="24" Width="24"  RenderTransformOrigin="-0.212,-5.438" Canvas.Left="567.783" Canvas.Top="50.965" VklLamp="{Binding DejRegim.ValueState}" />
+                <Path Data="M1.1015625,4.5476561 L2.0859375,4.5476561 L2.0859375,8.4968748 L2.109375,8.4968748 C2.1640625,8.4109373 2.2382813,8.3152342 2.3320313,8.2097654 L5.4726563,4.5476561 L6.6972656,4.5476561 L3.09375,8.5789061 L6.9492188,12.95 L5.578125,12.95 L2.3320313,9.1062498 C2.2109375,8.9617186 2.1367188,8.8640623 2.109375,8.8132811 L2.0859375,8.8132811 L2.0859375,12.95 L1.1015625,12.95 z M11.518594,5.2976561 C10.635781,5.2976565 9.9189844,5.6160159 9.3682032,6.2527342 C8.8174219,6.8894529 8.5420313,7.7253904 8.5420313,8.7605467 C8.5420313,9.7957029 8.810586,10.628711 9.3476954,11.25957 C9.8848047,11.890429 10.585,12.205859 11.448281,12.205859 C12.370156,12.205859 13.096719,11.905078 13.627969,11.303515 C14.159218,10.701953 14.424843,9.8601561 14.424844,8.7781248 C14.424843,7.6687498 14.16703,6.8113279 13.651406,6.2058592 C13.135781,5.6003909 12.424844,5.2976565 11.518594,5.2976561 z M11.588906,4.4070311 C12.749062,4.4070311 13.683632,4.7976561 14.392617,5.5789061 C15.101602,6.3601565 15.456094,7.3816409 15.456094,8.6433592 C15.456094,10.014453 15.092813,11.098437 14.36625,11.895312 C13.639687,12.692187 12.66703,13.090625 11.448281,13.090625 C10.256875,13.090625 9.3027735,12.698047 8.5859766,11.91289 C7.8691797,11.127734 7.5107813,10.10625 7.5107813,8.8484373 C7.5107813,7.4968753 7.8760157,6.4187503 8.6064844,5.6140623 C9.3369532,4.8093748 10.331094,4.4070311 11.588906,4.4070311 z M17.108229,4.5476561 L18.40901,4.5476561 L20.987135,10.407031 C21.186354,10.85625 21.31526,11.192187 21.373854,11.414844 L21.40901,11.414844 C21.576979,10.953906 21.711744,10.610156 21.813307,10.383594 L24.444166,4.5476561 L25.674635,4.5476561 L25.674635,12.95 L24.696119,12.95 L24.696119,7.3132811 C24.696119,6.867969 24.723463,6.3230472 24.778151,5.6785154 L24.754713,5.6785154 C24.660963,6.0574222 24.576979,6.3289065 24.50276,6.4929686 L21.631666,12.95 L21.151197,12.95 L18.285963,6.5398436 C18.203932,6.352344 18.119947,6.0652347 18.03401,5.6785154 L18.010572,5.6785154 C18.041822,6.0144534 18.057447,6.5632815 18.057447,7.3249998 L18.057447,12.95 L17.108229,12.95 z M30.615364,5.5671873 C30.576302,5.805469 30.53138,5.992969 30.480598,6.1296873 L29.173958,9.7097654 L32.086067,9.7097654 L30.767708,6.1296873 C30.724739,6.0125003 30.68177,5.8250003 30.638802,5.5671873 z M30.134895,4.5476561 L31.154427,4.5476561 L34.388802,12.95 L33.298958,12.95 L32.408333,10.594531 L28.845833,10.594531 L28.007942,12.95 L26.912239,12.95 z M35.624897,4.5476561 L36.609272,4.5476561 L36.609272,8.2332029 L40.956928,8.2332029 L40.956928,4.5476561 L41.941303,4.5476561 L41.941303,12.95 L40.956928,12.95 L40.956928,9.1179686 L36.609272,9.1179686 L36.609272,12.95 L35.624897,12.95 z M46.717163,5.4382811 C46.654663,6.4031253 46.439819,7.5320315 46.072632,8.8249998 C45.705444,10.117969 45.297241,11.196094 44.848022,12.059375 L48.849976,12.059375 L48.849976,5.4382811 z M45.879272,4.5476561 L49.834351,4.5476561 L49.834351,12.059375 L50.96521,12.059375 L50.96521,15.205859 L50.057007,15.205859 L50.057007,12.95 L44.039429,12.95 L44.039429,15.205859 L43.131226,15.205859 L43.131226,12.059375 L43.781616,12.059375 C44.344116,11.032031 44.821655,9.8318357 45.214233,8.4587889 C45.606812,7.0857425 45.828491,5.7820315 45.879272,4.5476561 z M55.195366,5.5671873 C55.156303,5.805469 55.111382,5.992969 55.0606,6.1296873 L53.75396,9.7097654 L56.666069,9.7097654 L55.34771,6.1296873 C55.304741,6.0125003 55.261772,5.8250003 55.218803,5.5671873 z M54.714897,4.5476561 L55.734428,4.5476561 L58.968803,12.95 L57.87896,12.95 L56.988335,10.594531 L53.425835,10.594531 L52.587944,12.95 L51.492241,12.95 z" Fill="Black" Height="10.799" Canvas.Left="556.116" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Canvas.Top="501.971" Width="57.867">
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                </Path>
+                <Grid x:Name="Рабочее_освещение" Height="71.286" Canvas.Left="548.006" Canvas.Top="-26.771" Width="64.144">
+                    <Ellipse Fill="Black" HorizontalAlignment="Left" Height="35" Margin="12.125,27.051,0,0" VerticalAlignment="Top" Width="35"/>
+                    <Ellipse Fill="#FF777272" HorizontalAlignment="Left" Height="29" Margin="15.325,30.351,0,0" VerticalAlignment="Top" Width="29"/>
+                    <Ellipse Fill="Black" HorizontalAlignment="Left" Height="20" Margin="20.025,35.051,0,0" VerticalAlignment="Top" Width="20"/>
+                    <Ellipse Fill="#FFF1EFEF" HorizontalAlignment="Left" Height="1.8" Margin="28.458,27.451,0,0" VerticalAlignment="Top" Width="2.2"/>
+
+                </Grid>
+
+
+
             </Canvas>
 
 

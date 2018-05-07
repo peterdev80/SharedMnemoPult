@@ -11,6 +11,110 @@
     <UserControl.Resources>
         <vm:ViewModel_NeptunP2 x:Key="vN2"/>
         <vm:ViewModel_NeptunP1 x:Key="vP1" />
+        <vm:ViewModel_Svyaz x:Key="vmSvyaz"/>
+        <Style x:Key="SelectButtonStyle1" TargetType="{x:Type pc:PultCheckBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type pc:PultCheckBox}">
+                        <Border BorderBrush="Black" BorderThickness="0" Background="#FF100202" CornerRadius="4" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,1,0">
+                            <Grid x:Name="GridBtn" Margin="0,1,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"  RenderTransformOrigin="0.506,0.538">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+
+                                </Grid.ColumnDefinitions>
+                                <Path Grid.Column="0" Data="M0.11297384,3.0412423 C0.11297384,1.384388 1.5704529,0.52057553 3.2273072,0.52057553 L55.116,0.5 C56.772854,0.5 57.782001,1.2591458 57.782001,2.9160001 L58.116,33.734 C58.116,35.390854 56.772854,36.734 55.116,36.734 L3.5,36.734 C1.8431458,36.734 0.5,35.390854 0.5,33.734 z" Margin="3.354,6.939,1.625,1.832" Grid.Row="0" StrokeStartLineCap="Round" Stretch="Fill" StrokeEndLineCap="Round" Stroke="#FFBBCFBC" StrokeThickness="1">
+                                    <Path.Fill>
+                                        <RadialGradientBrush RadiusX="13.5">
+                                            <RadialGradientBrush.RelativeTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                                                    <TranslateTransform/>
+                                                </TransformGroup>
+                                            </RadialGradientBrush.RelativeTransform>
+                                            <GradientStop Color="#FFC8CCC5" Offset="0"/>
+                                            <GradientStop Color="#FFA3A7A1" Offset="1"/>
+                                        </RadialGradientBrush>
+                                    </Path.Fill>
+                                </Path>
+                                <Path Grid.ColumnSpan="1" Grid.Column="0" Data="M0.5,0.5 L57.474,0.5 57.185565,8.1266668 0.5,8.104 z" Height="8.627" Margin="3.502,0.083,2.506,0" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" Stretch="Fill" StrokeEndLineCap="Round" Stroke="#FFBBCFBC" StrokeThickness="1" VerticalAlignment="Top">
+                                    <Path.Fill>
+                                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                            <LinearGradientBrush.RelativeTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <RotateTransform Angle="-168.366" CenterY="0.5" CenterX="0.5"/>
+                                                    <TranslateTransform/>
+                                                </TransformGroup>
+                                            </LinearGradientBrush.RelativeTransform>
+                                            <GradientStop Color="#FFB3B4B3" Offset="0.45"/>
+                                            <GradientStop Color="#FF676C63" Offset="1"/>
+                                            <GradientStop Color="#FF576057" Offset="0.99"/>
+                                        </LinearGradientBrush>
+                                    </Path.Fill>
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform AngleX="9"/>
+                                            <RotateTransform/>
+                                            <TranslateTransform X="0.0018214210637310657"/>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+                                <Path Data="M0.20807823,-1.3195493 L0.38364964,-2.3241125 1.6020375,-2.3003652 1.4131623,-0.14740087 1.195,33.185 0,33.185 z" HorizontalAlignment="Left" Margin="2.616,1.992,0,8.164" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" Stretch="Fill" StrokeEndLineCap="Round" Stroke="#FFBBCFBC" StrokeThickness="0" Width="1.603" >
+                                    <Path.Fill>
+                                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                            <LinearGradientBrush.RelativeTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <RotateTransform Angle="-252.64600000000002" CenterY="0.5" CenterX="0.5"/>
+                                                    <TranslateTransform/>
+                                                </TransformGroup>
+                                            </LinearGradientBrush.RelativeTransform>
+                                            <GradientStop Color="#FFB2B6B0" Offset="0.511"/>
+                                            <GradientStop Color="#FF4F504E" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Path.Fill>
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleY="1.004"/>
+                                            <SkewTransform AngleY="81" AngleX="0.038"/>
+                                            <RotateTransform/>
+                                            <TranslateTransform X="-0.057225916692645207" Y="0.928655308993708"/>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+                                <ContentPresenter Height="Auto" Margin="12.785,16.639,11.786,8" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="RenderTransform" TargetName="GridBtn">
+                                    <Setter.Value>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="0.9" ScaleY="0.9"/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
         <Style x:Key="BDUS11Style" TargetType="{x:Type pc:PultCheckBox}">
             <Setter Property="GeometryText" Value="M2.0859375,9.0007811L2.0859375,12.059375 3.46875,12.059375C4.0507813,12.059375 4.5,11.922656 4.8164063,11.649219 5.1328125,11.375781 5.2910156,10.992969 5.2910156,10.500781 5.2910156,9.5007811 4.6835938,9.0007811 3.46875,9.0007811z M1.1015625,4.5476561L5.5898438,4.5476561 5.5898438,5.4382811 2.0859375,5.4382811 2.0859375,8.1101561 3.6796875,8.1101561C4.515625,8.1101561 5.1660156,8.3123045 5.6308594,8.7166014 6.0957026,9.1208982 6.3281245,9.6960936 6.328125,10.442187 6.3281245,11.215625 6.0839839,11.826953 5.5957031,12.276172 5.1074219,12.72539 4.4414063,12.95 3.5976563,12.95L1.1015625,12.95z M10.533829,5.4382811C10.471328,6.4031253 10.256484,7.5320315 9.8892975,8.8249998 9.52211,10.117969 9.1139069,11.196094 8.6646881,12.059375L12.666641,12.059375 12.666641,5.4382811z M9.6959381,4.5476561L13.651016,4.5476561 13.651016,12.059375 14.781876,12.059375 14.781876,15.205859 13.873672,15.205859 13.873672,12.95 7.8560939,12.95 7.8560939,15.205859 6.9478908,15.205859 6.9478908,12.059375 7.5982814,12.059375C8.1607809,11.032031 8.63832,9.8318357 9.030899,8.4587889 9.4234772,7.0857425 9.6451569,5.7820315 9.6959381,4.5476561z M15.531563,4.5476561L16.650703,4.5476561 18.666328,9.0359373C18.701485,9.1101561,18.77375,9.2917967,18.883125,9.5808592L18.894844,9.5808592C18.906563,9.5457029,18.986641,9.3562498,19.135078,9.0124998L21.004219,4.5476561 22.058907,4.5476561 19.463203,10.41289C19.002266,11.451953 18.556953,12.158984 18.127266,12.533984 17.697578,12.908984 17.228828,13.096484 16.721016,13.096484 16.303047,13.096484 15.953438,13.035937 15.672188,12.914844L15.672188,11.91875C16.008125,12.117969 16.332344,12.217578 16.644844,12.217578 16.96125,12.217578 17.252266,12.095508 17.517891,11.851367 17.783516,11.607226 18.070625,11.176562 18.379219,10.559375z M26.829844,4.4070311C27.626719,4.4070311,28.286875,4.5222654,28.810312,4.7527342L28.810312,5.8015623C28.20875,5.4656253 27.544687,5.2976565 26.818125,5.2976561 25.853281,5.2976565 25.071054,5.6199222 24.471445,6.2644529 23.871836,6.9089842 23.572031,7.7703123 23.572031,8.8484373 23.572031,9.8718748 23.852304,10.687304 24.412851,11.294726 24.973398,11.902148 25.70875,12.205859 26.618906,12.205859 27.462656,12.205859 28.193125,12.018359 28.810312,11.643359L28.810312,12.598437C28.189219,12.926562 27.415781,13.090625 26.49,13.090625 25.294687,13.090625 24.337656,12.705859 23.618906,11.936328 22.900156,11.166797 22.540781,10.157031 22.540781,8.9070311 22.540781,7.5632815 22.945078,6.477344 23.753672,5.6492186 24.562265,4.8210936 25.587656,4.4070311 26.829844,4.4070311z M33.310623,4.3601561L33.310623,12.10625 35.203201,12.10625 35.203201,12.95 30.45125,12.95 30.45125,12.10625 32.349686,12.10625 32.349686,5.5789061 30.404375,6.1589842 30.404375,5.2449217z M36.733749,9.2292967L39.932968,9.2292967 39.932968,9.9851561 36.733749,9.9851561z M44.580624,4.3601561L44.580624,12.10625 46.473202,12.10625 46.473202,12.95 41.721249,12.95 41.721249,12.10625 43.619686,12.10625 43.619686,5.5789061 41.674374,6.1589842 41.674374,5.2449217z"/>
             <Style.Resources>
@@ -417,6 +521,103 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <ControlTemplate x:Key="SelectButton" TargetType="{x:Type pc:PultCheckBox}">
+            <Border BorderBrush="Black" BorderThickness="0" Background="#FF100202" CornerRadius="4" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,1,0">
+                <Grid x:Name="GridBtn" Margin="0,1,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"  RenderTransformOrigin="0.506,0.538">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+
+                    </Grid.ColumnDefinitions>
+                    <Path Grid.Column="0" Data="M0.11297384,3.0412423 C0.11297384,1.384388 1.5704529,0.52057553 3.2273072,0.52057553 L55.116,0.5 C56.772854,0.5 57.782001,1.2591458 57.782001,2.9160001 L58.116,33.734 C58.116,35.390854 56.772854,36.734 55.116,36.734 L3.5,36.734 C1.8431458,36.734 0.5,35.390854 0.5,33.734 z" Margin="3.354,6.939,1.625,1.832" Grid.Row="0" StrokeStartLineCap="Round" Stretch="Fill" StrokeEndLineCap="Round" Stroke="#FFBBCFBC" StrokeThickness="1">
+                        <Path.Fill>
+                            <RadialGradientBrush RadiusX="13.5">
+                                <RadialGradientBrush.RelativeTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                        <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                        <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </RadialGradientBrush.RelativeTransform>
+                                <GradientStop Color="#FFC8CCC5" Offset="0"/>
+                                <GradientStop Color="#FFA3A7A1" Offset="1"/>
+                            </RadialGradientBrush>
+                        </Path.Fill>
+                    </Path>
+                    <Path Grid.ColumnSpan="1" Grid.Column="0" Data="M0.5,0.5 L57.474,0.5 57.185565,8.1266668 0.5,8.104 z" Height="8.627" Margin="3.502,0.083,2.506,0" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" Stretch="Fill" StrokeEndLineCap="Round" Stroke="#FFBBCFBC" StrokeThickness="1" VerticalAlignment="Top">
+                        <Path.Fill>
+                            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                <LinearGradientBrush.RelativeTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                        <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                        <RotateTransform Angle="-168.366" CenterY="0.5" CenterX="0.5"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </LinearGradientBrush.RelativeTransform>
+                                <GradientStop Color="#FFB3B4B3" Offset="0.45"/>
+                                <GradientStop Color="#FF676C63" Offset="1"/>
+                                <GradientStop Color="#FF576057" Offset="0.99"/>
+                            </LinearGradientBrush>
+                        </Path.Fill>
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="9"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.0018214210637310657"/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+                    <Path Data="M0.20807823,-1.3195493 L0.38364964,-2.3241125 1.6020375,-2.3003652 1.4131623,-0.14740087 1.195,33.185 0,33.185 z" HorizontalAlignment="Left" Margin="2.616,1.992,0,8.164" RenderTransformOrigin="0.5,0.5" StrokeStartLineCap="Round" Stretch="Fill" StrokeEndLineCap="Round" Stroke="#FFBBCFBC" StrokeThickness="0" Width="1.603" >
+                        <Path.Fill>
+                            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                <LinearGradientBrush.RelativeTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                        <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                        <RotateTransform Angle="-252.64600000000002" CenterY="0.5" CenterX="0.5"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </LinearGradientBrush.RelativeTransform>
+                                <GradientStop Color="#FFB2B6B0" Offset="0.511"/>
+                                <GradientStop Color="#FF4F504E" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Path.Fill>
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleY="1.004"/>
+                                <SkewTransform AngleY="81" AngleX="0.038"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="-0.057225916692645207" Y="0.928655308993708"/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+                    <ContentPresenter Height="Auto" Margin="12.785,16.639,11.786,8" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                </Grid>
+            </Border>
+            <ControlTemplate.Triggers>
+
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter Property="RenderTransform" TargetName="GridBtn">
+                        <Setter.Value>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="0.9" ScaleY="0.9"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+
+
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -894,9 +1095,8 @@
             </Path>
 
         </Canvas>
-        <Grid Grid.Row="1" HorizontalAlignment="Left" Grid.ColumnSpan="2" Width="666.8" Grid.Column="1" VerticalAlignment="Bottom" Height="112">
+        <Grid x:Name="sroot" Grid.Row="1" HorizontalAlignment="Left" Grid.ColumnSpan="2" Width="666.8" Grid.Column="1" VerticalAlignment="Bottom" Height="112" DataContext="{DynamicResource vmSvyaz}">
             <Canvas x:Name="связь_2" Margin="0.8,0.8,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="230" Height="111.2" >
-
                 <Grid x:Name="Рабочее_освещение1" Width="90" Height="90" Canvas.Left="379.6" Canvas.Top="20.125">
                     <Ellipse Fill="Black" HorizontalAlignment="Left" Height="35" Margin="12.125,27.051,0,0" VerticalAlignment="Top" Width="35"/>
                     <Ellipse Fill="#FF777272" HorizontalAlignment="Left" Height="29" Margin="15.325,30.351,0,0" VerticalAlignment="Top" Width="29"/>
@@ -951,7 +1151,7 @@
                     </Path>
 
                 </Grid>
-                <pc:PultBigButton   Content="ПЕРЕДАЧА" FontSize="8"  x:Name="kip1" Height="43.867" Canvas.Left="121.199" Canvas.Top="39.592" Width="64.867" ClickMode="Press"/>
+                <pc:PultCheckBox   Content="ПЕРЕДАЧА" FontSize="8"  x:Name="kip1" Height="43.867" Canvas.Left="121.199" Canvas.Top="39.592" Width="64.867" ClickMode="Press" Template="{DynamicResource SelectButton}" Click="kip1_Click"/>
                 <Grid x:Name="Lamp1" Height="19" Canvas.Left="143.266" Canvas.Top="-1.2" Width="19">
                     <Ellipse Height="19" Stroke="Black"  Width="19" Fill="#FF454544" Margin="0,16.5,0,-16.5"/>
                     <Ellipse HorizontalAlignment="Left" Height="14" Stroke="Black" VerticalAlignment="Top" Width="14" Margin="2.567,19.166,0,-14.166">
@@ -964,6 +1164,7 @@
                     </Ellipse>
 
                 </Grid>
+                <pc:PultLamp Canvas.Left="145.348" Canvas.Top="17.634" RenderTransformOrigin="7.518,2.206" Height="14.592" Width="14.893" VklLamp="{Binding LSvyz2, Mode=OneWay}"/>
                 <Path Data="M207.53334,0.36699957 L357.1,0.5 C362.62285,0.5 367.1,4.9771525 367.1,10.5 L367.1,94.226 C367.1,99.748847 362.62285,104.226 357.1,104.226 L10.5,104.226 C4.9771525,104.226 0.5,99.748847 0.5,94.226 L0.5,10.5 C0.5,4.9771525 4.9771525,0.5 10.5,0.5 L156.2,0.23333334" HorizontalAlignment="Left" Height="104.993" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="367.6" Canvas.Left="94.4" Canvas.Top="5.133" />
                 <Path Data="M4.8398438,4.4070311 C5.6367183,4.4070311 6.2968745,4.5222654 6.8203125,4.7527342 L6.8203125,5.8015623 C6.21875,5.4656253 5.5546875,5.2976565 4.828125,5.2976561 C3.863281,5.2976565 3.0810544,5.6199222 2.4814453,6.2644529 C1.8818358,6.9089842 1.5820311,7.7703123 1.5820313,8.8484373 C1.5820311,9.8718748 1.8623046,10.687304 2.4228516,11.294726 C2.9833982,11.902148 3.7187498,12.205859 4.6289063,12.205859 C5.4726563,12.205859 6.203125,12.018359 6.8203125,11.643359 L6.8203125,12.598437 C6.1992188,12.926562 5.4257813,13.090625 4.5,13.090625 C3.3046875,13.090625 2.3476563,12.705859 1.6289063,11.936328 C0.91015625,11.166797 0.55078125,10.157031 0.55078131,8.9070311 C0.55078125,7.5632815 0.95507813,6.477344 1.7636719,5.6492186 C2.5722656,4.8210936 3.5976563,4.4070311 4.8398438,4.4070311 z M9.5159378,9.0359373 L9.5159378,12.059375 L10.851875,12.059375 C11.429999,12.059375 11.878242,11.922656 12.196602,11.649219 C12.514961,11.375781 12.674141,11.000781 12.674141,10.524219 C12.674141,9.5320311 11.99836,9.0359373 10.646797,9.0359373 z M9.5159378,5.4382811 L9.5159378,8.1511717 L10.52375,8.1511717 C11.062812,8.1511717 11.486641,8.0212889 11.795235,7.7615232 C12.103828,7.5017576 12.258125,7.1355467 12.258125,6.6628904 C12.258125,5.8464847 11.721016,5.4382815 10.646797,5.4382811 z M8.5315628,4.5476561 L10.922188,4.5476561 C11.64875,4.5476561 12.224922,4.7253904 12.650703,5.0808592 C13.076485,5.4363284 13.289375,5.899219 13.289375,6.4695311 C13.289375,6.9460936 13.160469,7.3601561 12.902657,7.7117186 C12.644844,8.0632811 12.289375,8.3132811 11.83625,8.4617186 L11.83625,8.4851561 C12.402657,8.5515623 12.855782,8.7654295 13.195625,9.1267576 C13.535468,9.4880857 13.70539,9.9578123 13.705391,10.535937 C13.70539,11.254687 13.447577,11.836719 12.931953,12.282031 C12.416328,12.727344 11.765938,12.95 10.980782,12.95 L8.5315628,12.95 z M17.942814,5.4382811 C17.388126,5.4382815 16.957462,5.5691409 16.650822,5.8308592 C16.344181,6.0925784 16.190859,6.461719 16.190861,6.9382811 C16.190859,7.4148436 16.347111,7.7917967 16.659611,8.0691404 C16.972111,8.3464842 17.392033,8.4851561 17.919376,8.4851561 L19.308048,8.4851561 L19.308048,5.4382811 z M17.854923,4.5476561 L20.292423,4.5476561 L20.292423,12.95 L19.308048,12.95 L19.308048,9.3757811 L18.083439,9.3757811 C17.849062,9.3757811 17.643007,9.4392576 17.465275,9.5662107 C17.28754,9.6931639 17.097111,9.9773436 16.893986,10.41875 L15.839297,12.95 L14.667422,12.95 L15.944766,10.143359 C16.026796,9.9597654 16.152773,9.7654295 16.322697,9.5603514 C16.492619,9.3552732 16.690861,9.2097654 16.917423,9.1238279 L16.917423,9.1003904 C16.358829,8.9792967 15.924258,8.7234373 15.613711,8.3328123 C15.303164,7.9421873 15.147891,7.4695311 15.147891,6.9148436 C15.147891,6.2000003 15.396914,5.6267581 15.894961,5.195117 C16.393009,4.7634764 17.046329,4.5476561 17.854923,4.5476561 z M24.364843,4.4070311 C25.161718,4.4070311 25.788671,4.5964842 26.245703,4.9753904 C26.702734,5.3542972 26.93125,5.852344 26.93125,6.4695311 C26.93125,7.5593748 26.4,8.2468748 25.3375,8.5320311 L25.3375,8.5554686 C25.915625,8.6218748 26.374609,8.8386717 26.714453,9.2058592 C27.054296,9.5730467 27.224218,10.028125 27.224218,10.571094 C27.224218,11.340625 26.950781,11.952929 26.403906,12.408008 C25.857031,12.863086 25.108984,13.090625 24.159765,13.090625 C23.210546,13.090625 22.478125,12.926562 21.9625,12.598437 L21.9625,11.532031 C22.61875,12.0125 23.36289,12.252734 24.194921,12.252734 C24.80039,12.252734 25.281836,12.10625 25.639257,11.813281 C25.996679,11.520312 26.17539,11.125781 26.17539,10.629687 C26.17539,9.5515623 25.446875,9.0124998 23.989843,9.0124998 L23.116796,9.0124998 L23.116796,8.1980467 L23.919531,8.1980467 C24.540625,8.1980467 25.02207,8.0632811 25.363867,7.7937498 C25.705664,7.5242186 25.876562,7.1433592 25.876562,6.6511717 C25.876562,6.2292972 25.734961,5.8914065 25.451757,5.6374998 C25.168554,5.383594 24.778906,5.2566409 24.282812,5.2566404 C23.579687,5.2566409 22.896093,5.477344 22.232031,5.9187498 L22.232031,4.9226561 C22.849218,4.5789061 23.560156,4.4070311 24.364843,4.4070311 z M29.965937,9.0007811 L29.965937,12.059375 L31.348749,12.059375 C31.93078,12.059375 32.379997,11.922656 32.696404,11.649219 C33.01281,11.375781 33.171013,10.992969 33.171013,10.500781 C33.171013,9.5007811 32.563591,9.0007811 31.348749,9.0007811 z M28.981562,4.5476561 L29.965937,4.5476561 L29.965937,8.1101561 L31.559687,8.1101561 C32.395622,8.1101561 33.046013,8.3123045 33.510857,8.7166014 C33.9757,9.1208982 34.208122,9.6960936 34.208122,10.442187 C34.208122,11.215625 33.963982,11.826953 33.4757,12.276172 C32.987419,12.72539 32.321404,12.95 31.477655,12.95 L28.981562,12.95 z M35.637085,9.2292967 L38.836304,9.2292967 L38.836304,9.9851561 L35.637085,9.9851561 z M42.687084,4.4070311 C43.030834,4.4070311 43.349194,4.4568357 43.642162,4.5564451 C43.935131,4.6560545 44.189037,4.8015623 44.403881,4.9929686 C44.618725,5.1843753 44.78767,5.4207034 44.910717,5.7019529 C45.033764,5.9832034 45.095287,6.305469 45.095287,6.6687498 C45.095287,7.0007811 45.057201,7.3015623 44.98103,7.5710936 C44.904858,7.8406248 44.789623,8.0945311 44.635326,8.3328123 C44.48103,8.5710936 44.286694,8.7996092 44.052319,9.0183592 C43.817944,9.2371092 43.542553,9.4597654 43.226147,9.6863279 C42.831615,9.9675779 42.50642,10.207812 42.250561,10.407031 C41.994701,10.60625 41.791576,10.792773 41.641186,10.966601 C41.490795,11.140429 41.385326,11.314258 41.32478,11.488086 C41.264233,11.661914 41.233959,11.862109 41.233959,12.088672 L45.417553,12.088672 L45.417553,12.95 L40.232006,12.95 L40.232006,12.533984 C40.232006,12.174609 40.271069,11.858203 40.349194,11.584765 C40.427319,11.311328 40.556225,11.051562 40.735912,10.805469 C40.9156,10.559375 41.150951,10.313281 41.441967,10.067187 C41.732983,9.8210936 42.089428,9.5437498 42.511303,9.2351561 C42.81599,9.0164061 43.070873,8.8074217 43.275951,8.6082029 C43.48103,8.4089842 43.646069,8.2097654 43.771069,8.0105467 C43.896069,7.8113279 43.984936,7.6091795 44.03767,7.4041014 C44.090405,7.1990232 44.116772,6.9812498 44.116772,6.7507811 C44.116772,6.492969 44.076733,6.2683597 43.996655,6.0769529 C43.916576,5.8855472 43.807201,5.7263675 43.66853,5.5994139 C43.529858,5.4724612 43.366772,5.3777347 43.179272,5.3152342 C42.991772,5.2527347 42.788647,5.2214847 42.569897,5.2214842 C42.382397,5.2214847 42.198803,5.2468753 42.019115,5.2976561 C41.839428,5.3484378 41.664623,5.4187503 41.494701,5.5085936 C41.32478,5.5984378 41.160717,5.7058597 41.002514,5.8308592 C40.844311,5.9558597 40.69685,6.0945315 40.560131,6.2468748 L40.560131,5.2156248 C40.829662,4.9539065 41.13142,4.7537107 41.465405,4.6150389 C41.799389,4.476367 42.206615,4.4070311 42.687084,4.4070311 z" Fill="Black" HorizontalAlignment="Left" Height="8.684" Canvas.Left="251.818" RenderTransformOrigin="-1.452,1.634" Stretch="Fill" Canvas.Top="2.049" VerticalAlignment="Top" Width="44.867">
                     <Path.RenderTransform>
@@ -1056,7 +1257,7 @@
                     </Path>
 
                 </Grid>
-                <pc:PultBigButton   Content="ПЕРЕДАЧА" FontSize="8"  x:Name="kip2" Height="43.867" Canvas.Left="32.399" Canvas.Top="40.392" Width="64.867" />
+                <pc:PultCheckBox   Content="ПЕРЕДАЧА" FontSize="8"  x:Name="kip2" Height="43.867" Canvas.Left="32.399" Canvas.Top="40.392" Width="64.867" Style="{DynamicResource SelectButtonStyle1}" Click="kip2_Click" />
                 <Grid x:Name="Lamp2" Height="19" Canvas.Left="54.466" Canvas.Top="-0.4" Width="19">
                     <Ellipse Height="19" Stroke="Black"  Width="19" Fill="#FF454544" Margin="0,16.5,0,-16.5"/>
                     <Ellipse HorizontalAlignment="Left" Height="14" Stroke="Black" VerticalAlignment="Top" Width="14" Margin="2.567,19.166,0,-14.166">
@@ -1069,6 +1270,7 @@
                     </Ellipse>
 
                 </Grid>
+                <pc:PultLamp Canvas.Left="56.755" Canvas.Top="18.6" RenderTransformOrigin="7.518,2.206" Height="14.366" Width="14" VklLamp="{Binding LSvyz2, Mode=OneWay}"/>
                 <Path Data="M2.2148438,3.3061066 C2.4785156,3.306107 2.7172852,3.3427281 2.9311523,3.4159698 C3.1450193,3.4892125 3.3281248,3.5917516 3.4804688,3.723587 C3.6328123,3.855423 3.7507322,4.0136261 3.8342285,4.1981964 C3.9177244,4.3827667 3.9594724,4.58638 3.9594727,4.8090363 C3.9594724,5.6381378 3.5405271,6.1713409 2.7026367,6.4086456 L2.7026367,6.4262238 C2.9165037,6.4496613 3.1142576,6.5016632 3.2958984,6.5822296 C3.4775388,6.662796 3.6342771,6.7675323 3.7661133,6.8964386 C3.897949,7.0253448 4.0012207,7.1769562 4.0759277,7.3512726 C4.1506348,7.525589 4.1879883,7.7182159 4.1879883,7.9291534 C4.1879883,8.2133331 4.1345215,8.4718781 4.0275879,8.7047882 C3.9206541,8.9376984 3.7697752,9.1369171 3.5749512,9.3024445 C3.3801267,9.4679718 3.1464841,9.5961456 2.8740234,9.6869659 C2.6015625,9.7777863 2.3012695,9.8231964 1.9731445,9.8231964 C1.3725586,9.8231964 0.89501947,9.7089386 0.5405274,9.480423 L0.5405274,8.7069855 C0.96533197,9.0409698 1.4516602,9.207962 1.9995117,9.207962 C2.2192383,9.207962 2.4177246,9.18013 2.5949707,9.1244659 C2.7722168,9.0688019 2.9245605,8.9882355 3.052002,8.8827667 C3.1794431,8.777298 3.2775877,8.6498566 3.3464355,8.5004425 C3.415283,8.3510284 3.4497068,8.1825714 3.449707,7.9950714 C3.4497068,7.1718292 2.8637693,6.7602081 1.6918945,6.7602081 L1.1689453,6.7602081 L1.1689453,6.1493683 L1.6655273,6.1493683 C2.7026365,6.1493683 3.2211912,5.7626495 3.2211914,4.989212 C3.2211912,4.2743683 2.8256834,3.9169464 2.034668,3.9169464 C1.5893555,3.9169464 1.171875,4.0663605 0.78222656,4.3651886 L0.78222656,3.6664581 C1.1835938,3.4262242 1.6611328,3.306107 2.2148438,3.3061066 z M7.0648437,3.3061066 C7.3285155,3.306107 7.5672851,3.3427281 7.7811522,3.4159698 C7.995019,3.4892125 8.1781244,3.5917516 8.3304691,3.723587 C8.4828119,3.855423 8.6007318,4.0136261 8.6842289,4.1981964 C8.767724,4.3827667 8.8094721,4.58638 8.809473,4.8090363 C8.8094721,5.6381378 8.3905268,6.1713409 7.5526366,6.4086456 L7.5526366,6.4262238 C7.7665033,6.4496613 7.9642572,6.5016632 8.1458988,6.5822296 C8.3275385,6.662796 8.4842768,6.7675323 8.6161137,6.8964386 C8.7479486,7.0253448 8.8512211,7.1769562 8.9259281,7.3512726 C9.0006351,7.525589 9.0379887,7.7182159 9.0379887,7.9291534 C9.0379887,8.2133331 8.9845219,8.4718781 8.8775883,8.7047882 C8.7706537,8.9376984 8.6197748,9.1369171 8.4249516,9.3024445 C8.2301264,9.4679718 7.9964838,9.5961456 7.7240233,9.6869659 C7.4515624,9.7777863 7.1512694,9.8231964 6.8231444,9.8231964 C6.2225585,9.8231964 5.7450194,9.7089386 5.3905272,9.480423 L5.3905272,8.7069855 C5.8153319,9.0409698 6.3016601,9.207962 6.8495116,9.207962 C7.0692382,9.207962 7.2677245,9.18013 7.4449706,9.1244659 C7.6222167,9.0688019 7.7745605,8.9882355 7.9020019,8.8827667 C8.0294428,8.777298 8.1275873,8.6498566 8.1964359,8.5004425 C8.2652826,8.3510284 8.2997065,8.1825714 8.2997074,7.9950714 C8.2997065,7.1718292 7.713769,6.7602081 6.5418944,6.7602081 L6.0189452,6.7602081 L6.0189452,6.1493683 L6.5155272,6.1493683 C7.5526361,6.1493683 8.0711908,5.7626495 8.0711918,4.989212 C8.0711908,4.2743683 7.675683,3.9169464 6.8846679,3.9169464 C6.4393554,3.9169464 6.0218749,4.0663605 5.6322265,4.3651886 L5.6322265,3.6664581 C6.0335937,3.4262242 6.5111327,3.306107 7.0648437,3.3061066 z" Fill="Black" HorizontalAlignment="Left" Height="6.517" RenderTransformOrigin="0.5,0.5" Stretch="Fill" VerticalAlignment="Top" Width="8.497" Canvas.Left="77.399" Canvas.Top="20.925">
                     <Path.RenderTransform>
                         <TransformGroup>
