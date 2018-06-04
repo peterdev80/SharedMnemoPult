@@ -54,7 +54,7 @@
                 <pc:RusKlapan.Background>
                     <ImageBrush ImageSource="/VirtualPultValves;component/PictureValves/RUS/pit.png" />
                 </pc:RusKlapan.Background>
-                <Button Command="{Binding CmdRus}" CommandParameter="3" HorizontalAlignment="Right" Width="55" Margin="0,45,8,8" Template="{DynamicResource ButtonControlTemplate2}" Height="86" Click="Button_Click" x:Name="btnPit">
+                <Button Command="{Binding CmdRus}" CommandParameter="3" HorizontalAlignment="Right" Width="55" Margin="0,45,8,8" Template="{StaticResource ButtonControlTemplate2}" Height="86" Click="Button_Click" x:Name="btnPit">
                     <Button.Foreground>
                         <ImageBrush ImageSource="/VirtualPultValves;component/PictureValves/RUS/bigpit2.png" Stretch="Uniform" TileMode="None" />
                     </Button.Foreground>

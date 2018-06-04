@@ -125,7 +125,7 @@
         </RadialGradientBrush>
         
     </UserControl.Resources>
-    <Canvas x:Name="root" DataContext="{DynamicResource VMS}">
+    <Canvas x:Name="root" DataContext="{StaticResource VMS}">
 
         <Canvas x:Name="Рабочее_освещение1" Canvas.Left="372" Canvas.Top="69.126" VerticalAlignment="Bottom" Height="90" Width="90">
             <Path Data="M35,17.5 C35,27.164983 27.164983,35 17.5,35 C7.8350169,35 0,27.164983 0,17.5 C0,7.8350169 7.8350169,0 17.5,0 C27.164983,0 35,7.8350169 35,17.5 z" Fill="Black" HorizontalAlignment="Left" Height="35" Stretch="Fill" VerticalAlignment="Top" Width="35" Canvas.Left="12.125" Canvas.Top="27.051"/>
@@ -181,7 +181,7 @@
             </Path>
 
         </Grid>
-        <PultControl:PultCheckBox  Content="ПЕРЕДАЧА" FontSize="8"  x:Name="kip1" Height="43.867" Canvas.Left="278" Canvas.Top="21" Width="64.867" ClickMode="Press" Style="{DynamicResource SelectButtonStyle1}" Click="kip1_Click"/>
+        <PultControl:PultCheckBox  Content="ПЕРЕДАЧА" FontSize="8"  x:Name="kip1" Height="43.867" Canvas.Left="278" Canvas.Top="21" Width="64.867" ClickMode="Press" Style="{StaticResource SelectButtonStyle1}" Click="kip1_Click"/>
         <Grid x:Name="Lamp1" Height="19" Canvas.Left="247.666" Width="19" Canvas.Top="21">
             <Ellipse Height="19" Stroke="Black"  Width="19" Fill="#FF454544" Margin="0,16.5,0,-16.5"/>
             <Ellipse HorizontalAlignment="Left" Height="14" Stroke="Black" VerticalAlignment="Top" Width="14" Margin="2.567,19.166,0,-14.166">

@@ -69,16 +69,16 @@
                         <Grid x:Name="grClose" Grid.ColumnSpan="3" Grid.RowSpan="2" Grid.Row="1" Cursor=" UpArrow">
                             <Grid.ColumnDefinitions>
                           
-						<ColumnDefinition Width="{DynamicResource GridLengthC1}"/>
-						<ColumnDefinition Width="{DynamicResource GridLengthC2}"/>
-						<ColumnDefinition Width="{DynamicResource GridLengthCenter}"/>
-						<ColumnDefinition Width="{DynamicResource GridLengthC3}"/>
+						<ColumnDefinition Width="{StaticResource GridLengthC1}"/>
+						<ColumnDefinition Width="{StaticResource GridLengthC2}"/>
+						<ColumnDefinition Width="{StaticResource GridLengthCenter}"/>
+						<ColumnDefinition Width="{StaticResource GridLengthC3}"/>
 					</Grid.ColumnDefinitions>
 					<Grid.RowDefinitions>
-						<RowDefinition Height="{DynamicResource GridLengthR1}"/>
-						<RowDefinition Height="{DynamicResource GridLengthR2}"/>
-						<RowDefinition Height="{DynamicResource GridLengthRHLine}"/>
-						<RowDefinition Height="{DynamicResource GridLengthR3}"/>
+						<RowDefinition Height="{StaticResource GridLengthR1}"/>
+						<RowDefinition Height="{StaticResource GridLengthR2}"/>
+						<RowDefinition Height="{StaticResource GridLengthRHLine}"/>
+						<RowDefinition Height="{StaticResource GridLengthR3}"/>
 
                             </Grid.RowDefinitions>
                             <Path x:Name="path" Grid.Column="0" Data="M-7.256812,0.5 L305.68318,0.5 306.57717,112 324.65501,123.65954 325.07907,135.5 -21.926841,135.5 -21.061589,123.0807 -6.1665019,112.66667 z" HorizontalAlignment="Stretch" Stretch="Fill" Width="Auto" Grid.ColumnSpan="4" StrokeThickness="2" Grid.RowSpan="4" Margin="-2.004,0,-1.837,0" >
@@ -500,7 +500,7 @@
                         <Trigger Property="IsKeyboardFocused" Value="true"/>
                         <Trigger Property="ToggleButton.IsChecked" Value="true"/>
                         <Trigger Property="IsEnabled" Value="false">
-                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            <Setter Property="Foreground" Value="{StaticResource {x:Static SystemColors.GrayTextBrushKey}}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -860,7 +860,7 @@
 
                                     </Grid.ColumnDefinitions>
 
-                                    <Path Grid.ColumnSpan="42" Grid.Column="0" Data="M0,0 L108,0 108,102.027 88,106.027 20.5,106.027 0,102.027 z" Fill="{DynamicResource BrushSkala2}" Height="Auto" Grid.Row="0" Grid.RowSpan="5" Stretch="Fill" StrokeLineJoin="Bevel" Margin="0,0.917,0,-0.917"/>
+                                    <Path Grid.ColumnSpan="42" Grid.Column="0" Data="M0,0 L108,0 108,102.027 88,106.027 20.5,106.027 0,102.027 z" Fill="{StaticResource BrushSkala2}" Height="Auto" Grid.Row="0" Grid.RowSpan="5" Stretch="Fill" StrokeLineJoin="Bevel" Margin="0,0.917,0,-0.917"/>
 
                                     <Border BorderBrush="Black" BorderThickness="1" Background="{StaticResource BrushLabel}" Grid.Row="0" Grid.RowSpan="2" Grid.Column="1"/>
                                     <Border BorderBrush="Black" BorderThickness="1" Background="{StaticResource BrushLabel}" Grid.Row="0" Grid.RowSpan="2" Grid.Column="11"/>

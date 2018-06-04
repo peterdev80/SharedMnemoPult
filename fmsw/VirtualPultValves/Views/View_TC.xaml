@@ -243,8 +243,8 @@
                     <ColumnDefinition Width="0.4*"/>
                     <ColumnDefinition Width="0.054*"/>
                 </Grid.ColumnDefinitions>
-                <Path Style="{StaticResource PathStyle1}" Margin="0,0,1.317,0.583"   Grid.RowSpan="7" Grid.ColumnSpan="3" Fill="{DynamicResource BrushFillTC}" Stroke="{DynamicResource BrushStrokeTC}"/>
-                <Path  Margin="1.348,0.583,0,0" Grid.Column="3" Grid.RowSpan="7" Grid.ColumnSpan="3" Style="{StaticResource PathStyle1}" Fill="{DynamicResource BrushFillTC}" Stroke="{DynamicResource BrushStrokeTC}"/>
+                <Path Style="{StaticResource PathStyle1}" Margin="0,0,1.317,0.583"   Grid.RowSpan="7" Grid.ColumnSpan="3" Fill="{StaticResource BrushFillTC}" Stroke="{StaticResource BrushStrokeTC}"/>
+                <Path  Margin="1.348,0.583,0,0" Grid.Column="3" Grid.RowSpan="7" Grid.ColumnSpan="3" Style="{StaticResource PathStyle1}" Fill="{StaticResource BrushFillTC}" Stroke="{StaticResource BrushStrokeTC}"/>
                 <TextBox   Template="{StaticResource TextBoxControlTemplate1}"  Grid.Column="1" Grid.Row="1" TextWrapping="Wrap"  Background="{Binding T19.TCColor}" Text="{Binding T19.TransporantName}"  TextAlignment="Center" FontSize="{Binding T19.TextSize}" />
                 <TextBox   Template="{StaticResource TextBoxControlTemplate1}"  Grid.Column="4" Grid.Row="1" TextWrapping="Wrap"  Background="{Binding T22.TCColor}"  Text="{Binding T22.TransporantName}"  TextAlignment="Center" FontSize="{Binding T22.TextSize}"/>
                 <TextBox   Template="{StaticResource TextBoxControlTemplate1}"  Grid.Column="4" Grid.Row="3" TextWrapping="Wrap"  Background="{Binding T23.TCColor}" Text="{Binding T23.TransporantName}"  TextAlignment="Center" FontSize="{Binding T23.TextSize}" />

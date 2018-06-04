@@ -141,6 +141,9 @@
     <Compile Include="Views\ViewLDI11.xaml.cs">
       <DependentUpon>ViewLDI11.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ViewModel_vectorBRUS.xaml.cs">
+      <DependentUpon>ViewModel_vectorBRUS.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ViewSvyaz1.xaml.cs">
       <DependentUpon>ViewSvyaz1.xaml</DependentUpon>
     </Compile>
@@ -228,6 +231,9 @@
     <Compile Include="Views\View_TC.xaml.cs">
       <DependentUpon>View_TC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\View_vectorBRUB.xaml.cs">
+      <DependentUpon>View_vectorBRUB.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\View_XSASA.xaml.cs">
       <DependentUpon>View_XSASA.xaml</DependentUpon>
     </Compile>
@@ -268,6 +274,10 @@
     <Page Include="Views\ViewLDI11.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ViewModel_vectorBRUS.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ViewSvyaz1.xaml">
       <SubType>Designer</SubType>
@@ -382,6 +392,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\View_TC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\View_vectorBRUB.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1043,7 +1043,7 @@
             <Setter Property="Control.Template">
                 <Setter.Value>
                     <ControlTemplate>
-                        <Rectangle Margin="1" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                        <Rectangle Margin="1" SnapsToDevicePixels="true" Stroke="{StaticResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -1052,14 +1052,14 @@
             <Setter Property="Control.Template">
                 <Setter.Value>
                     <ControlTemplate>
-                        <Rectangle Margin="14,0,0,0" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                        <Rectangle Margin="14,0,0,0" SnapsToDevicePixels="true" Stroke="{StaticResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
 
         <Style x:Key="CheckBoxStyle1" TargetType="{x:Type CheckBox}">
-            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="Foreground" Value="{StaticResource {x:Static SystemColors.ControlTextBrushKey}}"/>
             <Setter Property="Background" Value="{StaticResource CheckRadioFillNormal}"/>
             <Setter Property="BorderBrush" Value="{StaticResource CheckRadioStrokeNormal}"/>
             <Setter Property="BorderThickness" Value="1"/>
@@ -1096,7 +1096,7 @@
     							<Setter Property="Padding" Value="2,0,0,0"/>
     						</Trigger>
     						<Trigger Property="IsEnabled" Value="false">
-    							<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+    							<Setter Property="Foreground" Value="{StaticResource {x:Static SystemColors.GrayTextBrushKey}}"/>
     						</Trigger>
     					</ControlTemplate.Triggers>-->
                     </ControlTemplate>
@@ -1156,7 +1156,7 @@
         </CheckBox>
         <CheckBox  Template="{StaticResource CheckBoxControlTemplate1}" Background="{StaticResource Brush_OVK7_8}" Grid.Row="5" Grid.RowSpan="2" Grid.Column="1" Margin="0,-0.014,0,-0.09" >
             <Grid>
-                <Button CommandParameter="17"  Template="{DynamicResource ButtonControlTemplate2}" RenderTransformOrigin="5.627,1.687" Content="КО" Grid.Column="1"  FontSize="{StaticResource FontS}"/>
+                <Button CommandParameter="17"  Template="{StaticResource ButtonControlTemplate2}" RenderTransformOrigin="5.627,1.687" Content="КО" Grid.Column="1"  FontSize="{StaticResource FontS}"/>
                 <Button CommandParameter="17" Command="{Binding OVK_KO_2}" Template="{StaticResource ButtonControlTemplate1}" RenderTransformOrigin="5.627,1.687" Content="КО"  FontSize="{StaticResource FontS}" d:IsHidden="True" Visibility="Hidden" />
             </Grid>
         </CheckBox>

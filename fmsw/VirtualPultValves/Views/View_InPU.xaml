@@ -323,7 +323,7 @@
                                 <BeginStoryboard Storyboard="{StaticResource OnMouseEnter1}"/>
                             </EventTrigger>
                             <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                                <Setter Property="Foreground" Value="{StaticResource {x:Static SystemColors.GrayTextBrushKey}}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -634,7 +634,7 @@
             			<pc:PultGlassButton Command="{x:Static mv:View_InPU.BtnCmd}"  CommandParameter="18"  RenderTransformOrigin="5.627,1.687" HorizontalAlignment="Left" Width="50" Content="ОТКЛ" Height="50" VerticalAlignment="Top" Canvas.Left="34.603" Canvas.Top="719.666"/>
                         <!--<mv:TCView Canvas.Left="127.9"  Height="808"/>-->
             			<Path Data="M179.77,225.003 L265.333,225.003" HorizontalAlignment="Left" Stretch="Fill" Width="52.875" StrokeThickness="7" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Height="7" VerticalAlignment="Top" Canvas.Left="31.728" Canvas.Top="716.416" Stroke="{StaticResource BrushRamka}"/>
-            			<pc:PultCheckBox Height="43.83" Width="69.837" Canvas.Left="18.906" Canvas.Top="785.191" Style="{DynamicResource VKLREZBat}" Visibility="{Binding InPU2Visible, Source={StaticResource vInPU}}">
+            			<pc:PultCheckBox Height="43.83" Width="69.837" Canvas.Left="18.906" Canvas.Top="785.191" Style="{StaticResource VKLREZBat}" Visibility="{Binding InPU2Visible, Source={StaticResource vInPU}}">
             				<Grid>
             					<Grid.RowDefinitions>
             						<RowDefinition Height="0.481*"/>
