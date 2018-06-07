@@ -25,8 +25,8 @@ namespace VirtualPultValves.ViewModel
         private View_AllValves _allValves;
         private View_BAPD _bapd;
         private View_BR1 _br1;
-        private View_BRUB _brub;
-        private View_BRUS _brus;
+        private View_vectorBRUB _brub;
+        private View_vectorBRUS _brus;
         private View_DSD _dsd;
         private View_EPKP _epkp;
         private View_EPKPSA _epksa;
@@ -255,7 +255,7 @@ namespace VirtualPultValves.ViewModel
                 case "ЭПК-РД": { if (_epkrd == null) _epkrd = new View_EPKRD(); Workspaces = _epkrd; } break;
                 case "ЭПК-П": { if (_epkp == null) _epkp = new View_EPKP(); Workspaces = _epkp; } break;
                 case "КР-3": { if (_kr3 == null) _kr3 = new View_KR3(); Workspaces = _kr3; } break;
-                case "БРУС": { if (_brus == null) _brus = new View_BRUS(); Workspaces = _brus; } break;
+                case "БРУС": { if (_brus == null) _brus = new View_vectorBRUS(); Workspaces = _brus; } break;
                 case "ЗДВ": { if (_zdv == null) _zdv = new View_ZDV(); Workspaces = _zdv; } break;
                 case "ДСД": { if (_dsd == null) _dsd = new View_DSD(); Workspaces = _dsd; } break;
                 case "Нептун Прав": { if (_nprav == null) _nprav = new View_NeptunP2(); Workspaces = _nprav; } break;
@@ -266,7 +266,7 @@ namespace VirtualPultValves.ViewModel
                 case "РАП-7": { if (_rap7 == null) _rap7 = new View_RAP7(); Workspaces = _rap7; } break;
                 case "КСД-БО": { if (_ksdbo == null) _ksdbo = new View_KSDBO(); Workspaces = _ksdbo; } break;
                 case "КВД БО-СУ": { if (_kvdbo == null) _kvdbo = new View_KVDBO(); Workspaces = _kvdbo; } break;
-                case "БРУБ": { if (_brub == null) _brub = new View_BRUB(); Workspaces = _brub; } break;
+                case "БРУБ": { if (_brub == null) _brub = new View_vectorBRUB(); Workspaces = _brub; } break;
                 case "Мановак.": { if (_manov == null) _manov = new View_Manov(); Workspaces = _manov; } break;
                 case "КР1": { if (_kr1 == null) _kr1 = new View_KR1(); Workspaces = _kr1; } break;
                 case "БАПД": { if (_bapd == null) _bapd = new View_BAPD(); Workspaces = _bapd; } break;

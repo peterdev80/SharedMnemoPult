@@ -141,8 +141,8 @@
     <Compile Include="Views\ViewLDI11.xaml.cs">
       <DependentUpon>ViewLDI11.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ViewModel_vectorBRUS.xaml.cs">
-      <DependentUpon>ViewModel_vectorBRUS.xaml</DependentUpon>
+    <Compile Include="Views\View_vectorBRUS.xaml.cs">
+      <DependentUpon>View_vectorBRUS.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewSvyaz1.xaml.cs">
       <DependentUpon>ViewSvyaz1.xaml</DependentUpon>
@@ -275,7 +275,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\ViewModel_vectorBRUS.xaml">
+    <Page Include="Views\View_vectorBRUS.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

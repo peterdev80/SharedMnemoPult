@@ -176,7 +176,8 @@
             </Canvas>
         </ControlTemplate>
     </UserControl.Resources>
-    <Canvas x:Name="root" Margin="0,0,540,712" DataContext="{Binding Source={StaticResource VMBrub}}">
+    <Viewbox>
+        <Canvas x:Name="root" Margin="0,0,540,712" DataContext="{Binding Source={StaticResource VMBrub}}">
         <Rectangle Fill="#FFABC0C5" Height="128.8" Canvas.Left="26.6" RadiusY="7" RadiusX="7" Stroke="#FF477173" Canvas.Top="66.2" Width="562.7"/>
         <Grid Height="110.842" Canvas.Left="34.933" Canvas.Top="75.525" Width="544.767">
             <Path Stroke="#FF477173" StrokeThickness="0.5" Data="M15.45,10.1 C15.45,15.540005 12.047364,19.95 7.85,19.95 C3.6526359,19.95 0.25,15.540005 0.25,10.1 C0.25,4.6599952 3.6526359,0.25 7.85,0.25 C12.047364,0.25 15.45,4.6599952 15.45,10.1 z" Stretch="Fill" Margin="0,0,529.067,90.642">
@@ -423,8 +424,8 @@
         <Path Data="M17.5,0.5 L455.435,0.5 C464.82384,0.5 472.435,3.6340027 472.435,7.5 L472.435,201.478 C472.435,205.344 464.82384,208.478 455.435,208.47801 L419.142,208.47801 419.142,233.945 384.776,233.945 384.776,208.47801 83.834015,208.47801 83.834015,233.945 49.467987,233.945 49.467987,208.47801 17.5,208.47801 C8.111145,208.478 0.5,205.344 0.5,201.478 L0.5,7.5 C0.5,3.6340027 8.111145,0.5 17.5,0.5 z" Fill="#FFBCAA98" Height="234.445" Canvas.Left="74.599" Stretch="Fill" Stroke="#FF171616" Canvas.Top="354.422" Width="472.935"/>
         <CheckBox Content="0"  Command="{Binding CmdOsn}" Height="33.6" Canvas.Left="60.433" Canvas.Top="118.434" Width="37.233" Template="{StaticResource CheckBoxControlTemplate1}" Cursor="Hand" Checked="CheckBox_Checked" RenderTransformOrigin="1.639,1.482" IsChecked="{Binding  Osn.ValueState}" Click="CheckBox_Checked"/>
         <CheckBox Content="2"  Command="{Binding  CmdRez}" Height="33.6" Canvas.Left="151.1" Canvas.Top="118.434" Width="37.233" Template="{StaticResource CheckBoxControlTemplate1}" Cursor="Hand" Checked="CheckBox_Checked" RenderTransformOrigin="1.639,1.482" IsChecked="{Binding Rez.ValueState}" Click="CheckBox_Checked"/>
-        <CheckBox Content="CheckBox" Height="33.6" Canvas.Left="239.633" Canvas.Top="118.434" Width="37.233" Template="{StaticResource CheckBoxControlTemplate1}" Cursor="Hand" Checked="CheckBox_Checked" RenderTransformOrigin="1.639,1.482"/>
-        <CheckBox Content="CheckBox" Height="33.6" Canvas.Left="329.767" Canvas.Top="118.434" Width="37.233" Template="{StaticResource CheckBoxControlTemplate1}" Cursor="Hand" Checked="CheckBox_Checked" RenderTransformOrigin="1.639,1.482"/>
+        <CheckBox Content="CheckBox" Height="33.6" Canvas.Left="239.633" Canvas.Top="118.434" Width="37.233" Template="{StaticResource CheckBoxControlTemplate1}" Cursor="Hand"  RenderTransformOrigin="1.639,1.482"/>
+        <CheckBox Content="CheckBox" Height="33.6" Canvas.Left="329.767" Canvas.Top="118.434" Width="37.233" Template="{StaticResource CheckBoxControlTemplate1}" Cursor="Hand" RenderTransformOrigin="1.639,1.482"/>
         <CheckBox Content="4" Command="{Binding  CmdVbo}" IsChecked="{Binding Vbo.ValueState}" Click="CheckBox_Checked" Height="33.6" Canvas.Left="417.767" Canvas.Top="118.434" Width="37.233" Template="{StaticResource CheckBoxControlTemplate1}" Cursor="Hand" Checked="CheckBox_Checked" RenderTransformOrigin="1.639,1.482"/>
         <CheckBox Content="6"  Command="{Binding  CmdAsu}" IsChecked="{Binding Asu.ValueState}" Click="CheckBox_Checked" Height="33.6" Canvas.Left="507.367" Canvas.Top="118.434" Width="37.233" Template="{StaticResource CheckBoxControlTemplate1}" Cursor="Hand" Checked="CheckBox_Checked" RenderTransformOrigin="1.639,1.482"/>
         <CheckBox x:Name="Lamp1_Copy67" Content="CheckBox" Canvas.Left="123.567" Canvas.Top="221.433" Template="{StaticResource CheckBoxControlTemplateLAMP}"/>
@@ -1101,4 +1102,5 @@
             </Path.Fill>
         </Path>
     </Canvas>
+        </Viewbox>
 </UserControl>
