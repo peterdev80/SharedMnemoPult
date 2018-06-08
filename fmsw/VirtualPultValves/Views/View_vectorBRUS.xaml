@@ -497,15 +497,15 @@
                 </Path.Fill>
             </Path>
         </Grid>
-        <CheckBox Content="0" Height="33.6" Canvas.Left="19.667" Canvas.Top="96.3" Width="37.233" Template="{StaticResource CheckBoxControlTemplate1}" Cursor="Hand" IsChecked="{Binding Podsvet.ValueState, Mode=OneWayToSource}"  Click="CheckBox_Checked" />
-        <CheckBox Content="2" Height="33.6" Canvas.Left="87.033" Canvas.Top="96.3" Width="37.233" Template="{StaticResource CheckBoxControlTemplate1}" Cursor="Hand" IsChecked="{Binding Vent.ValueState}" Click="CheckBox_Checked" />
-        <CheckBox Content="4" Height="33.6" Canvas.Left="154.766" Canvas.Top="96.3" Width="37.233" Template="{StaticResource CheckBoxControlTemplate1}" Cursor="Hand" IsChecked="{Binding  Ilym.ValueState}" Click="CheckBox_Checked" />
-        <CheckBox Content="10" Height="33.6" Canvas.Left="154.766" Canvas.Top="186.7" Width="37.233" Template="{StaticResource CheckBoxControlTemplate1}" Cursor="Hand" IsChecked="{Binding  Vsa.ValueState}" Click="CheckBox_Checked" />
-        <CheckBox Content="8" Height="33.6" Canvas.Left="87.033" Canvas.Top="186.7" Width="37.233" Template="{StaticResource CheckBoxControlTemplate1}" Cursor="Hand" IsChecked="{Binding  BoaSaRez.ValueState}" Click="CheckBox_Checked" />
-        <CheckBox Content="6" Height="33.6" Canvas.Left="19.667" Canvas.Top="186.7" Width="37.233" Template="{StaticResource CheckBoxControlTemplate1}" Cursor="Hand" IsChecked="{Binding  BoaSaOsn.ValueState}" Click="CheckBox_Checked" />
-        <CheckBox Content="12" Height="33.6" Canvas.Left="19.667" Canvas.Top="286.567" Width="37.233" Template="{StaticResource CheckBoxControlTemplate1}" Cursor="Hand" IsChecked="{Binding  PitEpkrdOsn.ValueState}" Click="CheckBox_Checked" />
-        <CheckBox Content="14" Height="33.6" Canvas.Left="87.033" Canvas.Top="286.567" Width="37.233" Template="{StaticResource CheckBoxControlTemplate1}" Cursor="Hand" IsChecked="{Binding  PitEpkrdRez.ValueState}" Click="CheckBox_Checked" />
-        <CheckBox Content="16" Canvas.Left="162.95" Canvas.Top="286.567" Template="{StaticResource CheckBoxControlTemplate2}" Cursor="Hand" IsChecked="{Binding  RazreshRrst.ValueState}"  Click="CheckBox_Checked"/>
+        <CheckBox Content="0" Height="52" Canvas.Left="20" Canvas.Top="96" Width="46" Template="{StaticResource CheckBoxControlTemplate1}" Cursor="Hand" IsChecked="{Binding Podsvet.ValueState, Mode=OneWayToSource}"  Click="CheckBox_Checked" />
+        <CheckBox Content="2" Height="52" Canvas.Left="87" Canvas.Top="96" Width="47" Template="{StaticResource CheckBoxControlTemplate1}" Cursor="Hand" IsChecked="{Binding Vent.ValueState}" Click="CheckBox_Checked" />
+        <CheckBox Content="4" Height="52" Canvas.Left="155" Canvas.Top="96" Width="47" Template="{StaticResource CheckBoxControlTemplate1}" Cursor="Hand" IsChecked="{Binding  Ilym.ValueState}" Click="CheckBox_Checked" />
+        <CheckBox Content="10" Height="53" Canvas.Left="155" Canvas.Top="186" Width="47" Template="{StaticResource CheckBoxControlTemplate1}" Cursor="Hand" IsChecked="{Binding  Vsa.ValueState}" Click="CheckBox_Checked" />
+        <CheckBox Content="8" Height="53" Canvas.Left="87" Canvas.Top="186" Width="47" Template="{StaticResource CheckBoxControlTemplate1}" Cursor="Hand" IsChecked="{Binding  BoaSaRez.ValueState}" Click="CheckBox_Checked" />
+        <CheckBox Content="6" Height="53" Canvas.Left="20" Canvas.Top="186" Width="46" Template="{StaticResource CheckBoxControlTemplate1}" Cursor="Hand" IsChecked="{Binding  BoaSaOsn.ValueState}" Click="CheckBox_Checked" />
+        <CheckBox Content="12" Height="49" Canvas.Left="20" Canvas.Top="286" Width="46" Template="{StaticResource CheckBoxControlTemplate1}" Cursor="Hand" IsChecked="{Binding  PitEpkrdOsn.ValueState}" Click="CheckBox_Checked" />
+        <CheckBox Content="14" Height="49" Canvas.Left="87" Canvas.Top="286" Width="47" Template="{StaticResource CheckBoxControlTemplate1}" Cursor="Hand" IsChecked="{Binding  PitEpkrdRez.ValueState}" Click="CheckBox_Checked" />
+        <CheckBox Content="16" Canvas.Left="155" Canvas.Top="286" Template="{StaticResource CheckBoxControlTemplate2}" Cursor="Hand" IsChecked="{Binding  RazreshRrst.ValueState}"  Click="CheckBox_Checked" Width="47" Height="36"/>
         <Grid Height="29.583" Canvas.Left="225.333" Canvas.Top="316.367" Width="49.367">
             <Rectangle StrokeThickness="0.2" RadiusX="1" RadiusY="1" Stroke="#FF717171" Fill="#FFB3B3B3"/>
             <Rectangle RadiusY="1" RadiusX="1" Stroke="#FF717171" StrokeThickness="0.2" Margin="46.2,0,0,0">
@@ -541,7 +541,7 @@
                 </Rectangle.Fill>
             </Rectangle>
         </Grid>
-        <CheckBox Content="26" Template="{StaticResource CheckBoxControlTemplate2}" Cursor="Hand" RenderTransformOrigin="-2.351,-1.972"     Click="CheckBox_Checked" Height="31" Canvas.Left="237.599" Canvas.Top="321.367" Width="31" IsChecked="{Binding  Sro.ValueState}"/>
+        <CheckBox Content="26" Template="{StaticResource CheckBoxControlTemplate2}" Cursor="Hand" RenderTransformOrigin="-2.351,-1.972"     Click="CheckBox_Checked" Height="37" Canvas.Left="229" Canvas.Top="316" Width="40" IsChecked="{Binding  Sro.ValueState}"/>
         <Grid Height="29.583" Canvas.Left="225.333" Canvas.Top="264.9" Width="49.367">
             <Rectangle StrokeThickness="0.2" RadiusX="1" RadiusY="1" Stroke="#FF717171" Fill="#FFB3B3B3"/>
             <Rectangle RadiusY="1" RadiusX="1" Stroke="#FF717171" StrokeThickness="0.2" Margin="46.2,0,0,0">
@@ -577,7 +577,7 @@
                 </Rectangle.Fill>
             </Rectangle>
         </Grid>
-        <CheckBox Content="24" Template="{StaticResource CheckBoxControlTemplate2}" Cursor="Hand" RenderTransformOrigin="-2.351,-1.972" Click="CheckBox_Checked" Height="31" Canvas.Left="235.066" Canvas.Top="271.489" Width="31" IsChecked="{Binding  Vp2.ValueState}"/>
+        <CheckBox Content="24" Template="{StaticResource CheckBoxControlTemplate2}" Cursor="Hand" RenderTransformOrigin="-2.351,-1.972" Click="CheckBox_Checked" Height="37" Canvas.Left="229" Canvas.Top="266" Width="40" IsChecked="{Binding  Vp2.ValueState}"/>
         <Grid Height="29.583" Canvas.Left="225.333" Canvas.Top="220.1" Width="49.367">
             <Rectangle StrokeThickness="0.2" RadiusX="1" RadiusY="1" Stroke="#FF717171" Fill="#FFB3B3B3"/>
             <Rectangle RadiusY="1" RadiusX="1" Stroke="#FF717171" StrokeThickness="0.2" Margin="46.2,0,0,0">
@@ -613,9 +613,9 @@
                 </Rectangle.Fill>
             </Rectangle>
         </Grid>
-        <CheckBox Content="22" Template="{StaticResource CheckBoxControlTemplate2}" Cursor="Hand" RenderTransformOrigin="-2.351,-1.972" Click="CheckBox_Checked" Height="40" Canvas.Left="235.066" Width="31" Canvas.Top="219.9" IsChecked="{Binding  Vp1.ValueState}"/>
-        <CheckBox Content="20" Canvas.Left="261.8" Canvas.Top="153.967" Template="{StaticResource CheckBoxControlTemplate2}" Cursor="Hand" Click="CheckBox_Checked" IsChecked="{Binding  Pbk.ValueState}"/>
-        <CheckBox Content="18" Canvas.Left="261.8" Canvas.Top="90.1" Template="{StaticResource CheckBoxControlTemplate2}" Cursor="Hand" IsChecked="{Binding  Pvk.ValueState}" Click="CheckBox_Checked"/>
+        <CheckBox Content="22" Template="{StaticResource CheckBoxControlTemplate2}" Cursor="Hand" RenderTransformOrigin="-2.351,-1.972" Click="CheckBox_Checked" Height="40" Canvas.Left="229" Width="40" Canvas.Top="220" IsChecked="{Binding  Vp1.ValueState}"/>
+        <CheckBox Content="20" Canvas.Left="255" Canvas.Top="151" Template="{StaticResource CheckBoxControlTemplate2}" Cursor="Hand" Click="CheckBox_Checked" IsChecked="{Binding  Pbk.ValueState}" Height="41" Width="42"/>
+        <CheckBox Content="18" Canvas.Left="261.8" Canvas.Top="90.1" Template="{StaticResource CheckBoxControlTemplate2}" Cursor="Hand" IsChecked="{Binding  Pvk.ValueState}"/>
         <Grid x:Name="TEXT_src" Height="285.733" Canvas.Left="9.1" Canvas.Top="63.634" Width="301.066" Visibility="Hidden">
             <TextBlock TextWrapping="Wrap" FontSize="10" FontFamily="Arial" TextAlignment="Center" LineHeight="6" Margin="8.167,4.266,236.066,253.067"><Run Text="ПОДСВЕТ."/><LineBreak/><Run Text="ВСК"/></TextBlock>
             <TextBlock TextWrapping="Wrap" FontSize="10" FontFamily="Arial" TextAlignment="Center" LineHeight="6" Text="ВЕНТ.ВСК-4" Margin="70,4.266,167.533,253.067"/>
