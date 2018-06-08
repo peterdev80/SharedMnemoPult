@@ -5,6 +5,7 @@ using System.Text;
 using VirtualPultValves.Model;
 using System.Windows.Input;
 using ValueModel.BaseType;
+using System.Diagnostics;
 
 namespace VirtualPultValves.ViewModel
 {
@@ -65,6 +66,7 @@ namespace VirtualPultValves.ViewModel
         private void cmdSend(object param)
         {
             //  repos.KomValues[1].SendCommand.Execute(param);
+            Debug.WriteLine("cmdSend=" + param.ToString());
             LinkInpu.Instance.SetSendVar(true, int.Parse(param.ToString()), 1);
         }
         #endregion

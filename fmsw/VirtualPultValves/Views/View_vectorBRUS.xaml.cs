@@ -46,10 +46,10 @@ namespace VirtualPultValves.Views
             var obj = sender as CheckBox;
             int cmdParamKey = int.Parse(obj.Content.ToString());
             int step = 0;
-            if ((bool)obj.IsChecked) step = 1;
-            if (cmdParamKey == 18) //Заглушка к ПВК, необходтмо разобратся с моделью
+            if (!(bool)obj.IsChecked) step = 1;
+            if (cmdParamKey ==18) //Заглушка к ПВК, необходтмо разобратся с моделью
             {
-                cmdParamKey = 19;
+               cmdParamKey = 19;
                 if (step == 1) step = -1;
             }
             vm.Cmd.Execute(cmdParamKey + step);
