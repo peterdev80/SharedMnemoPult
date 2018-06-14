@@ -13,9 +13,9 @@ namespace ValueModel.BaseModelCommand
         public static void ComBoolK(string varID, string VarName, object PARAM)
         {
             int i = 0;
-            bool val = false;
+           // bool val = false;
             if (!int.TryParse(PARAM.ToString(), out i)) throw new Exception("В качестве парамет параметра Комманды должен быть инт");
-            if (i != 0) val = true;
+           // if (i != 0) val = true;
              // var VaRSend = VHClass.Instance.GetVHPC(varID).VHCurr.GetBoolVariable(VarName);
             //   VaRSend.AutoSend = true;
           //  VaRSend.Value = val;

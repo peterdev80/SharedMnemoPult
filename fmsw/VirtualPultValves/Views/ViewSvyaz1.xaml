@@ -1,11 +1,13 @@
 ﻿<UserControl
+    x:Class="VirtualPultValves.Views.ViewSvyaz1"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:VirtualPultValves.Views"
              xmlns:vm="clr-namespace:VirtualPultValves.ViewModel"
-             xmlns:PultControl="clr-namespace:VirtualPultValves.PultControl" x:Class="VirtualPultValves.Views.ViewSvyaz1"
+             xmlns:PultControl="clr-namespace:VirtualPultValves.PultControl"
+             
              mc:Ignorable="d" Height="161.538" Width="484.615">
     <UserControl.Resources>
         <vm:ViewModel_Svyaz x:Key="VMS"/>

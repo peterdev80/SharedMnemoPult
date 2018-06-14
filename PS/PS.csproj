@@ -19,7 +19,7 @@
     <AllowedReferenceRelatedFileExtensions>.xml</AllowedReferenceRelatedFileExtensions>
     <OutputPath>..\FMSReleaseBinary</OutputPath>
     <OutputPath Condition="'$(FMSReleaseDir)' != ''">$(FMSReleaseDir)</OutputPath>
-    <Prefer32Bit>false</Prefer32Bit>
+    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\fmsnet\fmslapi\fmslapi.csproj">

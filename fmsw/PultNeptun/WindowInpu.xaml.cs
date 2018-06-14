@@ -41,8 +41,9 @@ namespace PultNeptun
             _inwin1.InpuNum = NumInpu;
             InPUControl = _inwin1.InPUControl;
             WinPult.DataContext = _inwin1;
-            vminpu.RMNum = 1; //переключение дежурного режима из ViewModel на InPu1
             vminpu = roo.DataContext as VirtualPultValves.ViewModel.ViewModel_InPU;
+            vminpu.RMNum = 1; //переключение дежурного режима из ViewModel на InPu1
+          
            
             WagoIO.Instance.SenderType = 8; //Инпу1
         }
