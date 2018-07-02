@@ -78,7 +78,7 @@ namespace VirtualPultValves.Views
             VM.CmdKontrTCFalse.Execute(0);
 
         }
-
+       
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
     {
         kip.MouseLeftButtonDown += kip_MouseLeftButtonDown;

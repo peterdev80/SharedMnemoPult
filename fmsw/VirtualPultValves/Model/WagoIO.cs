@@ -187,7 +187,7 @@ namespace VirtualPultValves.Model
                     for (var i = 0; i <= 23; i++)
                         ListTC[i].ValTC = true;
 
-                    CentOgon.ValueState = true;
+                    CentOgon.ValueState = false;
                 }
                 CentOgon.ValueState = v1.HasFlag(BitPosValue.key9);
                 DejRegim1.ValueState = v4.HasFlag(BitPosValue.key15);
