@@ -103,6 +103,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\EWTM\EWTM.csproj">
+      <Project>{dbc4299a-8cb2-4ff7-9e8e-dd6b5fdabbe2}</Project>
+      <Name>EWTM</Name>
+    </ProjectReference>
     <ProjectReference Include="..\hostvega\hostvega.vcxproj">
       <Project>{2e400f4e-de4a-4a6b-9922-d805c288d040}</Project>
       <Name>hostvega</Name>

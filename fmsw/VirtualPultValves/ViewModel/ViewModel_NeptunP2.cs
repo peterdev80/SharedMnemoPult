@@ -5,6 +5,7 @@ using System.Text;
 using VirtualPultValves.Model;
 using System.Windows.Input;
 using ValueModel.BaseType;
+using EWTM.Model;
 
 namespace VirtualPultValves.ViewModel
 {
@@ -85,8 +86,8 @@ namespace VirtualPultValves.ViewModel
                if (cmdbi == null)
                 {
                    
-                   // cmdbi = new RelayCommand(p => repos.KomValues[40].SendCommand.Execute(p));
-                    cmdbi = new RelayCommand(p => repos.KomValues[40].SendCommand.Execute(p));
+                  
+                    cmdbi = new RelayCommand(p => repos.getCMD("__VENTIL_BI").SendCommand.Execute(p));
                 }
                 return cmdbi;
             }
@@ -97,10 +98,9 @@ namespace VirtualPultValves.ViewModel
             {
                if (cmdkk == null)
                 {
-                   
-                   // cmdkk = new RelayCommand(p => repos.KomValues[41].SendCommand.Execute(p));
-                    cmdkk = new RelayCommand(p => repos.KomValues[41].SendCommand.Execute(p));
-               }
+
+                    cmdbi = new RelayCommand(p => repos.getCMD("__VENTIL_KK").SendCommand.Execute(p));
+                }
                 return cmdkk;
             }
         }
@@ -110,9 +110,8 @@ namespace VirtualPultValves.ViewModel
             {
                if (cmdki == null)
                 {
-                  
-                   // cmdki = new RelayCommand(p => repos.KomValues[42].SendCommand.Execute(p));
-                    cmdki = new RelayCommand(p => repos.KomValues[42].SendCommand.Execute(p));
+
+                    cmdbi = new RelayCommand(p => repos.getCMD("__VENTIL_KI").SendCommand.Execute(p));
 
                 }
                 return cmdki;

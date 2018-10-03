@@ -58,19 +58,8 @@
   <ItemGroup>
     <Compile Include="BitPosValueStruct.cs" />
     <Compile Include="ConverterClasess.cs" />
-    <Compile Include="DataAccess\DataReader.cs" />
-    <Compile Include="DataAccess\TCReader.cs" />
-    <Compile Include="DataAccess\VariableHostReader.cs" />
     <Compile Include="GridLengthAnimation.cs" />
     <Compile Include="Model\InpuModelSelector.cs" />
-    <Compile Include="Model\LinkInpu.cs" />
-    <Compile Include="Model\ModeVariablelRepository.cs" />
-    <Compile Include="Model\TCGroupModel.cs" />
-    <Compile Include="Model\TCModel.cs" />
-    <Compile Include="Model\TransporantModel.cs" />
-    <Compile Include="Model\VarHostMy.cs" />
-    <Compile Include="Model\WagoIO.cs" />
-    <Compile Include="Model\XMLValidate.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -111,6 +100,7 @@
     <Compile Include="ViewModel\ViewModel_EPKRD.cs" />
     <Compile Include="ViewModel\ViewModel_EPK_PSA.cs" />
     <Compile Include="ViewModel\ViewModel_InPU.cs" />
+    <Compile Include="ViewModel\ViewModel_klMain.cs" />
     <Compile Include="ViewModel\ViewModel_KR1.cs" />
     <Compile Include="ViewModel\ViewModel_KR3.cs" />
     <Compile Include="ViewModel\ViewModel_KSDBO.cs" />
@@ -127,7 +117,6 @@
     <Compile Include="ViewModel\ViewModel_RPV.cs" />
     <Compile Include="ViewModel\ViewModel_RUS.cs" />
     <Compile Include="ViewModel\ViewModel_Svyaz.cs" />
-    <Compile Include="ViewModel\ViewModel_TC.cs" />
     <Compile Include="ViewModel\ViewModel_ValvesfA.cs" />
     <Compile Include="ViewModel\ViewModel_Voltmetr.cs" />
     <Compile Include="ViewModel\ViewModel_XSASA.cs" />
@@ -253,11 +242,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Data\XMLValues.xml">
-      <SubType>Designer</SubType>
-    </Resource>
   </ItemGroup>
   <ItemGroup>
     <Page Include="Themes\Generic.xaml">
@@ -416,11 +400,6 @@
   <ItemGroup>
     <Content Include="PictureValves\SU\KSDSUClose.jpg" />
     <Content Include="PictureValves\SU\KSDSUOpen.jpg" />
-    <Resource Include="Data\InitXMLFile.xml" />
-    <Resource Include="Data\VariableList.xml">
-      <SubType>Designer</SubType>
-    </Resource>
-    <Resource Include="Data\XMLDataTC.xml" />
     <Resource Include="PictureValves\SA\bdus1_1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
@@ -555,6 +534,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\EWTM\EWTM.csproj">
+      <Project>{dbc4299a-8cb2-4ff7-9e8e-dd6b5fdabbe2}</Project>
+      <Name>EWTM</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\fmsnet\fmslapi\fmslapi.csproj">
       <Project>{dfbf2c76-486b-44fc-be13-82c41efee1af}</Project>
       <Name>fmslapi</Name>

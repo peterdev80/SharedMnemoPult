@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Input;
 using VirtualPultValves.Views;
 using ValueModel.BaseType;
+using EWTM.Model;
 
 namespace VirtualPultValves.ViewModel
 {
@@ -70,7 +71,7 @@ namespace VirtualPultValves.ViewModel
          //  DejRegim2 = new BoolValue();
            //RMNum = 1;
            CentOgon = WagoIO.Instance.CentOgon;//repos.BoolValues[1].ValState;
-          COTransparant = repos.IntValues[3].ValState;
+         // COTransparant = repos.IntValues[3].ValState;
           clInpu = new BoolValue();
           clInpu = WagoIO.Instance.clInpu_1;
        }

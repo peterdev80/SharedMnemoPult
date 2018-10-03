@@ -329,9 +329,9 @@
                     <Setter Property="Stroke" TargetName="LD" Value="{StaticResource numbrush}" />
                     <Setter Property="Stroke" TargetName="LU" Value="{StaticResource numbrush}" />
                     <Setter Property="Stroke" TargetName="RD" Value="{StaticResource numbrush}" />
-
                     <Setter Property="Stroke" TargetName="CC" Value="{StaticResource numbrush}" />
                     <Setter Property="Stroke" TargetName="CD" Value="{StaticResource numbrush}" />
+                    <Setter Property="Stroke" TargetName="CU" Value="{StaticResource numbrush}" />
                 </Trigger>
                 <Trigger Property="Content" >
                     <Trigger.Value>
@@ -364,6 +364,7 @@
                     <Setter Property="Stroke" TargetName="RD" Value="{StaticResource numbrush}" />
                     <Setter Property="Stroke" TargetName="RU" Value="{StaticResource numbrush}" />
                     <Setter Property="Stroke" TargetName="CU" Value="{StaticResource numbrush}" />
+                    <Setter Property="Stroke" TargetName="CD" Value="{StaticResource numbrush}" />
 
                     <Setter Property="Stroke" TargetName="CC" Value="{StaticResource numbrush}" />
                 </Trigger>

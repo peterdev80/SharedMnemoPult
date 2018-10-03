@@ -29,6 +29,7 @@ namespace VirtualPultValves.Views
             InitializeComponent();
             vmp2 = croot.DataContext as ViewModel.ViewModel_NeptunP2;
             vms = sroot.DataContext as ViewModel.ViewModel_Svyaz;
+           if (VM!=null) vmp1.Voltag.ValueState = 30;//Заплатка для вольтметра
         }
    
     public ViewModel.ViewModel_NeptunP1 VM
@@ -39,7 +40,8 @@ namespace VirtualPultValves.Views
                 try
                 {
                     vmp1 = this.FindResource("vP1") as ViewModel.ViewModel_NeptunP1;
-                }
+                       
+                    }
                 catch (ResourceReferenceKeyNotFoundException e)
                 {
                     Debug.WriteLine(e.Message);
@@ -57,15 +59,16 @@ namespace VirtualPultValves.Views
     private void kip_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
     {
         VM.CmdKontVPTrue.Execute(0);
+            //Заплатка для вольтметра
+            vmp1.Voltag.ValueState = 29;
 
-
-
-    }
-    private void kip_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        }
+        private void kip_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
     {
         VM.CmdKontVPFalse.Execute(0);
-
-    }
+            //Заплатка для вольтметра
+            vmp1.Voltag.ValueState = 30;
+        }
 
         private void kts_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -95,6 +98,8 @@ namespace VirtualPultValves.Views
          (MouseButtonEventHandler)kts_MouseLeftButtonDown, true);
             kts.AddHandler(UIElement.MouseLeftButtonUpEvent,
            (MouseButtonEventHandler)kts_MouseLeftButtonUp, true);
+
+           
         }
 
     private void UserControl_Unloaded(object sender, RoutedEventArgs e)

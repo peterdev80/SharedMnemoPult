@@ -5,17 +5,19 @@ using System.Text;
 using VirtualPultValves.Views;
 using System.Windows.Controls;
 using System.Collections.ObjectModel;
-using VirtualPultValves.DataAccess;
+
 using System.Windows;
 using VirtualPultValves.Model;
 using System.Windows.Input;
 using ValueModel.BaseType;
+using EWTM.Model;
+using EWTM.DataAccess;
 
 namespace VirtualPultValves.ViewModel
 {
     public class ViewModel_Main : ViewModelBase
     {
-        const string FormatName = "pack://application:,,,/VirtualPultValves;component/Data/XMLValues.xml";
+        const string FormatName = "pack://application:,,,/EWTM;component/Data/XMLValues.xml";
 
         private ReadOnlyCollection<GroupCommandViewModel> _gcommands;
         private Dictionary<string, string> ValvesLocate { get; set; }
@@ -75,8 +77,8 @@ namespace VirtualPultValves.ViewModel
             var dr = new DataReader();
             ValvesLocate = dr.GetValvesShowCommand(FormatName);
             repos = ModelVariableRepository.Instance;
-            Inpu1ModelSelect = repos.BoolFMSValues[0].ValState;
-            Inpu2ModelSelect = repos.BoolFMSValues[1].ValState;
+           Inpu1ModelSelect = repos.BoolFMSValues[0].ValState;
+           Inpu2ModelSelect = repos.BoolFMSValues[1].ValState;
             Inpu1ModelSelect.PropertyChanged += Inpu1ModelSelect_PropertyChanged;
             Inpu2ModelSelect.PropertyChanged += Inpu1ModelSelect_PropertyChanged;
         }

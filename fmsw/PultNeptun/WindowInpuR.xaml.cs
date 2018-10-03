@@ -1,4 +1,5 @@
 ﻿using AVIAKOM;
+using EWTM.Model;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -38,7 +39,9 @@ namespace PultNeptun
             InPUControl = _inwin1.InPUControl;
             WinPult.DataContext = _inwin1;
             vminpu = roo.DataContext as VirtualPultValves.ViewModel.ViewModel_InPU;
+            vminpu.RMNum = NumInpu;
             WagoIO.Instance.SenderType = 9; //Инпу2
+          
 
         }
 

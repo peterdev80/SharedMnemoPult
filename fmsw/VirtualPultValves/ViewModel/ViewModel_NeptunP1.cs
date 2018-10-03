@@ -5,6 +5,7 @@ using System.Text;
 using VirtualPultValves.Model;
 using System.Windows.Input;
 using ValueModel.BaseType;
+using EWTM.Model;
 
 namespace VirtualPultValves.ViewModel
 {
@@ -49,41 +50,17 @@ namespace VirtualPultValves.ViewModel
         {
             get
             {
-                return new RelayCommand(p=>repos.KomValues[38].SendCommand.Execute(0));
+                return new RelayCommand(p=>repos.getCMD("__KONTROL_IP").SendCommand.Execute(0));
             }
         }
         public ICommand CmdKontVPTrue
         {
             get
             {
-                return new RelayCommand(p => repos.KomValues[38].SendCommand.Execute(1));
+                return new RelayCommand(p => repos.getCMD("__KONTROL_IP").SendCommand.Execute(1));
             }
         }
-       /* public ICommand CmdBdus_1
-        {
-            get
-            {
-                return new RelayCommand(p => repos.KomValues[8].SendCommand.Execute(0));
-
-            }
-        }
-        public ICommand CmdBdus_2
-        {
-            get
-            {
-                return new RelayCommand(p => repos.KomValues[9].SendCommand.Execute(0));
-
-            }
-        }
-        public ICommand CmdBdus_3
-        {
-            get
-            {
-                return new RelayCommand(p => repos.KomValues[10].SendCommand.Execute(0));
-
-            }
-        }
-        */
+      
         public ICommand CmdBdus1
         {
             get
@@ -96,7 +73,7 @@ namespace VirtualPultValves.ViewModel
                             WagoIO.Instance.SetSendVar(true, 12, 1);
                             WagoIO.Instance.SetSendVar(false, 13, 1);
                             WagoIO.Instance.SetSendVar(false, 14, 1);
-                            repos.KomValues[8].SendCommand.Execute(0);
+                          //  repos.KomValues[8].SendCommand.Execute(0);
                         }
 
                 );
@@ -114,7 +91,7 @@ namespace VirtualPultValves.ViewModel
                             WagoIO.Instance.SetSendVar(false, 12, 1);
                             WagoIO.Instance.SetSendVar(true, 13, 1);
                             WagoIO.Instance.SetSendVar(false, 14, 1);
-                            repos.KomValues[9].SendCommand.Execute(0);
+                           // repos.KomValues[9].SendCommand.Execute(0);
 
                         });
                 return cmdbdus2;
@@ -130,7 +107,7 @@ namespace VirtualPultValves.ViewModel
                             WagoIO.Instance.SetSendVar(false, 12, 1);
                             WagoIO.Instance.SetSendVar(false, 13, 1);
                             WagoIO.Instance.SetSendVar(true, 14, 1);
-                            repos.KomValues[10].SendCommand.Execute(0);
+                           // repos.KomValues[10].SendCommand.Execute(0);
                         });
                 return cmdbdus3;
             }
@@ -169,16 +146,18 @@ namespace VirtualPultValves.ViewModel
         public ICommand CmdKontrTCFalse
         {
             get 
-            { 
-                return new RelayCommand(p => WagoIO.Instance.SetSendVar(false, 12, 6)); 
+            {
+                //  return new RelayCommand(p => WagoIO.Instance.SetSendVar(false, 12, 6)); 
+                return new RelayCommand(p => WagoIO.Instance.SetSendVar(false, 15, 1));
             }
         }
 
         public ICommand CmdKontrTCTrue
         {
             get 
-            { 
-                return new RelayCommand(p => WagoIO.Instance.SetSendVar(true, 12, 6)); 
+            {
+                // return new RelayCommand(p => WagoIO.Instance.SetSendVar(true, 12, 6)); 
+                return new RelayCommand(p => WagoIO.Instance.SetSendVar(true, 15, 1));
             }
         }
         #endregion

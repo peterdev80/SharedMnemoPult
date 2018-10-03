@@ -14,16 +14,17 @@ using System.Windows.Shapes;
 using VirtualPultValves.ViewModel;
 using System.Collections.ObjectModel;
 using VirtualPultValves.Model;
+using EWTM.Model;
 
 namespace VirtualPultValves.Views
 {
     /// <summary>
     /// Логика взаимодействия для View_Main.xaml
     /// </summary>
-    public partial class MainView : UserControl
+    public partial class MainklView : UserControl
     {
 
-        public MainView()
+        public MainklView()
         {
             var init = LinkInpu.Instance;
             InitializeComponent();
@@ -32,7 +33,7 @@ namespace VirtualPultValves.Views
         public ObservableCollection<GroupCommandViewModel> CommandsViewModel { get; set; }
 
         public static readonly DependencyProperty HeightRowProperty = DependencyProperty.Register(
-          "HeightRow", typeof(GridLength), typeof(MainView), new FrameworkPropertyMetadata(new GridLength(60),
+          "HeightRow", typeof(GridLength), typeof(MainklView), new FrameworkPropertyMetadata(new GridLength(60),
           FrameworkPropertyMetadataOptions.AffectsRender, OnPultOrientUpd));
         public GridLength HeightRow
         {
@@ -42,7 +43,7 @@ namespace VirtualPultValves.Views
 
 
         public static readonly DependencyProperty WidthRowProperty = DependencyProperty.Register(
-          "WidthRow", typeof(GridLength), typeof(MainView), new FrameworkPropertyMetadata(new GridLength(60),
+          "WidthRow", typeof(GridLength), typeof(MainklView), new FrameworkPropertyMetadata(new GridLength(60),
           FrameworkPropertyMetadataOptions.AffectsRender, OnPultOrientUpd));
         public GridLength WidthRow
         {
@@ -52,7 +53,7 @@ namespace VirtualPultValves.Views
         private static void OnPultOrientUpd(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
 
-            MainView con = d as MainView;
+            MainklView con = d as MainklView;
             con.OrientUpdate();
         }
 
@@ -111,7 +112,7 @@ namespace VirtualPultValves.Views
 
 
         public static readonly DependencyProperty TypePultProperty = DependencyProperty.Register(
-         "TypePult", typeof(PultValvesType), typeof(MainView), new FrameworkPropertyMetadata(PultValvesType.None,
+         "TypePult", typeof(PultValvesType), typeof(MainklView), new FrameworkPropertyMetadata(PultValvesType.None,
          FrameworkPropertyMetadataOptions.AffectsRender, OnTypePultUpd));
         public PultValvesType TypePult
         {
@@ -134,7 +135,7 @@ namespace VirtualPultValves.Views
 
         //выбор клапана по умолчанию
         public static readonly DependencyProperty SelectFormatProperty = DependencyProperty.Register(
-        "SelectFormat", typeof(string), typeof(MainView), new FrameworkPropertyMetadata("",
+        "SelectFormat", typeof(string), typeof(MainklView), new FrameworkPropertyMetadata("",
         FrameworkPropertyMetadataOptions.AffectsRender, OnSelectFormatUpd));
         public string SelectFormat
         {
@@ -144,7 +145,7 @@ namespace VirtualPultValves.Views
 
         private static void OnSelectFormatUpd(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var vmcurent = d as MainView;
+            var vmcurent = d as MainklView;
             var datacontext_source = vmcurent.FindResource("vMain") as ViewModel_Main;
             if (datacontext_source != null)
             {

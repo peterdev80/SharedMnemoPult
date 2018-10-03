@@ -6,6 +6,7 @@ using VirtualPultValves.Model;
 using System.Windows.Input;
 using ValueModel.BaseType;
 using System.Diagnostics;
+using EWTM.Model;
 
 namespace VirtualPultValves.ViewModel
 {

@@ -509,65 +509,6 @@
                 <Path Data="M799.02,138.37752 L852.02,138.38118" Height="3.004" Canvas.Left="496.797" Stretch="Fill" Stroke="#FF060606" StrokeThickness="3" Canvas.Top="649.237" Width="56"/>
                 <Path Data="M820,657.11274 L869.83335,656.91025" Height="3.203" Stretch="Fill" Stroke="#FF060606" StrokeThickness="3" Canvas.Left="496.777" Canvas.Top="517.77" Width="52.832"/>
                 <mv:View_OVK x:Name="OVK1" Height="189.993" Canvas.Left="-192.784" Canvas.Top="661.239" Width="832.944" />
-                <Border x:Name="comCO" VerticalAlignment="Top" Height="34.73" HorizontalAlignment="Center" Width="97.964" Canvas.Left="64.583" Canvas.Top="-1.168" Visibility="Hidden">
-
-                    <!--Visibility="{Binding InPU2Visible, Source={StaticResource vInPU}}"-->
-
-                    <Grid VerticalAlignment="Top">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="0.182*"/>
-                            <RowDefinition Height="0*"/>
-                            <RowDefinition Height="0.663*"/>
-                            <RowDefinition Height="0.155*"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0.041*"/>
-                            <ColumnDefinition Width="0.915*"/>
-                            <ColumnDefinition Width="0.044*"/>
-                        </Grid.ColumnDefinitions>
-                        <Path Data="M2,9 C2,5.1340068 5.581722,2 10,2 L47,2 C51.418278,2 55,5.1340068 55,9 L55,111.496 C55,115.36199 51.418278,118.496 47,118.496 L10,118.496 C5.581722,118.496 2,115.36199 2,111.496 z" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Grid.ColumnSpan="3" Grid.RowSpan="4">
-                            <Path.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Path.RenderTransform>
-                            <Path.Fill>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <LinearGradientBrush.RelativeTransform>
-                                        <TransformGroup>
-                                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                            <RotateTransform Angle="180" CenterY="0.5" CenterX="0.5"/>
-                                            <TranslateTransform/>
-                                        </TransformGroup>
-                                    </LinearGradientBrush.RelativeTransform>
-                                    <GradientStop Color="#FF9EADA1" Offset="0.965"/>
-                                    <GradientStop Color="#FFB1B4B2" Offset="0.039"/>
-                                </LinearGradientBrush>
-                            </Path.Fill>
-                            <Path.Stroke>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <LinearGradientBrush.RelativeTransform>
-                                        <TransformGroup>
-                                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                            <RotateTransform Angle="203.42900000000003" CenterY="0.5" CenterX="0.5"/>
-                                            <TranslateTransform/>
-                                        </TransformGroup>
-                                    </LinearGradientBrush.RelativeTransform>
-                                    <GradientStop Color="#FF55744B" Offset="0"/>
-                                    <GradientStop Color="#FFD1E3DA" Offset="1"/>
-                                </LinearGradientBrush>
-                            </Path.Stroke>
-                        </Path>
-                        <TextBlock Text="ЦО" Grid.Column="1" TextAlignment="Center" FontSize="16" 
-                                LineHeight="16" Margin="5.899,1.424,5.605,-1.563" 
-                                Grid.RowSpan="3" Style="{StaticResource FlashCO}" x:Name="coText" />
-                    </Grid>
-                </Border>
                 <Path Data="M0.81103516,3.0091085 L6.6171875,3.0091085 L6.6171875,11.006667 L5.5537109,11.006667 L5.5537109,3.954421 L1.8745117,3.954421 L1.8745117,11.006667 L0.81103516,11.006667 z M8.2377014,3.0091085 L9.2958069,3.0091085 L9.2958069,9.2556906 L12.862213,3.0091085 L13.984772,3.0091085 L13.984772,11.006667 L12.926666,11.006667 L12.926666,4.6580343 L9.3119202,11.006667 L8.2377014,11.006667 z M14.791296,3.0091085 L21.225866,3.0091085 L21.225866,3.954421 L18.540319,3.954421 L18.540319,11.006667 L17.476843,11.006667 L17.476843,3.954421 L14.791296,3.954421 z M24.490995,4.0940695 L23.261015,7.8645773 L25.726347,7.8645773 z M23.862577,3.0091085 L25.173124,3.0091085 L27.869413,11.006667 L26.746855,11.006667 L26.021757,8.7722921 L22.965605,8.7722921 L22.240507,11.006667 L21.166288,11.006667 z M28.627703,3.0091085 L29.691179,3.0091085 L29.691179,6.1458273 L33.370377,6.1458273 L33.370377,3.0091085 L34.433853,3.0091085 L34.433853,11.006667 L33.370377,11.006667 L33.370377,7.0911398 L29.691179,7.0911398 L29.691179,11.006667 L28.627703,11.006667 z M36.054367,3.0091085 L37.112473,3.0091085 L37.112473,9.2556906 L40.678879,3.0091085 L41.801437,3.0091085 L41.801437,11.006667 L40.743332,11.006667 L40.743332,4.6580343 L37.128586,11.006667 L36.054367,11.006667 z M43.42437,3.0091085 L48.424858,3.0091085 L48.424858,3.954421 L44.487846,3.954421 L44.487846,6.1458273 L48.156303,6.1458273 L48.156303,7.0911398 L44.487846,7.0911398 L44.487846,10.061355 L48.424858,10.061355 L48.424858,11.006667 L43.42437,11.006667 z" Fill="Black" HorizontalAlignment="Left" Height="7.998" RenderTransformOrigin="0.5,0.5" Stretch="Fill" VerticalAlignment="Top" Width="47.614" Canvas.Left="556.116" Canvas.Top="79.965">
                     <Path.RenderTransform>
                         <TransformGroup>

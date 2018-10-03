@@ -247,39 +247,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <Style x:Key="FlashCO" TargetType="{x:Type TextBlock}">
-            <Setter Property="Background" Value="Transparent"/>
-            <Style.Triggers>
-                <DataTrigger Binding="{Binding COTransparant.ValueState, Source={StaticResource vInPU}}" Value="2">
-                    <DataTrigger.EnterActions>
-                        <BeginStoryboard x:Name="FStr">
-                            <Storyboard >
-                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="Background.Color" 
-                                                              Duration="0:0:1" RepeatBehavior="Forever" >
-                                    <DiscreteColorKeyFrame KeyTime="0:0:0.0" Value="Red"/>
-                                    <DiscreteColorKeyFrame KeyTime="0:0:0.5" Value="Transparent"/>
-                                </ColorAnimationUsingKeyFrames>
-                            </Storyboard>
-                        </BeginStoryboard>
-
-                    </DataTrigger.EnterActions>
-                </DataTrigger>
-                <DataTrigger Binding="{Binding COTransparant.ValueState, Source={StaticResource vInPU}}" Value="0">
-                    <DataTrigger.EnterActions>
-                        <StopStoryboard BeginStoryboardName="FStr"/>
-
-                    </DataTrigger.EnterActions>
-                </DataTrigger>
-                <DataTrigger Binding="{Binding COTransparant.ValueState, Source={StaticResource vInPU}}" Value="1">
-                    <DataTrigger.EnterActions>
-                        <StopStoryboard BeginStoryboardName="FStr"/>
-                    </DataTrigger.EnterActions>
-                    <Setter Property="Background" Value="Red"/>
-                </DataTrigger>
-            </Style.Triggers>
-        </Style>
-
-
+      
         <Style x:Key="MenuButton"  TargetType="{x:Type Button}" >
             <Setter Property="Template">
                 <Setter.Value>

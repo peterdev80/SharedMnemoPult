@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Media;
 using System.Collections.ObjectModel;
+using EWTM.Model;
 
 namespace VirtualPultValves.ViewModel
 {

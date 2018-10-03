@@ -86,6 +86,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\EWTM\EWTM.csproj">
+      <Project>{dbc4299a-8cb2-4ff7-9e8e-dd6b5fdabbe2}</Project>
+      <Name>EWTM</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\fmsnet\fmslapi\fmslapi.csproj">
       <Project>{dfbf2c76-486b-44fc-be13-82c41efee1af}</Project>
       <Name>fmslapi</Name>

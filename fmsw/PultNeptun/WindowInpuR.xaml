@@ -11,6 +11,16 @@
     <UserControl.Resources>
 
         <avm:ViewModel_InPU x:Key="vInPU"/>
+        <Style x:Key="FlashCO" TargetType="{x:Type TextBlock}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Style.Triggers>
+
+                <DataTrigger Binding="{Binding CentOgon.ValueState, Source={StaticResource vInPU}}" Value="True">
+
+                    <Setter Property="Background" Value="Red"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
     </UserControl.Resources>
     <UserControl.CommandBindings>
         <CommandBinding Command="{x:Static local:WindowInpuR.BtnCmd}"
@@ -514,7 +524,7 @@
 
                     <!--Visibility="{Binding InPU2Visible, Source={StaticResource vInPU}}"-->
 
-                    <Grid VerticalAlignment="Top">
+                    <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="0.182*"/>
                             <RowDefinition Height="0*"/>

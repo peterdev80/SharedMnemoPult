@@ -10,7 +10,7 @@ namespace VirtualPultValves.ViewModel
 {
     public class ViewModel_LDI : ViewModelBase
     {
-
+        //счетчик разряда числа
         int step = 5;//счетчик разряда числа
         int sec = 0;//время замера
         private int curValue1; //замер 1
@@ -147,6 +147,8 @@ namespace VirtualPultValves.ViewModel
         {
             get
             {
+
+                //  if ((Indicator.ValueState == 2) && (Speed.ValueState != 0)) return null;//Заготовка для обнуления чтоб не срабатовала при прогнозе скорости
                 if (cmdOBN == null)
                     cmdOBN = new RelayCommand(param => { obnul(); });
                 return cmdOBN;
@@ -284,25 +286,25 @@ namespace VirtualPultValves.ViewModel
         /// отображение прогноза растояние в зависимости от расчета скорости
         /// </summary>
         /// <param name="timsec"></param>
-        public void SRasShow(int timsec)        {
+        public void SRasShow(int timsec)
+        {
             rspeed = -1 * Speed.ValueState;
             double metr = rspeed * timsec + curValue3; //расчет расстоянмя
-
+            if (metr > 9999) metr = 9999;
+            if (metr < 0) metr = 0;
             //разложение расстояние по индикаторам
             double i1 = Math.Truncate(metr / 1000);
             double i2 = Math.Truncate((metr - i1 * 1000) / 100);
             double i3 = Math.Truncate((metr - i1 * 1000 - i2 * 100) / 10);
             double i4 = Math.Truncate((metr - i1 * 1000 - i2 * 100 - i3 * 10));
+
             l2.ValueState = (int)i1;
             l3.ValueState = (int)i2;
             l4.ValueState = (int)i3;
             l5.ValueState = (int)i4;
 
             Razryad.ValueState = 4; //убрать точку
-
-
         }
-
     }
 
 }

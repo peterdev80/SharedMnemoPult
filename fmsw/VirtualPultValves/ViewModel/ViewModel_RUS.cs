@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using VirtualPultValves.Model;
 using System.Windows.Input;
+using EWTM.Model;
 
 namespace VirtualPultValves.ViewModel
 {
